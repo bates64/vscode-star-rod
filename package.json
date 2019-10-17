@@ -3,10 +3,10 @@
     "displayName": "Star Rod Language Support",
     "publisher": "nanaian",
     "description": "Language support for the Star Rod Paper Mario modding tool.",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "repository": "https://github.com/nanaian/vscode-star-rod",
     "engines": {
-        "vscode": "^1.39.0"
+        "vscode": "1.x.x"
     },
     "categories": [
         "Programming Languages"
