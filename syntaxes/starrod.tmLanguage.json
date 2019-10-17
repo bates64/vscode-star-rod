@@ -68,7 +68,7 @@
           ]
         },
         {
-          "begin": "^(#define|#import)\\s",
+          "begin": "^(#define|#import|#reserve)\\s",
           "end": "\n",
           "beginCaptures": {
             "1": { "name": "keyword.control.directive.starrod" }
