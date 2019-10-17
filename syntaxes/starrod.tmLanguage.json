@@ -1,0 +1,217 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "star rod",
+  "scopeName": "source.starrod",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#directive" },
+    { "include": "#expression" }
+  ],
+  "repository": {
+    "directive": {
+      "patterns": [
+        {
+          "name": "meta.block.unknown.starrod",
+          "begin": "@\\b",
+          "end": "^\n",
+          "patterns": [
+            { "include": "#asm" },
+            { "include": "#script" }
+          ]
+        },
+        {
+          "name": "meta.block.function.starrod",
+          "begin": "^(#new:Function)\\b",
+          "end": "^\n",
+          "beginCaptures": {
+            "0": { "name": "entity.name.class.starrod" }
+          },
+          "patterns": [
+            { "include": "#asm" }
+          ]
+        },
+        {
+          "name": "meta.block.script.starrod",
+          "begin": "^#new:Script(_Main)?\\b",
+          "end": "^\n",
+          "beginCaptures": {
+            "0": {
+              "name": "entity.name.class.starrod"
+            }
+          },
+          "patterns": [
+            { "include": "#script" }
+          ]
+        },
+        {
+          "name": "meta.block.other.starrod",
+          "begin": "^#new:[A-Z][a-zA-Z]+\\b",
+          "end": "^\n",
+          "patterns": [
+            { "include": "#expression" },
+            { "include": "#comment" }
+          ]
+        },
+        {
+          "name": "keyword.control.directive.starrod",
+          "match": "^#(define|import)\\s"
+        },
+        {
+          "name": "invalid.deprecated.space.starrod",
+          "begin": "^(MISSING|PADDING):",
+          "end": "^\n",
+          "patterns": [
+            {
+              "include": "#number"
+            },
+            {
+              "include": "#comment"
+            }
+          ]
+        }
+      ]
+    },
+
+    "comment": {
+      "patterns": [
+        {
+          "name": "comment.line.percentage.starrod",
+          "begin": "%",
+          "end": "\n"
+        },
+        {
+          "name": "comment.block.percentage.starrod",
+          "begin": "/%",
+          "end": "%/"
+        }
+      ]
+    },
+
+    "asm": {
+      "patterns": [
+        {
+          "name": "keyword.control.directive.starrod",
+          "match": "#(UN)?DEF"
+        },
+        {
+          "name": "storage.register.zero.starrod",
+          "match": "\\b(r0|R0)\\b"
+        },
+        {
+          "name": "storage.register.ra.starrod",
+          "match": "\\b(ra|RA)\\b"
+        },
+        {
+          "name": "storage.register.generic.starrod",
+          "match": "\\b(((a|A)[0-3])|((v|V)[0-1])|((t|T)[0-9])|((s|S)[0-8])|((k|K)[0-1])|gp|GP|sp|SP|fp|FP)\\b"
+        },
+        {
+          "name": "keyword.mnemonic.starrod",
+          "match": "^[ \t]*[a-zA-Z]{1,3}[a-zA-Z0-9.]*\\b"
+        },
+        { "include": "#expression" },
+        { "include": "#comment" }
+      ]
+    },
+    "script": {
+      "patterns": [
+        {
+          "begin": "\\b(Call|Exec|ExecWait)[ \t]+([a-zA-Z0-9_]+)",
+          "end": "\n",
+          "beginCaptures": {
+            "0": { "name": "entity.name.function.starrod" },
+            "1": { "name": "keyword.control.starrod" }
+          }
+        },
+        {
+          "name": "keyword.control.starrod",
+          "match": "\\b(End|Return|Label|Goto|Loop|EndLoop|Break|Wait|WaitSecs|If|Else|EndIf|Switch|SwitchConst|Case|Default|CaseOR|CaseAND|EndCaseGroup|to|EndSwitch|Set|SetConst|SetF|Add|Sub|Mul|Div|Mod|AddF|SubF|MulF|DivF|UseIntBuffer|Get[1-4]Int|GetIntN|UseFloatBuffer|Get[1-4]Float|GetFloatN|UseArray|UseFlags|AllocArray|AND|ANDConst|OR|ORConst|Bind|Unbind|Kill|Jump|SetPriority|SetTimescale|SetGroup|BindLock|SuspendAll|ResumeAll|SuspendOthers|ResumeOthers|Suspend|Resume|DoesScriptExist|Thread|EndThread|ChildThread|EndChildThread)\\b"
+        },
+        { "include": "#expression" },
+        { "include": "#comment" }
+      ]
+    },
+    "dialogue": {
+      "patterns": [
+
+      ]
+    },
+
+    "expression": {
+      "patterns": [
+        {
+          "name": "storage.type.expansion.starrod",
+          "match": "{[^}]+}"
+        },
+        { "include": "#identifier" },
+        { "include": "#number" },
+        { "include": "#string" }
+      ]
+    },
+    "identifier": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.starrod",
+          "match": "\\.(True|False|Default)"
+        },
+        {
+          "name": "constant.language.other.starrod",
+          "match": "\\.[a-zA-Z0-9_:?]+"
+        },
+        {
+          "name": "keyword.operator.sigil.starrod",
+          "match": "\\*"
+        },
+        {
+          "name": "variable.name.starrod",
+          "match": "\\$[a-zA-Z0-9_:?]+"
+        },
+        {
+          "name": "storage.type.name.starrod",
+          "begin": "\\[",
+          "end": "\\]",
+          "patterns": [
+            {
+              "include": "#number"
+            }
+          ]
+        },
+        {
+          "name": "keyword.operator.starrod",
+          "match": "\\b\\*"
+        }
+      ]
+    },
+    "number": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hexadecimal.starrod",
+          "match": "\\b[0-9A-Fa-f]+\\b"
+        },
+        {
+          "name": "constant.numeric.binary.starrod",
+          "match": "\\b[0-1]+b\\b"
+        },
+        {
+          "name": "constant.numeric.decimal.starrod",
+          "match": "\\b[0-9]+`\\b"
+        },
+        {
+          "name": "constant.numeric.float.starrod",
+          "match": "\\b[0-9]+\\.[0-9]+\\b"
+        }
+      ]
+    },
+    "string": {
+      "name": "string.quoted.double.starrod",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.starrod",
+          "match": "\\."
+        }
+      ]
+    }
+  }
+}
