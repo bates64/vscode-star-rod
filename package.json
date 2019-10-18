@@ -1,44 +1,49 @@
 {
-    "name": "vscode-star-rod",
-    "displayName": "Star Rod Language Support",
-    "publisher": "nanaian",
-    "description": "Language support for the Star Rod Paper Mario modding tool.",
-    "version": "0.0.4",
-    "repository": "https://github.com/nanaian/vscode-star-rod",
-    "engines": {
-        "vscode": "1.x.x"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "contributes": {
-        "languages": [
-            {
-                "id": "starrod",
-                "aliases": [
-                    "Star Rod",
-                    "starrod"
-                ],
-                "extensions": [
-                    ".mscr",
-                    ".mpat",
-                    ".bscr",
-                    ".bpat",
-                    ".wscr",
-                    ".wpat",
-                    ".str",
-                    ".enum",
-                    ".patch"
-                ],
-                "configuration": "./language-configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "starrod",
-                "scopeName": "source.starrod",
-                "path": "./syntaxes/starrod.tmLanguage.json"
-            }
-        ]
-    }
+	"name": "vscode-star-rod",
+	"displayName": "Star Rod Language Support",
+	"publisher": "nanaian",
+	"description": "Language support for the Star Rod Paper Mario modding tool.",
+	"version": "0.0.5",
+	"repository": "https://github.com/nanaian/vscode-star-rod",
+	"engines": {
+		"vscode": "1.x.x"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "starrod",
+				"aliases": [
+					"Star Rod",
+					"starrod"
+				],
+				"extensions": [
+					".mscr",
+					".mpat",
+					".bscr",
+					".bpat",
+					".wscr",
+					".wpat",
+					".str",
+					".enum",
+					".patch"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "starrod",
+				"scopeName": "source.starrod",
+				"path": "./syntaxes/starrod.tmLanguage.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "04e91f62-6dcd-4895-ae21-2024b20f3105",
+		"publisherDisplayName": "nanaian",
+		"publisherId": "8de2bba1-d0d5-431c-acd7-3a20852a6dec"
+	}
 }
