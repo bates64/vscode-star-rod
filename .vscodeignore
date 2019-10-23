@@ -1,2 +1,6 @@
 .gitignore
 tests
+tsconfig.json
+node_modules/.bin/**
+node_modules/typescript/**
+node_modules/vscode/**

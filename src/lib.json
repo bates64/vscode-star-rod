@@ -1,0 +1,4802 @@
+{
+  "functions": [
+    {
+      "name": "GetBattleOutcome"
+    },
+    {
+      "name": "StartBossBattle",
+      "args": [
+        {
+          "name": "songID",
+          "type": "songID"
+        }
+      ]
+    },
+    {
+      "name": "SetOwnerVar",
+      "args": [
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetOwnerVar",
+      "args": [
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "*dest",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetNpcVar",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetNpcVar",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "*dest",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetOwnerRotation",
+      "args": [
+        {
+          "name": "rx",
+          "type": "int"
+        },
+        {
+          "name": "ry",
+          "type": "int"
+        },
+        {
+          "name": "rz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetOwnerFlags",
+      "args": [
+        {
+          "name": "flags",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetOwnerFlagBits",
+      "args": [
+        {
+          "name": "flags",
+          "type": "int"
+        },
+        {
+          "name": "1 (set",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "GetOwnerNpcID",
+      "args": [
+        {
+          "name": "*out",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetNpcFlagBits2",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "flags",
+          "type": "int"
+        },
+        {
+          "name": "1 (set",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetOwnerAnimationFromTable",
+      "args": [
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "*out animation",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "DoBasicAI",
+      "args": [
+        {
+          "name": "$AISettings",
+          "type": "$AISettings"
+        }
+      ]
+    },
+    {
+      "name": "AssignScript",
+      "args": [
+        {
+          "name": "script to attach",
+          "type": "$Script"
+        }
+      ]
+    },
+    {
+      "name": "AssignAreaFlag",
+      "args": [
+        {
+          "name": "index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "CreatePushBlockGrid",
+      "args": [
+        {
+          "name": "systemID",
+          "type": "int"
+        },
+        {
+          "name": "sizeNx",
+          "type": "int"
+        },
+        {
+          "name": "sizeNz",
+          "type": "int"
+        },
+        {
+          "name": "centerX",
+          "type": "int"
+        },
+        {
+          "name": "centerY",
+          "type": "int"
+        },
+        {
+          "name": "centerZ",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetPushBlock"
+    },
+    {
+      "name": "GetPushBlock"
+    },
+    {
+      "name": "GetGridIndexFromPos",
+      "args": [
+        {
+          "name": "systemID",
+          "type": "int"
+        },
+        {
+          "name": "posX",
+          "type": "int"
+        },
+        {
+          "name": "posY",
+          "type": "int"
+        },
+        {
+          "name": "posZ",
+          "type": "int"
+        },
+        {
+          "name": "*out gridX",
+          "type": "int"
+        },
+        {
+          "name": "*out gridZ",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "BindPushBlockFallEffect",
+      "args": [
+        {
+          "name": "systemID",
+          "type": "int"
+        },
+        {
+          "name": "$Function",
+          "type": "$Function"
+        }
+      ]
+    },
+    {
+      "name": "GotoMap",
+      "args": [
+        {
+          "name": "map name",
+          "type": "$ASCII"
+        },
+        {
+          "name": "entry index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GotoMapSpecial"
+    },
+    {
+      "name": "GotoMapByID",
+      "args": [
+        {
+          "name": "area ID",
+          "type": "int"
+        },
+        {
+          "name": "map ID",
+          "type": "int"
+        },
+        {
+          "name": "entrance ID",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetEntryID",
+      "args": [
+        {
+          "name": "*out",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetMapID",
+      "args": [
+        {
+          "name": "*out",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetLoadType",
+      "args": [
+        {
+          "name": "*type (0 = loaded from another map | 1 = loaded from main menu)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetRenderMode",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetNpcPos"
+    },
+    {
+      "name": "SetNpcScale",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "*FLOAT ScaleX",
+          "type": "int"
+        },
+        {
+          "name": "*FLOAT ScaleY",
+          "type": "int"
+        },
+        {
+          "name": "*FLOAT ScaleZ",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetNpcSpeed",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "*FLOAT",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetNpcJumpscale",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "*FLOAT scale",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetNpcAnimation",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "OUT animation",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "MoveNpcTo",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        },
+        {
+          "name": "speed (0 = use NpcSpeed)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "NpcJump0",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        },
+        {
+          "name": "duration",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "NpcJump1",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        },
+        {
+          "name": "height",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "NpcJumpX",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        },
+        {
+          "name": "duration",
+          "type": "int"
+        },
+        {
+          "name": "height",
+          "type": "int"
+        },
+        {
+          "name": "landing style?",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetNpcYaw",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "OUT yaw",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetNpcYaw",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "angle",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "InterpNpcYaw",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "target angle",
+          "type": "int"
+        },
+        {
+          "name": "time",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "NpcFacePlayer"
+    },
+    {
+      "name": "NpcFaceNpc"
+    },
+    {
+      "name": "BringPartnerOut"
+    },
+    {
+      "name": "SayMessage0",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "talk animation",
+          "type": "int"
+        },
+        {
+          "name": "idle animation",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "???"
+        },
+        {
+          "name": "stringID - calls 802D0320 (A2",
+          "type": "print"
+        }
+      ]
+    },
+    {
+      "name": "SayMessage1",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "animation 1",
+          "type": "int"
+        },
+        {
+          "name": "animtaion 2",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "???"
+        }
+      ]
+    },
+    {
+      "name": "SayMessage2",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "talk animation",
+          "type": "int"
+        },
+        {
+          "name": "idle animation",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "???"
+        },
+        {
+          "name": "stringID",
+          "type": "print"
+        }
+      ]
+    },
+    {
+      "name": "SayMessage3",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "talk animation",
+          "type": "int"
+        },
+        {
+          "name": "idle animation",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "???"
+        },
+        {
+          "name": "???",
+          "type": "???"
+        },
+        {
+          "name": "stringID",
+          "type": "print"
+        }
+      ]
+    },
+    {
+      "name": "ShowMessage",
+      "args": [
+        {
+          "name": "stringID",
+          "type": "print"
+        },
+        {
+          "name": "???",
+          "type": "???"
+        },
+        {
+          "name": "???",
+          "type": "???"
+        }
+      ]
+    },
+    {
+      "name": "ShowChoice",
+      "args": [
+        {
+          "name": "stringID options",
+          "type": "print"
+        }
+      ]
+    },
+    {
+      "name": "SetMessageString",
+      "args": [
+        {
+          "name": "pointer to a message string (XXXXFD)",
+          "type": "int"
+        },
+        {
+          "name": "string variable index (0/1/etc)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetMessageValue",
+      "args": [
+        {
+          "name": "value",
+          "type": "int"
+        },
+        {
+          "name": "string variable index (0/1/etc)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "HidePlayerShadow",
+      "args": [
+        {
+          "name": "1 (hide) | 0 (reveal)",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "DisablePlayerPhysics",
+      "args": [
+        {
+          "name": "1 (disable) | 0 (enable)",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "DisablePlayerInput",
+      "args": [
+        {
+          "name": "1 (disable) | 0 (enable)",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "SetPlayerPos",
+      "args": [
+        {
+          "name": "X",
+          "type": "int"
+        },
+        {
+          "name": "Y",
+          "type": "int"
+        },
+        {
+          "name": "Z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetPlayerSpeed",
+      "args": [
+        {
+          "name": "*FLOAT speed",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetPlayerJumpscale",
+      "args": [
+        {
+          "name": "*FLOAT scale",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetPlayerAnimation",
+      "args": [
+        {
+          "name": "animation",
+          "type": "playerAnim"
+        }
+      ]
+    },
+    {
+      "name": "MovePlayerTo",
+      "args": [
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "_player_jump"
+    },
+    {
+      "name": "PlayerJump",
+      "args": [
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        },
+        {
+          "name": "height",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "PlayerJump1",
+      "args": [
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        },
+        {
+          "name": "height",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "PlayerJump2",
+      "args": [
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        },
+        {
+          "name": "height",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "InterpPlayerYaw",
+      "args": [
+        {
+          "name": "target angle",
+          "type": "int"
+        },
+        {
+          "name": "time",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "PlayerFaceNpc"
+    },
+    {
+      "name": "GetPlayerTargetYaw",
+      "args": [
+        {
+          "name": "OUT target yaw",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetPlayerFlagBits",
+      "args": [
+        {
+          "name": "flags",
+          "type": "int"
+        },
+        {
+          "name": "1 (set",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "GetPlayerPos",
+      "args": [
+        {
+          "name": "destx",
+          "type": "int"
+        },
+        {
+          "name": "desty",
+          "type": "int"
+        },
+        {
+          "name": "destz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetPlayerAnimation",
+      "args": [
+        {
+          "name": "OUT animation",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "UseExitHeading",
+      "args": [
+        {
+          "name": "move distance",
+          "type": "int"
+        },
+        {
+          "name": "exit id (used for angle - 180)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "DisablePulseStone",
+      "args": [
+        {
+          "name": "0 (enable) | 1 (disable)",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "Disable8bitMario",
+      "args": [
+        {
+          "name": "0 (pixel mario) | 1 (paper maio)",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "PlaySoundAtPlayer",
+      "args": [
+        {
+          "name": "sound ID",
+          "type": "int"
+        },
+        {
+          "name": "always zero?",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "UseCamPreset",
+      "args": [
+        {
+          "name": "index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetCamZoom",
+      "args": [
+        {
+          "name": "radial distance from target",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AddCamZoom",
+      "args": [
+        {
+          "name": "change in radial distance from target",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "MoveCamOver",
+      "args": [
+        {
+          "name": "move time  !!! terrible name! moves the camera to a preset over a certain number of frames",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ShowMessageBox",
+      "args": [
+        {
+          "name": "string index (table 80283770)",
+          "type": "int"
+        },
+        {
+          "name": "duration",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ShowVariableMessageBox"
+    },
+    {
+      "name": "ItemDamageEnemy",
+      "args": [
+        {
+          "name": "target",
+          "type": "actorID"
+        },
+        {
+          "name": "flags",
+          "type": "int"
+        },
+        {
+          "name": "status effect",
+          "type": "int"
+        },
+        {
+          "name": "damage",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ItemCheckHit",
+      "args": [
+        {
+          "name": "target",
+          "type": "actorID"
+        },
+        {
+          "name": "flags",
+          "type": "int"
+        },
+        {
+          "name": "status effect",
+          "type": "int"
+        },
+        {
+          "name": "damage",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SayMessage",
+      "args": [
+        {
+          "name": "stringID",
+          "type": "print"
+        },
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "???",
+          "type": "???"
+        },
+        {
+          "name": "talk animation",
+          "type": "int"
+        },
+        {
+          "name": "idle animation",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetDmaTableLoadDest",
+      "args": [
+        {
+          "name": "addr",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "LoadFromDmaTable",
+      "args": [
+        {
+          "name": "index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "PlaySoundAtActor"
+    },
+    {
+      "name": "PlaySoundAtSprite"
+    },
+    {
+      "name": "MultiplyByActorScale",
+      "args": [
+        {
+          "name": "x",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "MultiplyVec2ByActorScale",
+      "args": [
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "MultiplyVec3ByActorScale",
+      "args": [
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "LoadActionCommand",
+      "args": [
+        {
+          "name": "action command id (0x01 - 0x17)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "LoadBattleSection",
+      "args": [
+        {
+          "name": "battle section index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetBattlePhase",
+      "args": [
+        {
+          "name": "*out state",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetLastElement",
+      "args": [
+        {
+          "name": "*out element of last attack from battle[188]",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetGoalToHome",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        }
+      ]
+    },
+    {
+      "name": "SetGoalToIndex",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetIndexFromPos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetIndexFromHome",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ForceHomePos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetHomePos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetGoalToTarget",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        }
+      ]
+    },
+    {
+      "name": "SetGoalToPos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AddToGoalPos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "dx",
+          "type": "int"
+        },
+        {
+          "name": "dy",
+          "type": "int"
+        },
+        {
+          "name": "dz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetGoalPos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*x",
+          "type": "int"
+        },
+        {
+          "name": "*y",
+          "type": "int"
+        },
+        {
+          "name": "*z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetSpriteTarget",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "*x",
+          "type": "int"
+        },
+        {
+          "name": "*y",
+          "type": "int"
+        },
+        {
+          "name": "*z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetActorPos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*x",
+          "type": "int"
+        },
+        {
+          "name": "*y",
+          "type": "int"
+        },
+        {
+          "name": "*z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetSpriteOffset",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "*x",
+          "type": "int"
+        },
+        {
+          "name": "*y",
+          "type": "int"
+        },
+        {
+          "name": "*z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetSpritePos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "*x",
+          "type": "int"
+        },
+        {
+          "name": "*y",
+          "type": "int"
+        },
+        {
+          "name": "*z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetHomePos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*x",
+          "type": "int"
+        },
+        {
+          "name": "*y",
+          "type": "int"
+        },
+        {
+          "name": "*z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetActorPos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpritePos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetEnemyTargetOffset",
+      "args": [
+        {
+          "name": "enemyID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "sprite[6C]",
+          "type": "int"
+        },
+        {
+          "name": "sprite[6E]",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetAnimation",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "animation",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetAnimation",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "animation",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetAnimationSpeed",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "*Float animation rate (1.0 = default)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetActorAngle",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "angle",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetActorAngle",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out angle",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetActorJumpscale",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "scale",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetActorSpeed",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "speed",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteJumpscale",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "scale",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteSpeed",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "speed",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetJumpAnimations"
+    },
+    {
+      "name": "AddActorPos",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "dx",
+          "type": "int"
+        },
+        {
+          "name": "dy",
+          "type": "int"
+        },
+        {
+          "name": "dz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetSpriteOffset2",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "*x",
+          "type": "int"
+        },
+        {
+          "name": "*y",
+          "type": "int"
+        },
+        {
+          "name": "*z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteOffset",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AddSpriteOffset",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "dx",
+          "type": "int"
+        },
+        {
+          "name": "dy",
+          "type": "int"
+        },
+        {
+          "name": "dz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetActorVar",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "*dest",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetActorVar",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ActorVarAdd",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "amount",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetSpriteVar",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "*dest",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteVar",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SpriteVarAdd",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "amount",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetActorRotation",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "Rx",
+          "type": "int"
+        },
+        {
+          "name": "Ry",
+          "type": "int"
+        },
+        {
+          "name": "Rz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetActorRotationOffset",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "dx",
+          "type": "int"
+        },
+        {
+          "name": "dx",
+          "type": "int"
+        },
+        {
+          "name": "dy",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetActorRotation",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*Rx",
+          "type": "int"
+        },
+        {
+          "name": "*Ry",
+          "type": "int"
+        },
+        {
+          "name": "*Rz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteRotation",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "Rx",
+          "type": "int"
+        },
+        {
+          "name": "Ry",
+          "type": "int"
+        },
+        {
+          "name": "Rz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteRotationOffset",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "dx",
+          "type": "int"
+        },
+        {
+          "name": "dy",
+          "type": "int"
+        },
+        {
+          "name": "dz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetSpriteRotation",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "*Rx",
+          "type": "int"
+        },
+        {
+          "name": "*Ry",
+          "type": "int"
+        },
+        {
+          "name": "*Rz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetActorScale",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "Sx",
+          "type": "int"
+        },
+        {
+          "name": "Sy",
+          "type": "int"
+        },
+        {
+          "name": "Sz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetActorScale",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*Sx",
+          "type": "int"
+        },
+        {
+          "name": "*Sy",
+          "type": "int"
+        },
+        {
+          "name": "*Sz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteScale",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "Sx",
+          "type": "int"
+        },
+        {
+          "name": "Sy",
+          "type": "int"
+        },
+        {
+          "name": "Sz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetSpriteScale",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "*Sx",
+          "type": "int"
+        },
+        {
+          "name": "*Sy",
+          "type": "int"
+        },
+        {
+          "name": "*Sz",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetBattleFlags",
+      "args": [
+        {
+          "name": "*out battle[0] flags",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetBattleFlagBits",
+      "args": [
+        {
+          "name": "battle[0] flags",
+          "type": "int"
+        },
+        {
+          "name": "set/reset",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "GetBattleFlags2",
+      "args": [
+        {
+          "name": "*out battle[4] flags",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetBattleFlagBits2",
+      "args": [
+        {
+          "name": "battle[4] flags",
+          "type": "int"
+        },
+        {
+          "name": "set/reset",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "SetActorFlags",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "flags value",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetActorFlagBits",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "selected flags",
+          "type": "int"
+        },
+        {
+          "name": "value (set/reset)",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "GetActorFlags",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteFlags",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "flags",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteFlagBits",
+      "args": [
+        {
+          "name": "aatorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "flags",
+          "type": "int"
+        },
+        {
+          "name": "1 (set",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteEventFlags",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "flags",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteEventBits",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "flags",
+          "type": "int"
+        },
+        {
+          "name": "1 (set",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "GetSpriteEventFlags",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "*out flags at sprite[7C]",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "HPBarToHome"
+    },
+    {
+      "name": "HPBarToCurrent"
+    },
+    {
+      "name": "SummonEnemy",
+      "args": [
+        {
+          "name": "$SpecialFormation",
+          "type": "$SpecialFormation(1)"
+        },
+        {
+          "name": "flag? (0",
+          "type": "???"
+        }
+      ]
+    },
+    {
+      "name": "GetOwnerID",
+      "args": [
+        {
+          "name": "*actorID",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetOwnerID",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        }
+      ]
+    },
+    {
+      "name": "ActorExists",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out (0 = no | 1 = yes)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "CheckButtonPress",
+      "args": [
+        {
+          "name": "button mask",
+          "type": "int"
+        },
+        {
+          "name": "*out (0 = no | 1 = yes)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "CheckButtonHeld",
+      "args": [
+        {
+          "name": "button mask",
+          "type": "int"
+        },
+        {
+          "name": "*out (0 = no | 1 = yes)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "CreateTargetList",
+      "args": [
+        {
+          "name": "eligible target flags",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetOwnerTarget",
+      "args": [
+        {
+          "name": "target actorID",
+          "type": "int"
+        },
+        {
+          "name": "target spriteID",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ChooseNextTarget",
+      "args": [
+        {
+          "name": "?? (usually 0)",
+          "type": "iter"
+        },
+        {
+          "name": "has next (0 = true | -1 = false)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetTargetListLength",
+      "args": [
+        {
+          "name": "*out length",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetOwnerTarget",
+      "args": [
+        {
+          "name": "*out target actorID",
+          "type": "int"
+        },
+        {
+          "name": "*out target spriteID",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetDistanceToTarget",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out distance",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AddActorDecoration",
+      "args": [
+        {
+          "name": "actor",
+          "type": "actorID"
+        },
+        {
+          "name": "sprite",
+          "type": "int"
+        },
+        {
+          "name": "decoration index",
+          "type": "int"
+        },
+        {
+          "name": "type",
+          "type": "decoration"
+        }
+      ]
+    },
+    {
+      "name": "ModifyActorDecoration",
+      "args": [
+        {
+          "name": "actor",
+          "type": "actorID"
+        },
+        {
+          "name": "sprite",
+          "type": "int"
+        },
+        {
+          "name": "decoration index",
+          "type": "int"
+        },
+        {
+          "name": "size X",
+          "type": "int"
+        },
+        {
+          "name": "size Y",
+          "type": "int"
+        },
+        {
+          "name": "offset X",
+          "type": "int"
+        },
+        {
+          "name": "offset Y (unused)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RemoveActorDecoration",
+      "args": [
+        {
+          "name": "actor",
+          "type": "actorID"
+        },
+        {
+          "name": "sprite",
+          "type": "int"
+        },
+        {
+          "name": "decoration index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "UseIdleAnimation",
+      "args": [
+        {
+          "name": "(0 = scripted animations | 1 = idle animations )",
+          "type": "actorID"
+        },
+        {
+          "name": "must be called",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "GetStatusFlags",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out flags",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteAlpha",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "00 (transparent) - FF (opaque)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetBattleVar",
+      "args": [
+        {
+          "name": "var index",
+          "type": "int"
+        },
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetBattleVar",
+      "args": [
+        {
+          "name": "var index",
+          "type": "int"
+        },
+        {
+          "name": "*out value",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetActorType",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "int"
+        },
+        {
+          "name": "actor type (from ActorTypes.xml)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetActorAttackBoost",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out value",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetActorDefenseBoost",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out value",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "BoostAttack",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "amount",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "BoostDefense",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "amount",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "VanishActor",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "duration??? (0 | 2)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ElectrifyActor",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "duration??? (0 | 3)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "HealActor",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "amount",
+          "type": "int"
+        },
+        {
+          "name": "??? (some kind of heal all flag?)",
+          "type": "???"
+        }
+      ]
+    },
+    {
+      "name": "CopyStatBoosts",
+      "args": [
+        {
+          "name": "source actor",
+          "type": "actorID"
+        },
+        {
+          "name": "dest actor",
+          "type": "actorID"
+        }
+      ]
+    },
+    {
+      "name": "GetMenuSelection",
+      "args": [
+        {
+          "name": "*out menu selected move type (battle[178])",
+          "type": "int"
+        },
+        {
+          "name": "*out selected itemID (battle[17A])",
+          "type": "int"
+        },
+        {
+          "name": "*out selected moveID (battle[17C])",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetPlayerHP",
+      "args": [
+        {
+          "name": "*out",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "DamageEnemy"
+    },
+    {
+      "name": "CheckEnemyHit"
+    },
+    {
+      "name": "EnablePlayerBlur",
+      "args": [
+        {
+          "name": "motion blur enabled (sometimes -1)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "EnableIdleScript",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "(0 = pause | 1 = running | -1 = reset )",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "JumpToGoal",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "height (actor[70])",
+          "type": "int"
+        },
+        {
+          "name": "0 (script[78])",
+          "type": "int"
+        },
+        {
+          "name": "boolean use dust effect (flag 1 for script[7C])",
+          "type": "int"
+        },
+        {
+          "name": "0 (flag 2 for script[7C])",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RunToGoal",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "move time (only moves in a horizontal plane)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RunToGoal",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "move time",
+          "type": "int"
+        },
+        {
+          "name": "enable dust (drawn when move speed < 4.0)",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "JumpSpriteA",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        },
+        {
+          "name": "move time",
+          "type": "int"
+        },
+        {
+          "name": "landing dust effect",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "JumpSpriteB",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        },
+        {
+          "name": "move time",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RunSpriteTo",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        },
+        {
+          "name": "move time",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "MoveToGoal",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "actor[70] (move time)",
+          "type": "int"
+        },
+        {
+          "name": "actor[72] (jump height)",
+          "type": "int"
+        },
+        {
+          "name": "easing function",
+          "type": "easing"
+        }
+      ]
+    },
+    {
+      "name": "GetEventType",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out type",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetTargetActor",
+      "args": [
+        {
+          "name": "attacker ID",
+          "type": "actorID"
+        },
+        {
+          "name": "defender ID",
+          "type": "actorID"
+        }
+      ]
+    },
+    {
+      "name": "SetEnemyHP",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "hp",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetActorHP",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetEnemyMaxHP",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RemoveActor",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        }
+      ]
+    },
+    {
+      "name": "DropStarPoints",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        }
+      ]
+    },
+    {
+      "name": "SetDefenseTable",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID (1)",
+          "type": "int"
+        },
+        {
+          "name": "$DefenseTable",
+          "type": "$DefenseTable"
+        }
+      ]
+    },
+    {
+      "name": "SetStatusTable",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "$StatusTable",
+          "type": "$StatusTable"
+        }
+      ]
+    },
+    {
+      "name": "SetIdleAnimations",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID (1)",
+          "type": "int"
+        },
+        {
+          "name": "$IdleAnimations",
+          "type": "$IdleAnimations"
+        }
+      ]
+    },
+    {
+      "name": "DamageTarget"
+    },
+    {
+      "name": "CheckPlayerHit",
+      "args": [
+        {
+          "name": "attacker ID",
+          "type": "actorID"
+        },
+        {
+          "name": "*ret",
+          "type": "???"
+        },
+        {
+          "name": "type flags",
+          "type": "int"
+        },
+        {
+          "name": "status flags",
+          "type": "int"
+        },
+        {
+          "name": "damage amount",
+          "type": "int"
+        },
+        {
+          "name": "battle flags",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "DispatchEvent",
+      "args": [
+        {
+          "name": "self-explanatory",
+          "type": "actorID"
+        },
+        {
+          "name": "not widely-used",
+          "type": "event"
+        }
+      ]
+    },
+    {
+      "name": "SetTargetOffset",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "spriteID",
+          "type": "int"
+        },
+        {
+          "name": "sprite[6C]",
+          "type": "int"
+        },
+        {
+          "name": "sprite[6E]",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "EnableActorBlur",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "motion blur enabled (sometimes -1?)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "YieldTurn",
+      "args": [
+        {
+          "name": "none",
+          "type": "none"
+        }
+      ]
+    },
+    {
+      "name": "GetActorType",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out type",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetLastDamage",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out damage taken",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "EnableActorGlow",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "glow effect enabled",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "GetLevel",
+      "args": [
+        {
+          "name": "actorID",
+          "type": "actorID"
+        },
+        {
+          "name": "*out level",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "CheckTargetHitP"
+    },
+    {
+      "name": "TranslateModel",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "dX",
+          "type": "int"
+        },
+        {
+          "name": "dY",
+          "type": "int"
+        },
+        {
+          "name": "dZ",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RotateModel",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "angle",
+          "type": "int"
+        },
+        {
+          "name": "rX",
+          "type": "int"
+        },
+        {
+          "name": "rY",
+          "type": "int"
+        },
+        {
+          "name": "rZ",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ScaleModel",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "scaleX",
+          "type": "int"
+        },
+        {
+          "name": "scaleY",
+          "type": "int"
+        },
+        {
+          "name": "scaleZ",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "CloneModel",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "newModelID",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetModelCenter",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        }
+      ]
+    },
+    {
+      "name": "SetTexPanner",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "panID",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "EnableTexPanning",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "1 (enable) | 0 (disable) ***",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "EnableModel",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "1 (enable) | 0 (disable) ***",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "SetTexPanOffset",
+      "args": [
+        {
+          "name": "tex pan group (from model property 5F)",
+          "type": "int"
+        },
+        {
+          "name": "mode (0 = main | 1 = aux)",
+          "type": "int"
+        },
+        {
+          "name": "offset U",
+          "type": "int"
+        },
+        {
+          "name": "offset V",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetModelFlags",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "flags",
+          "type": "int"
+        },
+        {
+          "name": "1 (set) | 0 (clear)",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "TranslateGroup",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "dX",
+          "type": "int"
+        },
+        {
+          "name": "dY",
+          "type": "int"
+        },
+        {
+          "name": "dZ",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RotateGroup",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "angle",
+          "type": "int"
+        },
+        {
+          "name": "rX",
+          "type": "int"
+        },
+        {
+          "name": "rY",
+          "type": "int"
+        },
+        {
+          "name": "rZ",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ScaleGroup",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "scaleX",
+          "type": "int"
+        },
+        {
+          "name": "scaleY",
+          "type": "int"
+        },
+        {
+          "name": "scaleZ",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "EnableGroup",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "1 (enable) | 0 (disable)",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ModifyColliderFlags",
+      "args": [
+        {
+          "name": "operations (below)",
+          "type": "int"
+        },
+        {
+          "name": "colliderID",
+          "type": "colliderID"
+        },
+        {
+          "name": "flags",
+          "type": "???"
+        }
+      ]
+    },
+    {
+      "name": "GetColliderCenter",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "colliderID"
+        }
+      ]
+    },
+    {
+      "name": "ParentColliderToModel",
+      "args": [
+        {
+          "name": "colliderID",
+          "type": "colliderID"
+        },
+        {
+          "name": "modelID",
+          "type": "modelID"
+        }
+      ]
+    },
+    {
+      "name": "UpdateColliderTransform",
+      "args": [
+        {
+          "name": "colliderID",
+          "type": "colliderID"
+        }
+      ]
+    },
+    {
+      "name": "PlaySoundAtModel",
+      "args": [
+        {
+          "name": "modelID",
+          "type": "modelID"
+        },
+        {
+          "name": "soundID",
+          "type": "soundID"
+        },
+        {
+          "name": "??? (always zero?)",
+          "type": "???"
+        }
+      ]
+    },
+    {
+      "name": "PlaySoundAtCollider",
+      "args": [
+        {
+          "name": "colliderID",
+          "type": "colliderID"
+        },
+        {
+          "name": "soundID",
+          "type": "soundID"
+        },
+        {
+          "name": "??? (always zero?)",
+          "type": "???"
+        }
+      ]
+    },
+    {
+      "name": "SetCamEnabled",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "bool flag",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "SetCamFlag80",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "bool flag",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "SetCamPerspective",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "type",
+          "type": "int"
+        },
+        {
+          "name": "vfov/2",
+          "type": "int"
+        },
+        {
+          "name": "near clip",
+          "type": "int"
+        },
+        {
+          "name": "far clip",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetCamViewport",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "startX",
+          "type": "int"
+        },
+        {
+          "name": "startY",
+          "type": "int"
+        },
+        {
+          "name": "width",
+          "type": "int"
+        },
+        {
+          "name": "height",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetCamBGColor",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "R",
+          "type": "int"
+        },
+        {
+          "name": "G",
+          "type": "int"
+        },
+        {
+          "name": "B",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ShakeCam"
+    },
+    {
+      "name": "SetCamLeadPlayer",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "bool flag",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "PanToTarget",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "*FLOAT easing phase",
+          "type": "int"
+        },
+        {
+          "name": "type (1",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "UseSettingsFrom",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "LoadSettings",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "*settings ********************** new struct for decoder!!!!!!!!!!!!",
+          "type": "$Unknown"
+        }
+      ]
+    },
+    {
+      "name": "SetCamType",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "control type",
+          "type": "int"
+        },
+        {
+          "name": "flag",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetCamAngles",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "boom pitch",
+          "type": "int"
+        },
+        {
+          "name": "view pitch",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetCamDistance",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "boom length",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetCamPosA",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetCamPosB",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetCamPosC",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetPanTarget",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetCamSpeed",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": ".FLOAT",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetCamType",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "*Vout type",
+          "type": "int"
+        },
+        {
+          "name": "*Vout flag",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetCamAngles",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "*Vout boom pitch",
+          "type": "int"
+        },
+        {
+          "name": "*Vout view pitch",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetCamDistance",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "*Vout boom length",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetCamPosA",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "*Vout x",
+          "type": "int"
+        },
+        {
+          "name": "*Vout z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetCamPosB",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "*Vout x",
+          "type": "int"
+        },
+        {
+          "name": "*Vout z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetCamPosC",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "*Vout x",
+          "type": "int"
+        },
+        {
+          "name": "*Vout z (unused!)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetCamPosition",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "*Vout x",
+          "type": "int"
+        },
+        {
+          "name": "*Vout y",
+          "type": "int"
+        },
+        {
+          "name": "*Vout z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "WaitForCam",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": ".FLOAT interp value (almost always .FLOAT[1.0])",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "UseSettings",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "default type?",
+          "type": "int"
+        },
+        {
+          "name": "offsetRight",
+          "type": "int"
+        },
+        {
+          "name": "boom length",
+          "type": "int"
+        },
+        {
+          "name": "boom pitch (usually +)",
+          "type": "int"
+        },
+        {
+          "name": "view pitch (usually -)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ResetCam",
+      "args": [
+        {
+          "name": "camID",
+          "type": "camID"
+        },
+        {
+          "name": "*F speed",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetNpcRotation"
+    },
+    {
+      "name": "SetNpcCollisionSize",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "height",
+          "type": "int"
+        },
+        {
+          "name": "radius",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetNpcAnimation",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "animation",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetNpcFlagBits",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "flags",
+          "type": "int"
+        },
+        {
+          "name": "1 (set",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "GetNpcPos",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "EnableNpcShadow",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "shadow enabled",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "EnableNpcBlur",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "motion blur enabled",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "GetCurrentPartner",
+      "args": [
+        {
+          "name": "*dest",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetNpcEffect",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "???",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "PlaySoundAtNpc",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "soundID",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "???"
+        }
+      ]
+    },
+    {
+      "name": "SetPlayerState",
+      "args": [
+        {
+          "name": "actionStateID",
+          "type": "actionStateID"
+        }
+      ]
+    },
+    {
+      "name": "MakeLerp",
+      "args": [
+        {
+          "name": "initial val",
+          "type": "int"
+        },
+        {
+          "name": "final val",
+          "type": "int"
+        },
+        {
+          "name": "frame duration",
+          "type": "int"
+        },
+        {
+          "name": "easing/equation??",
+          "type": "???"
+        }
+      ]
+    },
+    {
+      "name": "RandInt",
+      "args": [
+        {
+          "name": "max (inclusive)",
+          "type": "int"
+        },
+        {
+          "name": "dest",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetAngleBetweenNPCs",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "*out",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetAngleToNPC",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "*out",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetAngleToPlayer",
+      "args": [
+        {
+          "name": "npcID",
+          "type": "npcID"
+        },
+        {
+          "name": "*out",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AwaitPlayerApproach",
+      "args": [
+        {
+          "name": "X",
+          "type": "int"
+        },
+        {
+          "name": "Z",
+          "type": "int"
+        },
+        {
+          "name": "R",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "IsPlayerWithin",
+      "args": [
+        {
+          "name": "X",
+          "type": "int"
+        },
+        {
+          "name": "Z",
+          "type": "int"
+        },
+        {
+          "name": "R",
+          "type": "int"
+        },
+        {
+          "name": "*out boolean out",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AwaitPlayerLeave",
+      "args": [
+        {
+          "name": "X",
+          "type": "int"
+        },
+        {
+          "name": "Z",
+          "type": "int"
+        },
+        {
+          "name": "R",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AddVectorPolar",
+      "args": [
+        {
+          "name": "X (also *out)",
+          "type": "int"
+        },
+        {
+          "name": "Z (also *out)",
+          "type": "int"
+        },
+        {
+          "name": "R",
+          "type": "int"
+        },
+        {
+          "name": "theta",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "LoadPath",
+      "args": [
+        {
+          "name": "time",
+          "type": "int"
+        },
+        {
+          "name": "&vectorList",
+          "type": "$VectorList(#2)"
+        },
+        {
+          "name": "numVectors",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetDist2D",
+      "args": [
+        {
+          "name": "*out dist",
+          "type": "int"
+        },
+        {
+          "name": "X1",
+          "type": "int"
+        },
+        {
+          "name": "Y1",
+          "type": "int"
+        },
+        {
+          "name": "X2",
+          "type": "int"
+        },
+        {
+          "name": "Y2",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ClampFloat",
+      "args": [
+        {
+          "name": "float variable",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "FadeOutMusic",
+      "args": [
+        {
+          "name": "music player index",
+          "type": "int"
+        },
+        {
+          "name": "fade time (max 10000)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetMusicTrack",
+      "args": [
+        {
+          "name": "music player index",
+          "type": "int"
+        },
+        {
+          "name": "track #",
+          "type": "songID"
+        },
+        {
+          "name": "variation",
+          "type": "int"
+        },
+        {
+          "name": "volume",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "FadeInMusic",
+      "args": [
+        {
+          "name": "music player index",
+          "type": "int"
+        },
+        {
+          "name": "track #",
+          "type": "songID"
+        },
+        {
+          "name": "variation?",
+          "type": "int"
+        },
+        {
+          "name": "fade time",
+          "type": "int"
+        },
+        {
+          "name": "??",
+          "type": "???"
+        },
+        {
+          "name": "??",
+          "type": "???"
+        }
+      ]
+    },
+    {
+      "name": "PlayAmbientSounds",
+      "args": [
+        {
+          "name": "ambient soundID",
+          "type": "ambientSFX"
+        }
+      ]
+    },
+    {
+      "name": "PlaySound",
+      "args": [
+        {
+          "name": "soundID",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "PlaySoundAt",
+      "args": [
+        {
+          "name": "soundID (! upper byte)",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "???"
+        },
+        {
+          "name": "X",
+          "type": "int"
+        },
+        {
+          "name": "Y",
+          "type": "int"
+        },
+        {
+          "name": "Z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "StopSound",
+      "args": [
+        {
+          "name": "soundID",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "UseDoorSounds",
+      "args": [
+        {
+          "name": "door sound type",
+          "type": "doorSFX"
+        }
+      ]
+    },
+    {
+      "name": "PlaySoundAtF",
+      "args": [
+        {
+          "name": "soundID (! upper byte)",
+          "type": "int"
+        },
+        {
+          "name": "???",
+          "type": "???"
+        },
+        {
+          "name": "X",
+          "type": "int"
+        },
+        {
+          "name": "Y",
+          "type": "int"
+        },
+        {
+          "name": "Z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RemoveKeyItemAt",
+      "args": [
+        {
+          "name": "key item index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RemoveItemAt",
+      "args": [
+        {
+          "name": "item index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AddKeyItem",
+      "args": [
+        {
+          "name": "itemID",
+          "type": "itemID"
+        }
+      ]
+    },
+    {
+      "name": "HasKeyItem",
+      "args": [
+        {
+          "name": "itemID",
+          "type": "itemID"
+        },
+        {
+          "name": "*out bool has item",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "FindKeyItem",
+      "args": [
+        {
+          "name": "itemID",
+          "type": "itemID"
+        },
+        {
+          "name": "*out key item slot (FFFF if not found)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AddItem",
+      "args": [
+        {
+          "name": "itemID",
+          "type": "itemID"
+        },
+        {
+          "name": "*out item slot (FFFF if none were available)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "FindItem",
+      "args": [
+        {
+          "name": "itemID",
+          "type": "itemID"
+        },
+        {
+          "name": "*out item slot (FFFF if not found)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RemoveItem",
+      "args": [
+        {
+          "name": "itemID",
+          "type": "itemID"
+        },
+        {
+          "name": "*out item slot (FFFF if none were removed)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "CountFortessKeys",
+      "args": [
+        {
+          "name": "*out num",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RemoveFortressKeys",
+      "args": [
+        {
+          "name": "num",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "MakeItemEntity"
+    },
+    {
+      "name": "DropItemEntity"
+    },
+    {
+      "name": "RemoveItemEntity",
+      "args": [
+        {
+          "name": "*itemHandle",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AddBadge",
+      "args": [
+        {
+          "name": "badgeID",
+          "type": "itemID"
+        },
+        {
+          "name": "*out badge slot",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "RemoveBadge",
+      "args": [
+        {
+          "name": "itemID",
+          "type": "itemID"
+        }
+      ]
+    },
+    {
+      "name": "SetItemPos",
+      "args": [
+        {
+          "name": "*itemHandle",
+          "type": "int"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AddCoin",
+      "args": [
+        {
+          "name": "delta coins (can be negative)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AddStarPoints",
+      "args": [
+        {
+          "name": "delta quantity (can be negative)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "AddStarPiece",
+      "args": [
+        {
+          "name": "delta quantity (can be negative)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "GetItemPower",
+      "args": [
+        {
+          "name": "itemID",
+          "type": "itemID"
+        },
+        {
+          "name": "HP bonus from item table",
+          "type": "int"
+        },
+        {
+          "name": "FP bonus from item table",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "ShowGotItem"
+    },
+    {
+      "name": "ShowEmote"
+    },
+    {
+      "name": "RemoveEffect",
+      "args": [
+        {
+          "name": "*effectHandle",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "SetSpriteShading",
+      "args": [
+        {
+          "name": "env shading index",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "EnableSpriteShading",
+      "args": [
+        {
+          "name": "(0 = no shading | 1 = shading)",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "GetDemoState",
+      "args": [
+        {
+          "name": "*dest (0 ordinary gameplay | 1 manually issuing commands in demo | 2 demo map transition?)",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "DemoPressButton",
+      "args": [
+        {
+          "name": "button code to OR with existing buttons",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "DemoReleaseButton",
+      "args": [
+        {
+          "name": "button code to negate and AND with existing buttons",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "DemoSetButtons",
+      "args": [
+        {
+          "name": "button code",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "DemoJoystickPos"
+    },
+    {
+      "name": "DemoUseJoystick",
+      "args": [
+        {
+          "name": "(byte) left/right",
+          "type": "int"
+        },
+        {
+          "name": "(byte) up/down",
+          "type": "int"
+        }
+      ]
+    }
+  ]
+}
