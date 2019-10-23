@@ -131,11 +131,11 @@
         },
         {
           "name": "keyword.control.starrod",
-          "match": "\\b(ra|RA)\\b"
+          "match": "\\b(ra|RA|sp|SP)\\b"
         },
         {
           "name": "constant.language.boolean.starrod",
-          "match": "\\b(((a|A)[0-3])|((v|V)[0-1])|((t|T)[0-9])|((s|S)[0-8])|((k|K)[0-1])|gp|GP|sp|SP|fp|FP|F0|f0)\\b"
+          "match": "\\b(((a|A)[0-3])|((v|V)[0-1])|((t|T)[0-9])|((s|S)[0-8])|((k|K)[0-1])|gp|GP|fp|FP|F0|f0)\\b"
         },
         {
           "name": "keyword.mnemonic.starrod",
