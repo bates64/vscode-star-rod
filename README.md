@@ -1,3 +1,10 @@
-# vscode-star-rod
+# Star Rod for Visual Studio Code
 
-Adds language support for [Star Rod](https://discord.gg/Pj4u7wB) patch files.
+[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/nanaian.vscode-star-rod)](https://marketplace.visualstudio.com/items?itemName=nanaian.vscode-star-rod)
+
+[Click to install](vscode:extension/eamodio.gitlens)
+
+This extension adds support for [Star Rod](https://github.com/nanaian/star-rod):
+
+- Syntax highlighting
+- Experimental documentation support (hover over a `Call` or `Exec` signature)
