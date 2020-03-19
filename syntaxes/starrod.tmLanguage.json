@@ -107,12 +107,17 @@
     "comment": {
       "patterns": [
         {
-          "name": "comment.line.percentage.starrod",
+          "name": "comment.line.documentation.starrod",
+          "begin": "%%",
+          "end": "\n"
+        },
+        {
+          "name": "comment.line.double-slash.starrod",
           "begin": "%",
           "end": "\n"
         },
         {
-          "name": "comment.block.percentage.starrod",
+          "name": "comment.block.block.starrod",
           "begin": "/%",
           "end": "%/"
         }
