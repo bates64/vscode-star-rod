@@ -83,13 +83,23 @@
           ]
         },
         {
-          "begin": "^(#define|#import|#reserve)\\s",
+          "begin": "^(#define|#reserve)\\s",
           "end": "$",
           "beginCaptures": {
             "1": { "name": "keyword.control.directive.starrod" }
           },
           "patterns": [
             { "include": "#expression" },
+            { "include": "#comment" }
+          ]
+        },
+        {
+          "begin": "^(#import)\\s",
+          "end": "$",
+          "beginCaptures": {
+            "1": { "name": "keyword.control.directive.starrod" }
+          },
+          "patterns": [
             { "include": "#comment" }
           ]
         },
