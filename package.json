@@ -20,7 +20,7 @@
 	"categories": [
 		"Programming Languages"
 	],
-	"main": "./out/starrod",
+	"main": "./out/extension",
 	"activationEvents": [
 		"onLanguage:starrod"
 	],
@@ -52,7 +52,17 @@
 				"scopeName": "source.starrod",
 				"path": "./syntaxes/starrod.tmLanguage.json"
 			}
-		]
+		],
+		"configuration": {
+			"title": "Star Rod",
+			"properties": {
+				"starRod.installDirectory": {
+					"type": "string",
+					"scope": "machine-overridable",
+					"markdownDescription": "Absolute path to a [Star Rod 0.2.0 installation](https://github.com/nanaian/star-rod/archive/v0.2.0.zip)."
+				}
+			}
+		}
 	},
 	"__metadata": {
 		"id": "04e91f62-6dcd-4895-ae21-2024b20f3105",
@@ -60,6 +70,7 @@
 		"publisherId": "8de2bba1-d0d5-431c-acd7-3a20852a6dec"
 	},
 	"devDependencies": {
+		"@types/node": "^13.9.2",
 		"@types/vscode": "^1.43.0",
 		"typescript": "^3.8.3"
 	},

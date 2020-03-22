@@ -32,7 +32,7 @@ ${(args || []).map(({ name, type }: ArgDoc, i: number) =>
     `)
 }
 
-export async function activate(ctx: ExtensionContext) {
+export function register() {
     languages.registerHoverProvider('starrod', {
         provideHover(document, position, token) {
             const range = document.getWordRangeAtPosition(position, /[^\s()]+/)

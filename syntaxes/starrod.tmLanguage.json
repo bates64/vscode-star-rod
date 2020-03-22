@@ -10,9 +10,31 @@
     "directive": {
       "patterns": [
         {
+          "name": "meta.block.function.starrod",
+          "begin": "^@Hook",
+          "end": "^[ \t]*$",
+          "beginCaptures": {
+            "0": { "name": "keyword.operator.at.starrod" }
+          },
+          "patterns": [
+            { "include": "#asm" }
+          ]
+        },
+        {
+          "name": "meta.block.data.starrod",
+          "begin": "^@Data",
+          "end": "^[ \t]*$",
+          "beginCaptures": {
+            "0": { "name": "keyword.operator.at.starrod" }
+          },
+          "patterns": [
+            { "include": "#expression" }
+          ]
+        },
+        {
           "name": "meta.block.unknown.starrod",
           "begin": "^@",
-          "end": "^[ \t]*(?=#|@)",
+          "end": "^[ \t]*$",
           "beginCaptures": {
             "0": { "name": "keyword.operator.at.starrod" }
           },
@@ -24,7 +46,7 @@
         {
           "name": "meta.block.function.starrod",
           "begin": "^(#new):Function(_Init)?\\b",
-          "end": "^[ \t]*(?=#|@)",
+          "end": "^[ \t]*$",
           "beginCaptures": {
             "0": { "name": "entity.name.class.starrod" }
           },
@@ -35,7 +57,7 @@
         {
           "name": "meta.block.script.starrod",
           "begin": "^(#new):Script(_Main)?\\b",
-          "end": "^[ \t]*(?=#|@)",
+          "end": "^[ \t]*$",
           "beginCaptures": {
             "0": { "name": "entity.name.class.starrod" }
           },
@@ -46,7 +68,7 @@
         {
           "name": "meta.block.dialogue.starrod",
           "begin": "^(#string):([0-9A-Za-z]+):([0-9A-Za-z_\\(\\)]+)",
-          "end": "^[ \t]*(?=#|@)",
+          "end": "^[ \t]*$",
           "captures": {
             "1": { "name": "entity.name.class.starrod" },
             "2": { "name": "constant.numeric.starrod" },
@@ -59,7 +81,7 @@
         {
           "name": "meta.block.dialogue.starrod",
           "begin": "^(#string)\\s+(\\$[^\\s]+)",
-          "end": "^[ \t]*(?=#|@)",
+          "end": "^[ \t]*$",
           "captures": {
             "1": { "name": "entity.name.class.starrod" },
             "2": { "name": "variable.name.starrod" }
@@ -73,7 +95,7 @@
         {
           "name": "meta.block.other.starrod",
           "begin": "^(#new):[A-Z][a-zA-Z]+\\b",
-          "end": "^[ \t]*(?=#|@)",
+          "end": "^[ \t]*$",
           "beginCaptures": {
             "0": { "name": "entity.name.class.starrod" }
           },
@@ -83,7 +105,7 @@
           ]
         },
         {
-          "begin": "^(#define|#reserve)\\s",
+          "begin": "^(#define|#reserve|#export)\\s",
           "end": "$",
           "beginCaptures": {
             "1": { "name": "keyword.control.directive.starrod" }
@@ -113,7 +135,6 @@
         }
       ]
     },
-
     "comment": {
       "patterns": [
         {
@@ -133,12 +154,11 @@
         }
       ]
     },
-
     "asm": {
       "patterns": [
         {
           "name": "keyword.control.directive.starrod",
-          "match": "#(UN)?DEF"
+          "match": "(\\b|^)#(UN)?DEF\\b"
         },
         {
           "name": "constant.language.zero.starrod",
@@ -150,7 +170,7 @@
         },
         {
           "name": "constant.language.boolean.starrod",
-          "match": "\\b(((a|A)[0-3])|((v|V)[0-1])|((t|T)[0-9])|((s|S)[0-8])|((k|K)[0-1])|gp|GP|fp|FP|F0|f0)\\b"
+          "match": "\\b(((a|A)[0-3])|((v|V)[0-1])|((t|T)[0-9])|((s|S)[0-8])|((k|K)[0-1])|gp|GP|fp|FP|F[1-2]?[0-9]|f[1-2]?[0-9])\\b"
         },
         {
           "name": "keyword.mnemonic.starrod",
@@ -163,10 +183,9 @@
     "script": {
       "patterns": [
         {
-          "begin": "^[ \t]*(Call|Exec(Wait)?|Jump)[ \\t]*([^\\$][a-zA-Z0-9_]+)?",
+          "begin": "^[ \t]*(Call|Exec(Wait)?|Jump)[ \\t]*([^\\$]\\S+)?",
           "end": "(\\)|\n|%)",
           "beginCaptures": {
-            "0": { "name": "entity.name.function.starrod" },
             "1": { "name": "keyword.control.starrod" }
           },
           "patterns": [
@@ -215,35 +234,74 @@
     "expression": {
       "patterns": [
         {
-          "name": "storage.type.expansion.starrod",
+          "name": "variable.interpolation",
           "match": "{[^}]+}"
         },
         { "include": "#identifier" },
         { "include": "#number" },
-        { "include": "#string" }
+        { "include": "#string" },
+        {
+          "name": "keyword.operator.starrod",
+          "match": "\\+"
+        },
+        {
+          "name": "keyword.operator.starrod",
+          "match": "-"
+        },
+        {
+          "name": "keyword.operator.starrod",
+          "match": "\\*"
+        },
+        {
+          "name": "keyword.operator.starrod",
+          "match": "/"
+        }
       ]
     },
     "identifier": {
       "patterns": [
         {
-          "name": "constant.language.boolean.starrod",
-          "match": "\\.(True|False|Default)"
+          "match": "\\.(True|False|Default)",
+          "captures": {
+            "1": { "name": "constant.language.boolean.starrod" }
+          }
         },
         {
-          "name": "constant.language.other.starrod",
-          "match": "\\.[a-zA-Z0-9_:?]+"
+          "match": "\\.(\\S+):(\\S+)",
+          "captures": {
+            "1": { "name": "constant.language.starrod" },
+            "2": { "name": "constant.language.starrod" }
+          }
         },
         {
-          "name": "keyword.operator.sigil.starrod",
-          "match": "\\*"
+          "match": "\\.(\\S+)",
+          "captures": {
+            "1": { "name": "constant.other.starrod" }
+          }
+        },
+        {
+          "match": "(\\*)([^\\s\\[]+)\\[([^\\]]+)\\]",
+          "captures": {
+            "1": { "name": "keyword.operator.starrod" },
+            "2": { "name": "variable.object.starrod" },
+            "3": { "name": "constant.numeric.starrod" }
+          }
+        },
+        {
+          "match": "(\\*)([^\\s\\[]+)",
+          "captures": {
+            "1": { "name": "keyword.operator.starrod" }
+          }
         },
         {
           "name": "variable.name.starrod",
-          "match": "\\$[a-zA-Z0-9_:?]+"
+          "match": "\\$[^\\s\\[]+"
         },
         {
-          "name": "constant.other.starrod",
-          "match": "^\\s*\\[[a-zA-Z0-9]+\\]\\s"
+          "match": "^\\s*(\\[[a-zA-Z0-9]+\\])\\s",
+          "captures": {
+            "0": { "name": "constant.other.starrod" }
+          }
         },
         {
           "name": "constant.numeric.starrod",
