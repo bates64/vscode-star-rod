@@ -254,7 +254,7 @@
         },
         {
           "name": "keyword.operator.starrod",
-          "match": "/"
+          "match": "/[^%]"
         }
       ]
     },
