@@ -195,11 +195,11 @@
         },
         {
           "name": "keyword.control.starrod",
-          "match": "^[ \t]*(Return|End|Label|Goto|Loop|EndLoop|Break|If|Else|EndIf|Switch|SwitchConst|Case|Default|CaseOR|CaseAND|EndCaseGroup|to|EndSwitch|Thread|EndThread|ChildThread|EndChildThread)\\b"
+          "match": "^[ \t]*(Return|End|Label|Goto|Loop|EndLoop|BreakCase|BreakLoop|If|Else|EndIf|Switch|SwitchConst|Case|Default|CaseOR|CaseAND|EndCaseGroup|to|EndSwitch|Thread|EndThread|ChildThread|EndChildThread)\\b"
         },
         {
           "name": "keyword.mnemonic.starrod",
-          "match": "^[ \t]*(Wait|WaitSecs|Set|SetConst|SetF|Add|Sub|Mul|Div|Mod|AddF|SubF|MulF|DivF|UseIntBuffer|Get[1-4]Int|GetIntN|UseFloatBuffer|Get[1-4]Float|GetFloatN|UseArray|UseFlags|AllocArray|AND|ANDConst|OR|ORConst|Bind|Unbind|SetPriority|SetTimescale|SetGroup|BindLock|SuspendAll|ResumeAll|SuspendOthers|ResumeOthers|Suspend|Resume|DoesScriptExist)\\b"
+          "match": "^[ \t]*(Wait|WaitSeconds|Set|SetConst|SetF|Add|Sub|Mul|Div|Mod|AddF|SubF|MulF|DivF|UseIntBuffer|Get[1-4]Int|GetIntN|UseFloatBuffer|Get[1-4]Float|GetFloatN|UseArray|UseFlags|AllocArray|AND|ANDConst|OR|ORConst|Bind|Unbind|SetPriority|SetTimescale|SetGroup|BindLock|SuspendAll|ResumeAll|SuspendOthers|ResumeOthers|Suspend|Resume|DoesScriptExist)\\b"
         },
         { "include": "#expression" },
         { "include": "#comment" }
