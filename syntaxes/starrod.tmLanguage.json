@@ -105,7 +105,7 @@
           ]
         },
         {
-          "begin": "^(#define|#reserve|#export)\\s",
+          "begin": "^(#define|#reserve|#export|#delete)\\s",
           "end": "$",
           "beginCaptures": {
             "1": { "name": "keyword.control.directive.starrod" }
