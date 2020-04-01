@@ -94,7 +94,7 @@
         },
         {
           "name": "meta.block.other.starrod",
-          "begin": "^(#new):[A-Z][a-zA-Z]+\\b",
+          "begin": "^(#new):[A-Z0-9][a-zA-Z0-9]+\\b",
           "end": "^[ \t]*$",
           "beginCaptures": {
             "0": { "name": "entity.name.class.starrod" }
