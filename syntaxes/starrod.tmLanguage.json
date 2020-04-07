@@ -326,7 +326,10 @@
             { "include": "#identifier" },
             {
               "name": "constant.numeric",
-              "match": "(-)?[0-9a-fA-F]+(\\.[0-9]+)?(`)?(b|s)?"
+              "match": "(-)?[0-9a-fA-F]+(\\.[0-9]+)?((`)?(b|s)?)",
+              "captures": {
+                "3": { "name": "storage.type.numeric.starrod" }
+              }
             }
           ]
         },
@@ -344,15 +347,29 @@
         },
         {
           "name": "constant.numeric.decimal.starrod",
-          "match": "(\\b|-)[0-9]+`(b|s)?\\b"
+          "match": "(\\b|-)-?[0-9]+(`)(b|s)?( |$)",
+          "captures": {
+            "2": { "name": "storage.type.numeric.starrod" },
+            "3": { "name": "storage.type.numeric.starrod" }
+          }
         },
         {
-          "name": "constant.numeric.binary.starrod",
-          "match": "(\\b|-)-?[0-1]+(b|s)?\\b"
+          "name": "constant.numeric.hexidecimal.starrod",
+          "match": "(\\b|-)-?[0-9A-F]{1,8}( |$)"
         },
         {
-          "name": "constant.numeric.hexadecimal.starrod",
-          "match": "(\\b|-)-?[0-9A-Fa-f]+(b|s)?\\b"
+          "name": "constant.numeric.hexidecimal.short.starrod",
+          "match": "(\\b|-)-?[0-9A-F]{1,4}(s)( |$)",
+          "captures": {
+            "2": { "name": "storage.type.numeric.starrod" }
+          }
+        },
+        {
+          "name": "constant.numeric.hexidecimal.byte.starrod",
+          "match": "(\\b|-)-?[0-9A-F]{1,2}(b)( |$)",
+          "captures": {
+            "2": { "name": "storage.type.numeric.starrod" }
+          }
         }
       ]
     },
