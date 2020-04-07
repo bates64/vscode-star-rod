@@ -328,16 +328,16 @@
     "number": {
       "patterns": [
         {
+          "name": "constant.numeric.float.starrod",
+          "match": "(\\b|-)-?[0-9]+\\.[0-9]+\\b"
+        },
+        {
           "name": "constant.numeric.decimal.starrod",
           "match": "(\\b|-)[0-9]+`(b|s)?\\b"
         },
         {
           "name": "constant.numeric.binary.starrod",
           "match": "(\\b|-)-?[0-1]+(b|s)?\\b"
-        },
-        {
-          "name": "constant.numeric.float.starrod",
-          "match": "(\\b|-)-?[0-9]+\\.[0-9]+\\b"
         },
         {
           "name": "constant.numeric.hexadecimal.starrod",
