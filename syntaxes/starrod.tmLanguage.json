@@ -141,17 +141,35 @@
         {
           "name": "comment.line.documentation.starrod",
           "begin": "%%",
-          "end": "\n"
+          "end": "\n",
+          "patterns": [
+            {
+              "name": "keyword.codetag.notation.starrod",
+              "match": "(?:\\b(NOTE|XXX|HACK|FIXME|BUG|TODO|TEMP)\\b)"
+            }
+          ]
         },
         {
           "name": "comment.line.double-slash.starrod",
           "begin": "%",
-          "end": "\n"
+          "end": "\n",
+          "patterns": [
+            {
+              "name": "keyword.codetag.notation.starrod",
+              "match": "(?:\\b(NOTE|XXX|HACK|FIXME|BUG|TODO|TEMP)\\b)"
+            }
+          ]
         },
         {
           "name": "comment.block.block.starrod",
           "begin": "/%",
-          "end": "%/"
+          "end": "%/",
+          "patterns": [
+            {
+              "name": "keyword.codetag.notation.starrod",
+              "match": "(?:\\b(NOTE|XXX|HACK|FIXME|BUG|TODO|TEMP)\\b)"
+            }
+          ]
         }
       ]
     },
