@@ -319,7 +319,7 @@
         },
         {
           "name": "variable.name.starrod",
-          "match": "\\$[^\\s\\[]+"
+          "match": "\\$[^\\s\\[\\(]+"
         },
         {
           "match": "^\\s*(\\[[a-zA-Z0-9]+\\])\\s",
@@ -369,19 +369,21 @@
           }
         },
         {
-          "name": "constant.numeric.hexidecimal.starrod",
-          "match": "(\\b|-)-?[0-9A-F]{1,8}( |$)"
+          "match": "(\\b|-)-?([0-9A-F]{1,8})[^bs`0-9A-F]",
+          "captures": {
+            "2": { "name": "constant.numeric.hexidecimal.starrod" }
+          }
         },
         {
           "name": "constant.numeric.hexidecimal.short.starrod",
-          "match": "(\\b|-)-?[0-9A-F]{1,4}(s)( |$)",
+          "match": "(\\b|-)-?[0-9A-F]{1,4}(s)",
           "captures": {
             "2": { "name": "storage.type.numeric.starrod" }
           }
         },
         {
           "name": "constant.numeric.hexidecimal.byte.starrod",
-          "match": "(\\b|-)-?[0-9A-F]{1,2}(b)( |$)",
+          "match": "(\\b|-)-?[0-9A-F]{1,2}(b)",
           "captures": {
             "2": { "name": "storage.type.numeric.starrod" }
           }

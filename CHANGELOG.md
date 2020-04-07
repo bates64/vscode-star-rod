@@ -5,6 +5,8 @@
 Syntax highlighting:
 - Fixed double-precision floats (e.g. `1.0d`)
 - Fixed script/function lines with numeric offsets having their operation/mnemonic mishighlighted
+- Fixed highlighting of pointer offsets such as `LTW v0, v0 ($MyStruct)`
+- Updated numeric constant to not highlight errors such as `FFFFb` as numbers (`b`, for example, requires __at most__ 2 hex digits before it)
 
 ## 0.5.0
 
