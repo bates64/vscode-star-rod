@@ -4,6 +4,7 @@
 
 Syntax highlighting:
 - Fixed double-precision floats (e.g. `1.0d`)
+- Fixed script/function lines with numeric offsets having their operation/mnemonic mishighlighted
 
 ## 0.5.0
 
