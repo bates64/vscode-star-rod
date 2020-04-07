@@ -369,7 +369,7 @@
           }
         },
         {
-          "match": "(\\b|-)-?([0-9A-F]{1,8})[^bs`0-9A-F]",
+          "match": "(\\b|-)-?([0-9A-F]{1,8})[^`\\w]",
           "captures": {
             "2": { "name": "constant.numeric.hexidecimal.starrod" }
           }
