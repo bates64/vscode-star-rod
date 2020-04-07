@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.1
+
+Syntax highlighting:
+- Fixed double-precision floats (e.g. `1.0d`)
+
 ## 0.5.0
 
 Syntax highlighting:
