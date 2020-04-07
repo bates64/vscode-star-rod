@@ -28,7 +28,8 @@
             "0": { "name": "keyword.operator.at.starrod" }
           },
           "patterns": [
-            { "include": "#expression" }
+            { "include": "#expression" },
+            { "include": "#comment" }
           ]
         },
         {
@@ -45,7 +46,7 @@
         },
         {
           "name": "meta.block.function.starrod",
-          "begin": "^(#new):Function(_Init)?\\b",
+          "begin": "^(#new):Function(_Init|_GetTattle)?\\b",
           "end": "^[ \t]*$",
           "beginCaptures": {
             "0": { "name": "entity.name.class.starrod" }
@@ -56,7 +57,7 @@
         },
         {
           "name": "meta.block.script.starrod",
-          "begin": "^(#new):Script(_Main)?\\b",
+          "begin": "^(#new):Script(_Main|_Use)?\\b",
           "end": "^[ \t]*$",
           "beginCaptures": {
             "0": { "name": "entity.name.class.starrod" }
@@ -94,7 +95,7 @@
         },
         {
           "name": "meta.block.other.starrod",
-          "begin": "^(#new):[A-Z0-9][a-zA-Z0-9]+\\b",
+          "begin": "^(#new):(EntryList|ExtraAnimationList|Header|AISettings|NpcSettings|NpcGroup|NpcGroupList|ASCII|ConstDouble|Unknown|JumpTable|IntTable|FloatTable|ItemList|TriggerCoord|LavaResetList|ByteTable|ShopInventory|ShopItemPositions|ShopPriceList|ShopOwnerNPC|NpcList|VertexList|DisplayList|VectorList|TreeModelList|TreeDropList|ShakeTreeEvent|TreeEffectVectors|ShortTable|DataTable|SearchBushEvent|BadgeShopInventory|TweesterPath|TweesterPathList|Formation|FormationTable|StageTable|DefenseTable|StatusTable|Actor|IdleAnimations|SpriteTable|Stage|ForegroundModelList|SJIS|SpecialFormation|Vector3D|DmaArgTable)+\\b",
           "end": "^[ \t]*$",
           "beginCaptures": {
             "0": { "name": "entity.name.class.starrod" }
