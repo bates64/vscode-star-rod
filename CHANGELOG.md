@@ -3,7 +3,7 @@
 ## 0.6.0
 
 - Updated intellisense hugely :sparkles:
-    - Function database updated to Star Rod 0.3.0
+    - Function database updated to Star Rod 0.2.0
     - Hovering over `{Func:XXX}` in functions to get its documentation now works
     - Script commands (`Call`, `Set`, etc.) are now autocompleted and have attached documentation
         - This includes snippets for complex commands such as `Bind` - press Tab to have the syntax filled-in for you
