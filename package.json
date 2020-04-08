@@ -62,7 +62,14 @@
 					"markdownDescription": "Absolute path to a [Star Rod 0.2.0 installation](https://github.com/nanaian/star-rod/archive/v0.2.0.zip)."
 				}
 			}
-		}
+		},
+		"iconThemes": [
+			{
+				"id": "star-rod",
+				"label": "Star Rod",
+				"path": "./fileicons/star-rod-icon-theme.json"
+			}
+		]
 	},
 	"__metadata": {
 		"id": "04e91f62-6dcd-4895-ae21-2024b20f3105",

@@ -1,0 +1,19 @@
+{
+    // TODO(microsoft/vscode#14662): extend Seti Icons
+    "iconDefinitions": {
+        "_file_starrod": {
+            "iconPath": "./star.svg"
+        }
+    },
+    "fileExtensions": {
+        "mpat": "_file_starrod",
+        "mscr": "_file_starrod",
+        "bpat": "_file_starrod",
+        "bscr": "_file_starrod",
+        "wscr": "_file_starrod",
+        "patch": "_file_starrod"
+    },
+    "fileNames": {
+        "mod.cfg": "_file_starrod"
+    }
+}
