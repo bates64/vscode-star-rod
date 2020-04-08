@@ -1443,6 +1443,13 @@ export function register() {
                     endRegion('export', -1)
                 }
 
+                if (/^#define(\s|$)/g.test(line)) {
+                    if (regions.length === 0)
+                        beginRegion('define')
+                } else {
+                    endRegion('define', -1)
+                }
+
                 if (/^(#new:[^ \t]+|@Data|@Hook|@)(\s|$)/g.test(line)) {
                     beginRegion('block')
                 } else if (/^#string(:|\s|$)/g.test(line)) {
