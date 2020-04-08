@@ -9,10 +9,10 @@
         ["(", ")"]
     ],
     "autoClosingPairs": [
-        { "open": "(", "close": ")", "notIn": [ "string", "comment" ] },
-        { "open": "{", "close": "}", "notIn": [ "string", "comment" ] },
-        { "open": "[", "close": "]", "notIn": [ "string", "comment" ]  },
-        { "open": "\"", "close": "\"", "notIn": [ "string", "comment" ] },
+        { "open": "(", "close": ")", },
+        { "open": "{", "close": "}" },
+        { "open": "[", "close": "]"  },
+        { "open": "\"", "close": "\"", "notIn": [ "string" ] },
         { "open": "/%", "close": "%/", "notIn": [ "string", "comment" ] }
     ],
     "autoCloseBefore": ";:.,=}])>` \n\t",
@@ -23,7 +23,8 @@
         ["\"", "\""]
     ],
     "indentationRules": {
-        "increaseIndentPattern": "^\\s*(Else|If|Switch|Thread|ChildThread|Loop)(\\s|$)",
-        "decreaseIndentPattern": "^\\s*(Else|End(If|Switch|Thread|ChildThread|Loop))(\\s|$)",
-    }
+        "increaseIndentPattern": "^\\s*([0-9A-Fa-f]+:\\s*)?(If|Else|Loop|Switch|Case\\s|Thread|ChildThread)($|\\s.*$)",
+        "decreaseIndentPattern": "^\\s*([0-9A-Fa-f]+:\\s*)?(EndIf|Else|EndLoop|EndSwitch|EndCaseGroup|EndThread|EndChildThread)($|\\s.*$)"
+    },
 }
+

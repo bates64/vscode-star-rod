@@ -56,7 +56,7 @@
 
 8024EC08 : MoveCamOver      :   int         % args : move time  !!! terrible name! moves the camera to a preset over a certain number of frames
 
-802512B4 : ShowMessageBox           :   int, int    % args : string index (table 80283770), duration
+802512B4 : ShowMessageBox           :   int, int    	% args : string index (table 80283770), duration
 8025130C : ShowVariableMessageBox   :   int, int, int   % args : string index (table 80283770), duration, variable quantity (used for "attack power increased by X", etc)
 
 % Used by items and star powers to inflict damage or status on an enemy (without a source actor)
@@ -76,28 +76,48 @@
 80254048 : MultiplyVec2ByActorScale :   int, int            % args: x, y -- multiplies 2D vector by an actor's scale factor (actor[188])
 802540DC : MultiplyVec3ByActorScale :   int, int, int       % args: x, y, z -- multiplies 3D vector by an actor's scale factor (actor[188])
 
-80261D28 : IncrementPlayerHP    :   none    % no args, will not exceed maximum
-80261D60 : IncrementPlayerFP    :   none    % no args, will not exceed maximum
+802546D4 : enable_player_blur		:	*			% args : none
+80254914 : disable_player_blur		:	*			% args : none
 
-802681C0 : LoadActionCommand    :   int     % args : action command id (0x01 - 0x17)
+8025D03C : _remove_part_decoration	:	*		% args : (ActorPart* part, int decorationIndex)
+
+80261D28 : IncrementPlayerHP    	:   none    	% no args, will not exceed maximum
+80261D60 : IncrementPlayerFP    	:   none    	% no args, will not exceed maximum
+
+80263CFC : set_animation			:	*			% args : (int actorID, int partID, int animID)
+
+802653A4 : summon_actor				:	*			% args : (*SpecialFormation formationData)
+80265E44 : lookup_defense 			:	*			% args : (DefenseTable* table, int key)
+802662BC : get_defense				:	*			% args : (Actor* actor, DefenseTable* table, int elementflags)
+
+80267218 : remove_part_decoration	:	*			% args : (ActorPart* part, int decorationIndex)
+80267234 : remove_actor_decoration	:	*			% args : (Actor* actor, int decorationIndex)
+
+802681C0 : LoadActionCommand   		:   int     	% args : action command id (0x01 - 0x17)
+80268ECC : check_block_input		:	*			% args : (int button mask)
 
 % perhaps these are related to action command status?
 % 802694F8 : get (byte) battle[81]
 % 80269524 : get (byte) battle[86]
 % 80269550 : set (byte) battle[86]
-% 8026957C : get (byte) battle[87]
+
+8026957C : GetBlockResult			:	int		% args : *out result -- returns result of most recent block attempt, 0 for fail, 1 for success, -1 for fail on mashing
+
 % 802695A8 : get (byte) battle[84]
 % 802695D4 : set (byte) battle[84]
 % 80269600 : get (byte) battle[85]
 % 8026962C : set (byte) battle[85]
 
-% 80269C24 = SetActorPositionF (float x, float y, float z)
+80269698 : get_nearest_home_index	:	*	% args : (int x, int y) -- gets the nearest home index to a given point
+% 80269754
+% 802699D8
+80269C24 : set_actor_home_flt		:	*		% args :  (float x, float y, float z)
 % 80269C70
-% 80269D20 = SetActorPositionD (double x, double y, double z)
+80269D20 : set_actor_home_dbl		:	*		% args : (double x, double y, double z)
 % 80269D6C = GetActor (actorID)
-80269DE4 : LoadBattleSection    :   int     % args : battle section index
-80269E28 : GetBattlePhase       :   int     % args : *out state
-80269E54 : GetLastElement       :   int     % args : *out element of last attack from battle[188]
+80269DE4 : LoadBattleSection		:   int     % args : battle section index
+80269E28 : GetBattlePhase			:   int     % args : *out state
+80269E54 : GetLastElement			:   int     % args : *out element of last attack from battle[188]
 % 80269E80 : get (byte) battle[19A]
 % 80269EAC : set battle[19A]
 80269EC4 : SetGoalToHome    :   actorID     % args : actorID -- sets goal position to NPC's home position
@@ -147,7 +167,7 @@
 8026C170 : GetSpriteVar     :   actorID, int, int, int      % args : actorID, spriteID, index, *dest
 8026C22C : SetSpriteVar     :   actorID, int, int, int      % args : actorID, spriteID, index, value
 8026C2E8 : SpriteVarAdd     :   actorID, int, int, int      % args : actorID, spriteID, index, amount -- adds amount to variable
-8026C3AC : SetActorRotation :   actorID, int, int, int      % args : actorID, Rx, Ry, Rz -- center of rotation is at base of sprite
+8026C3AC : SetActorRotation :   actorID, int, int, int      % args : actorID, Rx, Ry, Rz -- center of rotation is at base of sprite, use F1194D80 on any field to skip it
 8026C4AC : SetActorRotationOffset   :   actorID, int, int, int      % args : actorID, dx, dx, dy -- offsets the center of rotation from default position (bottom center)
 8026C56C : GetActorRotation     :   actorID, int, int, int          % args : actorID, *Rx, *Ry, *Rz
 8026C634 : SetSpriteRotation    :   actorID, int, int, int, int     % args : actorID, spriteID, Rx, Ry, Rz
@@ -181,7 +201,6 @@
 8026D7A8 : HPBarToCurrent       :   actorID     % args : actorID, sets the location of the HP bar to current position + hp offset
 % 8026D8EC
 % ...
-
 8026DB64 : SummonEnemy          :   $SpecialFormation(1), ???           % args : $SpecialFormation, flag? (0 : default | 1 : general guy) : RETURNS enemy ID on *Var[0]
 % afterward, VAR[A] contains the next available empty position index?
 
@@ -227,13 +246,14 @@
 8026FB20 : SetActorType         :   int, int        % args : actorID, actor type (from ActorTypes.xml)
 % ...
 % 8026FBB0
+
 8026FC04 : GetActorAttackBoost  :   actorID, int        % args : actorID, *out value
 8026FC6C : GetActorDefenseBoost :   actorID, int        % args : actorID, *out value
 % Always call 8026BF48 before and after HealNpc, Electrify, Vanish, AttackUp, DefenseUp
 8026FCD4 : BoostAttack          :   actorID, int        % args : actorID, amount -- icons for amount > 3 does not display correctly
 80270174 : BoostDefense         :   actorID, int        % args : actorID, amount
-80270614 : VanishActor          :   actorID, int        % args : actorID, duration??? (0 | 2)
-8027095C : ElectrifyActor       :   actorID, int        % args : actorID, duration??? (0 | 3)
+80270614 : VanishActor          :   actorID, int        % args : actorID, duration (0 | 2)
+8027095C : ElectrifyActor       :   actorID, int        % args : actorID, duration (0 | 3)
 80270CA4 : HealActor            :   actorID, int, ???   % args : actorID, amount, ??? (some kind of heal all flag?)
 %8027114C : WaitFor???          : none
 80271160 : CopyStatBoosts       :   actorID, actorID    % args : source actor, dest actor
@@ -280,7 +300,7 @@
 %   Call     8026A62C       ( FFFFFF81 *Var[0] *Var[1] *Var[2] )
 %   Call     8027BBB8       ( FFFFFF81 00000000 FFFFFFFB 00000000 ) half-parabola? spline?
 
-8027C4E0 : GetEventType     :   actorID, int        % args : actorID, *out type
+8027C4E0 : GetEventType     :   actorID, int        % args : actorID, *out type  ----- maybe GetLastEvent?
 8027C548 : SetTargetActor   :   actorID, actorID    % args: attacker ID, defender ID -- sets the attack target of one actor, also sets (byte) actor[426] = 1
 8027C5C8 : SetEnemyHP       :   actorID, int        % args : actorID, hp
 8027C6A0 : GetActorHP       :   actorID, int        % args : actorID, *out

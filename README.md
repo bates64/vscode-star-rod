@@ -5,4 +5,4 @@
 This extension adds support for [Star Rod](https://github.com/nanaian/star-rod):
 
 - Syntax highlighting
-- Experimental documentation support (hover over a `Call` or `Exec` signature)
+- Documentation/autocomplete for functions and script commands

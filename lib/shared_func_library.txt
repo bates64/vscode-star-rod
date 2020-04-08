@@ -148,7 +148,6 @@ All matched from 8033181C to 8034F808 (1DFEC)
 802D0118 : SetNpcEffect			:	npcID, int, int			% args : npcID, ???, ???
 802D01AC : PlaySoundAtNpc       :   npcID, int, ???         % args : npcID, soundID, ???
 
-802D1DD0 : SetPlayerState		:	actionStateID				% args : actionStateID
 802D23F8 : Func_802D23F8		: 	int
 
 /%  

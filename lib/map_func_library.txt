@@ -145,7 +145,7 @@
 802D1054 : SetPlayerJumpscale   :   int                 % args : *FLOAT scale
 802D1084 : SetPlayerAnimation   :   playerAnim          % args : animation
 802D1134 : MovePlayerTo         :   int, int, int       % args : x, y, z
-802D14E0 : _player_jump			:	*		% args: *script, *args, mode
+802D14E0 : _player_jump			:	*					% args : *script, *args, mode
 802D18E8 : PlayerJump           :   int, int, int, int  % args : x, y, z, height
 802D1904 : PlayerJump1          :   int, int, int, int  % args : x, y, z, height
 802D1920 : PlayerJump2          :   int, int, int, int  % args : x, y, z, height
@@ -153,9 +153,10 @@
 802D1B04 : PlayerFaceNpc        :   npcID, int          % args : npcID to face, ??? (1 allows looking back and forth between targets, 0 = fixed?) -- set player yaw to face npc
 
 
-802D1D28 : GetPlayerTargetYaw   :   int     % args : OUT target yaw
-802D1D60 : SetPlayerFlagBits    :   int, bool       % args : flags, 1 (set : OR flags) | 0 (reset : AND ~flags)
-% 802D1DD0 (86) : returns 8010F07C -- might be used to discriminate between different player actions in the overworld (spin jump vs hammer attack, see mac_01)
+802D1D28 : GetPlayerTargetYaw   :   int    		 		% args : OUT target yaw
+802D1D60 : SetPlayerFlagBits    :   int, bool     		% args : flags, 1 (set : OR flags) | 0 (reset : AND ~flags)
+802D1DD0 : GetPlayerActionState	:	int					% args : OUT actionStateID
+
 802D1DFC : GetPlayerPos         :   int, int, int   % args : destx, desty, destz
 802D1E94 : GetPlayerAnimation   :   int     % args : OUT animation -- return player[C8]
 802D1EC0 : FullyRestoreHPandFP  :   none    % no args

@@ -79,5 +79,8 @@
 		"build": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"makelib": "node lib/make.js > src/lib.json"
+	},
+	"dependencies": {
+		"fix-whitespace": "^1.0.3"
 	}
 }
