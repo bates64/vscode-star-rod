@@ -21,5 +21,9 @@
         ["[", "]"],
         ["(", ")"],
         ["\"", "\""]
-    ]
+    ],
+    "indentationRules": {
+        "increaseIndentPattern": "^\\s*(Else|If|Switch|Thread|ChildThread|Loop)(\\s|$)",
+        "decreaseIndentPattern": "^\\s*(Else|End(If|Switch|Thread|ChildThread|Loop))(\\s|$)",
+    }
 }

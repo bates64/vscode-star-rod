@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.0
+
+- Indentation/unindentation occurs automatically when "If," "EndIf", etc are used
+
 ## 0.5.1
 
 Syntax highlighting:
