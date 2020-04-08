@@ -238,11 +238,11 @@
         },
         {
           "name": "support.type.starrod",
-          "match": "\\[(STYLE):(RIGHT|LEFT|CENTER|TATTLE|CHOICE|INSPECT|SIGN|LAMPPOST|POPUP|POSTCARD|UPGRADE|NARRATE|EPILOGUE)\\]"
+          "match": "\\[(STYLE):(RIGHT|LEFT|CENTER|TATTLE|CHOICE|INSPECT|SIGN|LAMPPOST|POPUP|POSTCARD|UPGRADE|NARRATE|EPILOGUE)(:[^\\]]+)?\\]"
         },
         {
           "name": "keyword.other.starrod",
-          "match": "\\[(END|WAIT|NEXT|PAUSE|\\.\\.\\.)\\]"
+          "match": "\\[(END|WAIT|NEXT|PAUSE|\\.\\.\\.)(:[^\\]]+)?\\]"
         },
         {
           "name": "constant.language.boolean.starrod",
