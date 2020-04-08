@@ -3,6 +3,8 @@
 ## 0.6.0
 
 - Indentation/unindentation occurs automatically when "If," "EndIf", etc are used
+- Script commands outside of `#new:Script`/`@` blocks anyway to reduce flicker when enter is pressed to create a newline
+    - In the future, an error will be raised upon saving the file if there are script commands outside of a script block
 
 ## 0.5.1
 

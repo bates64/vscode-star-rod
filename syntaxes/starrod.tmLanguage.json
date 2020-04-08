@@ -4,7 +4,8 @@
   "scopeName": "source.starrod",
   "patterns": [
     { "include": "#comment" },
-    { "include": "#directive" }
+    { "include": "#directive" },
+    { "include": "#script" }
   ],
   "repository": {
     "directive": {
@@ -355,14 +356,14 @@
       "patterns": [
         {
           "name": "constant.numeric.float.starrod",
-          "match": "(\\b|-)-?[0-9]+\\.[0-9]+(d)?\\b",
+          "match": "(\\b|-)-?[0-9]+\\.[0-9]+(d)?(\\s|$)",
           "captures": {
             "2": { "name": "storage.type.numeric.starrod" }
           }
         },
         {
           "name": "constant.numeric.decimal.starrod",
-          "match": "(\\b|-)-?[0-9]+(`)(b|s)?( |$)",
+          "match": "(\\b|-)-?[0-9]+(`)(b|s)?(\\s|$)",
           "captures": {
             "2": { "name": "storage.type.numeric.starrod" },
             "3": { "name": "storage.type.numeric.starrod" }
@@ -376,14 +377,14 @@
         },
         {
           "name": "constant.numeric.hexidecimal.short.starrod",
-          "match": "(\\b|-)-?[0-9A-F]{1,4}(s)",
+          "match": "(\\b|-)-?[0-9A-F]{1,4}(s)(\\s|$)",
           "captures": {
             "2": { "name": "storage.type.numeric.starrod" }
           }
         },
         {
           "name": "constant.numeric.hexidecimal.byte.starrod",
-          "match": "(\\b|-)-?[0-9A-F]{1,2}(b)",
+          "match": "(\\b|-)-?[0-9A-F]{1,2}(b)(\\s|$)" ,
           "captures": {
             "2": { "name": "storage.type.numeric.starrod" }
           }
