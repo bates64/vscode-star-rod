@@ -11,7 +11,7 @@
     "directive": {
       "patterns": [
         {
-          "name": "meta.block.function.starrod",
+          "name": "meta.block.function.patch.starrod",
           "begin": "^\\s*(@)Hook\\s*",
           "end": "^[ \t]*$",
           "beginCaptures": {
@@ -23,7 +23,7 @@
           ]
         },
         {
-          "name": "meta.block.other.data.starrod",
+          "name": "meta.block.other.data.patch.starrod",
           "begin": "^\\s*(@)Data\\s*",
           "end": "^[ \t]*$",
           "beginCaptures": {
@@ -31,12 +31,11 @@
             "1": { "name": "punctuation.at.starrod" }
           },
           "patterns": [
-            { "include": "#expression" },
-            { "include": "#comment" }
+            { "include": "#data" }
           ]
         },
         {
-          "name": "meta.block.function.starrod",
+          "name": "meta.block.function.patch.starrod",
           "begin": "^\\s*(@)Function\\s*",
           "end": "^[ \t]*$",
           "beginCaptures": {
@@ -48,11 +47,11 @@
           ]
         },
         {
-          "name": "meta.block.script.starrod",
+          "name": "meta.block.script.patch.starrod",
           "begin": "^\\s*(@)Script((:)(Global|Map|Battle))?\\s*",
           "end": "^[ \t]*$",
           "beginCaptures": {
-            "0": { "name": "storage.type.script.starrod" },
+            "0": { "name": "storage.type.script.patch.starrod" },
             "1": { "name": "punctuation.at.starrod" },
             "3": { "name": "punctuation.separator.starrod" }
           },
@@ -61,7 +60,7 @@
           ]
         },
         {
-          "name": "meta.block.unknown.starrod",
+          "name": "meta.block.unknown.patch.starrod",
           "begin": "^\\s*(@)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b",
           "end": "^[ \t]*$",
           "beginCaptures": {
@@ -74,7 +73,8 @@
           },
           "patterns": [
             { "include": "#script" },
-            { "include": "#asm" }
+            { "include": "#asm" },
+            { "include": "#data" }
           ]
         },
         {
@@ -576,6 +576,20 @@
             "3": { "name": "punctuation.definition.end.bracket.square.starrod" }
           }
         },
+        { "include": "#comment" }
+      ]
+    },
+    "data": {
+      "patterns": [
+        {
+          "name": "variable.other.property.offset.starrid",
+          "match": "^\\s*(\\[)[^ \t$#/%\\(\\[]+(\\])",
+          "captures": {
+            "1": { "name": "punctuation.definition.begin.bracket.square.starrod" },
+            "2": { "name": "punctuation.definition.end.bracket.square.starrod" }
+          }
+        },
+        { "include": "#expression" },
         { "include": "#comment" }
       ]
     },
