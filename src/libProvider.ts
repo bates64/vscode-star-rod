@@ -5,6 +5,8 @@ import {
     MarkdownString,
     SnippetString,
     TextLine,
+    TextDocument,
+    Position,
     SignatureHelp,
     SignatureInformation,
     ParameterInformation,
@@ -1121,12 +1123,60 @@ function parseFileExtension(fileName: string): { isPatch: boolean, sourceType: s
     }
 }
 
+function getStructTypeAt(document: TextDocument, startPos: Position): string {
+    // Traverse up in lines until we see the head of this struct (#new:X, @X, etc).
+    let pos = startPos.translate()
+    while (true) {
+        const line = document.lineAt(pos)
+
+        const tokens = tokenizeLine(line)
+        if (tokens.length) {
+            // If this is the head line, return its type.
+            if (tokens[0].source.startsWith('#new')) {
+                const [ hashNew, type, ...rest ] = tokens[0].source.split(':')
+                return type
+            } else if (tokens[0].source.startsWith('#string')) {
+                return 'String'
+            } else if (tokens[0].source == '@Function' || tokens[0].source == '@Hook') {
+                return 'Function'
+            } else if (tokens[0].source == '@Data') {
+                return 'Data'
+            } else if (tokens[0].source == '@') {
+                // It's a generic patch! Figure out the type of struct this is from its usage.
+                const firstLineTokens = tokenizeLine(document.lineAt(pos.translate(1)))
+
+                const hasOffset = tokens.length && /^[A-Za-z0-9]+:$/.test(tokens[0].source)
+                const offsetToken = hasOffset ? tokens.shift() : null
+
+                if (Array.from(SCRIPT_OPS.keys()).includes(tokens[0].source)) {
+                    return 'Script'
+                } else if (['ADDIU', 'PUSH'].includes(tokens[0].source)) { // TODO: more instructions
+                    return 'Function'
+                } else {
+                    // Unknown :(
+                    const identifier = tokens[1].source
+
+                    // TODO: parse structs above this one, including imports and mscr/bscrs, to
+                    // determine the type of the identifier.
+                    //
+                    // For now, we'll guess via the name of the identifier, which usually takes
+                    // the form "$TYPE_Name". This WILL give us false positives!
+                    return identifier.substr(1).split('_')[0]
+                }
+            }
+        }
+
+        pos = pos.translate(-1) // Up one line.
+    }
+}
+
 export function register() {
     languages.registerHoverProvider('starrod', {
         provideHover(document, position, token) {
             const tokens = tokenizeLine(document.lineAt(position))
             const hoveredToken: Token | undefined = tokens.find(t => t.range.contains(position))
             const { sourceType, isPatch } = parseFileExtension(document.fileName)
+            const structType = getStructTypeAt(document, position)
 
             const database: Doc[] = []
             database.push(...LIB.shared)
@@ -1260,7 +1310,6 @@ export function register() {
 
             // TODO: also add locally-defined/imported/global-patch functions and scripts to the database
 
-
             const hasOffset = tokens.length && /^[A-Za-z0-9]+:$/.test(tokens[0].source)
             const offsetToken = hasOffset ? tokens.shift() : null
             if (hasOffset) caretTokenIdx--
@@ -1313,6 +1362,12 @@ export function register() {
 
     languages.registerCompletionItemProvider('starrod', {
         provideCompletionItems(document, position, token, context) {
+            const commentChar = document.lineAt(position).text.indexOf('%')
+            if (commentChar != -1 && commentChar <= position.character) {
+                // Looks like we're in a comment - abort
+                return null
+            }
+
             const tokens = tokenizeLine(document.lineAt(position))
             let caretTokenIdx = 0
             for (const token of tokens) {
@@ -1321,6 +1376,7 @@ export function register() {
                 }
             }
             const { sourceType, isPatch } = parseFileExtension(document.fileName)
+            const structType = getStructTypeAt(document, position)
 
             const database: Doc[] = []
             database.push(...LIB.shared)
@@ -1333,46 +1389,50 @@ export function register() {
             const offsetToken = hasOffset ? tokens.shift() : null
             if (hasOffset) caretTokenIdx--
 
-            const opToken = tokens[0]
+            if (structType === 'Script') {
+                const opToken = tokens[0]
 
-            if (caretTokenIdx === 0) { // TODO: only do this in scripts
-                return Array.from(SCRIPT_OPS.entries()).map(([ name, o ]) => {
-                    const item = new CompletionItem(name, 13)
+                if (caretTokenIdx === 0) {
+                    return Array.from(SCRIPT_OPS.entries()).map(([ name, o ]) => {
+                        const item = new CompletionItem(name, 13)
 
-                    item.insertText = o.snippet
-                    item.documentation = new MarkdownString(o.documentation)
-
-                    return item
-                })
-            } else if (opToken.source === 'Call' && caretTokenIdx === 1) {
-                return database
-                    .filter(d => d.usage === 'api')
-                    .map(d => {
-                        const item = new CompletionItem(d.name, 2)
-
-                        item.detail = d.args.length
-                            ? `( ${d.args.map(a => a.name
-                                ? `${a.name}: ${a.type}`
-                                : a.type).join(', ')} )`
-                            : '()'
-                        item.documentation = d.notes
-
-                        item.insertText = new SnippetString(d.name)
-                        item.insertText.appendText(' ')
-                        if (d.args.length) {
-                            item.insertText.appendText('( ')
-                            for (const arg of d.args) {
-                                item.insertText.appendPlaceholder(arg.name || arg.type)
-                                item.insertText.appendText(' ')
-                            }
-                            item.insertText.appendText(')')
-                        } else {
-                            item.insertText.appendText('()')
-                        }
+                        item.insertText = o.snippet
+                        item.documentation = new MarkdownString(o.documentation)
 
                         return item
                     })
+                } else if (opToken.source === 'Call' && caretTokenIdx === 1) {
+                    return database
+                        .filter(d => d.usage === 'api')
+                        .map(d => {
+                            const item = new CompletionItem(d.name, 2)
+
+                            item.detail = d.args.length
+                                ? `( ${d.args.map(a => a.name
+                                    ? `${a.name}: ${a.type}`
+                                    : a.type).join(', ')} )`
+                                : '()'
+                            item.documentation = d.notes
+
+                            item.insertText = new SnippetString(d.name)
+                            item.insertText.appendText(' ')
+                            if (d.args.length) {
+                                item.insertText.appendText('( ')
+                                for (const arg of d.args) {
+                                    item.insertText.appendPlaceholder(arg.name || arg.type)
+                                    item.insertText.appendText(' ')
+                                }
+                                item.insertText.appendText(')')
+                            } else {
+                                item.insertText.appendText('()')
+                            }
+
+                            return item
+                        })
+                }
             }
+
+            // TODO: assembly instruction completions
 
             return null
         }

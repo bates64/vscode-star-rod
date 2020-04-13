@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.0
+
+- Typing at the start of a line no longer suggests script commands if you are not in a script
+
 ## 0.6.0
 
 - Updated intellisense hugely :sparkles:
