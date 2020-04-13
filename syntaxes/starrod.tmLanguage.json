@@ -15,7 +15,7 @@
           "begin": "^\\s*(@)Hook\\s*",
           "end": "^[ \t]*$",
           "beginCaptures": {
-            "0": { "name": "storage.type.hook.starrod" },
+            "0": { "name": "storage.type.function.hook.starrod" },
             "1": { "name": "punctuation.at.starrod" }
           },
           "patterns": [
@@ -27,12 +27,37 @@
           "begin": "^\\s*(@)Data\\s*",
           "end": "^[ \t]*$",
           "beginCaptures": {
-            "0": { "name": "storage.type.other.data.starrod" },
+            "0": { "name": "storage.type.data.starrod" },
             "1": { "name": "punctuation.at.starrod" }
           },
           "patterns": [
             { "include": "#expression" },
             { "include": "#comment" }
+          ]
+        },
+        {
+          "name": "meta.block.function.starrod",
+          "begin": "^\\s*(@)Function\\s*",
+          "end": "^[ \t]*$",
+          "beginCaptures": {
+            "0": { "name": "storage.type.function.patch.starrod" },
+            "1": { "name": "punctuation.at.starrod" }
+          },
+          "patterns": [
+            { "include": "#asm" }
+          ]
+        },
+        {
+          "name": "meta.block.script.starrod",
+          "begin": "^\\s*(@)Script((:)(Global|Map|Battle))?\\s*",
+          "end": "^[ \t]*$",
+          "beginCaptures": {
+            "0": { "name": "storage.type.script.starrod" },
+            "1": { "name": "punctuation.at.starrod" },
+            "3": { "name": "punctuation.separator.starrod" }
+          },
+          "patterns": [
+            { "include": "#script" }
           ]
         },
         {
@@ -73,7 +98,7 @@
         },
         {
           "name": "meta.block.script.starrod",
-          "begin": "^\\s*((#)new)(:)(Script(_Main|_Use)?)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b",
+          "begin": "^\\s*((#)new)(:)(Script(_Main|_Use|(:)(Global|Map|Battle))?)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b",
           "end": "^[ \t]*$",
           "beginCaptures": {
             "0": { "name": "meta.head.script.definition.starrod" },
@@ -81,10 +106,11 @@
             "2": { "name": "punctuation.definition.directive.starrod" },
             "3": { "name": "punctuation.separator.starrod" },
             "4": { "name": "storage.type.script.starrod" },
-            "5": { "name": "entity.name.script.definition.starrod" },
-            "6": { "name": "entity.name.script.definition.starrod" },
-            "7": { "name": "punctuation.definition.variable.starrod" },
-            "9": { "name": "punctuation.separator.namespace.access.starrod" }
+            "5": { "name": "punctuation.separator.starrod" },
+            "7": { "name": "entity.name.script.definition.starrod" },
+            "8": { "name": "entity.name.script.definition.starrod" },
+            "9": { "name": "punctuation.definition.variable.starrod" },
+            "11": { "name": "punctuation.separator.namespace.access.starrod" }
           },
           "patterns": [
             { "include": "#script" }
@@ -169,6 +195,18 @@
             "5": { "name": "entity.name.other.definition.starrod" },
             "6": { "name": "punctuation.definition.variable.starrod" },
             "8": { "name": "punctuation.separator.namespace.access.starrod" }
+          },
+          "patterns": [
+            { "include": "#expression" },
+            { "include": "#comment" }
+          ]
+        },
+        {
+          "begin": "^\\s*((@)Fill)\\s",
+          "end": "(%|$)",
+          "beginCaptures": {
+            "1": { "name": "keyword.control.directive.starrod" },
+            "2": { "name": "punctuation.at.starrod" }
           },
           "patterns": [
             { "include": "#expression" },
