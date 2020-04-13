@@ -2,6 +2,9 @@
 
 ## 0.7.0
 
+- Huge improvements to the accuracy and completeness of syntax highlighting
+    - Many scopes (what things are marked as) have changed, which means the colors you see due to your theme may have changed
+    - :rocket: A custom color scheme will be coming in the next release to take advantage of the greater accuracy of the new scopes. For example, assembly instructions/registers will be highlighted differently depending on their group
 - Typing at the start of a line no longer suggests script commands if you are not in a script
 
 ## 0.6.0
