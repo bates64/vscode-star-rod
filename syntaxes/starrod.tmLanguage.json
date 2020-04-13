@@ -460,7 +460,7 @@
           }
         },
         {
-          "match": "^[ \t]*([0-9A-Fa-f]+(:)\\s*)?(UseIntBuffer|Get[1-4]Int|GetIntN|UseFloatBuffer|Get[1-4]Float|GetFloatN|UseArray|UseFlags|NewArray|AND|ConstAND|OR|ConstOR|Bind|Unbind|SetPriority|SetTimescale|SetGroup|BindLock|SuspendAll|ResumeAll|SuspendOthers|ResumeOthers|Suspend|Resume|Kill|DoesScriptExist|PrintVar)\\b",
+          "match": "^[ \t]*([0-9A-Fa-f]+(:)\\s*)?(UseIntBuffer|Get[1-4]Int|GetIntN|UseFloatBuffer|Get[1-4]Float|GetFloatN|UseArray|UseFlags|NewArray|Bind|Unbind|SetPriority|SetTimescale|SetGroup|BindLock|SuspendAll|ResumeAll|SuspendOthers|ResumeOthers|Suspend|Resume|Kill|DoesScriptExist|PrintVar)\\b",
           "captures": {
             "1": { "name": "constant.numeric.hexadecimal.offset.starrod" },
             "2": { "name": "punctuation.separator.label.starrod" },
@@ -468,7 +468,19 @@
           }
         },
         {
-          "match": "^[ \t]*([0-9A-Fa-f]+(:)\\s*)?(Set|SetConst|SetF|Add|Sub|Mul|Div|Mod|AddF|SubF|MulF|DivF)\\b",
+          "begin": "^[ \t]*([0-9A-Fa-f]+(:)\\s*)?(Set|SetConst|SetF)\\s+",
+          "beginCaptures": {
+            "1": { "name": "constant.numeric.hexadecimal.offset.starrod" },
+            "2": { "name": "punctuation.separator.label.starrod" },
+            "3": { "name": "storage.type.starrod" }
+          },
+          "end": "$|(?=%)",
+          "patterns": [
+            { "include": "#set_expression" }
+          ]
+        },
+        {
+          "match": "^[ \t]*([0-9A-Fa-f]+(:)\\s*)?(Add|Sub|Mul|Div|Mod|AddF|SubF|MulF|DivF)\\b",
           "captures": {
             "1": { "name": "constant.numeric.hexadecimal.offset.starrod" },
             "2": { "name": "punctuation.separator.label.starrod" },
@@ -476,8 +488,16 @@
           }
         },
         {
-          "name": "keyword.control.starrod",
-          "match": "\\bto\\b"
+          "match": "^[ \t]*([0-9A-Fa-f]+(:)\\s*)?(AND|ConstAND|OR|ConstOR)\\b",
+          "captures": {
+            "1": { "name": "constant.numeric.hexadecimal.offset.starrod" },
+            "2": { "name": "punctuation.separator.label.starrod" },
+            "3": { "name": "keyword.operator.bitwise.starrod" }
+          }
+        },
+        {
+          "name": "keyword.operator.logical.starrod",
+          "match": "(==|!=|>|>=|<|<=|\\bto\\b)"
         },
         { "include": "#expression" },
         { "include": "#comment" }
@@ -623,9 +643,24 @@
             "1": { "name": "punctuation.end.bracket.curly.starrod" }
           }
         },
+        { "include": "#identifier" },
+        { "include": "#number" },
+        { "include": "#string" }
+      ]
+    },
+    "set_expression": {
+      "patterns": [
         {
-          "name": "keyword.operator.starrod",
-          "match": "[=+\\-*]|==|!=|>|>=|<|<=|/(?!%)"
+          "name": "punctuation.separator.delimiter.comma.starrod",
+          "match": ","
+        },
+        {
+          "name": "keyword.operator.assignment.starrod",
+          "match": "="
+        },
+        {
+          "name": "keyword.operator.arithmetic.starrod",
+          "match": "[+\\-*]|/(?!%)"
         },
         {
           "begin": "(mod)(\\()",
@@ -634,17 +669,15 @@
             "2": { "name": "punctuation.section.arguments.begin.bracket.round.function.call.starrod" }
           },
           "patterns": [
-            { "include": "#expression" },
-            { "include": "#comment" }
+            { "include": "#set_expression" }
           ],
           "end": "\\)",
           "endCaptures": {
             "0": { "name": "punctuation.section.arguments.end.bracket.round.function.call.starrod" }
           }
         },
-        { "include": "#identifier" },
-        { "include": "#number" },
-        { "include": "#string" }
+        { "include": "#expression" },
+        { "include": "#comment" }
       ]
     },
     "identifier": {
@@ -717,52 +750,52 @@
       "patterns": [
         {
           "name": "constant.numeric.float.starrod",
-          "match": "(\\b|-)-?[0-9]+\\.[0-9]+(d)?(\\s|$)",
+          "match": "(\\b|-)[0-9]+\\.[0-9]+(d)?(\\s|$)",
           "captures": {
             "2": { "name": "storage.type.numeric.starrod" }
           }
         },
         {
           "name": "constant.numeric.decimal.starrod",
-          "match": "(\\b|-)-?[0-9]+(`)(b|s)?(\\s|$)",
+          "match": "(\\b|-)[0-9]+(`)(b|s)?(\\s|$)",
           "captures": {
             "2": { "name": "keyword.other.unit.suffix.starrod" },
             "3": { "name": "storage.type.numeric.starrod" }
           }
         },
         {
-          "match": "(\\b|-)-?([0-9A-F]{1,8})[^`\\w]",
+          "match": "(\\b|-)([0-9A-F]{1,8})[^`\\w]",
           "captures": {
             "2": { "name": "constant.numeric.hexadecimal.starrod" }
           }
         },
         {
-          "match": "(\\b|-)-?([0-9A-F]{9,})[^`\\w]",
+          "match": "(\\b|-)([0-9A-F]{9,})[^`\\w]",
           "captures": {
             "2": { "name": "invalid.constant.numeric.hexadecimal.starrod" }
           }
         },
         {
           "name": "constant.numeric.hexadecimal.short.starrod",
-          "match": "(\\b|-)-?[0-9A-F]{1,4}(s)(\\s|$)",
+          "match": "(\\b|-)[0-9A-F]{1,4}(s)(\\s|$)",
           "captures": {
             "2": { "name": "storage.type.numeric.starrod" }
           }
         },
         {
           "name": "invalid.constant.numeric.hexadecimal.short.starrod",
-          "match": "(\\b|-)-?[0-9A-F]{5,}(s)(\\s|$)"
+          "match": "(\\b|-)[0-9A-F]{5,}(s)(\\s|$)"
         },
         {
           "name": "constant.numeric.hexadecimal.byte.starrod",
-          "match": "(\\b|-)-?[0-9A-F]{1,2}(b)(\\s|$)",
+          "match": "(\\b|-)[0-9A-F]{1,2}(b)(\\s|$)",
           "captures": {
             "2": { "name": "storage.type.numeric.starrod" }
           }
         },
         {
           "name": "invalid.constant.numeric.hexidecimal.byte.starrod",
-          "match": "(\\b|-)-?[0-9A-F]{3,}(b)(\\s|$)"
+          "match": "(\\b|-)[0-9A-F]{3,}(b)(\\s|$)"
         }
       ]
     },
