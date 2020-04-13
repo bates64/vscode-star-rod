@@ -338,8 +338,12 @@
           "match": "([tT][0-9]|[sS][0-8])\\b"
         },
         {
+          "name": "variable.other.register.usable.by-name.stack.mips.starrod",
+          "match": "(sp|SP)\\b"
+        },
+        {
           "name": "variable.other.register.usable.by-name.mips.starrod",
-          "match": "([rR]0|[vV][01]|[aA][0-3]|gp|GP|sp|SP|fp|FP|ra|RA)\\b"
+          "match": "([rR]0|[vV][01]|[aA][0-3]|gp|GP|fp|FP|ra|RA)\\b"
         },
         {
           "name": "variable.other.register.usable.floating-point.mips.starrod",
