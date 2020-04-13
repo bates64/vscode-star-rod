@@ -307,7 +307,7 @@
           }
         },
         {
-          "match": "^\\s*([0-9A-Fa-f]+(:)\\s*)?(JR|(B|J)(((EQ|NE|GE|GT|LE|LE)Z?|C1F|C1T)?(ALR?)?L?)?)\\b",
+          "match": "^\\s*([0-9A-Fa-f]+(:)\\s*)?(JR|JPOP|PUSH|POP|(B|J)(((EQ|NE|GE|GT|LE|LE)Z?|C1F|C1T)?(ALR?)?L?)?)\\b",
           "captures": {
             "1": { "name": "constant.numeric.hexadecimal.offset.starrod" },
             "2": { "name": "punctuation.separator.label.starrod" },
