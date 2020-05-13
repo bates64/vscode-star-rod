@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.1
+
+- Fixed syntax highlighting for `#new:Script_Main`, `#new:Function_Init`, `#new:Script:Global`, etc.
+
 ## 0.7.0
 
 - Huge improvements to the accuracy and completeness of syntax highlighting

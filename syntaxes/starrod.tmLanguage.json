@@ -87,7 +87,6 @@
             "2": { "name": "punctuation.definition.directive.starrod" },
             "3": { "name": "punctuation.separator.starrod" },
             "4": { "name": "storage.type.function.starrod" },
-            "5": { "name": "entity.name.function.definition.starrod" },
             "6": { "name": "entity.name.function.definition.starrod" },
             "7": { "name": "punctuation.definition.variable.starrod" },
             "9": { "name": "punctuation.separator.namespace.access.starrod" }
@@ -106,8 +105,7 @@
             "2": { "name": "punctuation.definition.directive.starrod" },
             "3": { "name": "punctuation.separator.starrod" },
             "4": { "name": "storage.type.script.starrod" },
-            "5": { "name": "punctuation.separator.starrod" },
-            "7": { "name": "entity.name.script.definition.starrod" },
+            "6": { "name": "punctuation.separator.starrod" },
             "8": { "name": "entity.name.script.definition.starrod" },
             "9": { "name": "punctuation.definition.variable.starrod" },
             "11": { "name": "punctuation.separator.namespace.access.starrod" }
