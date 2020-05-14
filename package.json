@@ -22,7 +22,8 @@
 	],
 	"main": "./out/extension",
 	"activationEvents": [
-		"onLanguage:starrod"
+		"onLanguage:starrod",
+		"onCommand:starRod.compileMod"
 	],
 	"contributes": {
 		"languages": [
@@ -53,6 +54,30 @@
 				"path": "./syntaxes/starrod.tmLanguage.json"
 			}
 		],
+		"commands": [
+			{
+				"command": "starRod.compileMod",
+				"title": "Compile Mod",
+				"category": "Star Rod"
+			},
+			{
+				"command": "starRod.compileMap",
+				"title": "Compile Map...",
+				"category": "Star Rod"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "starRod.compileMap",
+					"when": "workbenchState == 'folder'"
+				},
+				{
+					"command": "starRod.compileMod",
+					"when": "workbenchState == 'folder'"
+				}
+			]
+		},
 		"configuration": {
 			"title": "Star Rod",
 			"properties": {
@@ -76,9 +101,9 @@
 		"publisherId": "8de2bba1-d0d5-431c-acd7-3a20852a6dec"
 	},
 	"devDependencies": {
-		"@types/node": "^13.9.2",
-		"@types/vscode": "^1.43.0",
-		"typescript": "^3.8.3"
+		"@types/node": "^14.0.1",
+		"@types/vscode": "^1.45.0",
+		"typescript": "^3.9.2"
 	},
 	"scripts": {
 		"vscode:prepublish": "tsc -p ./",

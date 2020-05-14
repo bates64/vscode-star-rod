@@ -1,5 +1,6 @@
 import * as vscode from 'vscode'
 import * as libProvider from './libProvider'
+import activateCommands from './commands'
 
 const STAR_ROD_JAR_SIZES = new Map([
     // No other good way to check for SR version AFAIK.
@@ -8,10 +9,9 @@ const STAR_ROD_JAR_SIZES = new Map([
 
 export async function activate(ctx: vscode.ExtensionContext) {
     libProvider.register()
+    activateCommands(ctx)
 
-    const config = vscode.workspace.getConfiguration()
-    const installDir = config.get('starRod.installDirectory', '')
-
+    const installDir = getStarRodDir()
     if (!installDir) {
         const item = await vscode.window.showWarningMessage('Star Rod installation directory not set.', {},
             'Set Installation Directory...',
@@ -19,7 +19,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
         )
 
         await handleInstallPrompt(item)
-    } else if (!(await getStarRodDirVersion(vscode.Uri.file(installDir)))) {
+    } else if (!(await getStarRodDirVersion(installDir))) {
         const item = await vscode.window.showErrorMessage(`Star Rod installation directory "${installDir}" is invalid.`, {},
             'Set Installation Directory...',
             'Download Star Rod',
@@ -29,7 +29,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
     }
 }
 
-async function handleInstallPrompt(item: string | undefined) {
+export async function handleInstallPrompt(item: string | undefined) {
     if (item === 'Set Installation Directory...') {
         setStarRodDir()
     } else if (item === 'Download Star Rod') {
@@ -75,7 +75,21 @@ async function setStarRodDir(): Promise<boolean> {
     return false
 }
 
-async function getStarRodDirVersion(dir: vscode.Uri): Promise<string | undefined> {
+export function getStarRodDir(): vscode.Uri | undefined {
+    const config = vscode.workspace.getConfiguration()
+    const installDir = config.get('starRod.installDirectory', '')
+
+    try {
+        if (installDir) return vscode.Uri.file(installDir)
+        else return undefined
+    } catch {
+        return undefined
+    }
+}
+
+export async function getStarRodDirVersion(dir: vscode.Uri | undefined = getStarRodDir()): Promise<string | undefined> {
+    if (!dir) return undefined
+
     const jar = dir.with({ path: dir.path + '/StarRod.jar' })
 
     try {

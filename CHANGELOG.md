@@ -1,7 +1,8 @@
 # Changelog
 
-## 0.7.1
+## 0.8.0
 
+- Added _Compile Mod_ and _Compile Map..._ commands. Use `Ctrl+P` and type 'Star Rod' to use them.
 - Added an option to disable showing script keyword documentation when they are hovered over.
 - Added a prompt to set the Star Rod installation directory if it is unset or invalid.
 - Fixed syntax highlighting for `#new:Script_Main`, `#new:Function_Init`, `#new:Script:Global`, etc.
