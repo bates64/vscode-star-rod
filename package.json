@@ -64,6 +64,11 @@
 				"command": "starRod.compileMap",
 				"title": "Compile Map...",
 				"category": "Star Rod"
+			},
+			{
+				"command": "starRod.runMod",
+				"title": "Run Mod",
+				"category": "Star Rod"
 			}
 		],
 		"menus": {
@@ -74,6 +79,10 @@
 				},
 				{
 					"command": "starRod.compileMod",
+					"when": "workbenchState == 'folder'"
+				},
+				{
+					"command": "starRod.runMod",
 					"when": "workbenchState == 'folder'"
 				}
 			]
@@ -91,6 +100,11 @@
 					"default": true,
 					"scope": "window",
 					"markdownDescription": "Show documentation for script keywords such as `Add` and `Loop` when the mouse is held over them."
+				},
+				"starRod.emulatorPath": {
+					"type": "string",
+					"scope": "machine-overridable",
+					"markdownDescription": "Path to an emulator executable. It will be called with the path to the compiled `z64` as an argument when _Run Mod_ is used."
 				}
 			}
 		}

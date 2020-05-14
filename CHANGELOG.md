@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.0
+
+- Added _Run Mod_, a command that runs the compiled mod in an emulator. You may need to set `starRod.emulatorPath` in your preferences.
+
 ## 0.8.0
 
 - Added _Compile Mod_ and _Compile Map..._ commands. Use `Ctrl+P` and type 'Star Rod' to use them.

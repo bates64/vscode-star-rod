@@ -22,7 +22,12 @@ export default function activate(ctx: vscode.ExtensionContext) {
         }, () => mod.compile())
         
         if (obj.emitError) await obj.emitError()
-        else vscode.window.showInformationMessage('Compiled mod.')
+        else {
+            const choice = await vscode.window.showInformationMessage('Compiled mod.', 'Run Mod')
+            if (choice === 'Run Mod') {
+                await mod.runEmulator()
+            }
+        }
     }))
 
     ctx.subscriptions.push(vscode.commands.registerCommand('starRod.compileMap', async () => {
@@ -48,5 +53,16 @@ export default function activate(ctx: vscode.ExtensionContext) {
             if (obj.emitError) await obj.emitError()
             else vscode.window.showInformationMessage(`Compiled ${map}.`)
         }
+    }))
+
+    ctx.subscriptions.push(vscode.commands.registerCommand('starRod.runMod', async () => {
+        const mod = Mod.getActive()
+
+        if (!mod) {
+            vscode.window.showErrorMessage('No mod folder open.')
+            return
+        }
+
+        await mod.runEmulator()
     }))
 }

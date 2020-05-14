@@ -1,10 +1,12 @@
 import * as vscode from 'vscode'
-import { exec } from 'child_process'
+import { exec, spawn } from 'child_process'
 import { promisify as p } from 'util'
+import fs from 'fs'
 import { StringDecoder } from 'string_decoder'
 import { getStarRodDir } from './extension'
 
 const deUtf8 = new StringDecoder('utf8')
+const fileExists = (s: string) => new Promise(r => fs.access(s, fs.constants.F_OK, e => r(!e)))
 
 export default class Mod {
     uri: vscode.Uri
@@ -133,6 +135,50 @@ export default class Mod {
         return dirList
             .filter(([string, fileType]) => string.endsWith('.xml'))
             .map(([string, fileType]) => string.substr(0, string.length - 4))
+    }
+
+    async runEmulator() {
+        const config = vscode.workspace.getConfiguration()
+        let emulator = config.get('starRod.emulatorPath', '')
+
+        if (!emulator) {
+            // Let's make some guesses...
+            const guesses = [
+                '/usr/bin/mupen64plus',
+                '/usr/bin/retroarch',
+                'C:\\Program Files (x86)\\Project64 2.3\\Project64.exe',
+            ]
+            for (const guess of guesses) {
+                if (await fileExists(guess)) {
+                    emulator = guess
+                }
+            }
+        }
+
+        if (!emulator) {
+            vscode.window.showWarningMessage('No emulator path configured. Please update it in Settings.')
+            return
+        }
+
+        const rom = await this.ouputRom()
+
+        if (!rom) {
+            vscode.window.showWarningMessage('No output z64 found. Compile the mod before running it.')
+            return
+        }
+
+        p(spawn)(emulator, [rom.fsPath], {})
+    }
+
+    async ouputRom(): Promise<vscode.Uri | undefined> {
+        const dirList = await vscode.workspace.fs.readDirectory(this.uri.with({ path: this.uri.path + '/out' }))
+        const romName = dirList.find(([name]) => name.endsWith('.z64'))?.[0]
+
+        if (romName) {
+            return this.uri.with({ path: this.uri.path + '/out/' + romName })
+        }
+
+        return undefined
     }
 
     private async setMainCfg(starRodDir: vscode.Uri, key: string, value: string): Promise<() => Promise<void>> {
