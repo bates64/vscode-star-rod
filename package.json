@@ -60,6 +60,12 @@
 					"type": "string",
 					"scope": "machine-overridable",
 					"markdownDescription": "Absolute path to a [Star Rod](https://github.com/nanaian/star-rod) installation directory."
+				},
+				"starRod.showHoverDocumentationForScriptKeywords": {
+					"type": "boolean",
+					"default": true,
+					"scope": "window",
+					"markdownDescription": "Show documentation for script keywords such as `Add` and `Loop` when the mouse is held over them."
 				}
 			}
 		}

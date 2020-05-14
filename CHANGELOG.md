@@ -2,6 +2,8 @@
 
 ## 0.7.1
 
+- Added an option to disable showing script keyword documentation when they are hovered over.
+- Added a prompt to set the Star Rod installation directory if it is unset or invalid.
 - Fixed syntax highlighting for `#new:Script_Main`, `#new:Function_Init`, `#new:Script:Global`, etc.
 
 ## 0.7.0

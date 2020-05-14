@@ -14,6 +14,7 @@ import {
     FoldingRange,
     FoldingRangeKind,
 } from 'vscode'
+import * as vscode from 'vscode'
 
 import * as LIB from './lib.json'
 import fixWs from 'fix-whitespace'
@@ -1197,7 +1198,7 @@ export function register() {
             if (hoveredToken === opToken) {
                 const op = SCRIPT_OPS.get(opToken.source)
 
-                if (op)
+                if (op && vscode.workspace.getConfiguration().get('starRod.showHoverDocumentationForScriptKeywords', true))
                     return new Hover(op.documentation, opToken.range)
             } else if (opToken.source === 'Call' && hoveredToken == tokens[1]) {
                 const funcToken = tokens[1]
