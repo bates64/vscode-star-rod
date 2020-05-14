@@ -15,7 +15,7 @@
 		"url": "https://github.com/nanaian/vscode-star-rod.git"
 	},
 	"engines": {
-		"vscode": "^1.43.0"
+		"vscode": "^1.45.0"
 	},
 	"categories": [
 		"Programming Languages"
