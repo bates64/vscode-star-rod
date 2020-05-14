@@ -59,7 +59,7 @@
 				"starRod.installDirectory": {
 					"type": "string",
 					"scope": "machine-overridable",
-					"markdownDescription": "Absolute path to a [Star Rod 0.2.0 installation](https://github.com/nanaian/star-rod/archive/v0.2.0.zip)."
+					"markdownDescription": "Absolute path to a [Star Rod](https://github.com/nanaian/star-rod) installation directory."
 				}
 			}
 		}
