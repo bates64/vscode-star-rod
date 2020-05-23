@@ -34,8 +34,9 @@ export default class Mod {
         const resetCfg = await this.setMainCfg(starRodDir, 'ModPath', this.uri.fsPath)
 
         try {
-            const { stdout } = await p(exec)('java -jar StarRod.jar -CompileMod', {
+            const { stdout } = await p(exec)('java -Xmx1G -jar StarRod.jar -CompileMod', {
                 cwd: starRodDir.fsPath,
+                maxBuffer: 4194304, // 4 MiB 
             })
 
             // Attempt to check specific errors
@@ -105,7 +106,7 @@ export default class Mod {
         const resetCfg = await this.setMainCfg(starRodDir, 'ModPath', this.uri.fsPath)
 
         try {
-            const { stdout } = await p(exec)(`java -jar StarRod.jar -CompileMap ${mapName}.xml`, {
+            const { stdout } = await p(exec)(`java -Xmx1G -jar StarRod.jar -CompileMap ${mapName}.xml`, {
                 cwd: starRodDir.fsPath,
             })
 

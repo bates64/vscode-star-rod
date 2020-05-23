@@ -15,6 +15,8 @@ export default function activate(ctx: vscode.ExtensionContext) {
             vscode.window.showErrorMessage('No mod folder open.')
             return
         }
+        
+        // TODO: complain if mod.cfg not exist
 
         let obj = await vscode.window.withProgress({
             title: `Compiling Mod...`,

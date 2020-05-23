@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.1
+
+- Fixed an issue with _Compile Mod_ where compilation would be aborted if the output from Star Rod was greater than 1 MB. The new limit is 4 MB - please tell me if your mod hits this limit (you'll get an `stdout maxBuffer length exceeded` error) and I can raise it.
+
 ## 0.9.0
 
 - Added _Run Mod_, a command that runs the compiled mod in an emulator. You may need to set `starRod.emulatorPath` in your preferences.
