@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.10.0
+
+- Added support for Star Rod 0.3.0-beta0
+    - Unlike with Star Rod 0.2.0, the database used for function signature documentation is actually provided by the files in your Star Rod `database` folder.
+- Added an _Open Database..._ command which lets you quickly view the database files Star Rod is using. Syntax highlighting has been added for these files also.
+- Syntax highlighting for `mod.cfg`, `main.cfg`, `GameFlags.txt`, and `GameBytes.txt`.
+- Better syntax highlighting for `*.enum` files.
+- Many syntax highlighting fixes.
+
 ## 0.9.1
 
 - Fixed an issue with _Compile Mod_ where compilation would be aborted if the output from Star Rod was greater than 1 MB. The new limit is 4 MB - please tell me if your mod hits this limit (you'll get an `stdout maxBuffer length exceeded` error) and I can raise it.

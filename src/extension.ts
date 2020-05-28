@@ -5,10 +5,11 @@ import activateCommands from './commands'
 const STAR_ROD_JAR_SIZES = new Map([
     // No other good way to check for SR version AFAIK.
     [14553447, '0.2.0'],
+    [16028705, '0.3.0-beta0'],
 ])
 
 export async function activate(ctx: vscode.ExtensionContext) {
-    libProvider.register()
+    await libProvider.register()
     activateCommands(ctx)
 
     const installDir = getStarRodDir()
@@ -46,7 +47,7 @@ async function setStarRodDir(): Promise<boolean> {
     const uris = await vscode.window.showOpenDialog({
         canSelectFiles: false,
         canSelectFolders: true,
-        openLabel: 'Set Star Rod Directory'
+        openLabel: 'Select Star Rod Directory'
     })
 
     if (uris?.[0]) {
@@ -60,7 +61,7 @@ async function setStarRodDir(): Promise<boolean> {
             return true
         } else {
             const item = await vscode.window.showErrorMessage(
-                'The selected directory is not a known Star Rod installation directory.',
+                'The selected directory is not a known Star Rod 0.2+ installation directory.',
                 { modal: true },
                 'Set Installation Directory...',
                 'Cancel'

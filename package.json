@@ -41,10 +41,43 @@
 					".wscr",
 					".wpat",
 					".str",
-					".enum",
 					".patch"
 				],
 				"configuration": "./language-configuration.json"
+			},
+			{
+				"id": "starrodenum",
+				"filenames": [
+					"mod.cfg",
+					"mod.cfg.example",
+					"main.cfg",
+					"GameBytes.txt",
+					"GameFlags.txt"
+				],
+				"aliases": [
+					"Star Rod Config"
+				],
+				"extensions": [
+					".enum"
+				]
+			},
+			{
+				"id": "starrodlib",
+				"aliases": [
+					"Star Rod Library",
+					"starrodlib"
+				],
+				"filenames": [
+					"shared_func_library.txt",
+					"battle_func_library.txt",
+					"battle_script_library.txt",
+					"map_func_library.txt",
+					"map_script_library.txt",
+					"system_func_library.txt"
+				],
+				"extensions": [
+					".lib"
+				]
 			}
 		],
 		"grammars": [
@@ -52,6 +85,16 @@
 				"language": "starrod",
 				"scopeName": "source.starrod",
 				"path": "./syntaxes/starrod.tmLanguage.json"
+			},
+			{
+				"language": "starrodenum",
+				"scopeName": "source.starrodenum",
+				"path": "./syntaxes/enum.tmLanguage.json"
+			},
+			{
+				"language": "starrodlib",
+				"scopeName": "source.starrodlib",
+				"path": "./syntaxes/lib.tmLanguage.json"
 			}
 		],
 		"commands": [
@@ -68,6 +111,11 @@
 			{
 				"command": "starRod.runMod",
 				"title": "Run Mod",
+				"category": "Star Rod"
+			},
+			{
+				"command": "starRod.openDatabase",
+				"title": "Open Database...",
 				"category": "Star Rod"
 			}
 		],
@@ -115,7 +163,7 @@
 		"publisherId": "8de2bba1-d0d5-431c-acd7-3a20852a6dec"
 	},
 	"devDependencies": {
-		"@types/node": "^14.0.1",
+		"@types/node": "^14.0.5",
 		"@types/vscode": "^1.43.0",
 		"typescript": "^3.9.2"
 	},
@@ -126,6 +174,7 @@
 		"makelib": "node lib/make.js > src/lib.json"
 	},
 	"dependencies": {
+		"change-case": "^4.1.1",
 		"fix-whitespace": "^1.0.3"
 	}
 }

@@ -4,51 +4,74 @@
   "scopeName": "source.starrod",
   "patterns": [
     { "include": "#comment" },
-    { "include": "#directive" },
-    { "include": "#script" }
+    { "include": "#directive" }
   ],
   "repository": {
     "directive": {
       "patterns": [
         {
           "name": "meta.block.function.patch.starrod",
-          "begin": "^\\s*(@)Hook\\s*",
-          "end": "^[ \t]*$",
+          "begin": "^\\s*((@)Hook)\\s+([0-9A-F]{1,8})\\s*({|(?=%)|$)",
+          "end": "(?=#[^DU])|(?=@)|(})",
+          "endCaptures": {
+            "3": { "name": "punctuation.definition.end.bracket.curly.starrod" }
+          },
           "beginCaptures": {
-            "0": { "name": "storage.type.function.hook.starrod" },
-            "1": { "name": "punctuation.at.starrod" }
+            "1": { "name": "storage.type.function.hook.starrod" },
+            "2": { "name": "punctuation.at.starrod" },
+            "3": { "name": "constant.numeric.hexadecimal.offset.rom.starrod" }
           },
           "patterns": [
-            { "include": "#asm" }
+            { "include": "#asm" },
+            {
+              "name": "punctuation.definition.start.bracket.curly.starrod",
+              "match": "^\\s*{\\s*((?=%)|$)"
+            }
           ]
         },
         {
           "name": "meta.block.other.data.patch.starrod",
-          "begin": "^\\s*(@)Data\\s*",
-          "end": "^[ \t]*$",
+          "begin": "^\\s*((@)Data)\\s+([0-9A-F]{1,8})\\s*({|(?=%)|$)",
+          "end": "(?=#)|(?=@)|(})",
+          "endCaptures": {
+            "3": { "name": "punctuation.definition.end.bracket.curly.starrod" }
+          },
           "beginCaptures": {
-            "0": { "name": "storage.type.data.starrod" },
-            "1": { "name": "punctuation.at.starrod" }
+            "1": { "name": "storage.type.data.starrod" },
+            "2": { "name": "punctuation.at.starrod" },
+            "3": { "name": "constant.numeric.hexadecimal.offset.rom.starrod" }
           },
           "patterns": [
-            { "include": "#data" }
+            { "include": "#data" },
+            {
+              "name": "punctuation.definition.start.bracket.curly.starrod",
+              "match": "^\\s*{\\s*((?=%)|$)"
+            }
           ]
         },
         {
           "name": "meta.block.function.patch.starrod",
-          "begin": "^\\s*(@)Function\\s*",
-          "end": "^[ \t]*$",
+          "begin": "^\\s*((@)Function)\\s+([0-9A-F]{1,8})\\s*({|(?=%)|$)",
+          "end": "(?=#[^DU])|(?=@)|(})",
+          "endCaptures": {
+            "3": { "name": "punctuation.definition.end.bracket.curly.starrod" }
+          },
           "beginCaptures": {
-            "0": { "name": "storage.type.function.patch.starrod" },
-            "1": { "name": "punctuation.at.starrod" }
+            "1": { "name": "storage.type.function.patch.starrod" },
+            "2": { "name": "punctuation.at.starrod" },
+            "3": { "name": "constant.numeric.hexadecimal.offset.rom.starrod" }
           },
           "patterns": [
-            { "include": "#asm" }
+            { "include": "#asm" },
+            {
+              "name": "punctuation.definition.start.bracket.curly.starrod",
+              "match": "^\\s*{\\s*((?=%)|$)"
+            }
           ]
         },
         {
           "name": "meta.block.script.patch.starrod",
-          "begin": "^\\s*(@)Script((:)(Global|Map|Battle))?\\s*",
+          "begin": "^\\s*(@)Script((:)(Global|Map|Battle|World))?\\s*",
           "end": "^[ \t]*$",
           "beginCaptures": {
             "0": { "name": "storage.type.script.patch.starrod" },
@@ -56,31 +79,41 @@
             "3": { "name": "punctuation.separator.starrod" }
           },
           "patterns": [
-            { "include": "#script" }
+            { "include": "#script" },
+            {
+              "name": "punctuation.definition.start.bracket.curly.starrod",
+              "match": "^\\s*{\\s*((?=%)|$)"
+            }
           ]
         },
         {
           "name": "meta.block.unknown.patch.starrod",
-          "begin": "^\\s*(@)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b",
-          "end": "^[ \t]*$",
+          "begin": "^\\s*(@)\\s+((\\$)[^ \t:]+((:)[^ \t:]+)*)(\\s*({|(?=%)|$))",
+          "end": "(?=#[^DU])|(?=@)|(})",
+          "endCaptures": {
+            "3": { "name": "punctuation.definition.end.bracket.curly.starrod" }
+          },
           "beginCaptures": {
             "0": { "name": "meta.head.unknown.patch.starrod" },
             "1": { "name": "punctuation.at.starrod" },
             "2": { "name": "entity.name.definition.unknown.starrod" },
             "3": { "name": "punctuation.definition.variable.starrod" },
             "5": { "name": "punctuation.separator.namespace.access.starrod" }
-
           },
           "patterns": [
             { "include": "#script" },
             { "include": "#asm" },
-            { "include": "#data" }
+            { "include": "#data" },
+            {
+              "name": "punctuation.definition.start.bracket.curly.starrod",
+              "match": "^\\s*{\\s*((?=%)|$)"
+            }
           ]
         },
         {
           "name": "meta.block.function.starrod",
-          "begin": "^\\s*((#)new)(:)(Function(_Init|_GetTattle)?)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b",
-          "end": "^[ \t]*$",
+          "begin": "^\\s*((#)new)(:)(Function(_Init|_GetTattle)?)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
+          "end": "(?=#[^DU])|(?=@)|(})",
           "beginCaptures": {
             "0": { "name": "meta.head.function.definition.starrod" },
             "1": { "name": "storage.modifier.new.starrod" },
@@ -89,7 +122,11 @@
             "4": { "name": "storage.type.function.starrod" },
             "6": { "name": "entity.name.function.definition.starrod" },
             "7": { "name": "punctuation.definition.variable.starrod" },
-            "9": { "name": "punctuation.separator.namespace.access.starrod" }
+            "9": { "name": "punctuation.separator.namespace.access.starrod" },
+            "10": { "name": "punctuation.definition.begin.bracket.curly.starrod" }
+          },
+          "endCaptures": {
+            "3": { "name": "punctuation.definition.end.bracket.curly.starrod" }
           },
           "patterns": [
             { "include": "#asm" }
@@ -97,8 +134,8 @@
         },
         {
           "name": "meta.block.script.starrod",
-          "begin": "^\\s*((#)new)(:)(Script(_Main|_Use|(:)(Global|Map|Battle))?)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b",
-          "end": "^[ \t]*$",
+          "begin": "^\\s*((#)new)(:)(Script(_Main|_Use|(:)(Global|Map|Battle))?)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
+          "end": "(?=#)|(?=@)|(})",
           "beginCaptures": {
             "0": { "name": "meta.head.script.definition.starrod" },
             "1": { "name": "storage.modifier.new.starrod" },
@@ -108,16 +145,24 @@
             "6": { "name": "punctuation.separator.starrod" },
             "8": { "name": "entity.name.script.definition.starrod" },
             "9": { "name": "punctuation.definition.variable.starrod" },
-            "11": { "name": "punctuation.separator.namespace.access.starrod" }
+            "11": { "name": "punctuation.separator.namespace.access.starrod" },
+            "12": { "name": "punctuation.definition.begin.bracket.curly.starrod" }
+          },
+          "endCaptures": {
+            "3": { "name": "punctuation.definition.begin.bracket.curly.starrod" }
           },
           "patterns": [
-            { "include": "#script" }
+            { "include": "#script" },
+            {
+              "name": "punctuation.definition.start.bracket.curly.starrod",
+              "match": "^\\s*{\\s*((?=%)|$)"
+            }
           ]
         },
         {
           "name": "meta.block.string.starrod",
-          "begin": "^\\s*((#)string)(:)([0-9A-Fa-f]{2})(:)([0-9A-Fa-f]{3})(\\s|$)",
-          "end": "(\\[)(END)(\\])",
+          "begin": "^\\s*((#)string)(:)([0-9A-Fa-f]{2})(:)([0-9A-Fa-f]{3})(\\s*({|(?=%)|$))",
+          "end": "(?=#)|(?=@)|((\\[)(END)(\\]))\\s*(})?",
           "beginCaptures": {
             "0": { "name": "meta.head.string.definition.by-id.starrod" },
             "1": { "name": "storage.type.string.starrod" },
@@ -125,21 +170,27 @@
             "3": { "name": "punctuation.separator.starrod" },
             "4": { "name": "constant.numeric.starrod" },
             "5": { "name": "punctuation.separator.starrod" },
-            "6": { "name": "constant.numeric.starrod" }
+            "6": { "name": "constant.numeric.starrod" },
+            "7": { "name": "punctuation.definition.begin.bracket.curly.starrod" }
           },
           "endCaptures": {
-            "0": { "name": "keyword.control.string.end.starrod" },
-            "1": { "name": "punctuation.definition.begin.bracket.square.starrod" },
-            "3": { "name": "punctuation.definition.end.bracket.square.starrod" }
+            "1": { "name": "keyword.control.string.end.starrod" },
+            "2": { "name": "punctuation.definition.begin.bracket.square.starrod" },
+            "4": { "name": "punctuation.definition.end.bracket.square.starrod" },
+            "5": { "name": "punctuation.definition.end.bracket.curly.starrod" }
           },
           "patterns": [
-            { "include": "#dialogue" }
+            { "include": "#dialogue" },
+            {
+              "name": "punctuation.definition.start.bracket.curly.starrod",
+              "match": "^\\s*{\\s*((?=%)|$)"
+            }
           ]
         },
         {
           "name": "meta.block.string.starrod",
-          "begin": "^\\s*((#)string)(:)([0-9A-Fa-f]{2})(:)(\\()([^\\(]+)(\\))(\\s|$)",
-          "end": "(\\[)(END)(\\])",
+          "begin": "^\\s*((#)string)(:)([0-9A-Fa-f]{2})(:)(\\()([^\\(]+)(\\))(\\s*({|(?=%)|$))",
+          "end": "(?=#)|(?=@)|((\\[)(END)(\\]))\\s*(})?",
           "beginCaptures": {
             "0": { "name": "meta.head.string.definition.by-name.starrod" },
             "1": { "name": "storage.type.string.starrod" },
@@ -149,42 +200,57 @@
             "5": { "name": "punctuation.separator.starrod" },
             "6": { "name": "punctuation.section.parameters.begin.bracket.round.starrod" },
             "7": { "name": "entity.name.string.definition.starrod" },
-            "8": { "name": "punctuation.section.parameters.end.bracket.round.starrod" }
+            "8": { "name": "punctuation.section.parameters.end.bracket.round.starrod" },
+            "9": { "name": "punctuation.definition.begin.bracket.curly.starrod" }
           },
           "endCaptures": {
-            "0": { "name": "keyword.control.string.end.starrod" },
-            "1": { "name": "punctuation.definition.begin.bracket.square.starrod" },
-            "3": { "name": "punctuation.definition.end.bracket.square.starrod" }
+            "1": { "name": "keyword.control.string.end.starrod" },
+            "2": { "name": "punctuation.definition.begin.bracket.square.starrod" },
+            "4": { "name": "punctuation.definition.end.bracket.square.starrod" },
+            "5": { "name": "punctuation.definition.end.bracket.curly.starrod" }
           },
           "patterns": [
-            { "include": "#dialogue" }
+            { "include": "#dialogue" },
+            {
+              "name": "punctuation.definition.start.bracket.curly.starrod",
+              "match": "^\\s*{\\s*((?=%)|$)"
+            }
           ]
         },
         {
           "name": "meta.block.string.starrod",
-          "begin": "^\\s*((#)string)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^^ \t$#/%\\(\\[]+)?)\\b",
-          "end": "(\\[)(END)(\\])",
+          "begin": "^\\s*((#)string)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
+          "end": "(?=#)|(?=@)|((\\[)(END)(\\]))\\s*(})?",
           "beginCaptures": {
             "0": { "name": "meta.head.string.definition.by-pointer.starrod" },
             "1": { "name": "storage.type.string.starrod" },
             "2": { "name": "punctuation.definition.directive.starrod" },
             "3": { "name": "entity.name.string.definition.starrod" },
             "4": { "name": "punctuation.definition.variable.starrod" },
-            "6": { "name": "punctuation.separator.namespace.access.starrod" }
+            "6": { "name": "punctuation.separator.namespace.access.starrod" },
+            "7": { "name": "punctuation.definition.begin.bracket.curly.starrod" }
           },
           "endCaptures": {
-            "0": { "name": "keyword.control.string.end.starrod" },
-            "1": { "name": "punctuation.definition.begin.bracket.square.starrod" },
-            "3": { "name": "punctuation.definition.end.bracket.square.starrod" }
+            "1": { "name": "keyword.control.string.end.starrod" },
+            "2": { "name": "punctuation.definition.begin.bracket.square.starrod" },
+            "4": { "name": "punctuation.definition.end.bracket.square.starrod" },
+            "5": { "name": "punctuation.definition.end.bracket.curly.starrod" }
           },
           "patterns": [
-            { "include": "#dialogue" }
+            { "include": "#dialogue" },
+            {
+              "name": "punctuation.definition.start.bracket.curly.starrod",
+              "match": "^\\s*{\\s*((?=%)|$)"
+            }
           ]
         },
         {
           "name": "meta.block.other.starrod",
-          "begin": "^\\s*((#)new)(:)(EntryList|ExtraAnimationList|Header|AISettings|NpcSettings|NpcGroup|NpcGroupList|ASCII|ConstDouble|Unknown|JumpTable|IntTable|FloatTable|ItemList|TriggerCoord|LavaResetList|ByteTable|ShopInventory|ShopItemPositions|ShopPriceList|ShopOwnerNPC|NpcList|VertexList|DisplayList|VectorList|TreeModelList|TreeDropList|ShakeTreeEvent|TreeEffectVectors|ShortTable|DataTable|SearchBushEvent|BadgeShopInventory|TweesterPath|TweesterPathList|Formation|FormationTable|StageTable|DefenseTable|StatusTable|Actor|IdleAnimations|SpriteTable|Stage|ForegroundModelList|SJIS|SpecialFormation|Vector3D|DmaArgTable|Data)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b",
-          "end": "^[ \t]*$",
+          "begin": "^\\s*((#)new)(:)(EntryList|ExtraAnimationList|Header|AISettings|NpcSettings|NpcGroup|NpcGroupList|ASCII|ConstDouble|Unknown|JumpTable|IntTable|FloatTable|ItemList|TriggerCoord|LavaResetList|ByteTable|ShopInventory|ShopItemPositions|ShopPriceList|ShopOwnerNPC|NpcList|VertexList|DisplayList|VectorList|TreeModelList|TreeDropList|ShakeTreeEvent|TreeEffectVectors|ShortTable|DataTable|SearchBushEvent|BadgeShopInventory|TweesterPath|TweesterPathList|Formation|FormationTable|StageTable|DefenseTable|StatusTable|Actor|IdleAnimations|SpriteTable|PartsTable|Stage|ForegroundModelList|SJIS|SpecialFormation|Vector3D|DmaArgTable|Data)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
+          "end": "(?=#)|(?=@)|(})",
+          "endCaptures": {
+            "3": { "name": "punctuation.definition.end.bracket.curly.starrod" }
+          },
           "beginCaptures": {
             "1": { "name": "storage.modifier.new.starrod" },
             "2": { "name": "punctuation.definition.directive.starrod" },
@@ -195,13 +261,16 @@
             "8": { "name": "punctuation.separator.namespace.access.starrod" }
           },
           "patterns": [
-            { "include": "#expression" },
-            { "include": "#comment" }
+            { "include": "#data" },
+            {
+              "name": "punctuation.definition.start.bracket.curly.starrod",
+              "match": "^\\s*{\\s*((?=%)|$)"
+            }
           ]
         },
         {
           "begin": "^\\s*((@)Fill)\\s",
-          "end": "(%|$)",
+          "end": "((?=%)|$)",
           "beginCaptures": {
             "1": { "name": "keyword.control.directive.starrod" },
             "2": { "name": "punctuation.at.starrod" }
@@ -213,7 +282,7 @@
         },
         {
           "begin": "^\\s*((#)(reserve|export|delete))\\s",
-          "end": "(%|$)",
+          "end": "((?=%)|$)",
           "beginCaptures": {
             "1": { "name": "keyword.control.directive.starrod" },
             "2": { "name": "punctuation.definition.directive.starrod" }
@@ -249,7 +318,7 @@
           ]
         },
         {
-          "name": "storage.empty-space.starrod",
+          "name": "invalid.empty-space.starrod",
           "begin": "^\\s*(MISSING|PADDING):",
           "end": "^[ \t]*\n",
           "patterns": [
@@ -379,7 +448,7 @@
         },
         {
           "name": "variable.other.register.usable.by-name.mips.starrod",
-          "match": "([rR]0|[vV][01]|[aA][0-3]|gp|GP|fp|FP|ra|RA)\\b"
+          "match": "([rR]0|[vV][01]|[aA][0-3]|gp|GP|fp|FP|ra|RA|at|AT)\\b"
         },
         {
           "name": "variable.other.register.usable.floating-point.mips.starrod",
@@ -451,10 +520,11 @@
           ]
         },
         {
-          "match": "^[ \t]*([0-9A-Fa-f]+:\\s*)?(Return|End|Label|Goto|Jump|Loop|EndLoop|BreakCase|BreakLoop|If|Else|EndIf|Switch|SwitchConst|Case|Default|CaseOR|CaseAND|EndCaseGroup|EndSwitch|Thread|EndThread|ChildThread|EndChildThread|Wait|WaitSeconds)\\b",
+          "match": "^[ \t]*(([0-9A-Fa-f]+)(:)\\s*)?(Return|End|Label|Goto|Jump|Loop|EndLoop|BreakCase|BreakLoop|If|Else|EndIf|Switch|SwitchConst|Case|Default|CaseOR|CaseAND|EndCaseGroup|EndSwitch|Thread|EndThread|ChildThread|EndChildThread|Wait|WaitSeconds)\\b",
           "captures": {
-            "1": { "name": "constant.numeric.offset.starrod" },
-            "2": { "name": "keyword.control.starrod" }
+            "2": { "name": "constant.numeric.offset.starrod" },
+            "3": { "name": "punctuation.separator.label.starrod" },
+            "4": { "name": "keyword.control.starrod" }
           }
         },
         {
@@ -544,7 +614,7 @@
         },
         {
           "name": "constant.character.escape.line-continuation.starrod",
-          "match": "(\\[)(\\.\\.\\.)(\\])",
+          "match": "(\\[)(\\.\\.\\.|BR)(\\])",
           "captures": {
             "1": { "name": "punctuation.definition.begin.bracket.square.starrod" },
             "3": { "name": "punctuation.definition.end.bracket.square.starrod" }
@@ -587,6 +657,34 @@
           }
         },
         {
+          "name": "support.function.call.expression.starrod",
+          "begin": "(\\[)([A-Za-z0-9_]+)",
+          "beginCaptures": {
+            "1": { "name": "punctuation.begin.bracket.square.starrod" },
+            "2": { "name": "entity.name.function.call.starrod" }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            {
+              "match": "(:)([A-Fa-f0-9]+)(?=[:\\]])",
+              "captures": {
+                "1": { "name": "punctuation.separator.colon.starrod" },
+                "2": { "name": "constant.numeric.hexadecimal.starrod" }
+              }
+            },
+            {
+              "match": "(:)([A-Za-z0-9_]+)(?=[:\\]])",
+              "captures": {
+                "1": { "name": "punctuation.separator.colon.starrod" }
+              }
+            }
+          ],
+          "end": "(\\])|$",
+          "endCaptures": {
+            "1": { "name": "punctuation.end.bracket.square.starrod" }
+          }
+        },
+        {
           "match": "(\\[)(END)(\\])",
           "captures": {
             "0": { "name": "keyword.control.string.end.starrod" },
@@ -600,7 +698,7 @@
     "data": {
       "patterns": [
         {
-          "name": "variable.other.property.offset.starrid",
+          "name": "variable.other.property.offset.starrod",
           "match": "^\\s*(\\[)[^ \t$#/%\\(\\[]+(\\])",
           "captures": {
             "1": { "name": "punctuation.definition.begin.bracket.square.starrod" },
@@ -640,6 +738,31 @@
           "endCaptures": {
             "1": { "name": "punctuation.end.bracket.curly.starrod" }
           }
+        },
+        {
+          "name": "support.function.call.expression.starrod",
+          "begin": "(~)([A-Za-z0-9_]+)",
+          "beginCaptures": {
+            "1": { "name": "punctuation.begin.bracket.curly.starrod" },
+            "2": { "name": "entity.name.function.call.starrod" }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            {
+              "match": "(:)([A-Fa-f0-9]+)(?=[:}])",
+              "captures": {
+                "1": { "name": "punctuation.separator.colon.starrod" },
+                "2": { "name": "constant.numeric.hexadecimal.starrod" }
+              }
+            },
+            {
+              "match": "(:)([A-Za-z0-9_]+)(?=[:}])",
+              "captures": {
+                "1": { "name": "punctuation.separator.colon.starrod" }
+              }
+            }
+          ],
+          "end": "(?=\\s)|$"
         },
         { "include": "#identifier" },
         { "include": "#number" },

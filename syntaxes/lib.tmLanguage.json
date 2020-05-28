@@ -1,0 +1,113 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "star rod library",
+  "scopeName": "source.starrodlib",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#types" },
+    {
+      "name": "variable.other.property.offset.starrod",
+      "begin": "{",
+      "patterns": [
+        { "include": "#types" }
+      ],
+      "end": "}"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "patterns": [
+        {
+          "name": "comment.line.percentage.documentation.starrod",
+          "begin": "%%",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.comment.starrod" }
+          },
+          "end": "\n",
+          "patterns": [
+            {
+              "name": "keyword.codetag.notation.starrod",
+              "match": "(?:\\b(NOTE|XXX|HACK|FIXME|BUG|TODO|TEMP)\\b)"
+            }
+          ]
+        },
+        {
+          "name": "comment.line.percentage.starrod",
+          "begin": "%",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.comment.starrod" }
+          },
+          "end": "\n",
+          "patterns": [
+            {
+              "name": "keyword.codetag.notation.starrod",
+              "match": "(?:\\b(NOTE|XXX|HACK|FIXME|BUG|TODO|TEMP)\\b)"
+            }
+          ]
+        },
+        {
+          "name": "comment.block.percentage.starrod",
+          "begin": "/%",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.comment.begin.starrod" }
+          },
+          "end": "%/",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.comment.end.starrod" }
+          },
+          "patterns": [
+            {
+              "name": "keyword.codetag.notation.starrod",
+              "match": "(?:\\b(NOTE|XXX|HACK|FIXME|BUG|TODO|TEMP)\\b)"
+            }
+          ]
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "support.function.address.starrod",
+          "match": "\\b80[0-9A-Fa-f]{6}\\b"
+        },
+        {
+          "name": "constant.numeric.hexadecimal.starrod",
+          "match": "\\b[0-9A-Fa-f]{1,8}\\b"
+        },
+        {
+          "name": "constant.numeric.float.starrod",
+          "match": "\\b[0-9]+\\.[0-9]+\\b"
+        },
+        {
+          "name": "string.quoted.double.starrod",
+          "begin": "\"",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.string.begin.starrod" }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.starrod",
+              "match": "\\\\."
+            }
+          ],
+          "end": "\"",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.string.end.starrod" }
+          }
+        },
+        {
+          "name": "storage.type.starrod",
+          "match": "\\b(api|asm|scr|dat|void|int|short|float|bool|ptr|collider|model|modelID|npc|enemy|var|stringID)\\b"
+        },
+        {
+          "name": "punctuation.separator.colon.starrod",
+          "match": ":"
+        },
+        {
+          "name": "punctuation.separator.comma.starrod",
+          "match": ","
+        }
+      ]
+    }
+  }
+}

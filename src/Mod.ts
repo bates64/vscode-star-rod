@@ -182,6 +182,24 @@ export default class Mod {
         return undefined
     }
 
+    async getModConfig(): Promise<Map<string, string>> {
+        const path = this.uri.with({ path: this.uri.path + '/mod.cfg' })
+        const original = await vscode.workspace.fs.readFile(path)
+
+        const map = deUtf8.write(Buffer.from(original)).split(/\r?\n/)
+            .reduce((obj, line) => {
+                const match = line.match(/^([a-zA-Z]+) = (.*)$/)
+
+                if (match) {
+                    obj.set(match[1], match[2])
+                }
+
+                return obj
+            }, new Map())
+
+        return map
+    }
+
     private async setMainCfg(starRodDir: vscode.Uri, key: string, value: string): Promise<() => Promise<void>> {
         const path = starRodDir.with({ path: starRodDir.path + '/cfg/main.cfg' })
         const original = await vscode.workspace.fs.readFile(path)

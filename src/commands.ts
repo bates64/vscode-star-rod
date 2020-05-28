@@ -1,22 +1,47 @@
 import * as vscode from 'vscode'
-import { getStarRodDirVersion, handleInstallPrompt } from './extension'
+import { headerCase } from 'change-case'
+
+import { getStarRodDirVersion, getStarRodDir } from './extension'
 import Mod from './Mod'
+import { listDatabaseFiles } from './database'
+
+const getActiveModSafe = async () => {
+    const srVersion = await getStarRodDirVersion()
+    if (!srVersion) {
+        vscode.window.showErrorMessage('Star Rod installation directory is not configured.')
+        return
+    }
+
+    const mod = Mod.getActive()
+
+    if (!mod) {
+        vscode.window.showErrorMessage('No mod folder open.')
+        return
+    }
+
+    try {
+        const modVersion = (await mod.getModConfig()).get('BuildVersion')
+
+        let match = false
+        if (modVersion === '0.2.0' && srVersion === '0.2.0') match = true
+        if (modVersion === '0.2.1' && srVersion === '0.3.0-beta0') match = true
+
+        if (!match) {
+            vscode.window.showErrorMessage(`Star Rod version (${srVersion}) and mod version (${modVersion}) do not match.`)
+            return
+        }
+    } catch {
+        vscode.window.showErrorMessage('No mod folder open.')
+        return
+    }
+
+    return mod
+}
 
 export default function activate(ctx: vscode.ExtensionContext) {
     ctx.subscriptions.push(vscode.commands.registerCommand('starRod.compileMod', async () => {
-        if (!getStarRodDirVersion()) {
-            vscode.window.showErrorMessage('Star Rod installation directory is not configured.')
-            return
-        }
-
-        const mod = Mod.getActive()
-
-        if (!mod) {
-            vscode.window.showErrorMessage('No mod folder open.')
-            return
-        }
-        
-        // TODO: complain if mod.cfg not exist
+        const mod = await getActiveModSafe()
+        if (!mod) return
 
         let obj = await vscode.window.withProgress({
             title: `Compiling Mod...`,
@@ -33,17 +58,8 @@ export default function activate(ctx: vscode.ExtensionContext) {
     }))
 
     ctx.subscriptions.push(vscode.commands.registerCommand('starRod.compileMap', async () => {
-        if (!getStarRodDirVersion()) {
-            vscode.window.showErrorMessage('Star Rod installation directory is not configured.')
-            return
-        }
-
-        const mod = Mod.getActive()
-
-        if (!mod) {
-            vscode.window.showErrorMessage('No mod folder open.')
-            return
-        }
+        const mod = await getActiveModSafe()
+        if (!mod) return
 
         const map = await vscode.window.showQuickPick(await mod.getSaveMaps())
         if (map) {
@@ -58,13 +74,61 @@ export default function activate(ctx: vscode.ExtensionContext) {
     }))
 
     ctx.subscriptions.push(vscode.commands.registerCommand('starRod.runMod', async () => {
-        const mod = Mod.getActive()
+        const mod = await getActiveModSafe()
+        if (!mod) return
 
-        if (!mod) {
+        try {
+            await mod.getModConfig()
+        } catch {
             vscode.window.showErrorMessage('No mod folder open.')
             return
         }
 
         await mod.runEmulator()
+    }))
+
+    ctx.subscriptions.push(vscode.commands.registerCommand('starRod.openDatabase', async () => {
+        const dir = getStarRodDir()
+
+        if (!dir) {
+            vscode.window.showErrorMessage('Star Rod installation directory is not configured.')
+            return
+        }
+
+        const srVersion = await getStarRodDirVersion()
+        let paths: Record<string, vscode.Uri> = {}
+        if (srVersion === '0.2.0') {
+            paths = {
+                'Shared':           dir.with({ path: dir.path + '/database/shared_func_library.txt' }),
+                'Battle Functions': dir.with({ path: dir.path + '/database/battle_func_library.txt' }),
+                'Battle Scripts':   dir.with({ path: dir.path + '/database/battle_script_library.txt' }),
+                'Map Functions':    dir.with({ path: dir.path + '/database/map_func_library.txt' }),
+                'Map Scripts':      dir.with({ path: dir.path + '/database/map_script_library.txt' }),
+                'System':           dir.with({ path: dir.path + '/database/system_func_library.txt' }),
+            }
+        } else if (srVersion?.startsWith('0.3.0')) {
+            const files = await listDatabaseFiles(dir)
+            paths = files.reduce((paths: Record<string, vscode.Uri>, uri) => {
+                const folders = uri.path.split('/')
+                const base = folders.pop()
+
+                if (base) {
+                    const basename = base.split('.').slice(0, -1).join('.') // Drop file extension
+
+                    paths[headerCase(basename.replace(/[_]/g, ' '))] = uri
+                }
+                
+                return paths
+            }, {})
+        }
+
+        const choice = await vscode.window.showQuickPick(Object.keys(paths))
+
+        if (!choice) {
+            return
+        }
+
+        const doc = await vscode.workspace.openTextDocument(paths[choice])
+        await vscode.window.showTextDocument(doc)
     }))
 }

@@ -17,7 +17,10 @@ import {
 import * as vscode from 'vscode'
 
 import * as LIB from './lib.json'
+import loadDatabase, { Entry, Arg, Database } from './database'
 import fixWs from 'fix-whitespace'
+import Mod from './Mod'
+import { getStarRodDir } from './extension'
 
 const SCRIPT_OPS = new Map([
     ['End', {
@@ -470,19 +473,19 @@ const SCRIPT_OPS = new Map([
 
         Shifts a value out the current buffer, advancing past it.
 
-            #new:IntTable $IntTable
-            01 02 03
+            #new:IntTable $IntTable { 01 02 03 }
 
-            #new:Script $Script_Example
-            UseIntBuffer $IntTable
-            Get1Int *Var[0]
-            Get1Int *Var[1]
-            Get1Int *Var[2]
-            % *Var[0] = 01
-            % *Var[1] = 02
-            % *Var[2] = 03
-            Return
-            End
+            #new:Script $Script_Example {
+                UseIntBuffer $IntTable
+                Get1Int *Var[0]
+                Get1Int *Var[1]
+                Get1Int *Var[2]
+                % *Var[0] = 01
+                % *Var[1] = 02
+                % *Var[2] = 03
+                Return
+                End
+            }
         `
     }],
     ['Get2Int', {
@@ -981,25 +984,12 @@ const SCRIPT_OPS = new Map([
 
         ---
 
-        Prints a script variable name and its value to \`802DACA0\` according to the original naming convention used by the developers, e.g. \`*GameByte[X]\` = \`GSW(X)\`.
+        Prints a script variable name and its decimal value to \`802DACA0\` according to the original naming convention used by the developers, e.g. \`*GameByte[X]\` is printed as \`GSW(X)\`.
 
         If you turn on _Enable Debug Information_ in the build options and press DPad-Right during gameplay, printed variables will be shown onscreen along with a bunch of other information.
         `
     }]
 ])
-
-interface Doc {
-    usage: string,
-    address: number,
-    name: string,
-    args: ArgDoc[],
-    notes: string,
-}
-
-interface ArgDoc {
-    name?: string,
-    type: string,
-}
 
 interface Token {
     source: string,
@@ -1171,29 +1161,125 @@ function getStructTypeAt(document: TextDocument, startPos: Position): string {
     }
 }
 
-export function register() {
+export async function register() {
+    const mod = Mod.getActive()
+
+    let syntaxVersion = 0.0
+    if (mod) {
+        try {
+            const modConfig = await mod.getModConfig()
+            if (modConfig.get('BuildVersion') === '0.2.0') {
+                syntaxVersion = 0.2
+            } else if (['0.2.1', '0.3.0'].includes(modConfig.get('BuildVersion') ?? '')) {
+                syntaxVersion = 0.3
+            }
+        } catch {}
+    }
+
+    let lib: Database = { common: [], map: [], battle: [] }
+    if (syntaxVersion === 0.2) {
+        lib = LIB as Database
+    } else if (syntaxVersion >= 0.3) {
+        const srDir = getStarRodDir()
+        if (srDir) lib = await loadDatabase(srDir)
+    }
+
+    const getDatabaseForDoc = (document: vscode.TextDocument): Entry[] => {
+        const { sourceType } = parseFileExtension(document.fileName)
+        const database: Entry[] = [...lib.common]
+
+        if (sourceType === 'm') database.push(...lib.map)
+        if (sourceType === 'b') database.push(...lib.battle)
+        // TODO: main menu & pause scopes
+
+        // TODO: also add locally-defined/imported/global-patch functions and scripts to the database
+
+        return database
+    }
+
+    const getEntryByName = (db: Entry[], name: string) => {
+        return db.find(d => d.name === name || d.ramAddress === name)
+    }
+
+    const documentEntry = (entry: Entry) => {
+        const documentArg = (arg: Arg) => {
+            let doc = ''
+
+            if (arg.container) doc += `*${arg.container}* `
+
+            if (arg.out) doc += `${arg.type}<${arg.outType}>`
+            else doc += arg.type
+
+            doc += ` **${arg.name}**`
+
+            if (arg.note) doc += ` - ${arg.note}`
+
+            return doc
+        }
+
+        let doc = fixWs`
+            \`\`\`starrodlib
+            ${entry.usage} ${documentEntryOneLine(entry)} ${entry.note ? `% ${entry.note}` : ''}
+            \`\`\`
+
+            ---
+        `
+
+        if (entry.ramAddress) {
+            doc += `\n\n RAM address: ${entry.ramAddress}`
+        }
+        if (entry.romAddress) {
+            doc += `\n\n ROM address: ${entry.romAddress}`
+        }
+
+        if (entry.args.length) {
+            doc += '\n\n'
+            doc += fixWs`
+                Arguments (${entry.args.length.toString()}):
+                ${entry.args.map(arg => '- ' + documentArg(arg)).join('\n')}
+            `
+        }
+
+        if (entry.returns.length) {
+            doc += '\n\n'
+            doc += fixWs`
+                Returns (${entry.returns.length.toString()}):
+                ${entry.returns.map(arg => '- ' + documentArg(arg)).join('\n')}
+            `
+        }
+
+        return doc
+    }
+
+    const documentEntryOneLine = (entry: Entry) => {
+        return `${entry.name}(${entry.args.map(arg => arg.name).join(', ')})`
+    }
+
     languages.registerHoverProvider('starrod', {
         provideHover(document, position, token) {
             const tokens = tokenizeLine(document.lineAt(position))
             const hoveredToken: Token | undefined = tokens.find(t => t.range.contains(position))
-            const { sourceType, isPatch } = parseFileExtension(document.fileName)
-            const structType = getStructTypeAt(document, position)
-
-            const database: Doc[] = []
-            database.push(...LIB.shared)
-            if (sourceType === 'm') database.push(...LIB.map)
-            if (sourceType === 'b') database.push(...LIB.battle)
-
-            // TODO: also add locally-defined/imported/global-patch functions and scripts to the database
-
-            if (!hoveredToken) {
-                return
-            }
+            if (!hoveredToken) return
 
             const hasOffset = tokens.length && /^[A-Za-z0-9]+:$/.test(tokens[0].source)
             const offsetToken = hasOffset ? tokens.shift() : null
 
             const opToken = tokens[0]
+
+            const db = getDatabaseForDoc(document)
+
+            const handleExpression = (expression: string) => {
+                const args = expression.split(':')
+
+                if (args[0] === 'Func') {
+                    const entry = getEntryByName(db, args[1])
+                    if (entry) {
+                        return new Hover(documentEntry(entry), tokens[1].range)
+                    }
+                }
+
+                return undefined
+            }
 
             if (hoveredToken === opToken) {
                 const op = SCRIPT_OPS.get(opToken.source)
@@ -1202,91 +1288,12 @@ export function register() {
                     return new Hover(op.documentation, opToken.range)
             } else if (opToken.source === 'Call' && hoveredToken == tokens[1]) {
                 const funcToken = tokens[1]
-                const funcName = funcToken.source
-                const funcInt = parseInt(funcName, 16) // NOTE: parseInt("DHello", 16) returns 13 :/
-
-                let databaseItems: Doc[]
-                if (isNaN(funcInt) || funcInt < 0x80000000) {
-                    databaseItems = database
-                        .filter(d => d.usage === 'api' && d.name === funcName)
-                } else {
-                    databaseItems = database
-                        .filter(d => d.usage === 'api' && d.address === funcInt)
-                }
-
-                return new Hover(databaseItems.map(d => {
-                    let argList = '()'
-
-                    if (d.args.length) {
-                        argList = `( ${d.args.map(a => {
-                            if (a.name && a.type !== a.name) {
-                                return `${a.name}: ${a.type}`
-                            } else {
-                                return a.type
-                            }
-                        }).join(', ')} )`
-                    }
-
-                    if (d.notes.length) {
-                        return new MarkdownString(fixWs`
-                            \`\`\`
-                            Call ${d.name} ${argList}
-                            \`\`\`
-
-                            ---
-
-                            ${d.notes}
-                        `)
-                    } else {
-                        return new MarkdownString(fixWs`
-                            \`\`\`
-                            Call ${d.name} ${argList}
-                            \`\`\`
-                        `)
-                    }
-                }, funcToken.range))
-            } else if (hoveredToken.source.startsWith('{') && hoveredToken.source.endsWith('}')) {
-                const expression = hoveredToken.source.substr(1, hoveredToken.source.length - 2)
-                const args = expression.split(':')
-
-                if (args[0] === 'Func') {
-                    const funcName = args[1]
-
-                    let databaseItems = database
-                        .filter(d => d.usage === 'asm' && d.name === funcName)
-
-                    return new Hover(databaseItems.map(d => {
-                        let argList = '()'
-
-                        if (d.args.length) {
-                            argList = `(${d.args.map(a => {
-                                if (a.name && a.type !== a.name) {
-                                    return `${a.type} ${a.name}`
-                                } else {
-                                    return a.type
-                                }
-                            }).join(', ')})`
-                        }
-
-                        if (d.notes.length) {
-                            return new MarkdownString(fixWs`
-                                \`\`\`
-                                ${d.name}${argList}
-                                \`\`\`
-
-                                ---
-
-                                ${d.notes}
-                            `)
-                        } else {
-                            return new MarkdownString(fixWs`
-                                \`\`\`
-                                ${d.name}${argList}
-                                \`\`\`
-                            `)
-                        }
-                    }), hoveredToken.range)
-                }
+                const entry = getEntryByName(db, funcToken.source)
+                if (entry) return new Hover(documentEntry(entry), funcToken.range)
+            } else if (syntaxVersion === 0.2 && hoveredToken.source.startsWith('{') && hoveredToken.source.endsWith('}')) {
+                return handleExpression(hoveredToken.source.substr(1, hoveredToken.source.length - 2))
+            } else if (syntaxVersion === 0.3 && hoveredToken.source.startsWith('~')) {
+                return handleExpression(hoveredToken.source.substr(1))
             }
 
             return null
@@ -1302,14 +1309,6 @@ export function register() {
                     caretTokenIdx++
                 }
             }
-            const { sourceType, isPatch } = parseFileExtension(document.fileName)
-
-            const database: Doc[] = []
-            database.push(...LIB.shared)
-            if (sourceType === 'm') database.push(...LIB.map)
-            if (sourceType === 'b') database.push(...LIB.battle)
-
-            // TODO: also add locally-defined/imported/global-patch functions and scripts to the database
 
             const hasOffset = tokens.length && /^[A-Za-z0-9]+:$/.test(tokens[0].source)
             const offsetToken = hasOffset ? tokens.shift() : null
@@ -1319,48 +1318,36 @@ export function register() {
 
             if (opToken.source === 'Call') {
                 const funcToken = tokens[1]
-                const funcName = funcToken.source
-                const funcInt = parseInt(funcName, 16)
+                const db = getDatabaseForDoc(document)
+                const entry = getEntryByName(db, funcToken.source)
 
-                let databaseItems: Doc[]
-                if (isNaN(funcInt) || funcInt < 0x80000000) {
-                    databaseItems = database
-                        .filter(d => d.usage === 'api' && d.name === funcName)
-                } else {
-                    databaseItems = database
-                        .filter(d => d.usage === 'api' && d.address === funcInt)
+                if (entry) {
+                    const signature = new SignatureInformation(documentEntryOneLine(entry))
+                    signature.documentation = documentEntry(entry)
+                    signature.parameters = entry.args.map(arg => (
+                        new ParameterInformation(arg.name, [
+                            arg.type,
+                            arg.container,
+                            arg.note,
+                        ].join('\n'))
+                    ))
+
+                    const help = new SignatureHelp()
+                    help.activeParameter = tokens[2].source == '('
+                        ? caretTokenIdx - 3
+                        : caretTokenIdx - 2
+                    help.activeSignature = 0
+                    help.signatures = [signature]
+
+                    return help
                 }
-
-                const help = new SignatureHelp()
-                help.activeParameter = tokens[2].source == '('
-                    ? caretTokenIdx - 3
-                    : caretTokenIdx - 2
-                help.activeSignature = 0
-                help.signatures = databaseItems.map(d => {
-                    const sig = new SignatureInformation(
-                        'Call ' + d.name + ' ' + (d.args.length === 0
-                            ? '()'
-                            : '( ' + d.args.map((a, idx) => {
-                                if (a.name && a.name !== a.type) {
-                                    return `${a.name}: ${a.type}`
-                                } else {
-                                    return a.type
-                                }
-                            }).join(' ') + ' )'),
-                        d.notes,
-                    )
-                    sig.parameters = d.args.map(a =>
-                        new ParameterInformation(a.name || a.type)
-                    )
-                    return sig
-                })
-                return help
             }
 
             return null
         }
     }, '(', ' ')
 
+    // FIXME?
     languages.registerCompletionItemProvider('starrod', {
         provideCompletionItems(document, position, token, context) {
             const commentChar = document.lineAt(position).text.indexOf('%')
@@ -1376,15 +1363,9 @@ export function register() {
                     caretTokenIdx++
                 }
             }
-            const { sourceType, isPatch } = parseFileExtension(document.fileName)
             const structType = getStructTypeAt(document, position)
 
-            const database: Doc[] = []
-            database.push(...LIB.shared)
-            if (sourceType === 'm') database.push(...LIB.map)
-            if (sourceType === 'b') database.push(...LIB.battle)
-
-            // TODO: also add locally-defined/imported/global-patch functions and scripts to the database
+            const db = getDatabaseForDoc(document)
 
             const hasOffset = tokens.length && /^[A-Za-z0-9]+:$/.test(tokens[0].source)
             const offsetToken = hasOffset ? tokens.shift() : null
@@ -1403,24 +1384,21 @@ export function register() {
                         return item
                     })
                 } else if (opToken.source === 'Call' && caretTokenIdx === 1) {
-                    return database
-                        .filter(d => d.usage === 'api')
-                        .map(d => {
-                            const item = new CompletionItem(d.name, 2)
+                    return db
+                        .filter(entry => entry.usage === 'api')
+                        .map(entry => {
+                            const item = new CompletionItem(entry.name, 2)
 
-                            item.detail = d.args.length
-                                ? `( ${d.args.map(a => a.name
-                                    ? `${a.name}: ${a.type}`
-                                    : a.type).join(', ')} )`
-                                : '()'
-                            item.documentation = d.notes
+                            item.kind = vscode.CompletionItemKind.Function
+                            item.detail = documentEntryOneLine(entry)
+                            item.documentation = documentEntry(entry)
 
-                            item.insertText = new SnippetString(d.name)
+                            item.insertText = new SnippetString(entry.name)
                             item.insertText.appendText(' ')
-                            if (d.args.length) {
+                            if (entry.args.length) {
                                 item.insertText.appendText('( ')
-                                for (const arg of d.args) {
-                                    item.insertText.appendPlaceholder(arg.name || arg.type)
+                                for (const arg of entry.args) {
+                                    item.insertText.appendPlaceholder(arg.name)
                                     item.insertText.appendText(' ')
                                 }
                                 item.insertText.appendText(')')
@@ -1430,17 +1408,32 @@ export function register() {
 
                             return item
                         })
+                } else if ((opToken.source === 'Exec' || opToken.source === 'ExecWait') && caretTokenIdx === 1) {
+                    return db
+                        .filter(entry => entry.usage === 'scr')
+                        .map(entry => {
+                            const item = new CompletionItem(entry.name, 2)
+
+                            item.kind = vscode.CompletionItemKind.Method
+                            item.detail = documentEntryOneLine(entry)
+                            item.documentation = documentEntry(entry)
+
+                            item.insertText = new SnippetString(entry.name)
+                            return item
+                        })
                 }
             }
 
-            // TODO: assembly instruction completions
+            // TODO: {Func:name} and ~Func:name
+
+            // TODO: enums, gameflags, etc
 
             return null
         }
     }, ' ', '\t')
 
     languages.registerFoldingRangeProvider('starrod', {
-        provideFoldingRanges(document, context, token) {
+        async provideFoldingRanges(document, context, token) {
             const ranges: FoldingRange[] = []
             const regions: [string, number][] = []
             const lines = document.getText().split(/\r?\n/)
@@ -1483,7 +1476,9 @@ export function register() {
                     beginRegion('comment')
                 } else if (line.endsWith('%/')) {
                     endRegion('comment', 0, true)
-                } else if (line === '') {
+                } else if (syntaxVersion === 0.2 && line === '') {
+                    endRegion('block', -1, true)
+                } else if (syntaxVersion > 0.2 && line === '}') {
                     endRegion('block', -1, true)
                 }
 
@@ -1511,7 +1506,7 @@ export function register() {
                     endRegion('define', -1)
                 }
 
-                if (/^(#new:[^ \t]+|@Data|@Hook|@)(\s|$)/g.test(line)) {
+                if (/^(#new:[^ \t]+|@[^ \t]*)(\s|$)/g.test(line)) {
                     beginRegion('block')
                 } else if (/^#string(:|\s|$)/g.test(line)) {
                     beginRegion('stringblock')
