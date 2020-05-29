@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10.1
+
+- Updated database syntax highlighting
+
 ## 0.10.0
 
 - Added support for Star Rod 0.3.0-beta0

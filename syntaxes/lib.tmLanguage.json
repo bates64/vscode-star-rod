@@ -89,7 +89,7 @@
         },
         {
           "name": "storage.type.starrod",
-          "match": "\\b(api|asm|scr|dat|void|int|short|float|bool|ptr|collider|model|modelID|collider|colliderID|npc|enemy|f?var|stringID)\\b"
+          "match": "\\b(api|asm|scr|dat|void|int|short|float|bool|ptr|collider|model|modelID|collider|soundID|camID|colliderID|npc|enemy|f?var|stringID)\\b"
         },
         {
           "name": "support.constant.enum.starrod",
