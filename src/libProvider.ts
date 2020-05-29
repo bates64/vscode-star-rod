@@ -1221,7 +1221,7 @@ export async function register() {
             arg.type,
             arg.name,
             arg.note && `% ${arg.note}`,
-            arg.attributes.raw && '% ⚠ raw - only contants allowed',
+            arg.attributes.raw && '% ⚠ Raw - only constants allowed',
             arg.attributes.ignore && `% ignored if equal to ${arg.attributes.ignore}`
         ].filter(Boolean).join(' ')
 

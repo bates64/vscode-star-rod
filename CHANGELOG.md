@@ -3,6 +3,7 @@
 ## 0.10.1
 
 - Updated database syntax highlighting
+- Fixed typo in message when database args are marked `{raw}`
 
 ## 0.10.0
 
