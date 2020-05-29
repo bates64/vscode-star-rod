@@ -3,7 +3,7 @@
 	"displayName": "Star Rod",
 	"publisher": "nanaian",
 	"description": "Language support for the Star Rod Paper Mario modding tool.",
-	"version": "0.9.1",
+	"version": "0.10.0",
 	"license": "MIT",
 	"icon": "icon.png",
 	"galleryBanner": {
