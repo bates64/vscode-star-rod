@@ -67,16 +67,8 @@
     "types": {
       "patterns": [
         {
-          "name": "support.function.address.starrod",
+          "name": "support.numeric.address.starrod",
           "match": "\\b80[0-9A-Fa-f]{6}\\b"
-        },
-        {
-          "name": "constant.numeric.hexadecimal.starrod",
-          "match": "\\b[0-9A-Fa-f]{1,8}\\b"
-        },
-        {
-          "name": "constant.numeric.float.starrod",
-          "match": "\\b[0-9]+\\.[0-9]+\\b"
         },
         {
           "name": "string.quoted.double.starrod",
@@ -97,7 +89,15 @@
         },
         {
           "name": "storage.type.starrod",
-          "match": "\\b(api|asm|scr|dat|void|int|short|float|bool|ptr|collider|model|modelID|npc|enemy|var|stringID)\\b"
+          "match": "\\b(api|asm|scr|dat|void|int|short|float|bool|ptr|collider|model|modelID|collider|colliderID|npc|enemy|f?var|stringID)\\b"
+        },
+        {
+          "name": "support.constant.enum.starrod",
+          "match": "#[^\\s,=}]+"
+        },
+        {
+          "name": "entity.name.starrod",
+          "match": "$[^\\s,=}]+"
         },
         {
           "name": "punctuation.separator.colon.starrod",

@@ -17,7 +17,7 @@ import {
 import * as vscode from 'vscode'
 
 import * as LIB from './lib.json'
-import loadDatabase, { Entry, Arg, Database } from './database'
+import loadDatabase, { Entry, Arg, Database, Attributes } from './database'
 import fixWs from 'fix-whitespace'
 import Mod from './Mod'
 import { getStarRodDir } from './extension'
@@ -1176,21 +1176,30 @@ export async function register() {
         } catch {}
     }
 
-    let lib: Database = { common: [], map: [], battle: [] }
+    let lib: Database
     if (syntaxVersion === 0.2) {
         lib = LIB as Database
     } else if (syntaxVersion >= 0.3) {
         const srDir = getStarRodDir()
-        if (srDir) lib = await loadDatabase(srDir)
+        if (srDir) {
+            lib = await loadDatabase(srDir)
+        } else {
+            vscode.window.showInformationMessage('Star Rod directory not set. Features such as autocomplete will not be available.')
+            return
+        }
+    } else {
+        vscode.window.showInformationMessage('Unsupported Star Rod version. Features such as autocomplete will not be available.')
+        return
     }
 
     const getDatabaseForDoc = (document: vscode.TextDocument): Entry[] => {
         const { sourceType } = parseFileExtension(document.fileName)
         const database: Entry[] = [...lib.common]
 
-        if (sourceType === 'm') database.push(...lib.map)
+        if (sourceType === 'm') database.push(...lib.world)
         if (sourceType === 'b') database.push(...lib.battle)
-        // TODO: main menu & pause scopes
+        if (sourceType === 'w') database.push(...lib.world)
+        // TODO: main menu & pause scopes when those are added to SR
 
         // TODO: also add locally-defined/imported/global-patch functions and scripts to the database
 
@@ -1201,58 +1210,112 @@ export async function register() {
         return db.find(d => d.name === name || d.ramAddress === name)
     }
 
-    const documentEntry = (entry: Entry) => {
-        const documentArg = (arg: Arg) => {
-            let doc = ''
+    const documentEntry = (entry: Entry, forceWrap: boolean = false) => {
+        const documentArg = (arg: Arg) => [
+            arg.container,
+            arg.attributes.out && (
+                arg.attributes.outType ?
+                    `{out ${arg.attributes.outType}}` :
+                    '{out}'
+                ),
+            arg.type,
+            arg.name,
+            arg.note && `% ${arg.note}`,
+            arg.attributes.raw && '% ⚠ raw - only contants allowed',
+            arg.attributes.ignore && `% ignored if equal to ${arg.attributes.ignore}`
+        ].filter(Boolean).join(' ')
 
-            if (arg.container) doc += `*${arg.container}* `
+        let doc = '```starrodlib\n'
 
-            if (arg.out) doc += `${arg.type}<${arg.outType}>`
-            else doc += arg.type
+        //if (entry.note) doc += `% ${entry.note}\n`
 
-            doc += ` **${arg.name}**`
+        doc += [
+            entry.usage,
+            entry.name,
+        ].filter(Boolean).join(' ')
 
-            if (arg.note) doc += ` - ${arg.note}`
-
-            return doc
+        if (entry.args) {
+            if (entry.args.length) {
+                const argDocs = entry.args.map(documentArg)
+                if (!forceWrap && entry.args.length < 4 && !entry.args.some(arg => arg.note)) {
+                    doc += ' ( '
+                    doc += argDocs.join(', ')
+                    doc += ' )'
+                } else {
+                    doc += ' (\n'
+                    doc += argDocs
+                        .map(s => '\t' + s)
+                        .join('\n')
+                    doc += '\n)'
+                }
+            } else {
+                doc += ' ()'
+            }
+        } else {
+            doc += ' ( ??? )'
         }
 
-        let doc = fixWs`
-            \`\`\`starrodlib
-            ${entry.usage} ${documentEntryOneLine(entry)} ${entry.note ? `% ${entry.note}` : ''}
-            \`\`\`
+        if (entry.returns) {
+            if (entry.returns.length) {
+                doc += ' ->'
 
-            ---
-        `
+                const argDocs = entry.returns.map(documentArg)
+                if (!forceWrap && entry.returns.length < 4 && !entry.returns.some(arg => arg.note || Object.keys(arg.attributes).length)) {
+                    doc += ' ( '
+                    doc += argDocs.join(', ')
+                    doc += ' )'
+                } else {
+                    doc += ' (\n'
+                    doc += argDocs
+                        .map(s => '\t' + s)
+                        .join('\n')
+                    doc += '\n)'
+                }
+            }
 
-        if (entry.ramAddress) {
-            doc += `\n\n RAM address: ${entry.ramAddress}`
+            doc += '\n'
+        } else {
+            doc += ' -> ( ??? )\n'
         }
-        if (entry.romAddress) {
-            doc += `\n\n ROM address: ${entry.romAddress}`
-        }
 
-        if (entry.args.length) {
-            doc += '\n\n'
-            doc += fixWs`
-                Arguments (${entry.args.length.toString()}):
-                ${entry.args.map(arg => '- ' + documentArg(arg)).join('\n')}
-            `
-        }
+        doc += '```\n'
 
-        if (entry.returns.length) {
-            doc += '\n\n'
-            doc += fixWs`
-                Returns (${entry.returns.length.toString()}):
-                ${entry.returns.map(arg => '- ' + documentArg(arg)).join('\n')}
-            `
+        if (syntaxVersion >= 0.3) {
+
+            if (entry.attributes.warning === 'unused') {
+                doc += `⚠ Never used in vanilla but functions properly\n\n`
+            } else if (entry.attributes.warning === 'internal') {
+                doc += `⚠ Used by the core game engine, not intended for general use\n\n`
+            } else if (entry.attributes.warning === 'bugged') {
+                doc += `⚠ Buggy\n\n`
+            } else if (entry.attributes.warning) {
+                doc += `⚠ ${entry.attributes.warning}\n\n`
+            }
+
+            if (entry.note) doc += entry.note + '\n\n'
+            
+            if (entry.ramAddress) {
+                doc += `RAM address: \`${entry.ramAddress}\`  \n`
+            }
+
+            if (entry.romAddress) {
+                doc += `ROM offset: \`${entry.romAddress}\`  \n`
+            }
         }
 
         return doc
     }
 
     const documentEntryOneLine = (entry: Entry) => {
-        return `${entry.name}(${entry.args.map(arg => arg.name).join(', ')})`
+        if (entry.args) {
+            if (entry.args.length) {
+                return `${entry.usage} ${entry.name} ( ${entry.args.map(arg => arg.name || arg.type).join(' ')} )`
+            } else {
+                return `${entry.usage} ${entry.name} ()`
+            }
+        } else {
+            return `${entry.usage} ${entry.name} ( ??? )`
+        }
     }
 
     languages.registerHoverProvider('starrod', {
@@ -1286,7 +1349,7 @@ export async function register() {
 
                 if (op && vscode.workspace.getConfiguration().get('starRod.showHoverDocumentationForScriptKeywords', true))
                     return new Hover(op.documentation, opToken.range)
-            } else if (opToken.source === 'Call' && hoveredToken == tokens[1]) {
+            } else if (['Call', 'Exec', 'ExecWait'].includes(opToken.source) && hoveredToken == tokens[1]) {
                 const funcToken = tokens[1]
                 const entry = getEntryByName(db, funcToken.source)
                 if (entry) return new Hover(documentEntry(entry), funcToken.range)
@@ -1323,14 +1386,17 @@ export async function register() {
 
                 if (entry) {
                     const signature = new SignatureInformation(documentEntryOneLine(entry))
-                    signature.documentation = documentEntry(entry)
-                    signature.parameters = entry.args.map(arg => (
-                        new ParameterInformation(arg.name, [
-                            arg.type,
-                            arg.container,
-                            arg.note,
-                        ].join('\n'))
-                    ))
+                    signature.documentation = entry.note
+
+                    if (entry.args) {
+                        signature.parameters = entry.args.map(arg => (
+                            new ParameterInformation(arg.name || arg.type, [
+                                arg.type,
+                                arg.container,
+                                arg.note,
+                            ].join('\n'))
+                        ))
+                    }
 
                     const help = new SignatureHelp()
                     help.activeParameter = tokens[2].source == '('
@@ -1347,7 +1413,6 @@ export async function register() {
         }
     }, '(', ' ')
 
-    // FIXME?
     languages.registerCompletionItemProvider('starrod', {
         provideCompletionItems(document, position, token, context) {
             const commentChar = document.lineAt(position).text.indexOf('%')
@@ -1371,7 +1436,7 @@ export async function register() {
             const offsetToken = hasOffset ? tokens.shift() : null
             if (hasOffset) caretTokenIdx--
 
-            if (structType === 'Script') {
+            if (structType.startsWith('Script')) {
                 const opToken = tokens[0]
 
                 if (caretTokenIdx === 0) {
@@ -1384,21 +1449,26 @@ export async function register() {
                         return item
                     })
                 } else if (opToken.source === 'Call' && caretTokenIdx === 1) {
+                    console.log(db.length)
                     return db
                         .filter(entry => entry.usage === 'api')
                         .map(entry => {
+                            console.log(entry)
                             const item = new CompletionItem(entry.name, 2)
 
                             item.kind = vscode.CompletionItemKind.Function
-                            item.detail = documentEntryOneLine(entry)
-                            item.documentation = documentEntry(entry)
+                            item.documentation = new MarkdownString(documentEntry(entry, true))
 
                             item.insertText = new SnippetString(entry.name)
                             item.insertText.appendText(' ')
-                            if (entry.args.length) {
+                            if (!entry.args) {
+                                item.insertText.appendText('( ')
+                                item.insertText.appendPlaceholder('')
+                                item.insertText.appendText(' )')
+                            } else if (entry.args.length) {
                                 item.insertText.appendText('( ')
                                 for (const arg of entry.args) {
-                                    item.insertText.appendPlaceholder(arg.name)
+                                    item.insertText.appendPlaceholder((arg.name || arg.type).replace(/\s/g, ''))
                                     item.insertText.appendText(' ')
                                 }
                                 item.insertText.appendText(')')
@@ -1415,8 +1485,7 @@ export async function register() {
                             const item = new CompletionItem(entry.name, 2)
 
                             item.kind = vscode.CompletionItemKind.Method
-                            item.detail = documentEntryOneLine(entry)
-                            item.documentation = documentEntry(entry)
+                            item.documentation = new MarkdownString(documentEntry(entry, true ))
 
                             item.insertText = new SnippetString(entry.name)
                             return item

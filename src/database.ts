@@ -1,51 +1,25 @@
-// Parser for *.lib version 1.0.
-// For Star Rod 0.2.0, `lib.json` is used instead.
-
 import * as vscode from 'vscode'
+import { StringDecoder } from 'string_decoder'
+const deUtf8 = new StringDecoder('utf8')
 
-export type Database = {
-    map: Entry[]
-    battle: Entry[]
-    common: Entry[]
-}
-
-export type Entry = {
-    usage: 'api' | 'asm' | 'scr'
-    ramAddress?: string
-    romAddress?: string
-    name: string
-    note?: string
-    args: Arg[]
-    returns: Arg[]
-}
-
-export type Arg = {
-    name: string
-    type: string
-    container?: string
-    note?: string
-
-    out: false
-} | {
-    name: string
-    type: string
-    container?: string
-    note?: string
-
-    out: true
-    outType?: string
-}
+import { parse, Database } from './databaseParser'
+export { Database, Entry, Arg, Attributes } from './databaseParser'
 
 export default async function loadDatabase(starRodDir: vscode.Uri): Promise<Database> {
     const db: Database = {
-        map: [],
-        battle: [],
         common: [],
+        battle: [],
+        world: [],
     }
 
     for (const uri of await listDatabaseFiles(starRodDir)) {
-        const { scope, entries } = await readAndParse(uri)
-        db[scope].push(...entries)
+        try {
+            const source = deUtf8.write(Buffer.from(await vscode.workspace.fs.readFile(uri)))
+            const { scope, entries } = parse(source)
+            db[scope].push(...entries)
+        } catch (error) {
+            vscode.window.showWarningMessage(`Failed to read database file ${uri.fsPath}: ${error.message}`)
+        }
     }
 
     return db
@@ -57,9 +31,4 @@ export async function listDatabaseFiles(starRodDir: vscode.Uri): Promise<vscode.
     return dirList
         .filter(([name]) => name.endsWith('.lib'))
         .map(([name]) => starRodDir.with({ path: starRodDir.path + '/database/' + name }))
-}
-
-async function readAndParse(uri: vscode.Uri): Promise<{ scope: keyof Database, entries: Entry[] }> {
-    // TODO
-    return { scope: 'common', entries: [] }
 }

@@ -115,7 +115,7 @@ export default function activate(ctx: vscode.ExtensionContext) {
                 if (base) {
                     const basename = base.split('.').slice(0, -1).join('.') // Drop file extension
 
-                    paths[headerCase(basename.replace(/[_]/g, ' '))] = uri
+                    paths[headerCase(basename.replace(/[_-]/g, ' '))] = uri
                 }
                 
                 return paths

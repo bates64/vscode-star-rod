@@ -52,7 +52,9 @@
 					"mod.cfg.example",
 					"main.cfg",
 					"GameBytes.txt",
-					"GameFlags.txt"
+					"GameFlags.txt",
+					"ModBytes.txt",
+					"ModFlags.txt"
 				],
 				"aliases": [
 					"Star Rod Config"
@@ -163,18 +165,19 @@
 		"publisherId": "8de2bba1-d0d5-431c-acd7-3a20852a6dec"
 	},
 	"devDependencies": {
+		"@types/moo": "^0.5.3",
+		"@types/nearley": "^2.11.1",
 		"@types/node": "^14.0.5",
 		"@types/vscode": "^1.43.0",
 		"typescript": "^3.9.2"
 	},
 	"scripts": {
-		"vscode:prepublish": "tsc -p ./",
-		"build": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"makelib": "node lib/make.js > src/lib.json"
+		"vscode:prepublish": "npm run build",
+		"build": "node lib/make.js && tsc -p ./"
 	},
 	"dependencies": {
 		"change-case": "^4.1.1",
-		"fix-whitespace": "^1.0.3"
+		"fix-whitespace": "^1.0.3",
+		"moo": "^0.5.1"
 	}
 }
