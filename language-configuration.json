@@ -24,7 +24,7 @@
     ],
     "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
     "indentationRules": {
-        "increaseIndentPattern": "^\\s*({[^}%]*(%.*)$|([0-9A-Fa-f]+:\\s*)?(If|Else|Loop|Switch|Case\\s|Thread|ChildThread))($|\\s.*$)",
-        "decreaseIndentPattern": "^\\s*(}|([0-9A-Fa-f]+:\\s*)?(EndIf|Else|EndLoop|EndSwitch|EndCaseGroup|EndThread|EndChildThread))($|\\s.*$)",
+        "increaseIndentPattern": "^[ \t]*(.*{[^}\n]*$|(\\[?[0-9A-Fa-f]+[:\\]][ \t]+)?(If|Else|Loop|Switch|Case|Default|Thread|ChildThread)([ \t]*$|[ \t]+))",
+        "decreaseIndentPattern": "^[ \t]*([^{\n]*}.*$|(\\[?[0-9A-Fa-f]+[:\\]][ \t]+)?(EndIf|EndLoop|EndSwitch|Case|Default|EndCaseGroup|EndThread|EndChildThread)([ \t]*$|[ \t]+))",
     },
 }

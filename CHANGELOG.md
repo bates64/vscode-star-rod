@@ -4,6 +4,7 @@
 
 - Updated database syntax highlighting
 - Fixed typo in message when database args are marked `{raw}`
+- Fixed indentation rules (e.g. behaviour of the _Reindent Lines_ command)
 
 ## 0.10.0
 
