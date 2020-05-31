@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.2
+
+- Fixed indented block directives such as `@` and `#new` not being highlighted
+- Fixed identifier highlighting in `Set` expressions
+- Fixed highlighting of `>=` operator
+- Fixed highlighting of the last colon in multi-argument expressions: i.e. `{expression:arg:arg}` and `~expression:arg:arg`
+
 ## 0.10.1
 
 - Updated database syntax highlighting
