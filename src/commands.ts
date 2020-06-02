@@ -1,5 +1,4 @@
 import * as vscode from 'vscode'
-import { headerCase } from 'change-case'
 
 import { getStarRodDirVersion, getStarRodDir } from './extension'
 import Mod from './Mod'
@@ -114,8 +113,7 @@ export default function activate(ctx: vscode.ExtensionContext) {
 
                 if (base) {
                     const basename = base.split('.').slice(0, -1).join('.') // Drop file extension
-
-                    paths[headerCase(basename.replace(/[_-]/g, ' '))] = uri
+                    paths[basename] = uri
                 }
                 
                 return paths

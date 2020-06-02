@@ -176,7 +176,6 @@
 		"build": "node lib/make.js && tsc -p ./"
 	},
 	"dependencies": {
-		"change-case": "^4.1.1",
 		"fix-whitespace": "^1.0.3",
 		"moo": "^0.5.1"
 	}
