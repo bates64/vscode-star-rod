@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.11.0
+
+- Added syntax highlighting support for SR 0.3's RAM global patches e.g. `@Hook:Map`.
+
 ## 0.10.2
 
 - Fixed indented block directives such as `@` and `#new` not being highlighted
