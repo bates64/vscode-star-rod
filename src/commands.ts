@@ -22,8 +22,8 @@ const getActiveModSafe = async () => {
         const modVersion = (await mod.getModConfig()).get('BuildVersion')
 
         let match = false
-        if (modVersion === '0.2.0' && srVersion === '0.2.0') match = true
-        if (modVersion === '0.2.1' && srVersion === '0.3.0-beta0') match = true
+        if (modVersion === '0.2.1' && srVersion.startsWith('0.3.0')) match = true
+        if (modVersion === srVersion) match = true
 
         if (!match) {
             vscode.window.showErrorMessage(`Star Rod version (${srVersion}) and mod version (${modVersion}) do not match.`)

@@ -145,6 +145,17 @@
 					"scope": "machine-overridable",
 					"markdownDescription": "Absolute path to a [Star Rod](https://github.com/nanaian/star-rod) installation directory."
 				},
+				"starRod.installDirectoryVersionOverride": {
+					"type": "string",
+					"default": "",
+					"scope": "machine-overridable",
+					"markdownDescription": "Override automatic detection of the Star Rod installation version you are using. Use this if the extension does not recognise your `StarRod.jar` but you are sure it is valid.",
+					"enum": [
+						"",
+						"0.2.0",
+						"0.3.0"
+					]
+				},
 				"starRod.showHoverDocumentationForScriptKeywords": {
 					"type": "boolean",
 					"default": true,

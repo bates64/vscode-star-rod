@@ -93,6 +93,12 @@ export async function getStarRodDirVersion(dir: vscode.Uri | undefined = getStar
 
     const jar = dir.with({ path: dir.path + '/StarRod.jar' })
 
+    const config = vscode.workspace.getConfiguration()
+    const override = config.get('starRod.installDirectoryVersionOverride', '')
+    if (override) {
+        return override
+    }
+
     try {
         const { size } = await vscode.workspace.fs.stat(jar)
         return STAR_ROD_JAR_SIZES.get(size)

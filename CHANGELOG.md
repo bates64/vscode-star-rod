@@ -4,6 +4,7 @@
 
 - Added syntax highlighting support for SR 0.3's RAM global patches e.g. `@Hook:Map`.
 - Added autocomplete for `~Func:` expressions similar to `Call` in scripts.
+- Added the `starRod.installDirectoryVersionOverride` configuration option.
 
 ## 0.10.2
 
