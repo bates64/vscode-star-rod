@@ -3,6 +3,7 @@
 ## 0.11.0
 
 - Added syntax highlighting support for SR 0.3's RAM global patches e.g. `@Hook:Map`.
+- Added autocomplete for `~Func:` expressions similar to `Call` in scripts.
 
 ## 0.10.2
 

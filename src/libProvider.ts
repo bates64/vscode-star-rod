@@ -1106,11 +1106,12 @@ function tokenizeLine(line: TextLine): Token[] {
     return tokens
 }
 
-function parseFileExtension(fileName: string): { isPatch: boolean, sourceType: string } {
+function parseFileExtension(fileName: string): { isPatch: boolean, isGlobalPatch: boolean, sourceType: string } {
     const fileExt = fileName.split('.').pop() || 'wscr'
     return {
         sourceType: fileExt[0] || 'w', // m, b, w
-        isPatch: fileExt.endsWith('pat'),
+        isPatch: fileExt.endsWith('pat') || fileExt === 'patch',
+        isGlobalPatch: fileExt === 'patch',
     }
 }
 
@@ -1193,12 +1194,11 @@ export async function register() {
     }
 
     const getDatabaseForDoc = (document: vscode.TextDocument): Entry[] => {
-        const { sourceType } = parseFileExtension(document.fileName)
+        const { sourceType, isGlobalPatch } = parseFileExtension(document.fileName)
         const database: Entry[] = [...lib.common]
 
-        if (sourceType === 'm') database.push(...lib.world)
-        if (sourceType === 'b') database.push(...lib.battle)
-        if (sourceType === 'w') database.push(...lib.world)
+        if (sourceType === 'm' || sourceType === 'w' || isGlobalPatch) database.push(...lib.world)
+        if (sourceType === 'b' || isGlobalPatch) database.push(...lib.battle)
         // TODO: main menu & pause scopes when those are added to SR
 
         // TODO: also add locally-defined/imported/global-patch functions and scripts to the database
@@ -1435,6 +1435,7 @@ export async function register() {
             const hasOffset = tokens.length && /^[A-Za-z0-9]+:$/.test(tokens[0].source)
             const offsetToken = hasOffset ? tokens.shift() : null
             if (hasOffset) caretTokenIdx--
+            const caretToken = tokens[caretTokenIdx]
 
             if (structType.startsWith('Script')) {
                 const opToken = tokens[0]
@@ -1449,11 +1450,9 @@ export async function register() {
                         return item
                     })
                 } else if (opToken.source === 'Call' && caretTokenIdx === 1) {
-                    console.log(db.length)
                     return db
                         .filter(entry => entry.usage === 'api')
                         .map(entry => {
-                            console.log(entry)
                             const item = new CompletionItem(entry.name, 2)
 
                             item.kind = vscode.CompletionItemKind.Function
@@ -1493,13 +1492,25 @@ export async function register() {
                 }
             }
 
-            // TODO: {Func:name} and ~Func:name
+            if (caretToken.source === '{Func:' || caretToken.source === '~Func:') {
+                return db
+                    .filter(entry => entry.usage === 'asm')
+                    .map(entry => {
+                        const item = new CompletionItem(entry.name, 2)
+
+                        item.kind = vscode.CompletionItemKind.Method
+                        item.documentation = new MarkdownString(documentEntry(entry, true ))
+
+                        item.insertText = new SnippetString(entry.name)
+                        return item
+                    })
+            }
 
             // TODO: enums, gameflags, etc
 
             return null
         }
-    }, ' ', '\t')
+    }, ' ', '\t', ':')
 
     languages.registerFoldingRangeProvider('starrod', {
         async provideFoldingRanges(document, context, token) {
