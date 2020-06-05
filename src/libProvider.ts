@@ -1349,7 +1349,7 @@ export async function register() {
 
                 if (op && vscode.workspace.getConfiguration().get('starRod.showHoverDocumentationForScriptKeywords', true))
                     return new Hover(op.documentation, opToken.range)
-            } else if (['Call', 'Exec', 'ExecWait'].includes(opToken.source) && hoveredToken == tokens[1]) {
+            } else if (['Call', 'Exec', 'ExecWait', 'Jump'].includes(opToken.source) && hoveredToken == tokens[1]) {
                 const funcToken = tokens[1]
                 const entry = getEntryByName(db, funcToken.source)
                 if (entry) return new Hover(documentEntry(entry), funcToken.range)
@@ -1477,7 +1477,7 @@ export async function register() {
 
                             return item
                         })
-                } else if ((opToken.source === 'Exec' || opToken.source === 'ExecWait') && caretTokenIdx === 1) {
+                } else if (['Exec', 'ExecWait', 'Jump'].includes(opToken.source) && caretTokenIdx === 1) {
                     return db
                         .filter(entry => entry.usage === 'scr')
                         .map(entry => {

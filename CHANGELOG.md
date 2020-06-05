@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.11.1
+
+- Fixed `Jump` syntax highlighting and autocomplete.
+
 ## 0.11.0
 
 - Added syntax highlighting support for SR 0.3's RAM global patches e.g. `@Hook:Map`.

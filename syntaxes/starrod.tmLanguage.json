@@ -505,7 +505,7 @@
           ]
         },
         {
-          "begin": "^[ \t]*([0-9A-Fa-f]+(:)\\s*)?(Exec|ExecWait)\\s+(([^ \t$#/%:\\(\\[]+)|((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)((\\[)([0-9A-Fa-f]+)(\\]))?)\\s*",
+          "begin": "^[ \t]*([0-9A-Fa-f]+(:)\\s*)?(Exec|ExecWait|Jump)\\s+(([^ \t$#/%:\\(\\[]+)|((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)((\\[)([0-9A-Fa-f]+)(\\]))?)\\s*",
           "beginCaptures": {
             "0": { "name": "meta.script.exec.starrod" },
             "1": { "name": "constant.numeric.hexadecimal.offset.starrod" },
@@ -527,7 +527,7 @@
           ]
         },
         {
-          "match": "^[ \t]*(([0-9A-Fa-f]+)(:)\\s*)?(Return|End|Label|Goto|Jump|Loop|EndLoop|BreakCase|BreakLoop|If|Else|EndIf|Switch|SwitchConst|Case|Default|CaseOR|CaseAND|EndCaseGroup|EndSwitch|Thread|EndThread|ChildThread|EndChildThread|Wait|WaitSeconds)\\b",
+          "match": "^[ \t]*(([0-9A-Fa-f]+)(:)\\s*)?(Return|End|Label|Goto|Loop|EndLoop|BreakCase|BreakLoop|If|Else|EndIf|Switch|SwitchConst|Case|Default|CaseOR|CaseAND|EndCaseGroup|EndSwitch|Thread|EndThread|ChildThread|EndChildThread|Wait|WaitSeconds)\\b",
           "captures": {
             "2": { "name": "constant.numeric.offset.starrod" },
             "3": { "name": "punctuation.separator.label.starrod" },
