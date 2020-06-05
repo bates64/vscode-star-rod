@@ -1133,6 +1133,8 @@ function getStructTypeAt(document: TextDocument, startPos: Position): string {
                 return 'Function'
             } else if (tokens[0].source == '@Data') {
                 return 'Data'
+            } else if (tokens[0].source.startsWith('@Script')) {
+                return 'Script'
             } else if (tokens[0].source == '@') {
                 // It's a generic patch! Figure out the type of struct this is from its usage.
                 const firstLineTokens = tokenizeLine(document.lineAt(pos.translate(1)))

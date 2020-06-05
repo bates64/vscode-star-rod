@@ -3,6 +3,7 @@
 ## 0.11.1
 
 - Fixed `Jump` syntax highlighting and autocomplete.
+- Fixed `@Script` blocks in global patches not being treated as scripts by autocomplete etc.
 
 ## 0.11.0
 
