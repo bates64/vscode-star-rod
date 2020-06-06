@@ -1167,35 +1167,51 @@ function getStructTypeAt(document: TextDocument, startPos: Position): string {
 export async function register() {
     const mod = Mod.getActive()
 
-    let syntaxVersion = 0.0
-    if (mod) {
-        try {
-            const modConfig = await mod.getModConfig()
-            if (modConfig.get('BuildVersion') === '0.2.0') {
-                syntaxVersion = 0.2
-            } else if (['0.2.1', '0.3.0'].includes(modConfig.get('BuildVersion') ?? '')) {
-                syntaxVersion = 0.3
+    let syntaxVersion: number
+    let lib: Database | undefined
+    const updateSyntaxVersion = async () => {
+        if (mod) {
+            try {
+                const modConfig = await mod.getModConfig()
+                if (modConfig.get('BuildVersion') === '0.2.0') {
+                    syntaxVersion = 0.2
+                } else if (['0.2.1', '0.3.0'].includes(modConfig.get('BuildVersion') ?? '')) {
+                    syntaxVersion = 0.3
+                }
+            } catch {
+                syntaxVersion = 0.0
             }
-        } catch {}
-    }
-
-    let lib: Database
-    if (syntaxVersion === 0.2) {
-        lib = LIB as Database
-    } else if (syntaxVersion >= 0.3) {
-        const srDir = getStarRodDir()
-        if (srDir) {
-            lib = await loadDatabase(srDir)
         } else {
-            vscode.window.showInformationMessage('Star Rod directory not set. Features such as autocomplete will not be available.')
-            return
+            syntaxVersion = 0.0
         }
-    } else {
-        vscode.window.showInformationMessage('Unsupported Star Rod version. Features such as autocomplete will not be available.')
-        return
+    }
+    const updateDatabase = async () => {
+        if (syntaxVersion === 0.2) {
+            lib = LIB as Database
+        } else if (syntaxVersion >= 0.3) {
+            const srDir = getStarRodDir()
+            if (srDir) {
+                lib = await loadDatabase(srDir)
+            } else {
+                vscode.window.showInformationMessage('Star Rod directory not set. Features such as autocomplete will not be available.')
+                lib = undefined
+            }
+        } else {
+            vscode.window.showInformationMessage('Unsupported Star Rod version. Features such as autocomplete will not be available.')
+            lib = undefined
+        }
     }
 
-    const getDatabaseForDoc = (document: vscode.TextDocument): Entry[] => {
+    updateSyntaxVersion().then(updateDatabase)
+    vscode.workspace.onDidChangeConfiguration(evt => {
+        if (evt.affectsConfiguration('starRod')) {
+            updateSyntaxVersion().then(updateDatabase)
+        }
+    })
+
+    const getDatabaseForDoc = (document: vscode.TextDocument): Entry[] | undefined => {
+        if (!lib) return undefined
+
         const { sourceType, isGlobalPatch } = parseFileExtension(document.fileName)
         const database: Entry[] = [...lib.common]
 
@@ -1337,7 +1353,7 @@ export async function register() {
                 const args = expression.split(':')
 
                 if (args[0] === 'Func') {
-                    const entry = getEntryByName(db, args[1])
+                    const entry = db && getEntryByName(db, args[1])
                     if (entry) {
                         return new Hover(documentEntry(entry), tokens[1].range)
                     }
@@ -1353,7 +1369,7 @@ export async function register() {
                     return new Hover(op.documentation, opToken.range)
             } else if (['Call', 'Exec', 'ExecWait', 'Jump'].includes(opToken.source) && hoveredToken == tokens[1]) {
                 const funcToken = tokens[1]
-                const entry = getEntryByName(db, funcToken.source)
+                const entry = db && getEntryByName(db, funcToken.source)
                 if (entry) return new Hover(documentEntry(entry), funcToken.range)
             } else if (syntaxVersion === 0.2 && hoveredToken.source.startsWith('{') && hoveredToken.source.endsWith('}')) {
                 return handleExpression(hoveredToken.source.substr(1, hoveredToken.source.length - 2))
@@ -1384,7 +1400,7 @@ export async function register() {
             if (opToken.source === 'Call') {
                 const funcToken = tokens[1]
                 const db = getDatabaseForDoc(document)
-                const entry = getEntryByName(db, funcToken.source)
+                const entry = db && getEntryByName(db, funcToken.source)
 
                 if (entry) {
                     const signature = new SignatureInformation(documentEntryOneLine(entry))
@@ -1452,6 +1468,7 @@ export async function register() {
                         return item
                     })
                 } else if (opToken.source === 'Call' && caretTokenIdx === 1) {
+                    if (!db) return
                     return db
                         .filter(entry => entry.usage === 'api')
                         .map(entry => {
@@ -1480,6 +1497,7 @@ export async function register() {
                             return item
                         })
                 } else if (['Exec', 'ExecWait', 'Jump'].includes(opToken.source) && caretTokenIdx === 1) {
+                    if (!db) return
                     return db
                         .filter(entry => entry.usage === 'scr')
                         .map(entry => {
@@ -1495,6 +1513,7 @@ export async function register() {
             }
 
             if (caretToken.source === '{Func:' || caretToken.source === '~Func:') {
+                if (!db) return
                 return db
                     .filter(entry => entry.usage === 'asm')
                     .map(entry => {
