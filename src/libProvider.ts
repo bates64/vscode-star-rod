@@ -1109,7 +1109,7 @@ function tokenizeLine(line: TextLine): Token[] {
 function parseFileExtension(fileName: string): { isPatch: boolean, isGlobalPatch: boolean, sourceType: string } {
     const fileExt = fileName.split('.').pop() || 'wscr'
     return {
-        sourceType: fileExt[0] || 'w', // m, b, w
+        sourceType: fileExt[0] || 'w', // m, b, w, p
         isPatch: fileExt.endsWith('pat') || fileExt === 'patch',
         isGlobalPatch: fileExt === 'patch',
     }
@@ -1201,7 +1201,7 @@ export async function register() {
 
         if (sourceType === 'm' || sourceType === 'w' || isGlobalPatch) database.push(...lib.world)
         if (sourceType === 'b' || isGlobalPatch) database.push(...lib.battle)
-        // TODO: main menu & pause scopes when those are added to SR
+        if (sourceType === 'p' || isGlobalPatch) database.push(...lib.pause)
 
         // TODO: also add locally-defined/imported/global-patch functions and scripts to the database
 

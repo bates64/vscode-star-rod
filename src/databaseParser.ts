@@ -1,9 +1,10 @@
 import moo from 'moo'
 
 export type Database = {
-    common: Entry[],
+    common: Entry[]
     battle: Entry[]
     world: Entry[]
+    pause: Entry[]
 }
 
 export type Entry = {
@@ -14,7 +15,7 @@ export type Entry = {
     note?: string
     args?: Arg[] // Unknown if undefined
     returns?: Arg[] // Unknown if undefined
-    attributes: Attributes,
+    attributes: Attributes
 }
 
 export type Arg = {
@@ -22,7 +23,7 @@ export type Arg = {
     type: string
     container?: string
     note?: string
-    attributes: Attributes,
+    attributes: Attributes
 }
 
 export type Attributes = Record<string, string | true | undefined>
@@ -228,7 +229,7 @@ export function parse(source: string): { scope: keyof Database, entries: Entry[]
         fail(token)
     }
 
-    if (scope === 'battle' || scope === 'world' || scope === 'common') {
+    if (scope === 'battle' || scope === 'world' || scope === 'common' || scope === 'pause') {
         return { scope, entries }
     } else {
         throw new Error(`Unknown scope: ${scope}`)

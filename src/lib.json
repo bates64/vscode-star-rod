@@ -11903,5 +11903,6 @@
       "ramAddress": "802DEB0C",
       "name": "load_sprite"
     }
-  ]
+  ],
+  "pause": []
 }

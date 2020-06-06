@@ -40,6 +40,8 @@
 					".bpat",
 					".wscr",
 					".wpat",
+					".pscr",
+					".ppat",
 					".str",
 					".patch"
 				],

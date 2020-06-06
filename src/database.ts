@@ -10,6 +10,7 @@ export default async function loadDatabase(starRodDir: vscode.Uri): Promise<Data
         common: [],
         battle: [],
         world: [],
+        pause: [],
     }
 
     for (const uri of await listDatabaseFiles(starRodDir)) {

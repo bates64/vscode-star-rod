@@ -2,6 +2,7 @@
 
 ## 0.11.1
 
+- Added support for `{scope=pause}` in the database library and its associated file extensions (`pscr`, `ppat`).
 - Fixed `Jump` syntax highlighting and autocomplete.
 - Fixed `@Script` blocks in global patches not being treated as scripts by autocomplete etc.
 
