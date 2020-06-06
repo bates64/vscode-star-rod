@@ -5,6 +5,7 @@
 - Added support for `{scope=pause}` in the database library and its associated file extensions (`pscr`, `ppat`).
 - Fixed `Jump` syntax highlighting and autocomplete.
 - Fixed `@Script` blocks in global patches not being treated as scripts by autocomplete etc.
+- Fixed `Npc` structs not being recognised.
 
 ## 0.11.0
 
