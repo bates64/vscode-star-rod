@@ -6,6 +6,7 @@
 - Fixed `Jump` syntax highlighting and autocomplete.
 - Fixed `@Script` blocks in global patches not being treated as scripts by autocomplete etc.
 - Fixed `Npc` structs not being recognised.
+- Fixed `#new:Function` blocks in global patches not being highlighted when a scope (e.g. `:Battle`) is used.
 
 ## 0.11.0
 
