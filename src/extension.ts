@@ -6,6 +6,7 @@ const STAR_ROD_JAR_SIZES = new Map([
     // No other good way to check for SR version AFAIK.
     [14553447, '0.2.0'],
     [16028705, '0.3.0-beta0'],
+    [16355570, '0.3.0'],
 ])
 
 export async function activate(ctx: vscode.ExtensionContext) {

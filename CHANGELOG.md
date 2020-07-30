@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0
+
+Stable release! No significant/breaking changes despite the major version bump.
+
+- Added support for Star Rod 0.3.0.
+
 ## 0.11.1
 
 - Added support for `{scope=pause}` in the database library and its associated file extensions (`pscr`, `ppat`).
