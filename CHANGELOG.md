@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Fixed syntax version detection to use the Star Rod directory version rather than `BuildVersion` from `mod.cfg`
+
 ## 1.0.0
 
 Stable release! No significant/breaking changes despite the major version bump.

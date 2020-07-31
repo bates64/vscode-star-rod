@@ -20,7 +20,7 @@ import * as LIB from './lib.json'
 import loadDatabase, { Entry, Arg, Database, Attributes } from './database'
 import fixWs from 'fix-whitespace'
 import Mod from './Mod'
-import { getStarRodDir } from './extension'
+import { getStarRodDir, getStarRodDirVersion } from './extension'
 
 const SCRIPT_OPS = new Map([
     ['End', {
@@ -1170,19 +1170,10 @@ export async function register() {
     let syntaxVersion: number
     let lib: Database | undefined
     const updateSyntaxVersion = async () => {
-        if (mod) {
-            try {
-                const modConfig = await mod.getModConfig()
-                if (modConfig.get('BuildVersion') === '0.2.0') {
-                    syntaxVersion = 0.2
-                } else if (['0.2.1', '0.3.0'].includes(modConfig.get('BuildVersion') ?? '')) {
-                    syntaxVersion = 0.3
-                }
-            } catch {
-                syntaxVersion = 0.0
-            }
-        } else {
-            syntaxVersion = 0.0
+        syntaxVersion = 0.2
+        const srVersion = await getStarRodDirVersion()
+        if (srVersion?.startsWith('0.3')) {
+            syntaxVersion = 0.3
         }
     }
     const updateDatabase = async () => {
