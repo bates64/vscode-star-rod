@@ -3,6 +3,7 @@
 ## 1.0.1
 
 - Fixed syntax version detection to use the Star Rod directory version rather than `BuildVersion` from `mod.cfg`
+- Published on https://open-vsx.org (e.g. for VSCodium users) as well as the Visual Studio Marketplace
 
 ## 1.0.0
 
