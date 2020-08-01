@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+- Removed a broken mod folder version failsafe
+
 ## 1.0.1
 
 - Fixed syntax version detection to use the Star Rod directory version rather than `BuildVersion` from `mod.cfg`

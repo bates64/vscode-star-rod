@@ -19,16 +19,7 @@ const getActiveModSafe = async () => {
     }
 
     try {
-        const modVersion = (await mod.getModConfig()).get('BuildVersion')
-
-        let match = false
-        if (modVersion === '0.2.1' && srVersion.startsWith('0.3.0')) match = true
-        if (modVersion === srVersion) match = true
-
-        if (!match) {
-            vscode.window.showErrorMessage(`Star Rod version (${srVersion}) and mod version (${modVersion}) do not match.`)
-            return
-        }
+        await mod.getModConfig()
     } catch {
         vscode.window.showErrorMessage('No mod folder open.')
         return
