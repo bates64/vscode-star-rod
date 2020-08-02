@@ -7,7 +7,9 @@ const STAR_ROD_JAR_SIZES = new Map([
     [14553447, '0.2.0'],
     [16028705, '0.3.0-beta0'],
     [16355570, '0.3.0'],
+    [16365650, '0.3.1'],
 ])
+const DEFAULT_STAR_ROD = '0.3.1'
 
 export async function activate(ctx: vscode.ExtensionContext) {
     await libProvider.register()
@@ -102,7 +104,8 @@ export async function getStarRodDirVersion(dir: vscode.Uri | undefined = getStar
 
     try {
         const { size } = await vscode.workspace.fs.stat(jar)
-        return STAR_ROD_JAR_SIZES.get(size)
+        console.log('StarRod.jar size =', size)
+        return STAR_ROD_JAR_SIZES.get(size) ?? DEFAULT_STAR_ROD
     } catch {
         return undefined
     }

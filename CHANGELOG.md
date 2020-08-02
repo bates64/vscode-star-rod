@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3
+
+- Added support for Star Rod 0.3.1.
+- Unknown StarRod.jar files are now assumed to be the latest supported SR version.
+
 ## 1.0.2
 
 - Removed a broken mod folder version failsafe
