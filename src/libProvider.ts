@@ -22,6 +22,9 @@ import fixWs from 'fix-whitespace'
 import Mod from './Mod'
 import { getStarRodDir, getStarRodDirVersion } from './extension'
 
+import { StringDecoder } from 'string_decoder'
+const deUtf8 = new StringDecoder('utf8')
+
 const SCRIPT_OPS = new Map([
     ['End', {
         opcode: 0x01,
@@ -1164,6 +1167,12 @@ function getStructTypeAt(document: TextDocument, startPos: Position): string {
     }
 }
 
+type Enum = {
+    namespace: string
+    libName: string
+    members: string[]
+}
+
 export async function register() {
     const mod = Mod.getActive()
 
@@ -1199,6 +1208,42 @@ export async function register() {
             updateSyntaxVersion().then(updateDatabase)
         }
     })
+
+    let enums: Array<Enum> = []
+    const updateEnums = async () => {
+        enums = []
+
+        // Read all enum files.
+        // Note that files in Star Rod's local `database` are not read, just those in `globals/enum/`.
+        for (const uri of await vscode.workspace.findFiles('**/globals/enum/*.enum')) {
+            const contents = await vscode.workspace.fs.readFile(uri)
+            const lines = deUtf8.write(Buffer.from(contents)).split(/\r?\n/)
+
+            const namespace = /^[^\s%]+/.exec(lines.shift() ?? '')?.[0]
+            const libName = /^[^\s%]+/.exec(lines.shift() ?? '')?.[0]
+            const reversed = /^[^\s%]+/.exec(lines.shift() ?? '')?.[0] === 'true'
+
+            if (!namespace || !libName) continue
+
+            const members = []
+            for (const line of lines) {
+                const re = reversed ? /^([^\s%]+)\s*=\s*[0-9a-fA-F]+/ : /^[0-9a-fA-F]+\s*=\s*([^\s%]+)/
+                const member = re.exec(line)?.[1]
+                if (member) members.push(member)
+            }
+
+            enums.push({
+                namespace,
+                libName,
+                members,
+            })
+        }
+    }
+    updateEnums()
+    const enumWatcher = vscode.workspace.createFileSystemWatcher('**/globals/enum/*.enum')
+    enumWatcher.onDidChange(evt => updateEnums())
+    enumWatcher.onDidCreate(evt => updateEnums())
+    enumWatcher.onDidDelete(evt => updateEnums())
 
     const getDatabaseForDoc = (document: vscode.TextDocument): Entry[] | undefined => {
         if (!lib) return undefined
@@ -1302,7 +1347,7 @@ export async function register() {
             }
 
             if (entry.note) doc += entry.note + '\n\n'
-            
+
             if (entry.ramAddress) {
                 doc += `RAM address: \`${entry.ramAddress}\`  \n`
             }
@@ -1446,6 +1491,29 @@ export async function register() {
             if (hasOffset) caretTokenIdx--
             const caretToken = tokens[caretTokenIdx]
 
+            if (caretToken.source.startsWith('.')) {
+                if (caretToken.source.includes(':')) {
+                    // List namespace members
+                    const namespace = caretToken.source.split(':')[0].substr(1) // Drop leading period
+                    return enums.find(en => en.namespace === namespace)
+                        ?.members
+                        ?.map(name => new CompletionItem(name, vscode.CompletionItemKind.EnumMember))
+                } else {
+                    // List namespaces
+                    // TODO: if current arg is an enum, suggest that namespace only
+                    // TODO: if structType.startsWith('Function'), suggest labels
+                    const s = enums
+                        .map(en => {
+                            const item = new CompletionItem(en.namespace, vscode.CompletionItemKind.Enum)
+                            item.insertText = new SnippetString(en.namespace + ':')
+                            return item
+                        })
+                    s.push(new CompletionItem('True', vscode.CompletionItemKind.Constant))
+                    s.push(new CompletionItem('False', vscode.CompletionItemKind.Constant))
+                    return s
+                }
+            }
+
             if (structType.startsWith('Script')) {
                 const opToken = tokens[0]
 
@@ -1518,11 +1586,9 @@ export async function register() {
                     })
             }
 
-            // TODO: enums, gameflags, etc
-
             return null
         }
-    }, ' ', '\t', ':')
+    }, ' ', '\t', ':', '.')
 
     languages.registerFoldingRangeProvider('starrod', {
         async provideFoldingRanges(document, context, token) {

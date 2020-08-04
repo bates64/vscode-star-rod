@@ -4,6 +4,7 @@
 
 - Added syntax highlighting for `#new:String` blocks.
 - Added support for Star Rod 0.3.2.
+- Added autocompletion for enum namespaces and enum members. Note that enum files in Star Rod's local `database` are not read, only those in your mod folder (`globals/enum/`).
 
 ## 1.0.3
 
