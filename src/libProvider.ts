@@ -1484,6 +1484,9 @@ export async function register() {
             }
             const structType = getStructTypeAt(document, position)
 
+            // No autocompletion for strings (yet)
+            if (structType === 'String') return null
+
             const db = getDatabaseForDoc(document)
 
             const hasOffset = tokens.length && /^[A-Za-z0-9]+:$/.test(tokens[0].source)
