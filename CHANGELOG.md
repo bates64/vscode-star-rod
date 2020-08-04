@@ -1,7 +1,8 @@
 # Changelog
 
-## 1.0.4
+## 1.1.0
 
+- Added syntax highlighting for `#new:String` blocks.
 - Added support for Star Rod 0.3.2.
 
 ## 1.0.3
