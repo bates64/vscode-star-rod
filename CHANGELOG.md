@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+- Added support for Star Rod 0.3.2.
+
 ## 1.0.3
 
 - Added support for Star Rod 0.3.1.

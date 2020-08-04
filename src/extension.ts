@@ -8,8 +8,9 @@ const STAR_ROD_JAR_SIZES = new Map([
     [16028705, '0.3.0-beta0'],
     [16355570, '0.3.0'],
     [16365650, '0.3.1'],
+    [16411097, '0.3.2'],
 ])
-const DEFAULT_STAR_ROD = '0.3.1'
+const DEFAULT_STAR_ROD = '0.3.2'
 
 export async function activate(ctx: vscode.ExtensionContext) {
     await libProvider.register()
