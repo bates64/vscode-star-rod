@@ -1245,6 +1245,26 @@ export async function register() {
     enumWatcher.onDidCreate(evt => updateEnums())
     enumWatcher.onDidDelete(evt => updateEnums())
 
+    let flags: Array<string> = []
+    const updateFlags = async () => {
+        flags = []
+
+        for (const uri of await vscode.workspace.findFiles('**/globals/*.txt')) {
+            const contents = await vscode.workspace.fs.readFile(uri)
+            const lines = deUtf8.write(Buffer.from(contents)).split(/\r?\n/)
+
+            for (const line of lines) {
+                const flag = /^[0-9a-fA-F]+\s*=\s*([^\s%]+)/.exec(line)?.[1]
+                if (flag) flags.push(flag)
+            }
+        }
+    }
+    updateFlags()
+    const flagWatcher = vscode.workspace.createFileSystemWatcher('**/globals/*.txt')
+    flagWatcher.onDidChange(evt => updateFlags())
+    flagWatcher.onDidCreate(evt => updateFlags())
+    flagWatcher.onDidDelete(evt => updateFlags())
+
     const getDatabaseForDoc = (document: vscode.TextDocument): Entry[] | undefined => {
         if (!lib) return undefined
 
@@ -1517,6 +1537,26 @@ export async function register() {
                 }
             }
 
+            if (caretToken.source.startsWith('*')) {
+                // List mod/game flags, vars, etc
+                const s = flags.map(flag => new CompletionItem(flag, vscode.CompletionItemKind.Constant))
+
+                const genVarItem = (val: string) => {
+                    const item = new CompletionItem(val, vscode.CompletionItemKind.Variable)
+                    item.insertText = new SnippetString(val)
+                    item.insertText.appendText('[')
+                    item.insertText.appendPlaceholder('')
+                    item.insertText.appendText(']')
+                    return item
+                }
+
+                s.push(genVarItem('Var'), genVarItem('Flag'))
+                s.push(genVarItem('MapVar'), genVarItem('MapFlag'))
+                s.push(genVarItem('AreaByte'), genVarItem('AreaFlag'))
+
+                return s
+            }
+
             if (structType.startsWith('Script')) {
                 const opToken = tokens[0]
 
@@ -1591,7 +1631,7 @@ export async function register() {
 
             return null
         }
-    }, ' ', '\t', ':', '.')
+    }, ' ', '\t', ':', '.', '*')
 
     languages.registerFoldingRangeProvider('starrod', {
         async provideFoldingRanges(document, context, token) {
