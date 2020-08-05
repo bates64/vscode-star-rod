@@ -6,6 +6,7 @@
 - Added support for Star Rod 0.3.2.
 - Added autocompletion for enum namespaces and enum members. Note that enum files in Star Rod's local `database` are not read, only those in your mod folder (`globals/enum/`).
 - Added autocompletion for map/area/game/mod flags and vars.
+- Added syntax highlighting for `#alias` directives.
 - Disabled autocompletion features in string blocks.
 
 ## 1.0.3
