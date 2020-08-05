@@ -3,7 +3,7 @@ import { StringDecoder } from 'string_decoder'
 const deUtf8 = new StringDecoder('utf8')
 
 import { parse, Database } from './databaseParser'
-export { Database, Entry, Arg, Attributes } from './databaseParser'
+export { Database, Entry, Arg, Attributes, Usage } from './databaseParser'
 
 export default async function loadDatabase(starRodDir: vscode.Uri): Promise<Database> {
     const db: Database = {

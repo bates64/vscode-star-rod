@@ -5,8 +5,11 @@
 - Added syntax highlighting for `#new:String` blocks.
 - Added support for Star Rod 0.3.2.
 - Added autocompletion for enum namespaces and enum members. Note that enum files in Star Rod's local `database` are not read, only those in your mod folder (`globals/enum/`).
-- Added autocompletion for map/area/game/mod flags and vars.
 - Added syntax highlighting for `#alias` directives.
+- New syntactic analysis features (0.3.0+ only):
+    - Added CodeLens actions on `#new` directives in src/gen files. This will add to, or create, the relevant `patch` file.
+    - You can now use any number of `%!` line comments before a struct to document it. This info will appear in autocomplete suggestions.
+    - Added autocompletion for map/area/game/mod flags and vars.
 - Disabled autocompletion features in string blocks.
 
 ## 1.0.3

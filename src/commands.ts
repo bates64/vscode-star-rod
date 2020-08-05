@@ -37,7 +37,7 @@ export default function activate(ctx: vscode.ExtensionContext) {
             title: `Compiling Mod...`,
             location: vscode.ProgressLocation.Window,
         }, () => mod.compile())
-        
+
         if (obj.emitError) await obj.emitError()
         else {
             const choice = await vscode.window.showInformationMessage('Compiled mod.', 'Run Mod')
@@ -106,7 +106,7 @@ export default function activate(ctx: vscode.ExtensionContext) {
                     const basename = base.split('.').slice(0, -1).join('.') // Drop file extension
                     paths[basename] = uri
                 }
-                
+
                 return paths
             }, {})
         }

@@ -1,6 +1,7 @@
 import * as vscode from 'vscode'
 import * as libProvider from './libProvider'
 import activateCommands from './commands'
+import { activate as activateCodeLens } from './StarRodCodeLensProvider'
 
 const STAR_ROD_JAR_SIZES = new Map([
     // No other good way to check for SR version AFAIK.
@@ -15,6 +16,7 @@ const DEFAULT_STAR_ROD = '0.3.2'
 export async function activate(ctx: vscode.ExtensionContext) {
     await libProvider.register()
     activateCommands(ctx)
+    activateCodeLens(ctx)
 
     const installDir = getStarRodDir()
     if (!installDir) {

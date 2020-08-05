@@ -17,9 +17,10 @@ import {
 import * as vscode from 'vscode'
 
 import * as LIB from './lib.json'
-import loadDatabase, { Entry, Arg, Database, Attributes } from './database'
+import loadDatabase, { Entry, Arg, Database, Usage } from './database'
 import fixWs from 'fix-whitespace'
 import Mod from './Mod'
+import Script from './Script'
 import { getStarRodDir, getStarRodDirVersion } from './extension'
 
 import { StringDecoder } from 'string_decoder'
@@ -1265,7 +1266,7 @@ export async function register() {
     flagWatcher.onDidCreate(evt => updateFlags())
     flagWatcher.onDidDelete(evt => updateFlags())
 
-    const getDatabaseForDoc = (document: vscode.TextDocument): Entry[] | undefined => {
+    const getDatabaseForDoc = async (document: vscode.TextDocument): Promise<Entry[] | undefined> => {
         if (!lib) return undefined
 
         const { sourceType, isGlobalPatch } = parseFileExtension(document.fileName)
@@ -1275,7 +1276,32 @@ export async function register() {
         if (sourceType === 'b' || isGlobalPatch) database.push(...lib.battle)
         if (sourceType === 'p' || isGlobalPatch) database.push(...lib.pause)
 
-        // TODO: also add locally-defined/imported/global-patch functions and scripts to the database
+        // Add locally-declared structs.
+        try {
+            const script = new Script(document)
+            for (const directive of script.parseDirectives()) {
+                if (directive.keyword === '#new') {
+                    let usage: Usage = 'any'
+                    if (directive.args[0].startsWith('Script')) usage = 'scr'
+                    else if (directive.args[0].startsWith('Function'))
+                        // 'api' if identifier has uppercase characters.
+                        usage = /[A-Z]/.test(directive.atoms[0]) ? 'api' : 'asm'
+
+                    // TODO: parse type information in `directive.comment`
+
+                    database.push({
+                        usage,
+                        name: directive.atoms[0],
+                        note: directive.comment,
+                        attributes: {},
+                    })
+                }
+            }
+        } catch (error) {
+            console.error(error)
+        }
+
+        // TODO: also add imported/src/gen/global-patch functions and scripts to the database
 
         return database
     }
@@ -1393,7 +1419,7 @@ export async function register() {
     }
 
     languages.registerHoverProvider('starrod', {
-        provideHover(document, position, token) {
+        async provideHover(document, position, token) {
             const tokens = tokenizeLine(document.lineAt(position))
             const hoveredToken: Token | undefined = tokens.find(t => t.range.contains(position))
             if (!hoveredToken) return
@@ -1403,7 +1429,7 @@ export async function register() {
 
             const opToken = tokens[0]
 
-            const db = getDatabaseForDoc(document)
+            const db = await getDatabaseForDoc(document)
 
             const handleExpression = (expression: string) => {
                 const args = expression.split(':')
@@ -1423,7 +1449,7 @@ export async function register() {
 
                 if (op && vscode.workspace.getConfiguration().get('starRod.showHoverDocumentationForScriptKeywords', true))
                     return new Hover(op.documentation, opToken.range)
-            } else if (['Call', 'Exec', 'ExecWait', 'Jump'].includes(opToken.source) && hoveredToken == tokens[1]) {
+            } else if (['Call', 'Exec', 'ExecWait', 'Jump', 'Bind'].includes(opToken.source) && hoveredToken == tokens[1]) {
                 const funcToken = tokens[1]
                 const entry = db && getEntryByName(db, funcToken.source)
                 if (entry) return new Hover(documentEntry(entry), funcToken.range)
@@ -1438,7 +1464,7 @@ export async function register() {
     })
 
     languages.registerSignatureHelpProvider('starrod', {
-        provideSignatureHelp(document, position, token, context) {
+        async provideSignatureHelp(document, position, token, context) {
             const tokens = tokenizeLine(document.lineAt(position))
             let caretTokenIdx = 0
             for (const token of tokens) {
@@ -1455,7 +1481,7 @@ export async function register() {
 
             if (opToken.source === 'Call') {
                 const funcToken = tokens[1]
-                const db = getDatabaseForDoc(document)
+                const db = await getDatabaseForDoc(document)
                 const entry = db && getEntryByName(db, funcToken.source)
 
                 if (entry) {
@@ -1488,7 +1514,7 @@ export async function register() {
     }, '(', ' ')
 
     languages.registerCompletionItemProvider('starrod', {
-        provideCompletionItems(document, position, token, context) {
+        async provideCompletionItems(document, position, token, context) {
             const commentChar = document.lineAt(position).text.indexOf('%')
             if (commentChar != -1 && commentChar <= position.character) {
                 // Looks like we're in a comment - abort
@@ -1507,7 +1533,7 @@ export async function register() {
             // No autocompletion for strings (yet)
             if (structType === 'String') return null
 
-            const db = getDatabaseForDoc(document)
+            const db = await getDatabaseForDoc(document)
 
             const hasOffset = tokens.length && /^[A-Za-z0-9]+:$/.test(tokens[0].source)
             const offsetToken = hasOffset ? tokens.shift() : null
@@ -1598,7 +1624,7 @@ export async function register() {
 
                             return item
                         })
-                } else if (['Exec', 'ExecWait', 'Jump'].includes(opToken.source) && caretTokenIdx === 1) {
+                } else if (['Exec', 'ExecWait', 'Jump', 'Bind'].includes(opToken.source) && caretTokenIdx === 1) {
                     if (!db) return
                     return db
                         .filter(entry => entry.usage === 'scr')
@@ -1612,6 +1638,8 @@ export async function register() {
                             return item
                         })
                 }
+
+                // TODO: contextual autocomplete based on Call type info
             }
 
             if (caretToken.source === '{Func:' || caretToken.source === '~Func:') {
@@ -1621,7 +1649,25 @@ export async function register() {
                     .map(entry => {
                         const item = new CompletionItem(entry.name, 2)
 
-                        item.kind = vscode.CompletionItemKind.Method
+                        item.kind = vscode.CompletionItemKind.Class
+                        item.documentation = new MarkdownString(documentEntry(entry, true ))
+
+                        item.insertText = new SnippetString(entry.name)
+                        return item
+                    })
+            }
+
+            if (caretToken.source.startsWith('$')) {
+                if (!db) return
+                return db
+                    .filter(entry => entry.name.startsWith('$'))
+                    .map(entry => {
+                        const item = new CompletionItem(entry.name, 2)
+
+                        item.kind = vscode.CompletionItemKind.Struct
+                        if (entry.usage === 'scr') item.kind = vscode.CompletionItemKind.Method
+                        if (entry.usage === 'api') item.kind = vscode.CompletionItemKind.Function
+                        if (entry.usage === 'asm') item.kind = vscode.CompletionItemKind.Class
                         item.documentation = new MarkdownString(documentEntry(entry, true ))
 
                         item.insertText = new SnippetString(entry.name)
@@ -1631,7 +1677,7 @@ export async function register() {
 
             return null
         }
-    }, ' ', '\t', ':', '.', '*')
+    }, ' ', '\t', ':', '.', '*', '$')
 
     languages.registerFoldingRangeProvider('starrod', {
         async provideFoldingRanges(document, context, token) {

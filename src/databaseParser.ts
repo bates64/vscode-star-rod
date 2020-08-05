@@ -7,8 +7,10 @@ export type Database = {
     pause: Entry[]
 }
 
+export type Usage = 'api' | 'asm' | 'scr' | 'any'
+
 export type Entry = {
-    usage: 'api' | 'asm' | 'scr'
+    usage: Usage
     ramAddress?: string
     romAddress?: string
     name: string
@@ -79,7 +81,7 @@ export function parse(source: string): { scope: keyof Database, entries: Entry[]
 
     let scope
     let entries: Entry[] = []
-    
+
     // Parse entry state
     let parts: typeof part[] = [] // Separated by colons
     let part: typeof subpart[] = [] // Separated by commas
