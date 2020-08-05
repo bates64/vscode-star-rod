@@ -1457,6 +1457,9 @@ export async function register() {
                 return handleExpression(hoveredToken.source.substr(1, hoveredToken.source.length - 2))
             } else if (syntaxVersion === 0.3 && hoveredToken.source.startsWith('~')) {
                 return handleExpression(hoveredToken.source.substr(1))
+            } else if (hoveredToken.source.startsWith('$')) {
+                const entry = db && getEntryByName(db, hoveredToken.source)
+                if (entry) return new Hover(documentEntry(entry), hoveredToken.range)
             }
 
             return null

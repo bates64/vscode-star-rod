@@ -8,7 +8,7 @@
 - Added syntax highlighting for `#alias` directives.
 - New syntactic analysis features (0.3.0+ only):
     - Added CodeLens actions on `#new` directives in src/gen files. This will add to, or create, the relevant `patch` file.
-    - You can now use any number of `%!` line comments before a struct to document it. This info will appear in autocomplete suggestions.
+    - You can now use any number of `%!` line comments before a struct to document it. This info will appear in autocomplete suggestions and whenever you hover over the struct name.
     - Added autocompletion for map/area/game/mod flags and vars.
 - Disabled autocompletion features in string blocks.
 
