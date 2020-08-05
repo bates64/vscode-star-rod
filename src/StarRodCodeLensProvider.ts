@@ -3,8 +3,6 @@ import Script from './Script'
 
 export default class StarRodCodeLensProvider implements vscode.CodeLensProvider {
     async provideCodeLenses(document: TextDocument, token: CancellationToken): Promise<CodeLens[]> {
-        // TODO: only for SR 0.3.0 and up
-
         const script = new Script(document)
 
         const scope = script.scope()

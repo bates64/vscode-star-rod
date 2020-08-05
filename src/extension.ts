@@ -14,26 +14,49 @@ const STAR_ROD_JAR_SIZES = new Map([
 const DEFAULT_STAR_ROD = '0.3.2'
 
 export async function activate(ctx: vscode.ExtensionContext) {
-    await libProvider.register()
-    activateCommands(ctx)
-    activateCodeLens(ctx)
+    const reload = async () => {
+        // Deactivate previous features.
+        for (const disp of ctx.subscriptions) {
+            disp.dispose()
+        }
 
-    const installDir = getStarRodDir()
-    if (!installDir) {
-        const item = await vscode.window.showWarningMessage('Star Rod installation directory not set.', {},
-            'Set Installation Directory...',
-            'Download Star Rod',
-        )
+        const installDir = getStarRodDir()
+        if (installDir) {
+            const srVersion = await getStarRodDirVersion(installDir)
+            if (srVersion) {
+                // (Re)activate features!
+                await libProvider.activate(ctx)
+                activateCommands(ctx)
 
-        await handleInstallPrompt(item)
-    } else if (!(await getStarRodDirVersion(installDir))) {
-        const item = await vscode.window.showErrorMessage(`Star Rod installation directory "${installDir}" is invalid.`, {},
-            'Set Installation Directory...',
-            'Download Star Rod',
-        )
+                if (!srVersion.startsWith('0.2')) {
+                    // 0.3.0+ only
+                    activateCodeLens(ctx)
+                }
+            } else {
+                const item = await vscode.window.showErrorMessage(`Star Rod installation directory "${installDir}" is invalid.`, {},
+                    'Set Installation Directory...',
+                    'Download Star Rod',
+                )
 
-        await handleInstallPrompt(item)
+                await handleInstallPrompt(item)
+            }
+        } else {
+            const item = await vscode.window.showWarningMessage('Star Rod installation directory not set.', {},
+                'Set Installation Directory...',
+                'Download Star Rod',
+            )
+
+            await handleInstallPrompt(item)
+        }
     }
+
+    vscode.workspace.onDidChangeConfiguration(evt => {
+        if (evt.affectsConfiguration('starRod.installDirectory') || evt.affectsConfiguration('starRod.installDirectoryVersionOverride')) {
+            console.info('Configuration changed. Reloading...')
+            reload().catch(console.error)
+        }
+    })
+    reload().catch(console.error)
 }
 
 export async function handleInstallPrompt(item: string | undefined) {

@@ -11,6 +11,7 @@
     - You can now use any number of `%!` line comments before a struct to document it. This info will appear in autocomplete suggestions and whenever you hover over the struct name.
     - Added autocompletion for map/area/game/mod flags and vars.
 - Disabled autocompletion features in string blocks.
+- Extension now reloads when the Star Rod directory or version is changed in Settings.
 
 ## 1.0.3
 

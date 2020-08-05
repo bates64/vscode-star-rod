@@ -1174,41 +1174,23 @@ type Enum = {
     members: string[]
 }
 
-export async function register() {
+export async function activate(ctx: vscode.ExtensionContext) {
     const mod = Mod.getActive()
 
     let syntaxVersion: number
     let lib: Database | undefined
-    const updateSyntaxVersion = async () => {
-        syntaxVersion = 0.2
-        const srVersion = await getStarRodDirVersion()
-        if (srVersion?.startsWith('0.3')) {
-            syntaxVersion = 0.3
-        }
-    }
-    const updateDatabase = async () => {
-        if (syntaxVersion === 0.2) {
-            lib = LIB as Database
-        } else if (syntaxVersion >= 0.3) {
-            const srDir = getStarRodDir()
-            if (srDir) {
-                lib = await loadDatabase(srDir)
-            } else {
-                vscode.window.showInformationMessage('Star Rod directory not set. Features such as autocomplete will not be available.')
-                lib = undefined
-            }
-        } else {
-            vscode.window.showInformationMessage('Unsupported Star Rod version. Features such as autocomplete will not be available.')
-            lib = undefined
-        }
-    }
 
-    updateSyntaxVersion().then(updateDatabase)
-    vscode.workspace.onDidChangeConfiguration(evt => {
-        if (evt.affectsConfiguration('starRod')) {
-            updateSyntaxVersion().then(updateDatabase)
+    const srVersion = await getStarRodDirVersion()
+    if (srVersion?.startsWith('0.2')) { // TODO: use semver
+        lib = LIB as Database
+        syntaxVersion = 0.2
+    } else {
+        syntaxVersion = 0.3
+        const srDir = getStarRodDir()
+        if (srDir) {
+            lib = await loadDatabase(srDir)
         }
-    })
+    }
 
     let enums: Array<Enum> = []
     const updateEnums = async () => {
@@ -1245,6 +1227,7 @@ export async function register() {
     enumWatcher.onDidChange(evt => updateEnums())
     enumWatcher.onDidCreate(evt => updateEnums())
     enumWatcher.onDidDelete(evt => updateEnums())
+    ctx.subscriptions.push(enumWatcher)
 
     let flags: Array<string> = []
     const updateFlags = async () => {
@@ -1265,6 +1248,7 @@ export async function register() {
     flagWatcher.onDidChange(evt => updateFlags())
     flagWatcher.onDidCreate(evt => updateFlags())
     flagWatcher.onDidDelete(evt => updateFlags())
+    ctx.subscriptions.push(flagWatcher)
 
     const getDatabaseForDoc = async (document: vscode.TextDocument): Promise<Entry[] | undefined> => {
         if (!lib) return undefined
@@ -1418,7 +1402,7 @@ export async function register() {
         }
     }
 
-    languages.registerHoverProvider('starrod', {
+    ctx.subscriptions.push(languages.registerHoverProvider('starrod', {
         async provideHover(document, position, token) {
             const tokens = tokenizeLine(document.lineAt(position))
             const hoveredToken: Token | undefined = tokens.find(t => t.range.contains(position))
@@ -1464,9 +1448,9 @@ export async function register() {
 
             return null
         },
-    })
+    }))
 
-    languages.registerSignatureHelpProvider('starrod', {
+    ctx.subscriptions.push(languages.registerSignatureHelpProvider('starrod', {
         async provideSignatureHelp(document, position, token, context) {
             const tokens = tokenizeLine(document.lineAt(position))
             let caretTokenIdx = 0
@@ -1514,9 +1498,9 @@ export async function register() {
 
             return null
         }
-    }, '(', ' ')
+    }, '(', ' '))
 
-    languages.registerCompletionItemProvider('starrod', {
+    ctx.subscriptions.push(languages.registerCompletionItemProvider('starrod', {
         async provideCompletionItems(document, position, token, context) {
             const commentChar = document.lineAt(position).text.indexOf('%')
             if (commentChar != -1 && commentChar <= position.character) {
@@ -1680,9 +1664,9 @@ export async function register() {
 
             return null
         }
-    }, ' ', '\t', ':', '.', '*', '$')
+    }, ' ', '\t', ':', '.', '*', '$'))
 
-    languages.registerFoldingRangeProvider('starrod', {
+    ctx.subscriptions.push(languages.registerFoldingRangeProvider('starrod', {
         async provideFoldingRanges(document, context, token) {
             const ranges: FoldingRange[] = []
             const regions: [string, number][] = []
@@ -1803,5 +1787,5 @@ export async function register() {
 
             return ranges
         }
-    })
+    }))
 }
