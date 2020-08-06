@@ -48,11 +48,20 @@ const lexer = moo.states({
     },
 })
 
+const cache: Map<string, { version: number, script: Script }> = new Map()
+
 export default class Script {
     document: TextDocument
 
     constructor(document: TextDocument) {
         this.document = document
+
+        const cacheHit = cache.get(document.fileName)
+        if (cacheHit && cacheHit.version >= document.version) {
+            return cacheHit.script
+        }
+
+        cache.set(document.fileName, { version: document.version, script: this })
     }
 
     scope(): Scope | undefined {
@@ -107,7 +116,11 @@ export default class Script {
         return { segments, name, ext }
     }
 
+    private parseDirectivesCache?: { directives: Directive[], version: number }
     parseDirectives(): Directive[] {
+        if (this.parseDirectivesCache?.version === this.document.version)
+            return this.parseDirectivesCache.directives
+
         lexer.reset(this.document.getText())
         const tokens = []
         {
@@ -198,6 +211,7 @@ export default class Script {
             }
         }
 
+        this.parseDirectivesCache = { directives, version: this.document.version }
         return directives
     }
 
