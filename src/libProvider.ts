@@ -1315,6 +1315,18 @@ export async function activate(ctx: vscode.ExtensionContext) {
                             }
                         })
                     }
+
+                    if (directive.keyword === '#alias') {
+                        const [ from, to ] = directive.atoms
+                        const entry = database.find(entry => entry.name === from)
+                        if (entry) {
+                            database.push({
+                                ...entry,
+                                name: to,
+                                location: new Location(script.document.uri, directive.range),
+                            })
+                        }
+                    }
                 }
             } catch (error) {
                 console.error(error)
