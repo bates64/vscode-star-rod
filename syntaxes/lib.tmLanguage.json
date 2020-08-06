@@ -88,16 +88,24 @@
           }
         },
         {
+          "match": "((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)((\\[)([0-9A-Fa-f]+)(\\]))?",
+          "captures": {
+            "1": { "name": "entity.name.starrod" },
+            "2": { "name": "punctuation.variable.starrod" },
+            "4": { "name": "punctuation.separator.namespace.access.starrod" },
+            "5": { "name": "meta.bracket.square.access.starrod" },
+            "6": { "name": "punctuation.definition.begin.bracket.square.starrod" },
+            "7": { "name": "constant.numeric.hexadecimal" },
+            "8": { "name": "punctuation.definition.end.bracket.square.starrod" }
+          }
+        },
+        {
           "name": "storage.type.starrod",
-          "match": "\\b(api|asm|scr|dat|void|int|short|float|bool|ptr|collider|model|modelID|collider|soundID|camID|colliderID|npc|enemy|f?var|stringID)\\b"
+          "match": "\\b(api|asm|scr|dat|void|int|short|float|bool|ptr|collider|model|modelID|collider|soundID|camID|colliderID|npc|enemy|f?var|stringID|EntryList|ExtraAnimationList|Header|AISettings|NpcSettings|NpcGroup|NpcGroupList|ASCII|ConstDouble|Unknown|JumpTable|IntTable|FloatTable|ItemList|TriggerCoord|LavaResetList|ByteTable|ShopInventory|ShopItemPositions|ShopPriceList|ShopOwnerNPC|NpcList|VertexList|DisplayList|VectorList|TreeModelList|TreeDropList|ShakeTreeEvent|TreeEffectVectors|ShortTable|DataTable|SearchBushEvent|BadgeShopInventory|TweesterPath|TweesterPathList|Formation|FormationTable|StageTable|DefenseTable|StatusTable|Actor|IdleAnimations|SpriteTable|PartsTable|Stage|ForegroundModelList|SJIS|SpecialFormation|Vector3D|DmaArgTable|Data|Npc|String)\\b"
         },
         {
           "name": "support.constant.enum.starrod",
           "match": "#[^\\s,=}]+"
-        },
-        {
-          "name": "entity.name.starrod",
-          "match": "$[^\\s,=}]+"
         },
         {
           "name": "punctuation.separator.colon.starrod",

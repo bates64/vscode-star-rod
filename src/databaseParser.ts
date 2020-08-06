@@ -11,6 +11,7 @@ export type Usage = 'api' | 'asm' | 'scr' | 'any'
 
 export type Entry = {
     usage: Usage
+    structType?: string
     ramAddress?: string
     romAddress?: string
     name: string

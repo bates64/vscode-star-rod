@@ -1286,6 +1286,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
 
                         ;(requireExport ? awaitingExport : database).push({
                             usage,
+                            structType: directive.args[0],
                             name: namespace ? identifier.replace('$', `$${namespace}:`) : identifier,
                             note: directive.comment,
                             attributes: {},
@@ -1376,55 +1377,55 @@ export async function activate(ctx: vscode.ExtensionContext) {
         //if (entry.note) doc += `% ${entry.note}\n`
 
         doc += [
-            entry.usage,
+            entry.usage === 'any' ? entry.structType : entry.usage,
             entry.name,
         ].filter(Boolean).join(' ')
 
-        if (entry.args) {
-            if (entry.args.length) {
-                const argDocs = entry.args.map(documentArg)
-                if (!forceWrap && entry.args.length < 4 && !entry.args.some(arg => arg.note)) {
-                    doc += ' ( '
-                    doc += argDocs.join(', ')
-                    doc += ' )'
+        if (entry.args || entry.returns) {
+            if (entry.args) {
+                if (entry.args.length) {
+                    const argDocs = entry.args.map(documentArg)
+                    if (!forceWrap && entry.args.length < 4 && !entry.args.some(arg => arg.note)) {
+                        doc += ' ( '
+                        doc += argDocs.join(', ')
+                        doc += ' )'
+                    } else {
+                        doc += ' (\n'
+                        doc += argDocs
+                            .map(s => '\t' + s)
+                            .join('\n')
+                        doc += '\n)'
+                    }
                 } else {
-                    doc += ' (\n'
-                    doc += argDocs
-                        .map(s => '\t' + s)
-                        .join('\n')
-                    doc += '\n)'
+                    doc += ' ()'
                 }
             } else {
-                doc += ' ()'
+                doc += ' ( ??? )'
             }
-        } else {
-            doc += ' ( ??? )'
-        }
 
-        if (entry.returns) {
-            if (entry.returns.length) {
-                doc += ' ->'
+            if (entry.returns) {
+                if (entry.returns.length) {
+                    doc += ' ->'
 
-                const argDocs = entry.returns.map(documentArg)
-                if (!forceWrap && entry.returns.length < 4 && !entry.returns.some(arg => arg.note || Object.keys(arg.attributes).length)) {
-                    doc += ' ( '
-                    doc += argDocs.join(', ')
-                    doc += ' )'
-                } else {
-                    doc += ' (\n'
-                    doc += argDocs
-                        .map(s => '\t' + s)
-                        .join('\n')
-                    doc += '\n)'
+                    const argDocs = entry.returns.map(documentArg)
+                    if (!forceWrap && entry.returns.length < 4 && !entry.returns.some(arg => arg.note || Object.keys(arg.attributes).length)) {
+                        doc += ' ( '
+                        doc += argDocs.join(', ')
+                        doc += ' )'
+                    } else {
+                        doc += ' (\n'
+                        doc += argDocs
+                            .map(s => '\t' + s)
+                            .join('\n')
+                        doc += '\n)'
+                    }
                 }
+            } else {
+                doc += ' -> ( ??? )'
             }
-
-            doc += '\n'
-        } else {
-            doc += ' -> ( ??? )\n'
         }
 
-        doc += '```\n'
+        doc += '\n```\n'
 
         if (syntaxVersion >= 0.3) {
 
