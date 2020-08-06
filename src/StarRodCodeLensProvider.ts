@@ -9,7 +9,7 @@ export default class StarRodCodeLensProvider implements vscode.CodeLensProvider 
         const dir = script.directory()
         if (!scope || !dir) return [] // Not a script
 
-        let patchScript: Script | Uri | undefined = dir.subdir === 'patch' ? script : await script.findRelevantScript('patch')
+        let patchScript: Script | Uri | undefined = ['patch', 'import'].includes(dir.subdir) ? script : await script.findRelevantScript('patch')
         if (!patchScript) {
             patchScript = script.goodLocationForRelevantScript('patch')
         }
