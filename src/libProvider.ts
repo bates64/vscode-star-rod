@@ -1654,7 +1654,8 @@ export async function activate(ctx: vscode.ExtensionContext) {
                             item.kind = vscode.CompletionItemKind.Function
                             item.documentation = new MarkdownString(documentEntry(entry, true))
 
-                            item.insertText = new SnippetString(entry.name)
+                            item.insertText = new SnippetString()
+                            item.insertText.appendText(entry.name)
                             item.insertText.appendText(' ')
                             if (!entry.args) {
                                 item.insertText.appendText('( ')
@@ -1683,7 +1684,8 @@ export async function activate(ctx: vscode.ExtensionContext) {
                             item.kind = vscode.CompletionItemKind.Method
                             item.documentation = new MarkdownString(documentEntry(entry, true ))
 
-                            item.insertText = new SnippetString(entry.name)
+                            item.insertText = new SnippetString()
+                            item.insertText.appendText(entry.name)
                             return item
                         })
                 }
@@ -1701,7 +1703,8 @@ export async function activate(ctx: vscode.ExtensionContext) {
                         item.kind = vscode.CompletionItemKind.Class
                         item.documentation = new MarkdownString(documentEntry(entry, true ))
 
-                        item.insertText = new SnippetString(entry.name)
+                        item.insertText = new SnippetString()
+                        item.insertText.appendText(entry.name)
                         return item
                     })
             }
@@ -1719,7 +1722,8 @@ export async function activate(ctx: vscode.ExtensionContext) {
                         if (entry.usage === 'asm') item.kind = vscode.CompletionItemKind.Class
                         item.documentation = new MarkdownString(documentEntry(entry, true ))
 
-                        item.insertText = new SnippetString(entry.name)
+                        item.insertText = new SnippetString()
+                        item.insertText.appendText(entry.name)
                         return item
                     })
             }
