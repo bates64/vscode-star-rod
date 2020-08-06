@@ -1261,31 +1261,93 @@ export async function activate(ctx: vscode.ExtensionContext) {
         if (sourceType === 'p' || isGlobalPatch) database.push(...lib.pause)
 
         // Add locally-declared structs.
-        try {
-            const script = new Script(document)
-            for (const directive of script.parseDirectives()) {
-                if (directive.keyword === '#new') {
-                    let usage: Usage = 'any'
-                    if (directive.args[0].startsWith('Script')) usage = 'scr'
-                    else if (directive.args[0].startsWith('Function'))
-                        // 'api' if identifier has uppercase characters.
-                        usage = /[A-Z]/.test(directive.atoms[0]) ? 'api' : 'asm'
+        // TODO: caching/memoization
+        const seenScripts = new Set()
+        const addStructsToDatabase = async (script: Script, namespace = '', requireExport = false) => {
+            // Prevent infinite #import recursion.
+            if (seenScripts.has(script.document.fileName)) return
+            seenScripts.add(script.document.fileName)
 
-                    // TODO: parse type information in `directive.comment`
+            // Attempt to parse the script and add its structs to the database.
+            try {
+                let awaitingExport: Entry[] = []
+                for (const directive of script.parseDirectives()) {
+                    if (directive.keyword === '#new') {
+                        const identifier = directive.atoms[0]
 
-                    database.push({
-                        usage,
-                        name: directive.atoms[0],
-                        note: directive.comment,
-                        attributes: {},
-                    })
+                        let usage: Usage = 'any'
+                        if (directive.args[0].startsWith('Script')) usage = 'scr'
+                        else if (directive.args[0].startsWith('Function')) {
+                            // 'api' if identifier has uppercase characters.
+                            usage = /[A-Z]/.test(identifier) ? 'api' : 'asm'
+                        }
+
+                        // TODO: parse type information in `directive.comment`
+
+                        ;(requireExport ? awaitingExport : database).push({
+                            usage,
+                            name: namespace ? identifier.replace('$', `$${namespace}:`) : identifier,
+                            note: directive.comment,
+                            attributes: {},
+                        })
+                    }
+
+                    // Follow imports.
+                    if (directive.keyword === '#import') {
+                        const [ importPath, namespace ] = directive.atoms
+                        const tld = script.directory()?.tld
+                        if (tld) {
+                            const uri = tld.with({ path: tld.path + '/import/' + importPath })
+                            const document = await vscode.workspace.openTextDocument(uri)
+                            await addStructsToDatabase(new Script(document), namespace)
+                        }
+                    }
+
+                    if (directive.keyword === '#export') {
+                        const identifier = directive.atoms[0]
+                        awaitingExport = awaitingExport.filter(entry => {
+                            if (entry.name === identifier) {
+                                database.push(entry)
+                                return false
+                            } else {
+                                return true
+                            }
+                        })
+                    }
                 }
+            } catch (error) {
+                console.error(error)
             }
-        } catch (error) {
-            console.error(error)
         }
 
-        // TODO: also add imported/src/gen/global-patch functions and scripts to the database
+        const script = new Script(document)
+
+        // For non-global-patch files, add exported global-patch entries.
+        if (script.scope()) {
+            const workspaceFolder = vscode.workspace.getWorkspaceFolder(script.document.uri)
+            if (workspaceFolder) {
+                for (const uri of await vscode.workspace.findFiles(
+                    new vscode.RelativePattern(workspaceFolder, 'globals/patch/**/*.patch')
+                )) {
+                    const document = await vscode.workspace.openTextDocument(uri)
+                    await addStructsToDatabase(new Script(document), undefined, true)
+                }
+            }
+        }
+
+        // If this is a `patch` script, include local entries from the relevant src/gen script, if there is one.
+        if (script.directory()?.subdir === 'patch') {
+            // src takes precedence over gen.
+            const src = await script.findRelevantScript('src')
+            if (src) {
+                await addStructsToDatabase(src)
+            } else {
+                const gen = await script.findRelevantScript('gen')
+                if (gen) await addStructsToDatabase(gen)
+            }
+        }
+
+        await addStructsToDatabase(script)
 
         return database
     }

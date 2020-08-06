@@ -10,6 +10,7 @@
     - Added CodeLens actions on `#new` directives in src/gen files. This will add to, or create, the relevant `patch` file.
     - You can now use any number of `%!` line comments before a struct to document it. This info will appear in autocomplete suggestions and whenever you hover over the struct name.
     - Added autocompletion for map/area/game/mod flags and vars.
+    - Added autocompletion for structs, including from other files (i.e. `src`, `gen`, `#import`ed files, and global patches).
 - Disabled autocompletion features in string blocks.
 - Extension now reloads when the Star Rod directory or version is changed in Settings.
 
