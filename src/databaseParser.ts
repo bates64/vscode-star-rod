@@ -1,3 +1,4 @@
+import { Location } from 'vscode'
 import moo from 'moo'
 
 export type Database = {
@@ -19,6 +20,7 @@ export type Entry = {
     args?: Arg[] // Unknown if undefined
     returns?: Arg[] // Unknown if undefined
     attributes: Attributes
+    location?: Location
 }
 
 export type Arg = {
@@ -209,6 +211,8 @@ export function parse(source: string): { scope: keyof Database, entries: Entry[]
                             }
                         })
                     }
+
+                    // TODO: entry.location pointing to the relevant struct in dump/lib/
 
                     entries.push({
                         usage,

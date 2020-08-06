@@ -1,6 +1,7 @@
-import {
+import vscode, {
     languages,
     Hover,
+    Location,
     Range,
     MarkdownString,
     SnippetString,
@@ -14,7 +15,6 @@ import {
     FoldingRange,
     FoldingRangeKind,
 } from 'vscode'
-import * as vscode from 'vscode'
 
 import * as LIB from './lib.json'
 import loadDatabase, { Entry, Arg, Database, Usage } from './database'
@@ -1260,7 +1260,11 @@ export async function activate(ctx: vscode.ExtensionContext) {
         if (sourceType === 'b' || isGlobalPatch) database.push(...lib.battle)
         if (sourceType === 'p' || isGlobalPatch) database.push(...lib.pause)
 
-        // Add locally-declared structs.
+        return database.concat(await getLocalDatabaseForDoc(document))
+    }
+    const getLocalDatabaseForDoc = async (document: vscode.TextDocument): Promise<Entry[]> => {
+        const database: Entry[] = []
+
         // TODO: caching/memoization
         const seenScripts = new Set()
         const addStructsToDatabase = async (script: Script, namespace = '', requireExport = false) => {
@@ -1286,7 +1290,21 @@ export async function activate(ctx: vscode.ExtensionContext) {
 
                         ;(requireExport ? awaitingExport : database).push({
                             usage,
+                            location: new Location(script.document.uri, directive.range),
                             structType: directive.args[0],
+                            name: namespace ? identifier.replace('$', `$${namespace}:`) : identifier,
+                            note: directive.comment,
+                            attributes: {},
+                        })
+                    }
+
+                    if (directive.keyword === '#string') {
+                        const identifier = directive.atoms[0]
+
+                        ;(requireExport ? awaitingExport : database).push({
+                            usage: 'any',
+                            location: new Location(script.document.uri, directive.range),
+                            structType: 'string',
                             name: namespace ? identifier.replace('$', `$${namespace}:`) : identifier,
                             note: directive.comment,
                             attributes: {},
@@ -1865,6 +1883,19 @@ export async function activate(ctx: vscode.ExtensionContext) {
             }
 
             return ranges
+        }
+    }))
+
+    ctx.subscriptions.push(languages.registerDefinitionProvider('starrod', {
+        async provideDefinition(document: TextDocument, position: Position, token) {
+            const identifier = document.getText(document.getWordRangeAtPosition(position))
+
+            const db = identifier.startsWith('$') ? await getLocalDatabaseForDoc(document) : await getDatabaseForDoc(document)
+            if (!db) return
+
+            const entry = db.find(entry => entry.name === identifier)
+
+            return entry?.location
         }
     }))
 }

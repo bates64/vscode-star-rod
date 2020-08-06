@@ -189,7 +189,7 @@ export default class Script {
             // on the directive type, e.g. #new requires a block), but it should suffice for any sane codestyle.
             if ((token.type === 'blockcontent' || (token.type === 'nl' && tokens[t + 1]?.type !== 'lbrace')) && keyword) {
                 const end = token.type === 'blockcontent'
-                    ? new Position(tokens[t + 1].line - 1, tokens[t + 1].col - 1)
+                    ? new Position(tokens[t + 1].line - 1, tokens[t + 1].col - 1) // FIXME: rbrace not included in range
                     : position
 
                 directives.push({
