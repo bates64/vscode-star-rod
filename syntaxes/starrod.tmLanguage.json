@@ -107,7 +107,7 @@
           "beginCaptures": {
             "0": { "name": "meta.head.unknown.patch.starrod" },
             "1": { "name": "punctuation.at.starrod" },
-            "2": { "name": "entity.name.definition.unknown.starrod" },
+            "2": { "name": "entity.name.starrod" },
             "3": { "name": "punctuation.definition.variable.starrod" },
             "5": { "name": "punctuation.separator.namespace.access.starrod" }
           },
@@ -133,7 +133,7 @@
             "4": { "name": "storage.type.function.starrod" },
             "7": { "name": "punctuation.separator.starrod" },
             "8": { "name": "storage.modifier.scope.starrod" },
-            "9": { "name": "entity.name.function.definition.starrod" },
+            "9": { "name": "entity.name.starrod" },
             "10": { "name": "punctuation.definition.variable.starrod" },
             "12": { "name": "punctuation.separator.namespace.access.starrod" },
             "13": { "name": "punctuation.definition.begin.bracket.curly.starrod" }
@@ -157,7 +157,7 @@
             "4": { "name": "storage.type.script.starrod" },
             "6": { "name": "punctuation.separator.starrod" },
             "7": { "name": "storage.modifier.scope.starrod" },
-            "8": { "name": "entity.name.script.definition.starrod" },
+            "8": { "name": "entity.name.starrod" },
             "9": { "name": "punctuation.definition.variable.starrod" },
             "11": { "name": "punctuation.separator.namespace.access.starrod" },
             "12": { "name": "punctuation.definition.begin.bracket.curly.starrod" }
@@ -183,7 +183,7 @@
             "2": { "name": "punctuation.definition.directive.starrod" },
             "3": { "name": "punctuation.separator.starrod" },
             "4": { "name": "storage.type.string.starrod" },
-            "5": { "name": "entity.name.script.definition.starrod" },
+            "5": { "name": "entity.name.starrod" },
             "6": { "name": "punctuation.definition.variable.starrod" },
             "9": { "name": "punctuation.separator.namespace.access.starrod" },
             "10": { "name": "punctuation.definition.begin.bracket.curly.starrod" }
@@ -242,7 +242,7 @@
             "4": { "name": "constant.numeric.starrod" },
             "5": { "name": "punctuation.separator.starrod" },
             "6": { "name": "punctuation.section.parameters.begin.bracket.round.starrod" },
-            "7": { "name": "entity.name.string.definition.starrod" },
+            "7": { "name": "entity.name.starrod" },
             "8": { "name": "punctuation.section.parameters.end.bracket.round.starrod" },
             "9": { "name": "punctuation.definition.begin.bracket.curly.starrod" }
           },
@@ -268,7 +268,7 @@
             "0": { "name": "meta.head.string.definition.by-pointer.starrod" },
             "1": { "name": "storage.type.string.starrod" },
             "2": { "name": "punctuation.definition.directive.starrod" },
-            "3": { "name": "entity.name.string.definition.starrod" },
+            "3": { "name": "entity.name.starrod" },
             "4": { "name": "punctuation.definition.variable.starrod" },
             "6": { "name": "punctuation.separator.namespace.access.starrod" },
             "7": { "name": "punctuation.definition.begin.bracket.curly.starrod" }
@@ -299,7 +299,7 @@
             "2": { "name": "punctuation.definition.directive.starrod" },
             "3": { "name": "punctuation.separator.starrod" },
             "4": { "name": "storage.type.other.starrod" },
-            "5": { "name": "entity.name.other.definition.starrod" },
+            "5": { "name": "entity.name.starrod" },
             "6": { "name": "punctuation.definition.variable.starrod" },
             "8": { "name": "punctuation.separator.namespace.access.starrod" }
           },
@@ -521,7 +521,7 @@
             "1": { "name": "constant.numeric.hexadecimal.offset.starrod" },
             "2": { "name": "punctuation.separator.label.starrod" },
             "3": { "name": "keyword.control.call.starrod" },
-            "4": { "name": "entity.name.function.call.starrod" },
+            "4": { "name": "entity.name.call.starrod" },
             "5": { "name": "support.function.starrod" },
             "7": { "name": "punctuation.variable.starrod" },
             "9": { "name": "punctuation.separator.namespace.access.starrod" },
@@ -547,7 +547,7 @@
             "1": { "name": "constant.numeric.hexadecimal.offset.starrod" },
             "2": { "name": "punctuation.separator.label.starrod" },
             "3": { "name": "keyword.control.exec.starrod" },
-            "4": { "name": "entity.name.script.exec.starrod" },
+            "4": { "name": "entity.name.starrod" },
             "5": { "name": "support.script.starrod" },
             "7": { "name": "punctuation.variable.starrod" },
             "9": { "name": "punctuation.separator.namespace.access.starrod" },

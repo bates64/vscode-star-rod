@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+
+- Normalised syntax highlighting among every `$identifier` regardless of type.
+
 ## 1.1.0
 
 - Added syntax highlighting for `#new:String` blocks.
