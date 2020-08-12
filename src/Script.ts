@@ -33,7 +33,7 @@ const lexer = moo.states({
         lbrace: { match: '{', push: 'block' },
         rbrace: '}',
 
-        directive: /[#@][a-zA-Z:_]+/,
+        directive: /[#@][a-zA-Z0-9:_()]*/,
 
         nl: { match: /\r?\n/, lineBreaks: true },
         atom: /[^\s%{}=,"]+/,

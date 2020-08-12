@@ -2,6 +2,7 @@ import * as vscode from 'vscode'
 import * as libProvider from './libProvider'
 import activateCommands from './commands'
 import { activate as activateCodeLens } from './StarRodCodeLensProvider'
+import { activate as activateDocumentSymbols } from './StarRodDocumentSymbolProvider'
 
 const STAR_ROD_JAR_SIZES = new Map([
     // No other good way to check for SR version AFAIK.
@@ -31,6 +32,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                 if (!srVersion.startsWith('0.2')) {
                     // 0.3.0+ only
                     activateCodeLens(ctx)
+                    activateDocumentSymbols(ctx)
                 }
             } else {
                 const item = await vscode.window.showErrorMessage(`Star Rod installation directory "${installDir}" is invalid.`, {},
