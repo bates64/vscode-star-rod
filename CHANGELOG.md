@@ -3,6 +3,7 @@
 ## 1.1.1
 
 - Normalised syntax highlighting among every `$identifier` regardless of type.
+- Strings now use the 'text' icon when appearing in autocomplete suggestions.
 
 ## 1.1.0
 

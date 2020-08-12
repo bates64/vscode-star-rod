@@ -1304,7 +1304,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                         ;(requireExport ? awaitingExport : database).push({
                             usage: 'any',
                             location: new Location(script.document.uri, directive.range),
-                            structType: 'string',
+                            structType: 'String',
                             name: namespace ? identifier.replace('$', `$${namespace}:`) : identifier,
                             note: directive.comment,
                             attributes: {},
@@ -1682,7 +1682,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                         .map(entry => {
                             const item = new CompletionItem(entry.name, 2)
 
-                            item.kind = vscode.CompletionItemKind.Function
+                            item.kind = entryToCompletionItemKind(entry)
                             item.documentation = new MarkdownString(documentEntry(entry, true))
 
                             item.insertText = new SnippetString()
@@ -1712,7 +1712,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                         .map(entry => {
                             const item = new CompletionItem(entry.name, 2)
 
-                            item.kind = vscode.CompletionItemKind.Method
+                            item.kind = entryToCompletionItemKind(entry)
                             item.documentation = new MarkdownString(documentEntry(entry, true ))
 
                             item.insertText = new SnippetString()
@@ -1731,7 +1731,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                     .map(entry => {
                         const item = new CompletionItem(entry.name, 2)
 
-                        item.kind = vscode.CompletionItemKind.Class
+                        item.kind = entryToCompletionItemKind(entry)
                         item.documentation = new MarkdownString(documentEntry(entry, true ))
 
                         item.insertText = new SnippetString()
@@ -1747,10 +1747,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                     .map(entry => {
                         const item = new CompletionItem(entry.name, 2)
 
-                        item.kind = vscode.CompletionItemKind.Struct
-                        if (entry.usage === 'scr') item.kind = vscode.CompletionItemKind.Method
-                        if (entry.usage === 'api') item.kind = vscode.CompletionItemKind.Function
-                        if (entry.usage === 'asm') item.kind = vscode.CompletionItemKind.Class
+                        item.kind = entryToCompletionItemKind(entry)
                         item.documentation = new MarkdownString(documentEntry(entry, true ))
 
                         item.insertText = new SnippetString()
@@ -1898,4 +1895,13 @@ export async function activate(ctx: vscode.ExtensionContext) {
             return entry?.location
         }
     }))
+}
+
+function entryToCompletionItemKind(entry: Entry): vscode.CompletionItemKind {
+    if (entry.usage === 'scr') return vscode.CompletionItemKind.Method
+    if (entry.usage === 'api') return vscode.CompletionItemKind.Function
+    if (entry.usage === 'asm') return vscode.CompletionItemKind.Class
+    if (entry.structType === 'String') return vscode.CompletionItemKind.Text
+
+    return vscode.CompletionItemKind.Struct
 }
