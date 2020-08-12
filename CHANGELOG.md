@@ -3,6 +3,7 @@
 ## 1.2.1
 
 - Fixed documentation comments being ignored.
+- Fixed syntax highlighting for `@ $identifier` where the space between `@` and `$` is omitted.
 
 ## 1.2.0
 
