@@ -201,7 +201,7 @@ export default class Script {
 
             // Parses the first part of the header into `keyword` and `args`.
             if (token.type === 'directive') {
-                endStruct(position)
+                if (keyword) endStruct(position)
                 ;[ keyword, ...args ] = token.text.split(':')
                 start = position
                 continue

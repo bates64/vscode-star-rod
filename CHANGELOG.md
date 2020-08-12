@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1
+
+- Fixed documentation comments being ignored.
+
 ## 1.2.0
 
 - Normalised syntax highlighting among every `$identifier` regardless of type.
