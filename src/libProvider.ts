@@ -1278,20 +1278,19 @@ export async function activate(ctx: vscode.ExtensionContext) {
                 for (const directive of script.parseDirectives()) {
                     if (directive.keyword === '#new') {
                         const identifier = directive.atoms[0]
+                        const structType = directive.args[0]
 
                         let usage: Usage = 'any'
-                        if (directive.args[0].startsWith('Script')) usage = 'scr'
-                        else if (directive.args[0].startsWith('Function')) {
-                            // 'api' if identifier has uppercase characters.
-                            usage = /[A-Z]/.test(identifier) ? 'api' : 'asm'
+                        if (structType.startsWith('Script')) usage = 'scr'
+                        else if (structType.startsWith('Function') && !/Function_80[0-9A-F]{6}/.test(identifier)) {
+                            // 'api' if custom function name, bar the type prefix, has uppercase characters.
+                            usage = /[A-Z]/.test(identifier.replace(/^Function_/, '')) ? 'api' : 'asm'
                         }
-
-                        // TODO: parse type information in `directive.comment`
 
                         ;(requireExport ? awaitingExport : database).push({
                             usage,
                             location: new Location(script.document.uri, directive.range),
-                            structType: directive.args[0],
+                            structType,
                             name: namespace ? identifier.replace('$', `$${namespace}:`) : identifier,
                             note: directive.comment,
                             attributes: {},
@@ -1398,8 +1397,8 @@ export async function activate(ctx: vscode.ExtensionContext) {
             arg.type,
             arg.name,
             arg.note && `% ${arg.note}`,
-            arg.attributes.raw && '% ⚠ Raw - only constants allowed',
-            arg.attributes.ignore && `% ignored if equal to ${arg.attributes.ignore}`
+            arg.attributes.raw && '% ⚠ Constants only',
+            arg.attributes.ignore && `% Ignored if = ${arg.attributes.ignore}`
         ].filter(Boolean).join(' ')
 
         let doc = '```starrodlib\n'
@@ -1407,7 +1406,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
         //if (entry.note) doc += `% ${entry.note}\n`
 
         doc += [
-            entry.usage === 'any' ? entry.structType : entry.usage,
+            entry.structType,
             entry.name,
         ].filter(Boolean).join(' ')
 
@@ -1458,7 +1457,6 @@ export async function activate(ctx: vscode.ExtensionContext) {
         doc += '\n```\n'
 
         if (syntaxVersion >= 0.3) {
-
             if (entry.attributes.warning === 'unused') {
                 doc += `⚠ Never used in vanilla but functions properly\n\n`
             } else if (entry.attributes.warning === 'internal') {
@@ -1469,6 +1467,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                 doc += `⚠ ${entry.attributes.warning}\n\n`
             }
 
+            // TODO: if type information is found, wrap it in a code block
             if (entry.note) doc += entry.note + '\n\n'
 
             if (entry.ramAddress) {
@@ -1484,15 +1483,22 @@ export async function activate(ctx: vscode.ExtensionContext) {
     }
 
     const documentEntryOneLine = (entry: Entry) => {
+        let doc = [
+            entry.structType,
+            entry.name,
+        ].filter(Boolean).join(' ')
+
         if (entry.args) {
             if (entry.args.length) {
-                return `${entry.usage} ${entry.name} ( ${entry.args.map(arg => arg.name || arg.type).join(' ')} )`
+                doc += `( ${entry.args.map(arg => arg.name || arg.type).join(' ')} )`
             } else {
-                return `${entry.usage} ${entry.name} ()`
+                doc += '()'
             }
-        } else {
-            return `${entry.usage} ${entry.name} ( ??? )`
+        } else if (entry.returns) {
+            doc += '( ??? )'
         }
+
+        return doc
     }
 
     ctx.subscriptions.push(languages.registerHoverProvider('starrod', {
@@ -1678,7 +1684,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                 } else if (opToken.source === 'Call' && caretTokenIdx === 1) {
                     if (!db) return
                     return db
-                        .filter(entry => entry.usage === 'api')
+                        .filter(entry => entry.usage === 'api' || (entry.usage === 'any' && entry.structType?.startsWith('Function')))
                         .map(entry => {
                             const item = new CompletionItem(entry.name, 2)
 
@@ -1708,7 +1714,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                 } else if (['Exec', 'ExecWait', 'Jump', 'Bind'].includes(opToken.source) && caretTokenIdx === 1) {
                     if (!db) return
                     return db
-                        .filter(entry => entry.usage === 'scr')
+                        .filter(entry => entry.usage === 'scr' || entry.structType?.startsWith('Script'))
                         .map(entry => {
                             const item = new CompletionItem(entry.name, 2)
 
@@ -1727,7 +1733,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
             if (caretToken.source === '{Func:' || caretToken.source === '~Func:') {
                 if (!db) return
                 return db
-                    .filter(entry => entry.usage === 'asm')
+                    .filter(entry => entry.usage === 'asm' || (entry.usage === 'any' && entry.structType?.startsWith('Function')))
                     .map(entry => {
                         const item = new CompletionItem(entry.name, 2)
 
@@ -1898,9 +1904,9 @@ export async function activate(ctx: vscode.ExtensionContext) {
 }
 
 function entryToCompletionItemKind(entry: Entry): vscode.CompletionItemKind {
-    if (entry.usage === 'scr') return vscode.CompletionItemKind.Method
-    if (entry.usage === 'api') return vscode.CompletionItemKind.Function
+    if (entry.usage === 'scr' || entry.structType?.startsWith('Script')) return vscode.CompletionItemKind.Method
     if (entry.usage === 'asm') return vscode.CompletionItemKind.Class
+    if (entry.usage === 'api' || entry.structType?.startsWith('Function')) return vscode.CompletionItemKind.Function
     if (entry.structType === 'String') return vscode.CompletionItemKind.Text
 
     return vscode.CompletionItemKind.Struct

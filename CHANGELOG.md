@@ -10,6 +10,8 @@
 - Fixed `}` not being included in the highlighted range of Go To Definition.
 - You can now document structs using any line comments, rather than just those prefixed with `!`.
 - Made struct parsing more lenient - a comment between the header line and the comment block is now read correctly.
+- Struct types are now displayed for functions and scripts, instead of `scr`, `api`, or `asm`. The distinction between the latter two is still maintained, however, in autocomplete.
+- Improved type detection for functions. Functions in `$snake_case` are assumed to be for assembly (`JAL $func`) only, whereas functions in `$PascalCase` are assumed to be for script use (`Call $Func`) only.
 
 ## 1.1.0
 

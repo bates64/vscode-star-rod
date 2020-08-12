@@ -216,6 +216,11 @@ export function parse(source: string): { scope: keyof Database, entries: Entry[]
 
                     entries.push({
                         usage,
+                        structType: {
+                            scr: 'Script',
+                            asm: 'Function',
+                            api: 'Function',
+                        }[usage],
                         name,
                         note: nameP[0].note,
                         ramAddress,

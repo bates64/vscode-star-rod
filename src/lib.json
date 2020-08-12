@@ -2,6 +2,7 @@
   "world": [
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044298",
       "name": "MakeNpcs",
       "args": [
@@ -20,6 +21,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044340",
       "name": "RemoveNpc",
       "args": [
@@ -34,6 +36,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8004457C",
       "name": "GetBattleOutcome",
       "args": [
@@ -49,6 +52,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8004462C",
       "name": "DoNpcDefeat",
       "args": [],
@@ -58,6 +62,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044840",
       "name": "StartBattle",
       "args": [],
@@ -67,6 +72,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044860",
       "name": "StartBattleWith",
       "args": [
@@ -81,6 +87,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8004489C",
       "name": "StartBossBattle",
       "args": [
@@ -95,6 +102,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044A78",
       "name": "BindNpcAI",
       "args": [
@@ -113,6 +121,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044BAC",
       "name": "BindNpcIdle",
       "args": [
@@ -131,6 +140,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044C2C",
       "name": "RestartNpcAI",
       "args": [
@@ -145,6 +155,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044CF0",
       "name": "EnableNpcAI",
       "args": [
@@ -163,6 +174,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044DA4",
       "name": "SetNpcAux",
       "args": [
@@ -181,6 +193,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044EB8",
       "name": "BindNpcAux",
       "args": [
@@ -199,6 +212,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044F38",
       "name": "RestartNpcAux",
       "args": [
@@ -213,6 +227,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80044FF0",
       "name": "EnableNpcAux",
       "args": [
@@ -231,6 +246,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "800450A4",
       "name": "BindNpcInteract",
       "args": [
@@ -249,6 +265,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80045140",
       "name": "BindNpcHit",
       "args": [
@@ -267,6 +284,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "800451DC",
       "name": "BindNpcDefeat",
       "args": [
@@ -285,6 +303,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8004525C",
       "name": "SetOwnerVar",
       "args": [
@@ -305,6 +324,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "800452C0",
       "name": "GetOwnerVar",
       "args": [
@@ -325,6 +345,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80045320",
       "name": "SetNpcVar",
       "args": [
@@ -349,6 +370,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "800453BC",
       "name": "GetNpcVar",
       "args": [
@@ -373,6 +395,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8004545C",
       "name": "SetOwnerRotation",
       "args": [
@@ -398,6 +421,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8004550C",
       "name": "SetOwnerFlags",
       "args": [
@@ -413,6 +437,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80045524",
       "name": "SetOwnerFlagBits",
       "args": [
@@ -433,6 +458,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80045614",
       "name": "GetOwnerNpcID",
       "args": [
@@ -448,6 +474,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80045688",
       "name": "SetNpcFlagBits2",
       "args": [
@@ -472,6 +499,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80045734",
       "name": "GetOwnerAnimationFromTable",
       "args": [
@@ -492,6 +520,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8004A47C",
       "name": "DoBasicAI",
       "args": [
@@ -506,6 +535,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "800E96F8",
       "name": "ShowCoinCounter",
       "args": [
@@ -520,11 +550,13 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80111D38",
       "name": "MakeEntity"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80111FB0",
       "name": "AssignScript",
       "args": [
@@ -540,6 +572,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80111FF8",
       "name": "AssignAreaFlag",
       "args": [
@@ -555,6 +588,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "801120B8",
       "name": "AssignFlag",
       "args": [
@@ -569,6 +603,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8011206C",
       "name": "AssignBlockFlag",
       "args": [
@@ -583,6 +618,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80112114",
       "name": "AssignPanelFlag",
       "args": [
@@ -597,6 +633,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80112170",
       "name": "AssignCrateFlag",
       "args": [
@@ -611,6 +648,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80281860",
       "name": "MakeShop",
       "args": [
@@ -637,6 +675,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80281BD8",
       "name": "MakeShopOwner",
       "args": [
@@ -651,6 +690,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80281CAC",
       "name": "MakeDoorAdvanced",
       "args": [
@@ -697,6 +737,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802832E0",
       "name": "CreatePushBlockGrid",
       "args": [
@@ -742,6 +783,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8028347C",
       "name": "SetPushBlock",
       "args": [
@@ -772,6 +814,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802835C0",
       "name": "GetPushBlock",
       "args": [
@@ -802,6 +845,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802836B8",
       "name": "GetGridIndexFromPos",
       "args": [
@@ -842,6 +886,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802837AC",
       "name": "BindPushBlockFallEffect",
       "args": [
@@ -861,6 +906,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C9ED8",
       "name": "ResetFromLava",
       "args": [
@@ -875,6 +921,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA400",
       "name": "GotoMap",
       "args": [
@@ -895,6 +942,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA420",
       "name": "GotoMapSpecial",
       "args": [
@@ -920,6 +968,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA440",
       "name": "GotoMapByID",
       "args": [
@@ -945,6 +994,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA460",
       "name": "GetEntryID",
       "args": [
@@ -960,6 +1010,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA490",
       "name": "GetMapID",
       "args": [
@@ -975,6 +1026,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA4C0",
       "name": "GetLoadType",
       "args": [
@@ -990,6 +1042,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA4F4",
       "name": "SetRenderMode",
       "args": [
@@ -1009,6 +1062,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CDCB0",
       "name": "SetNpcPos",
       "args": [
@@ -1036,6 +1090,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CDED4",
       "name": "SetNpcScale",
       "args": [
@@ -1065,6 +1120,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CE01C",
       "name": "SetNpcSpeed",
       "args": [
@@ -1084,6 +1140,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CE088",
       "name": "SetNpcJumpscale",
       "args": [
@@ -1103,6 +1160,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CE160",
       "name": "GetNpcAnimation",
       "args": [
@@ -1122,6 +1180,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CE22C",
       "name": "MoveNpcTo",
       "args": [
@@ -1151,6 +1210,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CE6C4",
       "name": "NpcJump0",
       "args": [
@@ -1185,6 +1245,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CE6E0",
       "name": "NpcJump1",
       "args": [
@@ -1219,6 +1280,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CE6FC",
       "name": "NpcJumpX",
       "args": [
@@ -1263,6 +1325,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CEA10",
       "name": "GetNpcYaw",
       "args": [
@@ -1282,6 +1345,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CEA84",
       "name": "SetNpcYaw",
       "args": [
@@ -1301,6 +1365,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CEB04",
       "name": "InterpNpcYaw",
       "args": [
@@ -1325,6 +1390,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CECC8",
       "name": "NpcFacePlayer",
       "args": [
@@ -1344,6 +1410,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CEE80",
       "name": "NpcFaceNpc",
       "args": [
@@ -1368,6 +1435,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CF4E8",
       "name": "DisablePartnerAI",
       "args": [
@@ -1382,6 +1450,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CF52C",
       "name": "EnablePartnerAI",
       "args": [],
@@ -1391,6 +1460,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CF5B8",
       "name": "BringPartnerOut",
       "args": [
@@ -1405,6 +1475,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CF988",
       "name": "PutPartnerAway",
       "args": [],
@@ -1414,6 +1485,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D02B0",
       "name": "SayMessage0",
       "args": [
@@ -1447,6 +1519,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D02B0",
       "name": "SayMessage0",
       "args": [
@@ -1485,6 +1558,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D02CC",
       "name": "SayMessage1",
       "args": [
@@ -1513,6 +1587,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D02CC",
       "name": "SayMessage1",
       "args": [
@@ -1547,6 +1622,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D02E8",
       "name": "SayMessage2",
       "args": [
@@ -1580,6 +1656,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D02E8",
       "name": "SayMessage2",
       "args": [
@@ -1618,6 +1695,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D0304",
       "name": "SayMessage3",
       "args": [
@@ -1655,6 +1733,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D0894",
       "name": "ShowMessage",
       "args": [
@@ -1678,6 +1757,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D0B6C",
       "name": "ShowChoice",
       "args": [
@@ -1693,6 +1773,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D0CEC",
       "name": "SetMessageString",
       "args": [
@@ -1713,6 +1794,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D0D44",
       "name": "SetMessageValue",
       "args": [
@@ -1733,6 +1815,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D0DA0",
       "name": "HidePlayerShadow",
       "args": [
@@ -1748,6 +1831,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D0DE4",
       "name": "DisablePlayerPhysics",
       "args": [
@@ -1763,6 +1847,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D0E28",
       "name": "DisablePlayerInput",
       "args": [
@@ -1778,6 +1863,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D0EF0",
       "name": "SetPlayerPos",
       "args": [
@@ -1803,6 +1889,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1024",
       "name": "SetPlayerSpeed",
       "args": [
@@ -1818,6 +1905,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1054",
       "name": "SetPlayerJumpscale",
       "args": [
@@ -1833,6 +1921,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1084",
       "name": "SetPlayerAnimation",
       "args": [
@@ -1848,6 +1937,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1134",
       "name": "MovePlayerTo",
       "args": [
@@ -1873,11 +1963,13 @@
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802D14E0",
       "name": "_player_jump"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D18E8",
       "name": "PlayerJump",
       "args": [
@@ -1908,6 +2000,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1904",
       "name": "PlayerJump1",
       "args": [
@@ -1938,6 +2031,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1920",
       "name": "PlayerJump2",
       "args": [
@@ -1968,6 +2062,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D193C",
       "name": "InterpPlayerYaw",
       "args": [
@@ -1988,6 +2083,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1B04",
       "name": "PlayerFaceNpc",
       "args": [
@@ -2008,6 +2104,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1D28",
       "name": "GetPlayerTargetYaw",
       "args": [
@@ -2023,6 +2120,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1D60",
       "name": "SetPlayerFlagBits",
       "args": [
@@ -2043,6 +2141,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1DD0",
       "name": "GetPlayerActionState",
       "args": [
@@ -2058,6 +2157,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1DFC",
       "name": "GetPlayerPos",
       "args": [
@@ -2083,6 +2183,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1E94",
       "name": "GetPlayerAnimation",
       "args": [
@@ -2098,6 +2199,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1EC0",
       "name": "FullyRestoreHPandFP",
       "args": [],
@@ -2107,6 +2209,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1EE0",
       "name": "FullyRestoreSP",
       "args": [],
@@ -2116,6 +2219,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1EFC",
       "name": "EnablePartner",
       "args": [
@@ -2130,6 +2234,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D1F38",
       "name": "DisablePartner",
       "args": [
@@ -2144,6 +2249,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D216C",
       "name": "UseExitHeading",
       "args": [
@@ -2164,6 +2270,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D2AA8",
       "name": "DisablePulseStone",
       "args": [
@@ -2179,6 +2286,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D2B88",
       "name": "Disable8bitMario",
       "args": [
@@ -2194,6 +2302,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D2CD8",
       "name": "PlaySoundAtPlayer",
       "args": [
@@ -2216,71 +2325,85 @@
   "battle": [
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80240BBC",
       "name": "KillActor"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80250EA4",
       "name": "ShowMessagePopup"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80263F68",
       "name": "SetActorAngle"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802642F0",
       "name": "CreateDustEffect"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026445C",
       "name": "GetSprite"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80265E98",
       "name": "GetStatusChanceFromTable"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80265EEC",
       "name": "GetStatusTurnsFromTable"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80267ED0",
       "name": "UseItem"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80268130",
       "name": "LoadMoveScript"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80269698",
       "name": "GetPresetIDFromHomeCoords"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80269D6C",
       "name": "GetActor"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027B0DC",
       "name": "DoMovementEasing"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80280950",
       "name": "UseStarPower"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8024E61C",
       "name": "UseCamPreset",
       "args": [
@@ -2296,6 +2419,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8024E90C",
       "name": "SetCamTarget",
       "args": [
@@ -2318,6 +2442,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8024EA58",
       "name": "SetCamOffsetZ",
       "args": [
@@ -2332,6 +2457,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8024EA98",
       "name": "AddCamOffsetZ",
       "args": [
@@ -2346,6 +2472,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8024EAE4",
       "name": "SetCamYaw",
       "args": [
@@ -2360,6 +2487,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8024EC6C",
       "name": "SetCamZoom",
       "args": [
@@ -2375,6 +2503,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8024ECAC",
       "name": "AddCamZoom",
       "args": [
@@ -2390,6 +2519,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8024ED78",
       "name": "FreezeCam",
       "args": [
@@ -2404,6 +2534,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8024EB24",
       "name": "CamTargetActor",
       "args": [
@@ -2418,6 +2549,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8024EC08",
       "name": "MoveCamOver",
       "args": [
@@ -2433,6 +2565,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802512B4",
       "name": "ShowMessageBox",
       "args": [
@@ -2453,6 +2586,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8025130C",
       "name": "ShowVariableMessageBox",
       "args": [
@@ -2478,6 +2612,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80252728",
       "name": "ItemDamageEnemy",
       "args": [
@@ -2513,6 +2648,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80252D40",
       "name": "ItemCheckHit",
       "args": [
@@ -2548,6 +2684,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80252F30",
       "name": "SayMessage",
       "args": [
@@ -2581,6 +2718,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802535F8",
       "name": "SetDmaTableLoadDest",
       "args": [
@@ -2596,6 +2734,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80253624",
       "name": "LoadFromDmaTable",
       "args": [
@@ -2611,6 +2750,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8025385C",
       "name": "PlaySoundAtActor",
       "args": [
@@ -2629,6 +2769,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802538D0",
       "name": "PlaySoundAtSprite",
       "args": [
@@ -2651,6 +2792,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80253FDC",
       "name": "MultiplyByActorScale",
       "args": [
@@ -2666,6 +2808,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80254048",
       "name": "MultiplyVec2ByActorScale",
       "args": [
@@ -2686,6 +2829,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802540DC",
       "name": "MultiplyVec3ByActorScale",
       "args": [
@@ -2711,21 +2855,25 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802546D4",
       "name": "enable_player_blur"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80254914",
       "name": "disable_player_blur"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8025D03C",
       "name": "_remove_part_decoration"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80261D28",
       "name": "IncrementPlayerHP",
       "args": [],
@@ -2735,6 +2883,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80261D60",
       "name": "IncrementPlayerFP",
       "args": [],
@@ -2744,36 +2893,43 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80263CFC",
       "name": "set_animation"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802653A4",
       "name": "summon_actor"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80265E44",
       "name": "lookup_defense"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802662BC",
       "name": "get_defense"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80267218",
       "name": "remove_part_decoration"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80267234",
       "name": "remove_actor_decoration"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802681C0",
       "name": "LoadActionCommand",
       "args": [
@@ -2789,11 +2945,13 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80268ECC",
       "name": "check_block_input"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026957C",
       "name": "GetBlockResult",
       "args": [
@@ -2809,21 +2967,25 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80269698",
       "name": "get_nearest_home_index"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80269C24",
       "name": "set_actor_home_flt"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80269D20",
       "name": "set_actor_home_dbl"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80269DE4",
       "name": "LoadBattleSection",
       "args": [
@@ -2839,6 +3001,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80269E28",
       "name": "GetBattlePhase",
       "args": [
@@ -2854,6 +3017,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80269E54",
       "name": "GetLastElement",
       "args": [
@@ -2869,6 +3033,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80269EC4",
       "name": "SetGoalToHome",
       "args": [
@@ -2883,6 +3048,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80269F94",
       "name": "SetGoalToIndex",
       "args": [
@@ -2902,6 +3068,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026A05C",
       "name": "GetIndexFromPos",
       "args": [
@@ -2921,6 +3088,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026A0D4",
       "name": "GetIndexFromHome",
       "args": [
@@ -2940,6 +3108,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026A1EC",
       "name": "ForceHomePos",
       "args": [
@@ -2969,6 +3138,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026A2D0",
       "name": "SetHomePos",
       "args": [
@@ -2998,6 +3168,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026A3A8",
       "name": "SetGoalToTarget",
       "args": [
@@ -3012,6 +3183,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026A510",
       "name": "SetGoalToPos",
       "args": [
@@ -3041,6 +3213,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026A748",
       "name": "AddToGoalPos",
       "args": [
@@ -3070,6 +3243,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026A820",
       "name": "GetGoalPos",
       "args": [
@@ -3099,6 +3273,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026A9B8",
       "name": "GetSpriteTarget",
       "args": [
@@ -3133,6 +3308,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026AAA8",
       "name": "GetActorPos",
       "args": [
@@ -3162,6 +3338,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026AB74",
       "name": "GetSpriteOffset",
       "args": [
@@ -3196,6 +3373,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026AC88",
       "name": "GetSpritePos",
       "args": [
@@ -3230,6 +3408,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026AD74",
       "name": "GetHomePos",
       "args": [
@@ -3259,6 +3438,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026AE40",
       "name": "SetActorPos",
       "args": [
@@ -3288,6 +3468,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026AF18",
       "name": "SetSpritePos",
       "args": [
@@ -3322,6 +3503,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B0A0",
       "name": "SetEnemyTargetOffset",
       "args": [
@@ -3352,6 +3534,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B1B0",
       "name": "SetAnimation",
       "args": [
@@ -3376,6 +3559,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B238",
       "name": "GetAnimation",
       "args": [
@@ -3400,6 +3584,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B2D0",
       "name": "SetAnimationSpeed",
       "args": [
@@ -3424,6 +3609,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B358",
       "name": "SetActorAngle",
       "args": [
@@ -3443,6 +3629,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B3C8",
       "name": "GetActorAngle",
       "args": [
@@ -3462,6 +3649,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B55C",
       "name": "SetActorJumpscale",
       "args": [
@@ -3481,6 +3669,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B654",
       "name": "SetActorSpeed",
       "args": [
@@ -3500,6 +3689,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B74C",
       "name": "SetSpriteJumpscale",
       "args": [
@@ -3524,6 +3714,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B7EC",
       "name": "SetSpriteSpeed",
       "args": [
@@ -3548,6 +3739,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B88C",
       "name": "SetJumpAnimations",
       "args": [
@@ -3580,6 +3772,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026B92C",
       "name": "AddActorPos",
       "args": [
@@ -3609,6 +3802,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026BAE8",
       "name": "GetSpriteOffset2",
       "args": [
@@ -3643,6 +3837,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026BC38",
       "name": "SetSpriteOffset",
       "args": [
@@ -3677,6 +3872,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026BD88",
       "name": "AddSpriteOffset",
       "args": [
@@ -3711,6 +3907,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026BFB4",
       "name": "GetActorVar",
       "args": [
@@ -3735,6 +3932,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C044",
       "name": "SetActorVar",
       "args": [
@@ -3759,6 +3957,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C0D4",
       "name": "ActorVarAdd",
       "args": [
@@ -3783,6 +3982,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C170",
       "name": "GetSpriteVar",
       "args": [
@@ -3812,6 +4012,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C22C",
       "name": "SetSpriteVar",
       "args": [
@@ -3841,6 +4042,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C2E8",
       "name": "SpriteVarAdd",
       "args": [
@@ -3870,6 +4072,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C3AC",
       "name": "SetActorRotation",
       "args": [
@@ -3899,6 +4102,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C4AC",
       "name": "SetActorRotationOffset",
       "args": [
@@ -3928,6 +4132,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C56C",
       "name": "GetActorRotation",
       "args": [
@@ -3957,6 +4162,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C634",
       "name": "SetSpriteRotation",
       "args": [
@@ -3991,6 +4197,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C740",
       "name": "SetSpriteRotationOffset",
       "args": [
@@ -4025,6 +4232,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C828",
       "name": "GetSpriteRotation",
       "args": [
@@ -4059,6 +4267,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026C904",
       "name": "SetActorScale",
       "args": [
@@ -4088,6 +4297,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026CA84",
       "name": "GetActorScale",
       "args": [
@@ -4117,6 +4327,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026CB4C",
       "name": "SetSpriteScale",
       "args": [
@@ -4151,6 +4362,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026CC34",
       "name": "GetSpriteScale",
       "args": [
@@ -4185,6 +4397,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026CD10",
       "name": "GetBattleFlags",
       "args": [
@@ -4200,6 +4413,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026CD3C",
       "name": "SetBattleFlagBits",
       "args": [
@@ -4220,6 +4434,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026CDA0",
       "name": "GetBattleFlags2",
       "args": [
@@ -4235,6 +4450,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026CDCC",
       "name": "SetBattleFlagBits2",
       "args": [
@@ -4255,6 +4471,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026CE30",
       "name": "SetActorFlags",
       "args": [
@@ -4274,6 +4491,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026CE8C",
       "name": "SetActorFlagBits",
       "args": [
@@ -4298,6 +4516,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026CF20",
       "name": "GetActorFlags",
       "args": [
@@ -4317,6 +4536,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026CF88",
       "name": "SetSpriteFlags",
       "args": [
@@ -4341,6 +4561,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026D010",
       "name": "SetSpriteFlagBits",
       "args": [
@@ -4371,6 +4592,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026D340",
       "name": "SetSpriteEventFlags",
       "args": [
@@ -4395,6 +4617,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026D3C8",
       "name": "SetSpriteEventBits",
       "args": [
@@ -4424,6 +4647,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026D488",
       "name": "GetSpriteEventFlags",
       "args": [
@@ -4448,6 +4672,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026D664",
       "name": "HPBarToHome",
       "args": [
@@ -4462,6 +4687,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026D7A8",
       "name": "HPBarToCurrent",
       "args": [
@@ -4476,6 +4702,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026DB64",
       "name": "SummonEnemy",
       "args": [
@@ -4496,6 +4723,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026DE00",
       "name": "GetOwnerID",
       "args": [
@@ -4511,6 +4739,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026DE28",
       "name": "SetOwnerID",
       "args": [
@@ -4525,6 +4754,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026DE5C",
       "name": "ActorExists",
       "args": [
@@ -4544,6 +4774,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026E098",
       "name": "CheckButtonPress",
       "args": [
@@ -4564,6 +4795,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026E108",
       "name": "CheckButtonHeld",
       "args": [
@@ -4584,6 +4816,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026E310",
       "name": "CreateTargetList",
       "args": [
@@ -4599,6 +4832,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026E354",
       "name": "InitTargetIterator",
       "args": [],
@@ -4608,6 +4842,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026E3A8",
       "name": "SetOwnerTarget",
       "args": [
@@ -4628,6 +4863,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026E414",
       "name": "ChooseNextTarget",
       "args": [
@@ -4648,6 +4884,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026E864",
       "name": "GetTargetListLength",
       "args": [
@@ -4663,6 +4900,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026E8AC",
       "name": "GetOwnerTarget",
       "args": [
@@ -4683,6 +4921,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026E9FC",
       "name": "GetDistanceToTarget",
       "args": [
@@ -4702,6 +4941,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026EE88",
       "name": "AddActorDecoration",
       "args": [
@@ -4732,6 +4972,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026EFF0",
       "name": "ModifyActorDecoration",
       "args": [
@@ -4777,6 +5018,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026EF4C",
       "name": "RemoveActorDecoration",
       "args": [
@@ -4802,6 +5044,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026F0EC",
       "name": "UseIdleAnimation",
       "args": [
@@ -4822,6 +5065,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026F230",
       "name": "GetStatusFlags",
       "args": [
@@ -4841,6 +5085,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026F470",
       "name": "SetSpriteAlpha",
       "args": [
@@ -4865,6 +5110,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026F638",
       "name": "SetBattleVar",
       "args": [
@@ -4885,6 +5131,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026F694",
       "name": "GetBattleVar",
       "args": [
@@ -4905,6 +5152,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026FB20",
       "name": "SetActorType",
       "args": [
@@ -4925,6 +5173,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026FC04",
       "name": "GetActorAttackBoost",
       "args": [
@@ -4944,6 +5193,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026FC6C",
       "name": "GetActorDefenseBoost",
       "args": [
@@ -4963,6 +5213,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8026FCD4",
       "name": "BoostAttack",
       "args": [
@@ -4982,6 +5233,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80270174",
       "name": "BoostDefense",
       "args": [
@@ -5001,6 +5253,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80270614",
       "name": "VanishActor",
       "args": [
@@ -5020,6 +5273,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027095C",
       "name": "ElectrifyActor",
       "args": [
@@ -5039,6 +5293,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80270CA4",
       "name": "HealActor",
       "args": [
@@ -5063,6 +5318,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80271160",
       "name": "CopyStatBoosts",
       "args": [
@@ -5083,6 +5339,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802733C4",
       "name": "GetMenuSelection",
       "args": [
@@ -5108,21 +5365,25 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80277160",
       "name": "DispatchEventActor"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80271658",
       "name": "DispatchEventPlayer"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802716E4",
       "name": "DispatchEventPlayer2"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80274234",
       "name": "GetPlayerHP",
       "args": [
@@ -5138,6 +5399,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80274260",
       "name": "DamageEnemy",
       "args": [
@@ -5172,6 +5434,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802744A0",
       "name": "PowerBounceEnemy",
       "args": [
@@ -5210,6 +5473,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802746F0",
       "name": "CheckEnemyHit",
       "args": [
@@ -5244,6 +5508,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80274978",
       "name": "EnablePlayerBlur",
       "args": [
@@ -5259,6 +5524,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80278930",
       "name": "BindTakeTurn",
       "args": [
@@ -5277,6 +5543,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80278A94",
       "name": "BindIdle",
       "args": [
@@ -5295,6 +5562,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80278B4C",
       "name": "EnableIdleScript",
       "args": [
@@ -5314,6 +5582,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80278C20",
       "name": "BindHandleEvent",
       "args": [
@@ -5332,6 +5601,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80278C94",
       "name": "BindNextTurn",
       "args": [
@@ -5350,6 +5620,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80278D08",
       "name": "JumpToGoal",
       "args": [
@@ -5384,6 +5655,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80279E64",
       "name": "RunToGoal",
       "args": [
@@ -5403,6 +5675,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80279E64",
       "name": "RunToGoal",
       "args": [
@@ -5427,6 +5700,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027A4E4",
       "name": "JumpSpriteA",
       "args": [
@@ -5461,6 +5735,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027A4E4",
       "name": "JumpSpriteA",
       "args": [
@@ -5505,6 +5780,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027A854",
       "name": "JumpSpriteB",
       "args": [
@@ -5544,6 +5820,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027ACAC",
       "name": "RunSpriteTo",
       "args": [
@@ -5583,6 +5860,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027B624",
       "name": "MoveToGoal",
       "args": [
@@ -5612,6 +5890,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027BF38",
       "name": "MoveSpriteTo",
       "args": [
@@ -5654,6 +5933,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027C4E0",
       "name": "GetEventType",
       "args": [
@@ -5673,6 +5953,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027C548",
       "name": "SetTargetActor",
       "args": [
@@ -5693,6 +5974,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027C5C8",
       "name": "SetEnemyHP",
       "args": [
@@ -5712,6 +5994,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027C6A0",
       "name": "GetActorHP",
       "args": [
@@ -5731,6 +6014,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027C748",
       "name": "GetEnemyMaxHP",
       "args": [
@@ -5750,6 +6034,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027C7B0",
       "name": "RemoveActor",
       "args": [
@@ -5764,6 +6049,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027C8A4",
       "name": "DropStarPoints",
       "args": [
@@ -5778,6 +6064,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027CA74",
       "name": "SetDefenseTable",
       "args": [
@@ -5801,6 +6088,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027CB08",
       "name": "SetStatusTable",
       "args": [
@@ -5819,6 +6107,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027CB7C",
       "name": "SetIdleAnimations",
       "args": [
@@ -5842,6 +6131,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027CCB4",
       "name": "DamageTarget",
       "args": [
@@ -5886,6 +6176,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027CFB8",
       "name": "CheckPlayerHit",
       "args": [
@@ -5926,6 +6217,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027D264",
       "name": "DispatchEvent",
       "args": [
@@ -5946,6 +6238,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027D380",
       "name": "SetTargetOffset",
       "args": [
@@ -5975,6 +6268,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027D57C",
       "name": "EnableActorBlur",
       "args": [
@@ -5994,6 +6288,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027D7F0",
       "name": "YieldTurn",
       "args": [],
@@ -6003,6 +6298,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027DA68",
       "name": "GetActorType",
       "args": [
@@ -6022,6 +6318,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027DB3C",
       "name": "GetLastDamage",
       "args": [
@@ -6041,6 +6338,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027DBA4",
       "name": "EnableActorGlow",
       "args": [
@@ -6060,16 +6358,19 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027DE80",
       "name": "DispatchEventPartner"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027DF0C",
       "name": "DispatchEventPartner2"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027FD48",
       "name": "GetLevel",
       "args": [
@@ -6089,6 +6390,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8027FDB4",
       "name": "DamageEnemyP",
       "args": [
@@ -6123,6 +6425,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80280004",
       "name": "InflictStatusP",
       "args": [
@@ -6161,6 +6464,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802804D0",
       "name": "CheckTargetHitP",
       "args": [
@@ -6199,6 +6503,7 @@
   "common": [
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "8003F3F4",
       "name": "hasMerleeCasts",
       "args": [],
@@ -6208,16 +6513,19 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802E11A0",
       "name": "SaveGameAtPlayerPosition"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "80111D38",
       "name": "make_entity"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C8B60",
       "name": "TranslateModel",
       "args": [
@@ -6247,6 +6555,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C8C64",
       "name": "RotateModel",
       "args": [
@@ -6281,6 +6590,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C8D88",
       "name": "ScaleModel",
       "args": [
@@ -6310,6 +6620,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C8F28",
       "name": "CloneModel",
       "args": [
@@ -6329,6 +6640,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C8F80",
       "name": "GetModelCenter",
       "args": [
@@ -6343,6 +6655,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C9000",
       "name": "SetTexPanner",
       "args": [
@@ -6362,6 +6675,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C907C",
       "name": "SetModelFlag10",
       "args": [
@@ -6380,6 +6694,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C9208",
       "name": "EnableTexPanning",
       "args": [
@@ -6399,6 +6714,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C9288",
       "name": "EnableModel",
       "args": [
@@ -6418,6 +6734,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C9364",
       "name": "SetTexPanOffset",
       "args": [
@@ -6448,6 +6765,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C9518",
       "name": "SetModelFlags",
       "args": [
@@ -6472,6 +6790,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C97B4",
       "name": "TranslateGroup",
       "args": [
@@ -6501,6 +6820,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C98D8",
       "name": "RotateGroup",
       "args": [
@@ -6535,6 +6855,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C9A1C",
       "name": "ScaleGroup",
       "args": [
@@ -6564,6 +6885,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C9B98",
       "name": "EnableGroup",
       "args": [
@@ -6583,6 +6905,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802C9DCC",
       "name": "ModifyColliderFlags",
       "args": [
@@ -6607,6 +6930,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA0AC",
       "name": "GetColliderCenter",
       "args": [
@@ -6622,6 +6946,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA114",
       "name": "ParentColliderToModel",
       "args": [
@@ -6640,6 +6965,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA188",
       "name": "UpdateColliderTransform",
       "args": [
@@ -6654,6 +6980,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA558",
       "name": "PlaySoundAtModel",
       "args": [
@@ -6677,6 +7004,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA614",
       "name": "PlaySoundAtCollider",
       "args": [
@@ -6700,6 +7028,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA6C0",
       "name": "SetCamEnabled",
       "args": [
@@ -6719,6 +7048,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA774",
       "name": "SetCamFlag80",
       "args": [
@@ -6738,6 +7068,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CA828",
       "name": "SetCamPerspective",
       "args": [
@@ -6772,6 +7103,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CAB18",
       "name": "SetCamViewport",
       "args": [
@@ -6806,6 +7138,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CAD98",
       "name": "SetCamBGColor",
       "args": [
@@ -6835,6 +7168,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CB2A8",
       "name": "ShakeCam",
       "args": [
@@ -6864,6 +7198,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CB680",
       "name": "SetCamLeadPlayer",
       "args": [
@@ -6883,6 +7218,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CB79C",
       "name": "PanToTarget",
       "args": [
@@ -6907,6 +7243,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CB860",
       "name": "UseSettingsFrom",
       "args": [
@@ -6936,6 +7273,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CB9F8",
       "name": "LoadSettings",
       "args": [
@@ -6955,6 +7293,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CBAB4",
       "name": "SetCamType",
       "args": [
@@ -6979,6 +7318,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CBB48",
       "name": "SetCamAngles",
       "args": [
@@ -7003,6 +7343,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CBBE4",
       "name": "SetCamDistance",
       "args": [
@@ -7022,6 +7363,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CBC58",
       "name": "SetCamPosA",
       "args": [
@@ -7046,6 +7388,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CBCF4",
       "name": "SetCamPosB",
       "args": [
@@ -7070,6 +7413,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CBD90",
       "name": "SetCamPosC",
       "args": [
@@ -7094,6 +7438,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CBE2C",
       "name": "SetPanTarget",
       "args": [
@@ -7123,6 +7468,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CBEF0",
       "name": "SetCamSpeed",
       "args": [
@@ -7142,6 +7488,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CBF64",
       "name": "GetCamType",
       "args": [
@@ -7166,6 +7513,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CBFF4",
       "name": "GetCamAngles",
       "args": [
@@ -7190,6 +7538,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CC084",
       "name": "GetCamDistance",
       "args": [
@@ -7209,6 +7558,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CC0F4",
       "name": "GetCamPosA",
       "args": [
@@ -7233,6 +7583,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CC184",
       "name": "GetCamPosB",
       "args": [
@@ -7257,6 +7608,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CC214",
       "name": "GetCamPosC",
       "args": [
@@ -7281,6 +7633,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CC2A4",
       "name": "GetCamPosition",
       "args": [
@@ -7310,6 +7663,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CC354",
       "name": "WaitForCam",
       "args": [
@@ -7329,6 +7683,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CC660",
       "name": "UseSettings",
       "args": [
@@ -7368,6 +7723,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CC8C8",
       "name": "ResetCam",
       "args": [
@@ -7387,6 +7743,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CCE6C",
       "name": "PlayModelAnimation",
       "args": [
@@ -7405,6 +7762,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CDDB0",
       "name": "SetNpcRotation",
       "args": [
@@ -7434,6 +7792,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CDF8C",
       "name": "SetNpcCollisionSize",
       "args": [
@@ -7458,6 +7817,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CE0F4",
       "name": "SetNpcAnimation",
       "args": [
@@ -7477,6 +7837,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CF060",
       "name": "SetNpcFlagBits",
       "args": [
@@ -7501,6 +7862,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CF0F4",
       "name": "GetNpcPos",
       "args": [
@@ -7530,6 +7892,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CF268",
       "name": "EnableNpcShadow",
       "args": [
@@ -7549,6 +7912,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CF2EC",
       "name": "EnableNpcBlur",
       "args": [
@@ -7568,6 +7932,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802CFC74",
       "name": "GetCurrentPartner",
       "args": [
@@ -7583,6 +7948,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D0118",
       "name": "SetNpcEffect",
       "args": [
@@ -7607,6 +7973,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D01AC",
       "name": "PlaySoundAtNpc",
       "args": [
@@ -7630,6 +7997,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D23F8",
       "name": "Func_802D23F8",
       "args": [
@@ -7644,6 +8012,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D45B0",
       "name": "MakeLerp",
       "args": [
@@ -7674,6 +8043,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D462C",
       "name": "UpdateLerp",
       "args": [],
@@ -7683,6 +8053,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D46B0",
       "name": "RandInt",
       "args": [
@@ -7703,6 +8074,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D4708",
       "name": "GetAngleBetweenNPCs",
       "args": [
@@ -7726,6 +8098,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D47B4",
       "name": "GetAngleToNPC",
       "args": [
@@ -7745,6 +8118,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D4830",
       "name": "GetAngleToPlayer",
       "args": [
@@ -7764,6 +8138,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D48AC",
       "name": "AwaitPlayerApproach",
       "args": [
@@ -7789,6 +8164,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D4964",
       "name": "IsPlayerWithin",
       "args": [
@@ -7819,6 +8195,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D4A5C",
       "name": "AwaitPlayerLeave",
       "args": [
@@ -7844,6 +8221,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D4B14",
       "name": "AddVectorPolar",
       "args": [
@@ -7874,6 +8252,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D5430",
       "name": "LoadPath",
       "args": [
@@ -7904,6 +8283,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D5524",
       "name": "GetNextPathPos",
       "args": [],
@@ -7913,6 +8293,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D5770",
       "name": "GetDist2D",
       "args": [
@@ -7948,6 +8329,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D58E0",
       "name": "SetValueByRef",
       "args": [
@@ -7966,6 +8348,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D593C",
       "name": "GetValueByRef",
       "args": [
@@ -7984,6 +8367,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D5AB4",
       "name": "ClampFloat",
       "args": [
@@ -7999,6 +8383,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D5CE0",
       "name": "FadeOutMusic",
       "args": [
@@ -8019,6 +8404,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D5D4C",
       "name": "SetMusicTrack",
       "args": [
@@ -8049,6 +8435,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D5DF4",
       "name": "FadeInMusic",
       "args": [
@@ -8089,6 +8476,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D611C",
       "name": "PlayAmbientSounds",
       "args": [
@@ -8104,6 +8492,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6150",
       "name": "PlaySound",
       "args": [
@@ -8119,6 +8508,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D61DC",
       "name": "PlaySoundAt",
       "args": [
@@ -8153,6 +8543,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D62B8",
       "name": "StopSound",
       "args": [
@@ -8168,6 +8559,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6314",
       "name": "UseDoorSounds",
       "args": [
@@ -8183,6 +8575,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D636C",
       "name": "PlaySoundAtF",
       "args": [
@@ -8217,6 +8610,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6858",
       "name": "RemoveKeyItemAt",
       "args": [
@@ -8232,6 +8626,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D688C",
       "name": "RemoveItemAt",
       "args": [
@@ -8247,6 +8642,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D68C8",
       "name": "AddKeyItem",
       "args": [
@@ -8261,6 +8657,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D699C",
       "name": "HasKeyItem",
       "args": [
@@ -8280,6 +8677,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6A14",
       "name": "FindKeyItem",
       "args": [
@@ -8299,6 +8697,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6A98",
       "name": "AddItem",
       "args": [
@@ -8318,6 +8717,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6B18",
       "name": "FindItem",
       "args": [
@@ -8337,6 +8737,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6B9C",
       "name": "RemoveItem",
       "args": [
@@ -8356,6 +8757,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6C4C",
       "name": "CountFortessKeys",
       "args": [
@@ -8371,6 +8773,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6C94",
       "name": "RemoveFortressKeys",
       "args": [
@@ -8386,6 +8789,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6CC0",
       "name": "MakeItemEntity",
       "args": [
@@ -8424,6 +8828,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6DC0",
       "name": "DropItemEntity",
       "args": [
@@ -8462,6 +8867,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6FCC",
       "name": "RemoveItemEntity",
       "args": [
@@ -8477,6 +8883,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D6FF8",
       "name": "AddBadge",
       "args": [
@@ -8497,6 +8904,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D7050",
       "name": "RemoveBadge",
       "args": [
@@ -8511,6 +8919,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D70D0",
       "name": "SetItemPos",
       "args": [
@@ -8541,6 +8950,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D7278",
       "name": "AddCoin",
       "args": [
@@ -8556,6 +8966,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D72B4",
       "name": "AddStarPoints",
       "args": [
@@ -8571,6 +8982,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D72F0",
       "name": "AddStarPiece",
       "args": [
@@ -8586,6 +8998,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D732C",
       "name": "GetItemPower",
       "args": [
@@ -8610,6 +9023,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D73A4",
       "name": "ShowGotItem",
       "args": [
@@ -8633,6 +9047,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D78A0",
       "name": "ShowEmote",
       "args": [
@@ -8685,6 +9100,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D7AE4",
       "name": "RemoveEffect",
       "args": [
@@ -8700,11 +9116,13 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D829C",
       "name": "PlayEffect"
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D9700",
       "name": "SetSpriteShading",
       "args": [
@@ -8720,6 +9138,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D9A3C",
       "name": "EnableSpriteShading",
       "args": [
@@ -8735,6 +9154,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D9A90",
       "name": "GetDemoState",
       "args": [
@@ -8750,6 +9170,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D9ACC",
       "name": "DemoPressButton",
       "args": [
@@ -8765,6 +9186,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D9AF8",
       "name": "DemoReleaseButton",
       "args": [
@@ -8780,6 +9202,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D9B34",
       "name": "DemoSetButtons",
       "args": [
@@ -8795,6 +9218,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D9B64",
       "name": "DemoJoystickPos",
       "args": [
@@ -8815,6 +9239,7 @@
     },
     {
       "usage": "api",
+      "structType": "Function",
       "ramAddress": "802D9C10",
       "name": "DemoUseJoystick",
       "args": [
@@ -8835,3071 +9260,3685 @@
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80025F70",
       "name": "BootMain"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80026740",
       "name": "StepGameLoop"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80028FF0",
       "name": "SquareRootF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029030",
       "name": "CreateHeapLL"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002906C",
       "name": "MallocLL"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029164",
       "name": "MalllocTailLL"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002921C",
       "name": "FreeLL"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800292C4",
       "name": "ReallocLL"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800294B0",
       "name": "Sign"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800294C4",
       "name": "int_to_string"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029600",
       "name": "MemClear"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029620",
       "name": "transform_point"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029720",
       "name": "copy_matrix"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002973C",
       "name": "DmaCopy"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800299FC",
       "name": "GetRandom"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029A7C",
       "name": "SignF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029AC4",
       "name": "Round"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029B24",
       "name": "clamp_angle"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029C28",
       "name": "GetClampedAngleDiff"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029ED4",
       "name": "Dist2D"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029F2C",
       "name": "Dist3D"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80029F9C",
       "name": "add_vec2D_polar"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002A034",
       "name": "WrapTrigLookupValue"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002A0B4",
       "name": "SinCosRad"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002A16C",
       "name": "SinRad"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002A1D0",
       "name": "CosRad"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002A234",
       "name": "SinCosDeg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002A2EC",
       "name": "SinDeg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002A350",
       "name": "CosDeg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002A3B4",
       "name": "update_lerp"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002AC00",
       "name": "CreateMapLL"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002AC28",
       "name": "MallocMapLL"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002AC50",
       "name": "MallocTailMapLL"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002AC78",
       "name": "FreeMapLL"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002ACA0",
       "name": "CreateBattleLL"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002AD74",
       "name": "CreateColliderLL"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002ADB0",
       "name": "MallocCollider"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002ADF4",
       "name": "FreeCollider"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002AE40",
       "name": "get_spirits_rescued"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002AF40",
       "name": "fio_calc_header_checksum"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002AF70",
       "name": "fio_validate_header_checksums"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002B0D0",
       "name": "fio_calc_file_checksum"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002B0F8",
       "name": "fio_validate_file_checksum"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002B154",
       "name": "fio_fetch_saved_file_info"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002B2D0",
       "name": "fio_load_game"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002B374",
       "name": "fio_save_game"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002B42C",
       "name": "fio_erase_game"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002B490",
       "name": "fio_deserialize_state"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002B630",
       "name": "fio_serialize_state"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002B84C",
       "name": "fio_init_flash"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002B868",
       "name": "fio_read_flash"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002B948",
       "name": "fio_write_flash"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002BA1C",
       "name": "fio_erase_flash"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002C208",
       "name": "crash_print_string"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002C2B8",
       "name": "crash_print_fpr"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002C3B0",
       "name": "crash_show_handler"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002C81C",
       "name": "crash_monitor_thread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002C8B0",
       "name": "crash_create_monitor"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002CA40",
       "name": "nuGfxTaskMgr"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002CB38",
       "name": "nuGfxTaskMgrInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002CCC4",
       "name": "nuGfxTaskStart"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002CE30",
       "name": "nuSiMgrInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002CF28",
       "name": "nuSiSendMesg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002CF8C",
       "name": "nuSiMgrStop"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002CFAC",
       "name": "nuSiMgrRestart"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002CFD0",
       "name": "nuSiMgrThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002D400",
       "name": "UpdateCameras"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002E314",
       "name": "set_cam_viewport"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002E910",
       "name": "DoCameraType4"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002ECF8",
       "name": "DoCameraType2"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002F290",
       "name": "DoCameraType1"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002F850",
       "name": "DoCameraType0"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002F990",
       "name": "DoCameraType6"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8002FCE0",
       "name": "DoCameraTypeUnused"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80030000",
       "name": "DoCameraType5"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80031494",
       "name": "DoCameraType3"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8003AAEC",
       "name": "get_npc_by_id"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8003AB48",
       "name": "try_get_npc_by_id"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8003B340",
       "name": "set_npc_yaw"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8003ECE8",
       "name": "get_foe"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8003F580",
       "name": "onDefeatedHandler"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8003F6E8",
       "name": "lib_FleeBattleDrops"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80048280",
       "name": "lib_WinBattleDrops"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80048FD4",
       "name": "HasMovedRadius"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8004B074",
       "name": "nuAuDmaCallBack"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8004B224",
       "name": "nuAuDmaNew"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8004B268",
       "name": "nuAuCleanDMABuffers"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8004B3EC",
       "name": "alLink"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8004B40C",
       "name": "alUnlink"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800542BC",
       "name": "al_LoadINIT"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005447C",
       "name": "al_CopyFileTableEntry"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800544F8",
       "name": "al_LoadPER"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800545B4",
       "name": "al_LoadPRG"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800547C8",
       "name": "al_LoadBank"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80054E00",
       "name": "al_DmaCopy"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80054F74",
       "name": "al_CopyWords"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80054FC0",
       "name": "al_LoadBKHeaders"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800565C0",
       "name": "alAudioFrame"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80057F90",
       "name": "alHeapAlloc"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005A6C0",
       "name": "LoadMapScriptLibrary"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005A6F4",
       "name": "LoadMapByIDs"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005ABF8",
       "name": "GetAreaMapIDs"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005ACE8",
       "name": "LoadAssetTableFile"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005ADD0",
       "name": "LoadTextureFile"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005AFC0",
       "name": "load_hit_asset"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005B23C",
       "name": "load_hit_data"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005BDA8",
       "name": "get_collider_by_id"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005BE10",
       "name": "get_collider_center"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005E8B0",
       "name": "nuBoot"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005E90C",
       "name": "BootIdle"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005E9B0",
       "name": "nuScCreateScheduler"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005EBE0",
       "name": "nuScExecuteAudio"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005ED14",
       "name": "nuScExecuteGraphics"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005EE30",
       "name": "nuScAddClient"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005EEBC",
       "name": "nuScRemoveClient"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005EF38",
       "name": "nuScResetClientMesgType"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005EF78",
       "name": "nuScGetGfxMQ"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005EF84",
       "name": "nuScGetAudioMQ"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005EF90",
       "name": "nuScSetFrameBufferNum"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005EF9C",
       "name": "nuScGetFrameRate"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005EFA8",
       "name": "nuScEventHandler"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F0C0",
       "name": "nuScEventBroadcast"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F120",
       "name": "nuScWaitTaskReady"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F250",
       "name": "nuGfxFuncSet"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F290",
       "name": "nuGfxPreNMIFuncSet"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F2D0",
       "name": "nuGfxTaskAllEndWait"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F2F0",
       "name": "nuGfxSetCfb"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F400",
       "name": "nuGfxDisplayOff"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F430",
       "name": "nuGfxDisplayOn"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F450",
       "name": "nuPiInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F490",
       "name": "nuPiReadRom"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F560",
       "name": "nuGfxInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F610",
       "name": "nuContInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F650",
       "name": "nuContDataGet"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F6B0",
       "name": "nuContPakMgrInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F6D4",
       "name": "nuContPakMgrRemove"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F6F8",
       "name": "contPakOpen"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F748",
       "name": "contPakFree"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F770",
       "name": "contPakFileReadWrite"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F7B0",
       "name": "contPakFileOpen"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F864",
       "name": "contPakFileDelete"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F8A4",
       "name": "contPakFileState"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F8D0",
       "name": "contPakFileNum"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F8FC",
       "name": "contPakRepairId"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005F920",
       "name": "osMotorStop"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005FB10",
       "name": "contRmbControl"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005FC8C",
       "name": "nuContRmbMgrInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005FCEC",
       "name": "nuContRmbMgrRemove"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005FD10",
       "name": "contRmbCheckMesg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005FD58",
       "name": "contRmbStartMesg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005FE90",
       "name": "nuContRmbStart"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005FEF0",
       "name": "nuContRmbCheck"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8005FF90",
       "name": "nuContRmbModeSet"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800600A0",
       "name": "nuContRmbForceStop"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800600C0",
       "name": "nuContRmbForceStopEnd"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800600E0",
       "name": "nuPiReadRomOverlay"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800601F0",
       "name": "nuGfxThreadStart"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060248",
       "name": "nuGfxThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060310",
       "name": "nuGfxSwapCfbFuncSet"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060350",
       "name": "nuGfxSwapCfb"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060370",
       "name": "nuGfxRetraceWait"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800603F0",
       "name": "nuSiCallBackAdd"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060490",
       "name": "nuSiCallBackRemove"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060510",
       "name": "nuContMgrInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800605E8",
       "name": "nuContMgrRemove"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006060C",
       "name": "nuContDataClose"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060634",
       "name": "nuContDataOpen"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006065C",
       "name": "contRetrace"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060738",
       "name": "contReadData"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800607B4",
       "name": "contReadNW"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060870",
       "name": "contQuery"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800608C0",
       "name": "nuContDataLock"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800608F0",
       "name": "nuContDataUnLock"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060920",
       "name": "nuContQueryRead"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060940",
       "name": "osSetIntMask"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800609E0",
       "name": "osCreatePiManager"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060B70",
       "name": "osEPiRawStartDma"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060D60",
       "name": "osEPiWriteIo"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060DC0",
       "name": "osEPiReadIo"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060E20",
       "name": "osEPiStartDma"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060EC0",
       "name": "osEPiLinkHandle"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80060F10",
       "name": "osCartRomInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061090",
       "name": "osDevMgrMain"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061450",
       "name": "osPiCreateAccessQueue"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800614A4",
       "name": "osPiGetAccess"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061510",
       "name": "osPiRelAccess"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061540",
       "name": "osAiGetLength"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061550",
       "name": "osAiGetStatus"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061560",
       "name": "osAiSetFrequency"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061680",
       "name": "osAiSetNextBuffer"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061720",
       "name": "osInvalDCache"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800617D0",
       "name": "osInvalICache"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061850",
       "name": "osWritebackDCache"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800618D0",
       "name": "osWritebackDCacheAll"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061900",
       "name": "osContStartQuery"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061980",
       "name": "osContGetQuery"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800619A0",
       "name": "osContStartReadData"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061A28",
       "name": "osContGetReadData"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061AC4",
       "name": "osPackReadData"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061B80",
       "name": "osContInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061D1C",
       "name": "osContGetInitData"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061DD0",
       "name": "osPackRequestData"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061E90",
       "name": "osVirtualToPhysical"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061EF0",
       "name": "sqrtf"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061F00",
       "name": "coss"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80061F30",
       "name": "guFrustumF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80062060",
       "name": "guFrustum"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800621B0",
       "name": "guLookAtF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80062530",
       "name": "guLookAt"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800628C0",
       "name": "guLookAtHiliteF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80063244",
       "name": "guLookAtHilite"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80063320",
       "name": "guLookAtReflectF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80063898",
       "name": "guLookAtReflect"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80063910",
       "name": "guOrthoF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80063A40",
       "name": "guOrtho"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80063B90",
       "name": "guPerspectiveF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80063D40",
       "name": "guPerspective"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80063F10",
       "name": "guPositionF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800640E8",
       "name": "guPosition"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800642D0",
       "name": "guRotateAnglesF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80064458",
       "name": "guRotateAngles"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800645F0",
       "name": "sins"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80064650",
       "name": "bcopy"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80064970",
       "name": "bzero"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80064A10",
       "name": "strchr"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80064A50",
       "name": "strlen"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80064A74",
       "name": "memcpy"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80064AA0",
       "name": "_Printf"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065020",
       "name": "_Putfld"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800654F0",
       "name": "sprintf"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065548",
       "name": "proutSprintf"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065580",
       "name": "osCreateMesgQueue"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800655B0",
       "name": "osJamMesg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800656F0",
       "name": "osRecvMesg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065820",
       "name": "osSendMesg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065950",
       "name": "osSetEventMesg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065A00",
       "name": "osGetCount"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065A10",
       "name": "osSpTaskLoad"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065C1C",
       "name": "osSpTaskStartGo"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065C50",
       "name": "osSpTaskYield"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065C70",
       "name": "osSpTaskYielded"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065CC0",
       "name": "osSiRawStartDma"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065D70",
       "name": "osSiCreateAccessQueue"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065DC4",
       "name": "osSiGetAccess"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065E30",
       "name": "osSiRelAccess"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065E60",
       "name": "osCreateThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065F30",
       "name": "osGetThreadPri"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80065F50",
       "name": "osSetThreadPri"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066020",
       "name": "osStartThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066140",
       "name": "osStopThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066200",
       "name": "osDequeueThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066240",
       "name": "osYieldThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066290",
       "name": "osGetActiveQueue"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800662A0",
       "name": "osGetTime"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066330",
       "name": "osSetTime"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066350",
       "name": "osSetTimer"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066480",
       "name": "osTimerServicesInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800664D4",
       "name": "osTimerInterrupt"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066610",
       "name": "osSetTimerIntr"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066690",
       "name": "osInsertTimer"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800667A0",
       "name": "osMapTLB"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066860",
       "name": "osProbeTLB"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066920",
       "name": "osUnmapTLB"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066960",
       "name": "osUnmapTLBAll"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800669B0",
       "name": "osViGetCurrentFramebuffer"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800669F0",
       "name": "osViGetNextFramebuffer"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066A30",
       "name": "osViGetCurrentMode"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066A70",
       "name": "osCreateViManager"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066C10",
       "name": "viMgrMain"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066DB0",
       "name": "osViSetEvent"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066E10",
       "name": "osViSetMode"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066E60",
       "name": "osViSetSpecialFeatures"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80066FD0",
       "name": "osViSetYScale"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067020",
       "name": "osViSwapBuffer"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067070",
       "name": "osViSwapContext"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067380",
       "name": "osViBlack"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800673E0",
       "name": "osViRepeatLine"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067440",
       "name": "guMtxIdent"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800674A0",
       "name": "guMtxIdentF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067500",
       "name": "guMtxF2L"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067580",
       "name": "guMtxL2F"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067600",
       "name": "guMtxCatF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067700",
       "name": "guScale"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800677C0",
       "name": "guScaleF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067820",
       "name": "guTranslate"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067900",
       "name": "guTranslateF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067960",
       "name": "guMtxCat"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800679E0",
       "name": "guMtxXFML"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067A70",
       "name": "guMtxXFMF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067B20",
       "name": "guRotateF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067C80",
       "name": "guRotate"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067E00",
       "name": "osMotorAccess"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80067F44",
       "name": "osMotorInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80068190",
       "name": "osPfsAllocateFile"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006849C",
       "name": "osPfsDeclearPage"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800685C0",
       "name": "osPfsDeleteFile"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006876C",
       "name": "osPfsReleasePages"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800687E0",
       "name": "osPfsReadWriteFile"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80068C20",
       "name": "osPfsFileState"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80068DC0",
       "name": "osPfsFindFile"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80068F80",
       "name": "osPfsFreeBlocks"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80069090",
       "name": "osPfsNumFiles"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80069190",
       "name": "osPfsInitPak"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80069388",
       "name": "osPfsCheckRamArea"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80069460",
       "name": "osPfsRepairId"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800694C0",
       "name": "osPfsGetStatus"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800695B0",
       "name": "osPfsRequestOneChannel"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80069644",
       "name": "osPfsGetOneChannelData"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800696D0",
       "name": "osPfsSelectBank"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80069740",
       "name": "osSumcalc"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80069774",
       "name": "osIdCheckSum"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800697B8",
       "name": "osRepairPackId"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80069AA4",
       "name": "osCheckPackId"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80069C08",
       "name": "osGetId"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80069DD4",
       "name": "osCheckId"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80069E8C",
       "name": "osPfsRWInode"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006A1D0",
       "name": "osContRamRead"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006A3C0",
       "name": "osContRamWrite"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006A630",
       "name": "osAfterPreNMI"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006A708",
       "name": "osInitialize"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AA00",
       "name": "osExceptionPreamble"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AA34",
       "name": "savecontext"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AB34",
       "name": "savercp"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AB6C",
       "name": "endrcp"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AC08",
       "name": "handle_interrupt"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AC0C",
       "name": "next_interrupt"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AC44",
       "name": "IP6_Hdlr"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AC50",
       "name": "IP7_Hdlr"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AC5C",
       "name": "counter"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AC80",
       "name": "cart"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006ACC8",
       "name": "rcp"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AD2C",
       "name": "sp_other_break"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AD3C",
       "name": "vi"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AD64",
       "name": "ai"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AD90",
       "name": "si"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006ADB8",
       "name": "pi"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AE0C",
       "name": "dp"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AE30",
       "name": "NoMoreRcpInts"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AE3C",
       "name": "prenmi"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AE6C",
       "name": "firstnmi"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AEA0",
       "name": "sw2"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AEC4",
       "name": "sw1"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AEE8",
       "name": "handle_break"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AF00",
       "name": "redispatch"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AF34",
       "name": "enqueueRunning"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AF4C",
       "name": "panic"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AF7C",
       "name": "send_mesg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006AFC4",
       "name": "send_done"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B038",
       "name": "handle_CPU"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B06C",
       "name": "osEnqueueAndYield"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B16C",
       "name": "noEnqueue"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B174",
       "name": "osEnqueueThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B1BC",
       "name": "osPopThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B1CC",
       "name": "osNop"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B1D4",
       "name": "osDispatchThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B1F4",
       "name": "osDispatchThreadSave"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B350",
       "name": "osCleanupThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B360",
       "name": "osDisableInt"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B3D0",
       "name": "osRestoreInt"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B3F0",
       "name": "osSetGlobalIntMask"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B430",
       "name": "osResetGlobalIntMask"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B480",
       "name": "osPiRawStartDma"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B550",
       "name": "osPiGetCmdQueue"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B570",
       "name": "osEPiRawReadIo"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B6E0",
       "name": "osEPiRawWriteIo"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B850",
       "name": "osAiDeviceBusy"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B870",
       "name": "bcmp"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006B980",
       "name": "_Litob"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006BBD0",
       "name": "_Ldtob"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C01C",
       "name": "_Ldunscale"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C0B4",
       "name": "_Genld"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C660",
       "name": "osGetCause"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C670",
       "name": "osGetSR"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C680",
       "name": "osSetCompare"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C690",
       "name": "osSetFpcCsr"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C6A0",
       "name": "osSetSR"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C6B0",
       "name": "osSetWatchLo"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C6C0",
       "name": "osSpDeviceBusy"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C6E0",
       "name": "osSpGetStatus"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C6F0",
       "name": "osSpSetStatus"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C700",
       "name": "osSpSetPc"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C730",
       "name": "osSpRawStartDma"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C7C0",
       "name": "osSiRawReadIo"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C810",
       "name": "osSiRawWriteIo"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C860",
       "name": "osContAddressCrc"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C8CC",
       "name": "osContDataCrc"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006C950",
       "name": "osDestroyThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006CA30",
       "name": "osMapTLBRdb"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006CA90",
       "name": "osViInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006CBA0",
       "name": "osViGetCurrentContext"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006CBC0",
       "name": "guNormalize"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006CC20",
       "name": "osPfsChecker"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006D080",
       "name": "corrupted_init"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006D1D8",
       "name": "corrupted"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006D340",
       "name": "osPfsIsPlug"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006D4BC",
       "name": "osPfsRequestData"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006D560",
       "name": "osPfsGetInitData"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006D620",
       "name": "ldiv"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006D6A4",
       "name": "lldiv"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006D7E0",
       "name": "osSiDeviceBusy"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006ED40",
       "name": "strcpy"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006ED70",
       "name": "strcmp"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006EDB0",
       "name": "memset"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006EDF0",
       "name": "DecodeYay0"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006EF68",
       "name": "osFlashInit"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006F0B8",
       "name": "osFlashReadStatus"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006F184",
       "name": "osFlashReadId"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006F29C",
       "name": "osFlashClearStatus"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006F308",
       "name": "osFlashAllErase"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006F424",
       "name": "osFlashSectorErase"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006F550",
       "name": "osFlashWriteBuffer"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006F61C",
       "name": "osFlashWriteArray"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8006F75C",
       "name": "osFlashReadArray"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80072C90",
       "name": "LoadBattle"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800E73A0",
       "name": "SetDefaultPlayerData"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800E7574",
       "name": "add_item"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800E76CC",
       "name": "SortConsumableItems"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800E773C",
       "name": "add_badge"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800E9D48",
       "name": "is_ability_active"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800EA0B8",
       "name": "is_partner_ability_active"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800EA0C0",
       "name": "add_coins"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800EA128",
       "name": "add_star_points"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800EA170",
       "name": "add_star_pieces"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800EA334",
       "name": "subtract_hp"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800EA360",
       "name": "has_full_hp"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800EA37C",
       "name": "has_full_fp"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800EA398",
       "name": "add_fortress_keys"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800EA3B8",
       "name": "subtract_fortress_keys"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800EA3E4",
       "name": "get_fortress_key_count"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800EA400",
       "name": "use_consumable"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "800F52E0",
       "name": "draw_box"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8010FA98",
       "name": "UpdateShadowEntity"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "801105E8",
       "name": "get_entity_by_index"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80110604",
       "name": "get_shadow_by_index"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80110620",
       "name": "get_entity_list"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8011064C",
       "name": "get_shadow_list"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80110C14",
       "name": "load_entity_data"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80111BD8",
       "name": "create_shadow"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80115B0C",
       "name": "get_model_property"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8011AD30",
       "name": "GetModelFromListIndex"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8011B010",
       "name": "GetModelListIndexFromTreeIndex"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8011B0EC",
       "name": "GetModelCenterAndSize"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8011BB88",
       "name": "set_fog_color"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8011BC14",
       "name": "SetModelScrollMode"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80120148",
       "name": "play_model_animation"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80125804",
       "name": "CopyString"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8012591C",
       "name": "LoadString"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80125B3C",
       "name": "set_message_string"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80125BE8",
       "name": "set_message_value"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80125DF4",
       "name": "GetCharWidth"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80126474",
       "name": "GetStringWidth"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "801264EC",
       "name": "DrawString"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8012769C",
       "name": "DrawNumber"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8012CC08",
       "name": "DrawTextBox"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80130F58",
       "name": "show_got_item"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "801313F4",
       "name": "make_item_entity"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80131B00",
       "name": "init_got_item"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80132C80",
       "name": "update_item_entities"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80133930",
       "name": "remove_item_entity_by_reference"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "801339FC",
       "name": "remove_item_entity_by_index"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "801382A0",
       "name": "set_map_transition_effect"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80141610",
       "name": "UpdateShadows"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80145390",
       "name": "ClearAreaFlags"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "801453E0",
       "name": "ClearGlobalFlag"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80145450",
       "name": "SetGlobalFlag"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "801454BC",
       "name": "GetGlobalFlag"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80145520",
       "name": "SetGlobalByte"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80145538",
       "name": "GetGlobalByte"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8014554C",
       "name": "ClearAreaFlag"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "801455A0",
       "name": "SetAreaFlag"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "801455F0",
       "name": "GetAreaFlag"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80145638",
       "name": "SetAreaByte"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80145650",
       "name": "GetAreaByte"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "8014576C",
       "name": "CreateTrigger"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80145860",
       "name": "UpdateTriggers"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80145D70",
       "name": "load_map_bg"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80147264",
       "name": "UpdateMusicPlayers"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80149AB8",
       "name": "_play_sound"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "80149CB4",
       "name": "PlaySound_internal"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C3000",
       "name": "si_SortScriptIndicies"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C3148",
       "name": "si_FindLabels"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C33E0",
       "name": "si_StartScript"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C35D0",
       "name": "si_CreateScript"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C37C8",
       "name": "si_CreateChildScript"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C3D04",
       "name": "si_Jump"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C3D74",
       "name": "si_UpdateScripts"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C3F3C",
       "name": "si_KillScript"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C40AC",
       "name": "si_KillScriptByID"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4114",
       "name": "si_KillAllScripts"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4164",
       "name": "si_IsScriptRunningByID"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4164",
       "name": "si_does_script_exist"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C41A4",
       "name": "si_IsScriptRunning"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C41E0",
       "name": "si_SetScriptTimescale"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C42D8",
       "name": "si_suspend_script"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C437C",
       "name": "si_resume_script"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4420",
       "name": "si_suspend_by_id"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C448C",
       "name": "si_resume_by_id"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C44f8",
       "name": "si_suspend_by_id_group"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4570",
       "name": "si_resume_by_id_group"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4648",
       "name": "si_resume_group"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C46a8",
       "name": "si_suspend_others"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C471C",
       "name": "si_resume_others"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4790",
       "name": "si_GetScriptByIndex"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4920",
       "name": "si_GetFloat"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C496C",
       "name": "si_SetFloat"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4998",
       "name": "si_HandleReturn"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C49B8",
       "name": "si_HandleLabel"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C49C0",
       "name": "si_HandleGoto"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4A00",
       "name": "si_HandleLoop"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4A48",
       "name": "si_HandleEndLoop"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4B0C",
       "name": "si_HandleBreakLoop"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4B5C",
       "name": "si_HandleWait"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4BB8",
       "name": "si_HandleWaitSeconds"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4C40",
       "name": "si_HandleIfEqual"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4CA0",
       "name": "si_HandleIfNotEqual"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4D00",
       "name": "si_HandleIfLess"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4D64",
       "name": "si_HandleIfGreater"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4DC8",
       "name": "si_HandleIfLessEqual"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4E2C",
       "name": "si_HandleIfGreaterEqual"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4E90",
       "name": "si_HandleIfAND"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4EE8",
       "name": "si_HandleIfNotAND"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4F40",
       "name": "si_HandleElse"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4F6C",
       "name": "si_HandleEndIf"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4F74",
       "name": "si_HandleSwitch"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C4FE4",
       "name": "si_HandleSwitchConst"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5030",
       "name": "si_HandleCaseEqual"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C50BC",
       "name": "si_HandleCaseNotEqual"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5148",
       "name": "si_HandleCaseLess"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C51D8",
       "name": "si_HandleCaseLessEqual"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5268",
       "name": "si_HandleCaseGreater"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C52F8",
       "name": "si_HandleCaseGreaterEqual"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5388",
       "name": "si_HandleCaseRange"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5444",
       "name": "si_HandleCaseDefault"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C549C",
       "name": "si_HandleCaseAND"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5518",
       "name": "si_HandleCaseEqualOR"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C55B8",
       "name": "si_HandleCaseEqualAND"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C565C",
       "name": "si_HandleEndCaseGroup"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C56D4",
       "name": "si_HandleBreakCase"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5718",
       "name": "si_HandleEndSwitch"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5744",
       "name": "si_HandleSetVar"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5790",
       "name": "si_HandleSetConst"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C57B8",
       "name": "si_HandleSetFloat"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5804",
       "name": "si_HandleAdd"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5868",
       "name": "si_HandleSubtract"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C58CC",
       "name": "si_HandleMultiply"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5934",
       "name": "si_HandleDivide"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C59BC",
       "name": "si_HandleMod"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5A84",
       "name": "si_HandleAddF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5AEC",
       "name": "si_HandleSubtractF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5B54",
       "name": "si_HandleMultiplyF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5BC0",
       "name": "si_HandleDivideF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5C28",
       "name": "si_HandleSetBufferPtr"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5C5C",
       "name": "si_HandleSetBufferPtrF"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5C90",
       "name": "si_HandleGet1Word"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5CC4",
       "name": "si_HandleGet2Word"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5D2C",
       "name": "si_HandleGet3Word"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5DB4",
       "name": "si_HandleGet4Word"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5E5C",
       "name": "si_HandleGetNthWord"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5EB4",
       "name": "si_HandleGet1Float"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5F0C",
       "name": "si_HandleGet2Float"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C5F9C",
       "name": "si_HandleGet3Float"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C605C",
       "name": "si_HandleGet4Float"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C614C",
       "name": "si_HandleGetNthFloat"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C61AC",
       "name": "si_HandleSetArray"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C61E0",
       "name": "si_HandleSetFlagArray"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6214",
       "name": "si_HandleAllocateArray"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6270",
       "name": "si_HandleAND"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C62D4",
       "name": "si_HandleANDConst"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C632C",
       "name": "si_HandleOR"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6390",
       "name": "si_HandleORConst"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C63E8",
       "name": "si_HandleCall"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C646C",
       "name": "si_HandleExec1"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6524",
       "name": "si_HandleExec2"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C65FC",
       "name": "si_HandleExecWait"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6640",
       "name": "si_HandleJump"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6714",
       "name": "si_HandleBind"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6850",
       "name": "si_HandleUnbind"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6870",
       "name": "si_HandleKill"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C689C",
       "name": "si_HandleSetPriority"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C68D8",
       "name": "si_HandleSetTimescale"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6914",
       "name": "si_HandleSetGroup"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6950",
       "name": "si_HandleSuspendAll"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C697C",
       "name": "si_HandleResumeAll"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C69A8",
       "name": "si_HandleSuspendOthers"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C69E4",
       "name": "si_HandleResumeOthers"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6A20",
       "name": "si_HandleSuspend"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6A4C",
       "name": "si_HandleResume"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6A78",
       "name": "si_HandleDoesScriptExist"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6B54",
       "name": "si_HandleBindLock"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6C78",
       "name": "si_HandleThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6D4C",
       "name": "si_HandleEndThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6D6C",
       "name": "si_HandleChildThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6DF4",
       "name": "si_HandleEndChildThread"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C6E1C",
       "name": "si_HandlePrintDebugVar"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C7404",
       "name": "si_ExecuteNextCommand"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C7A54",
       "name": "si_HandleEnd"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C7ABC",
       "name": "GetVariable"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C7DA8",
       "name": "GetVariableIndex"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C7F20",
       "name": "get_variable_index_alt"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C8098",
       "name": "SetVariable"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C842C",
       "name": "GetFloatVariable"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C8640",
       "name": "SetFloatVariable"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C8890",
       "name": "si_GotoLabel"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C88FC",
       "name": "si_SkipIf"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C8978",
       "name": "si_SkipElse"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C89E4",
       "name": "si_GotoEndCase"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C8A60",
       "name": "si_GotoNextCase"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802C8AE4",
       "name": "si_GotoEndLoop"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802CA304",
       "name": "_goto_map"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802CDB0C",
       "name": "_set_npc_animation"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802DC8F4",
       "name": "spr_draw_component"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802DCD00",
       "name": "spr_transform_point"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802DD11C",
       "name": "spr_do_command"
     },
     {
       "usage": "asm",
+      "structType": "Function",
       "ramAddress": "802DEB0C",
       "name": "load_sprite"
     }

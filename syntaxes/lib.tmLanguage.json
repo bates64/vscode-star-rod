@@ -101,7 +101,7 @@
         },
         {
           "name": "storage.type.starrod",
-          "match": "\\b(api|asm|scr|dat|void|int|short|float|bool|ptr|collider|model|modelID|collider|soundID|camID|colliderID|npc|enemy|f?var|stringID|EntryList|ExtraAnimationList|Header|AISettings|NpcSettings|NpcGroup|NpcGroupList|ASCII|ConstDouble|Unknown|JumpTable|IntTable|FloatTable|ItemList|TriggerCoord|LavaResetList|ByteTable|ShopInventory|ShopItemPositions|ShopPriceList|ShopOwnerNPC|NpcList|VertexList|DisplayList|VectorList|TreeModelList|TreeDropList|ShakeTreeEvent|TreeEffectVectors|ShortTable|DataTable|SearchBushEvent|BadgeShopInventory|TweesterPath|TweesterPathList|Formation|FormationTable|StageTable|DefenseTable|StatusTable|Actor|IdleAnimations|SpriteTable|PartsTable|Stage|ForegroundModelList|SJIS|SpecialFormation|Vector3D|DmaArgTable|Data|Npc|String)\\b"
+          "match": "\\b(api|asm|scr|Function(_[a-zA-Z]+)?|Script(_[a-zA-Z]+)?|dat|void|int|short|float|bool|ptr|collider|model|modelID|collider|soundID|camID|colliderID|npc|enemy|f?var|stringID|EntryList|ExtraAnimationList|Header|AISettings|NpcSettings|NpcGroup|NpcGroupList|ASCII|ConstDouble|Unknown|JumpTable|IntTable|FloatTable|ItemList|TriggerCoord|LavaResetList|ByteTable|ShopInventory|ShopItemPositions|ShopPriceList|ShopOwnerNPC|NpcList|VertexList|VertexTable|DisplayList|VectorList|TreeModelList|TreeDropList|ShakeTreeEvent|TreeEffectVectors|ShortTable|DataTable|SearchBushEvent|BadgeShopInventory|TweesterPath|TweesterPathList|Formation|FormationTable|StageTable|DefenseTable|StatusTable|Actor|IdleAnimations|SpriteTable|PartsTable|Stage|ForegroundModelList|SJIS|SpecialFormation|Vector3D|DmaArgTable|Data|Npc|String)\\b"
         },
         {
           "name": "support.constant.enum.starrod",
