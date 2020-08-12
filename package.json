@@ -186,7 +186,8 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run build",
-		"build": "node lib/make.js && tsc -p ./"
+		"build": "node lib/make.js && tsc -p ./",
+		"watch": "tsc -p ./ --watch --incremental"
 	},
 	"dependencies": {
 		"fix-whitespace": "^1.0.3",
