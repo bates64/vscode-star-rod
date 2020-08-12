@@ -130,7 +130,7 @@ export default class Script {
             }
         }
 
-        // All documentation comments ("%!") leading up to the directive
+        // All comments leading up to the directive
         let comment: string | undefined
         let commentPos: Position | undefined
 
@@ -146,21 +146,54 @@ export default class Script {
         // The block content
         let block: string | undefined
 
-        let start: Position = new Position(0, 0)
+        let start: Position | undefined
 
         const directives: Directive[] = []
+
+        const endStruct = (end: Position) => {
+            if (keyword) {
+                start = start ?? commentPos ?? new Position(0, 0)
+
+                directives.push({
+                    comment,
+                    keyword,
+                    args,
+                    atoms,
+                    block,
+                    range: new Range(start, end),
+                    rangeIncludingComment: new Range(commentPos ?? start, end),
+                })
+            }
+
+            comment = undefined
+            keyword = undefined
+            args = []
+            atoms = []
+            block = undefined
+            start = undefined
+            commentPos = undefined
+        }
 
         for (let t = 0; t < tokens.length; t++) {
             const token = tokens[t]
             const position = new Position(token.line - 1, token.col - 1)
 
-            // Combine documentaton comments.
-            if (token.type === 'linecomment' && token.text.startsWith('%!')) {
+            // If we encounter two newlines in a row (i.e. any empty line), reset.
+            // This typically gets rid of irrelevant comments to the next struct.
+            if (t > 0 && token.type === 'nl' && tokens[t - 1].type === 'nl') {
+                endStruct(position)
+            }
+
+            // Combine comments.
+            if (token.type === 'linecomment') {
+                // Drop leading `!` character (v1.1.0 required it).
+                const content = token.text.startsWith('%!') ? token.text.substr(2) : token.text.substr(1)
+
                 if (comment) {
                     comment += '\n'
-                    comment += token.text.substr(2)
+                    comment += content
                 } else {
-                    comment = token.text.substr(2)
+                    comment = content
                     commentPos = position
                 }
                 continue
@@ -168,7 +201,8 @@ export default class Script {
 
             // Parses the first part of the header into `keyword` and `args`.
             if (token.type === 'directive') {
-                [ keyword, ...args ] = token.text.split(':')
+                endStruct(position)
+                ;[ keyword, ...args ] = token.text.split(':')
                 start = position
                 continue
             }
@@ -184,32 +218,17 @@ export default class Script {
                 // Fallthrough...
             }
 
-            // End directive when a block, or a newline not followed by a block, is encountered.
-            // Note: this does not match how Star Rod parses directives with blocks (it expects them depending
-            // on the directive type, e.g. #new requires a block), but it should suffice for any sane codestyle.
-            if ((token.type === 'blockcontent' || (token.type === 'nl' && tokens[t + 1]?.type !== 'lbrace')) && keyword) {
+            // End directive when a block is encountered. Note: this does not match how Star Rod parses
+            // directives with blocks (it expects them depending on the directive type, e.g. #new requires a block).
+            if (token.type === 'blockcontent' && keyword) {
                 const end = token.type === 'blockcontent'
                     ? new Position(tokens[t + 1].line - 1, tokens[t + 1].col)
                     : position
-
-                directives.push({
-                    comment,
-                    keyword,
-                    args,
-                    atoms,
-                    block,
-                    range: new Range(start, end),
-                    rangeIncludingComment: new Range(commentPos ?? start, end),
-                })
-                comment = undefined
-                keyword = undefined
-                args = []
-                atoms = []
-                block = undefined
-                start = end
-                commentPos = undefined
+                endStruct(end)
             }
         }
+
+        endStruct(new Position(this.document.lineCount + 1, 0))
 
         this.parseDirectivesCache = { directives, version: this.document.version }
         return directives

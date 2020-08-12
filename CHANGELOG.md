@@ -8,6 +8,8 @@
 - Added syntax highlighting for `#new:VertexTable` blocks.
 - Fixed syntax highlighting for the `LT` branch/jump instructions in functions.
 - Fixed `}` not being included in the highlighted range of Go To Definition.
+- You can now document structs using any line comments, rather than just those prefixed with `!`.
+- Made struct parsing more lenient - a comment between the header line and the comment block is now read correctly.
 
 ## 1.1.0
 
