@@ -7,6 +7,7 @@
 - Structs declared or patched in the current file are now shown in the _Outline_ (bottom of the sidebar) and can be jumped to with _Go To Symbol in Editor..._ (Ctrl+Shift+O, or Ctrl+P then `@`).
 - Added syntax highlighting for `#new:VertexTable` blocks.
 - Fixed syntax highlighting for the `LT` branch/jump instructions in functions.
+- Fixed `}` not being included in the highlighted range of Go To Definition.
 
 ## 1.1.0
 
