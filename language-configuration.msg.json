@@ -1,0 +1,12 @@
+{
+    "comments": {
+        "lineComment": "//"
+    },
+    "autoClosingPairs": [
+        { "open": "[", "close": "]" }
+    ],
+    "autoCloseBefore": "] \n\t",
+    "surroundingPairs": [
+        ["[", "]"]
+    ]
+}

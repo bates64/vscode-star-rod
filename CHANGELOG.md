@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0
+
+- Added syntax highlighting for the [decompilation's .msg format](https://github.com/ethteck/papermario/pull/117)
+
 ## 1.2.1
 
 - Fixed documentation comments being ignored.

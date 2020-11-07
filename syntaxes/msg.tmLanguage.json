@@ -1,0 +1,69 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Paper Mario Messages",
+  "scopeName": "source.papermariomsg",
+  "patterns": [
+    {
+      "name": "constant.character.escape.papermariomsg",
+      "match": "\\\\."
+    },
+    {
+      "name": "meta.tag.inline.papermariomsg",
+      "match": "(?i)(\\[)(a|b|z|c-up|c-down|c-left|c-right|l|r|start|heart|star|note|br)(\\])",
+      "captures": {
+        "1": { "name": "punctuation.definition.tag.begin.papermariomsg" },
+        "2": { "name": "support.constant.tag.papermariomsg" },
+        "3": { "name": "punctuation.definition.tag.end.papermariomsg" }
+      }
+    },
+    {
+      "name": "meta.tag.inline.papermariomsg",
+      "begin": "(?i)(\\[/?)((message|prompt|next|sleep)|[a-zA-Z0-9\\-]+)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.papermariomsg" },
+        "2": { "name": "entity.name.tag.starrod" },
+        "3": { "name": "keyword.control.tag.papermariomsg" }
+      },
+      "end": "\\]",
+      "endCaptures": { "0": { "name": "punctuation.definition.tag.end.papermariomsg" } },
+      "patterns": [
+        {
+          "match": "(=)([a-zA-Z][a-zA-Z0-9\\-]*)",
+          "captures": {
+            "1": { "name": "punctuation.separator.key-value.papermariomsg" },
+            "2": { "name": "string.unquoted.papermariomsg" }
+          }
+        },
+        {
+          "match": "(=)(0[xX][0-9A-F]+|[0-9]+)",
+          "captures": {
+            "1": { "name": "punctuation.separator.key-value.papermariomsg" },
+            "2": { "name": "constant.numeric.papermariomsg" }
+          }
+        },
+        {
+          "name": "entity.other.attribute-name",
+          "match": "[a-zA-Z][a-zA-Z0-9\\-]*"
+        },
+        {
+          "name": "constant.numeric.papermariomsg",
+          "match": "0[xX][0-9A-F]+|[0-9]+"
+        }
+      ]
+    },
+    {
+      "name": "comment.line.double-slash.papermariomsg",
+      "begin": "//",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.comment.papermariomsg" }
+      },
+      "end": "\n",
+      "patterns": [
+        {
+          "name": "keyword.codetag.notation.papermariomsg",
+          "match": "(?:\\b(NOTE|XXX|HACK|FIXME|BUG|TODO|TEMP)\\b)"
+        }
+      ]
+    }
+  ]
+}

@@ -82,6 +82,17 @@
 				"extensions": [
 					".lib"
 				]
+			},
+			{
+				"id": "papermariomsg",
+				"aliases": [
+					"Paper Mario Messages",
+					"papermariomsg"
+				],
+				"extensions": [
+					".msg"
+				],
+				"configuration": "./language-configuration.msg.json"
 			}
 		],
 		"grammars": [
@@ -99,6 +110,11 @@
 				"language": "starrodlib",
 				"scopeName": "source.starrodlib",
 				"path": "./syntaxes/lib.tmLanguage.json"
+			},
+			{
+				"language": "papermariomsg",
+				"scopeName": "source.papermariomsg",
+				"path": "./syntaxes/msg.tmLanguage.json"
 			}
 		],
 		"commands": [
@@ -110,6 +126,11 @@
 			{
 				"command": "starRod.compileMap",
 				"title": "Compile Map...",
+				"category": "Star Rod"
+			},
+			{
+				"command": "starRod.compileMaps",
+				"title": "Compile All Maps",
 				"category": "Star Rod"
 			},
 			{
