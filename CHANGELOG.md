@@ -3,6 +3,7 @@
 ## 1.4.0
 
 - Added support for Star Rod 0.4.4
+- Fixed highlighting of `#export:Type $identifier` in patch files
 
 ## 1.3.0
 

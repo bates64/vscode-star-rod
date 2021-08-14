@@ -123,7 +123,7 @@
         },
         {
           "name": "meta.block.function.starrod",
-          "begin": "((#)new)(:)(Function(_Init|_GetTattle)?((:)(Global|Map|Battle|World|Pause))?)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
+          "begin": "((#)(?:new|export))(:)(Function(_Init|_GetTattle)?((:)(Global|Map|Battle|World|Pause))?)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
           "end": "(?=#[^DU])|(?=@)|(})",
           "beginCaptures": {
             "0": { "name": "meta.head.function.definition.starrod" },
@@ -147,7 +147,7 @@
         },
         {
           "name": "meta.block.script.starrod",
-          "begin": "((#)new)(:)(Script(_Main|_Use|(:)(Global|Map|Battle|World|Pause))?)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
+          "begin": "((#)(?:new|export))(:)(Script(_Main|_Use|(:)(Global|Map|Battle|World|Pause))?)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
           "end": "(?=#)|(?=@)|(})",
           "beginCaptures": {
             "0": { "name": "meta.head.script.definition.starrod" },
@@ -175,7 +175,7 @@
         },
         {
           "name": "meta.block.string.starrod",
-          "begin": "((#)new)(:)(String)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
+          "begin": "((#)(?:new|export))(:)(String)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
           "end": "(?=#)|(?=@)|((\\[)(END)(\\]))\\s*(})?",
           "beginCaptures": {
             "0": { "name": "meta.head.string.definition.starrod" },
@@ -289,7 +289,7 @@
         },
         {
           "name": "meta.block.other.starrod",
-          "begin": "((#)new)(:)(EntryList|ExtraAnimationList|Header|AISettings|NpcSettings|NpcGroup|NpcGroupList|ASCII|ConstDouble|Unknown|JumpTable|IntTable|FloatTable|ItemList|TriggerCoord|LavaResetList|ByteTable|ShopInventory|ShopItemPositions|ShopPriceList|ShopOwnerNPC|NpcList|VertexList|VertexTable|DisplayList|VectorList|TreeModelList|TreeDropList|ShakeTreeEvent|TreeEffectVectors|ShortTable|DataTable|SearchBushEvent|BadgeShopInventory|TweesterPath|TweesterPathList|Formation|FormationTable|StageTable|DefenseTable|StatusTable|Actor|IdleAnimations|SpriteTable|PartsTable|Stage|ForegroundModelList|SJIS|SpecialFormation|Vector3D|DmaArgTable|Data|Npc)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
+          "begin": "((#)(?:new|export))(:)(EntryList|ExtraAnimationList|Header|AISettings|NpcSettings|NpcGroup|NpcGroupList|ASCII|ConstDouble|Unknown|JumpTable|IntTable|FloatTable|ItemList|TriggerCoord|LavaResetList|ByteTable|ShopInventory|ShopItemPositions|ShopPriceList|ShopOwnerNPC|NpcList|VertexList|VertexTable|DisplayList|VectorList|TreeModelList|TreeDropList|ShakeTreeEvent|TreeEffectVectors|ShortTable|DataTable|SearchBushEvent|BadgeShopInventory|TweesterPath|TweesterPathList|Formation|FormationTable|StageTable|DefenseTable|StatusTable|Actor|IdleAnimations|SpriteTable|PartsTable|Stage|ForegroundModelList|SJIS|SpecialFormation|Vector3D|DmaArgTable|Data|Npc)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
           "end": "(?=#)|(?=@)|(})",
           "endCaptures": {
             "3": { "name": "punctuation.definition.end.bracket.curly.starrod" }

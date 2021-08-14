@@ -8,7 +8,7 @@ export default class StarRodDocumentSymbolProvider implements vscode.DocumentSym
 
         const directives = script.parseDirectives()
         for (const directive of directives) {
-            if (directive.keyword === '#new') {
+            if (directive.keyword === '#new' || (directive.keyword === '#export' && directive.args.length >= 1)) {
                 const identifier = directive.atoms[0]
                 const structType = directive.args[0]
 
