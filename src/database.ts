@@ -11,6 +11,7 @@ export default async function loadDatabase(starRodDir: vscode.Uri): Promise<Data
         battle: [],
         world: [],
         pause: [],
+        mainmenu: [],
     }
 
     for (const uri of await listDatabaseFiles(starRodDir)) {
@@ -19,6 +20,7 @@ export default async function loadDatabase(starRodDir: vscode.Uri): Promise<Data
             const { scope, entries } = parse(source)
             db[scope].push(...entries)
         } catch (error) {
+            console.error(error)
             vscode.window.showWarningMessage(`Failed to read database file ${uri.fsPath}: ${error.message}`)
         }
     }

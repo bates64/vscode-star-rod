@@ -6,6 +6,7 @@ export type Database = {
     battle: Entry[]
     world: Entry[]
     pause: Entry[]
+    mainmenu: Entry[]
 }
 
 export type Usage = 'api' | 'asm' | 'scr' | 'any'
@@ -198,6 +199,8 @@ export function parse(source: string): { scope: keyof Database, entries: Entry[]
                     // TODO: support multiple signatures?
 
                     const mapArgs = (argsP: typeof part): Arg[] | undefined => {
+                        if (argsP.length === 0) return []
+
                         if (argsP[0].identifiers[0] === 'void') return []
                         if (argsP[0].identifiers[0] === '???') return undefined
                         if (argsP[0].identifiers[0] === 'varargs') return undefined
@@ -241,7 +244,7 @@ export function parse(source: string): { scope: keyof Database, entries: Entry[]
         fail(token)
     }
 
-    if (scope === 'battle' || scope === 'world' || scope === 'common' || scope === 'pause') {
+    if (scope === 'battle' || scope === 'world' || scope === 'common' || scope === 'pause' || scope === 'mainmenu') {
         return { scope, entries }
     } else {
         throw new Error(`Unknown scope: ${scope}`)

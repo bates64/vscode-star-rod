@@ -3,6 +3,7 @@ import * as libProvider from './libProvider'
 import activateCommands from './commands'
 import { activate as activateCodeLens } from './StarRodCodeLensProvider'
 import { activate as activateDocumentSymbols } from './StarRodDocumentSymbolProvider'
+import * as fs from 'fs'
 
 const STAR_ROD_JAR_SIZES = new Map([
     // No other good way to check for SR version AFAIK.
@@ -11,8 +12,9 @@ const STAR_ROD_JAR_SIZES = new Map([
     [16355570, '0.3.0'],
     [16365650, '0.3.1'],
     [16411097, '0.3.2'],
+    [17268509, '0.4.4'],
 ])
-const DEFAULT_STAR_ROD = '0.3.2'
+const DEFAULT_STAR_ROD = '0.4.4'
 
 export async function activate(ctx: vscode.ExtensionContext) {
     const reload = async () => {

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0
+
+- Added support for Star Rod 0.4.4
+
 ## 1.3.0
 
 - Added syntax highlighting for the [decompilation's .msg format](https://github.com/ethteck/papermario/pull/117)

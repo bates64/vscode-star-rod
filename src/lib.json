@@ -12943,5 +12943,6 @@
       "name": "load_sprite"
     }
   ],
-  "pause": []
+  "pause": [],
+  "mainmenu": []
 }
