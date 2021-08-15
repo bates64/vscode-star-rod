@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.1
+
+- Fixed enums in subdirectories not being suggested
+
 ## 1.4.0
 
 - Added support for Star Rod 0.4.4

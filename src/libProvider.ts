@@ -1198,7 +1198,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
 
         // Read all enum files.
         // Note that files in Star Rod's local `database` are not read, just those in `globals/enum/`.
-        for (const uri of await vscode.workspace.findFiles('**/globals/enum/*.enum')) {
+        for (const uri of await vscode.workspace.findFiles('**/globals/enum/**/*.enum')) {
             const contents = await vscode.workspace.fs.readFile(uri)
             const lines = deUtf8.write(Buffer.from(contents)).split(/\r?\n/)
 
