@@ -14,7 +14,7 @@ export default class StarRodDocumentSymbolProvider implements vscode.DocumentSym
 
                 symbols.push(new DocumentSymbol(
                     identifier,
-                    `new ${structType}`,
+                    structType,
                     structTypeToSymbolKind(structType, identifier),
                     directive.range,
                     directive.rangeIncludingComment,

@@ -3,6 +3,7 @@
 ## 1.4.1
 
 - Fixed enums in subdirectories not being suggested
+- Exported structs from global patch files are now shown in suggestions for other global patch files (previously, viewing exported global patch structs was limited to non-global patch files)
 
 ## 1.4.0
 

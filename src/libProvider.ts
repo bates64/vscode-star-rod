@@ -1128,7 +1128,7 @@ function getStructTypeAt(document: TextDocument, startPos: Position): string {
         const tokens = tokenizeLine(line)
         if (tokens.length) {
             // If this is the head line, return its type.
-            if (tokens[0].source.startsWith('#new')) {
+            if (tokens[0].source.startsWith('#new') || tokens[0].source.startsWith('#export')) {
                 const [ hashNew, type, ...rest ] = tokens[0].source.split(':')
                 return type
             } else if (tokens[0].source.startsWith('#string')) {
@@ -1276,7 +1276,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
             try {
                 let awaitingExport: Entry[] = []
                 for (const directive of script.parseDirectives()) {
-                    if (directive.keyword === '#new') {
+                    if (directive.keyword === '#new' || (directive.keyword === '#export' && directive.args.length >= 1)) {
                         const identifier = directive.atoms[0]
                         const structType = directive.args[0]
 
@@ -1297,7 +1297,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                         })
                     }
 
-                    if (directive.keyword === '#string') {
+                    if (directive.keyword === '#string' || (directive.keyword === '#new' && directive.args[0] === 'String')) {
                         const identifier = directive.atoms[0]
 
                         ;(requireExport ? awaitingExport : database).push({
@@ -1352,16 +1352,14 @@ export async function activate(ctx: vscode.ExtensionContext) {
 
         const script = new Script(document)
 
-        // For non-global-patch files, add exported global-patch entries.
-        if (script.scope()) {
-            const workspaceFolder = vscode.workspace.getWorkspaceFolder(script.document.uri)
-            if (workspaceFolder) {
-                for (const uri of await vscode.workspace.findFiles(
-                    new vscode.RelativePattern(workspaceFolder, 'globals/patch/**/*.patch')
-                )) {
-                    const document = await vscode.workspace.openTextDocument(uri)
-                    await addStructsToDatabase(new Script(document), undefined, true)
-                }
+        // Add exported global-patch entries.
+        const workspaceFolder = vscode.workspace.getWorkspaceFolder(script.document.uri)
+        if (workspaceFolder) {
+            for (const uri of await vscode.workspace.findFiles(
+                new vscode.RelativePattern(workspaceFolder, 'globals/patch/**/*.patch')
+            )) {
+                const document = await vscode.workspace.openTextDocument(uri)
+                await addStructsToDatabase(new Script(document), undefined, true)
             }
         }
 
@@ -1840,7 +1838,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                     endRegion('define', -1)
                 }
 
-                if (/^(#new:[^ \t]+|@[^ \t]*)(\s|$)/g.test(line)) {
+                if (/^(#(new|export):[^ \t]+|@[^ \t]*)(\s|$)/g.test(line)) {
                     beginRegion('block')
                 } else if (/^#string(:|\s|$)/g.test(line)) {
                     beginRegion('stringblock')
