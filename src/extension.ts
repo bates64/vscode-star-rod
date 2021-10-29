@@ -13,8 +13,9 @@ const STAR_ROD_JAR_SIZES = new Map([
     [16365650, '0.3.1'],
     [16411097, '0.3.2'],
     [17268509, '0.4.4'],
+    [29404128, '0.5.0'],
 ])
-const DEFAULT_STAR_ROD = '0.4.4'
+const DEFAULT_STAR_ROD = '0.5.0'
 
 export async function activate(ctx: vscode.ExtensionContext) {
     const reload = async () => {
@@ -121,8 +122,8 @@ export function getStarRodDir(): vscode.Uri | undefined {
     }
 }
 
-export async function getStarRodDirVersion(dir: vscode.Uri | undefined = getStarRodDir()): Promise<string | undefined> {
-    if (!dir) return undefined
+export async function getStarRodDirVersion(dir: vscode.Uri | undefined = getStarRodDir()): Promise<string> {
+    if (!dir) return DEFAULT_STAR_ROD
 
     const jar = dir.with({ path: dir.path + '/StarRod.jar' })
 
@@ -137,6 +138,6 @@ export async function getStarRodDirVersion(dir: vscode.Uri | undefined = getStar
         console.log('StarRod.jar size =', size)
         return STAR_ROD_JAR_SIZES.get(size) ?? DEFAULT_STAR_ROD
     } catch {
-        return undefined
+        return DEFAULT_STAR_ROD
     }
 }

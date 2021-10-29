@@ -4,6 +4,7 @@ const deUtf8 = new StringDecoder('utf8')
 
 import { parse, Database } from './databaseParser'
 export { Database, Entry, Arg, Attributes, Usage } from './databaseParser'
+import { getStarRodDirVersion } from './extension'
 
 export default async function loadDatabase(starRodDir: vscode.Uri): Promise<Database> {
     const db: Database = {
@@ -29,9 +30,14 @@ export default async function loadDatabase(starRodDir: vscode.Uri): Promise<Data
 }
 
 export async function listDatabaseFiles(starRodDir: vscode.Uri): Promise<vscode.Uri[]> {
-    const dirList = await vscode.workspace.fs.readDirectory(starRodDir.with({ path: starRodDir.path + '/database' }))
+    const [major, minor, patch] = (await getStarRodDirVersion(starRodDir)).split('.').map(Number)
+    const databasePath = minor >= 5 ? '/database/version/US' : '/database'
+
+    const dirList = await vscode.workspace.fs.readDirectory(starRodDir.with({
+        path: starRodDir.path + databasePath
+    }))
 
     return dirList
         .filter(([name]) => name.endsWith('.lib'))
-        .map(([name]) => starRodDir.with({ path: starRodDir.path + '/database/' + name }))
+        .map(([name]) => starRodDir.with({ path: starRodDir.path + databasePath + '/' + name }))
 }

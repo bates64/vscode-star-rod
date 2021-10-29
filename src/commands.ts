@@ -96,7 +96,7 @@ export default function activate(ctx: vscode.ExtensionContext) {
                 'Map Scripts':      dir.with({ path: dir.path + '/database/map_script_library.txt' }),
                 'System':           dir.with({ path: dir.path + '/database/system_func_library.txt' }),
             }
-        } else if (srVersion?.startsWith('0.3.0')) {
+        } else {
             const files = await listDatabaseFiles(dir)
             paths = files.reduce((paths: Record<string, vscode.Uri>, uri) => {
                 const folders = uri.path.split('/')
