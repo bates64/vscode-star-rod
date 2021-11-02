@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.1
+
+- Enums are now loaded from Star Rod's database if they are not found in your mod's `globals/enum` folder
+
 ## 1.5.0
 
 - Added support for Star Rod 0.5.0
