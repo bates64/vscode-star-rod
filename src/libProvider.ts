@@ -19,6 +19,9 @@ import vscode, {
 import * as LIB from './lib.json'
 import loadDatabase, { Entry, Arg, Database, Usage } from './database'
 import fixWs from 'fix-whitespace'
+import glob from 'glob-promise'
+import fs from 'fs/promises'
+import path from 'path'
 import Mod from './Mod'
 import Script from './Script'
 import { getStarRodDir, getStarRodDirVersion } from './extension'
@@ -1197,16 +1200,31 @@ export async function activate(ctx: vscode.ExtensionContext) {
         enums = []
 
         // Read all enum files.
-        // Note that files in Star Rod's local `database` are not read, just those in `globals/enum/`.
-        for (const uri of await vscode.workspace.findFiles('**/globals/enum/**/*.enum')) {
-            const contents = await vscode.workspace.fs.readFile(uri)
-            const lines = deUtf8.write(Buffer.from(contents)).split(/\r?\n/)
+        const srDir = getStarRodDir()?.fsPath
+        const enumFiles = [
+            ...await vscode.workspace.findFiles('**/globals/enum/**/*.enum'),
+            ...(srDir ? await glob(path.join(srDir, 'database/types/**/*.enum')) : []), // fallback to sr database
+        ]
+        const namespacesSeen = new Set()
+
+        for (const uri of enumFiles) {
+            let contents
+            if (typeof uri === 'string')
+                contents = await fs.readFile(uri, 'utf8')
+            else
+                contents = deUtf8.write(Buffer.from(await vscode.workspace.fs.readFile(uri)))
+
+            const lines = contents.split(/\r?\n/)
 
             const namespace = /^[^\s%]+/.exec(lines.shift() ?? '')?.[0]
             const libName = /^[^\s%]+/.exec(lines.shift() ?? '')?.[0]
             const reversed = /^[^\s%]+/.exec(lines.shift() ?? '')?.[0] === 'true'
 
             if (!namespace || !libName) continue
+
+            if (namespacesSeen.has(namespace))
+                continue
+            namespacesSeen.add(namespace)
 
             const members = []
             for (const line of lines) {

@@ -212,6 +212,8 @@
 	},
 	"dependencies": {
 		"fix-whitespace": "^1.0.3",
+		"glob": "^7.2.0",
+		"glob-promise": "^4.2.2",
 		"moo": "^0.5.1"
 	}
 }

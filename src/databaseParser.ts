@@ -235,7 +235,7 @@ export function parse(source: string): { scope: keyof Database, entries: Entry[]
                         args: mapArgs(argsP || []),
                         returns: mapArgs(returnsP || []),
                     })
-                } else if (usage) {
+                } else if (usage !== "dat") {
                     console.warn(`Ignoring unknown usage type "${usage}" on line ${token.line}`)
                 }
             }
