@@ -1177,6 +1177,15 @@ type Enum = {
     members: string[]
 }
 
+export async function getEnumFiles() {
+    const srDir = getStarRodDir()?.fsPath
+
+    return [
+        ...await vscode.workspace.findFiles('**/globals/enum/**/*.enum'),
+        ...(srDir ? await glob(path.join(srDir, 'database/types/**/*.enum')) : []), // fallback to sr database
+    ]
+}
+
 export async function activate(ctx: vscode.ExtensionContext) {
     const mod = Mod.getActive()
 
@@ -1200,11 +1209,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
         enums = []
 
         // Read all enum files.
-        const srDir = getStarRodDir()?.fsPath
-        const enumFiles = [
-            ...await vscode.workspace.findFiles('**/globals/enum/**/*.enum'),
-            ...(srDir ? await glob(path.join(srDir, 'database/types/**/*.enum')) : []), // fallback to sr database
-        ]
+        const enumFiles = await getEnumFiles()
         const namespacesSeen = new Set()
 
         for (const uri of enumFiles) {

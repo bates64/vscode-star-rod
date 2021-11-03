@@ -3,6 +3,7 @@ import * as vscode from 'vscode'
 import { getStarRodDirVersion, getStarRodDir } from './extension'
 import Mod from './Mod'
 import { listDatabaseFiles } from './database'
+import { getEnumFiles } from './libProvider'
 
 const getActiveModSafe = async () => {
     const srVersion = await getStarRodDirVersion()
@@ -110,6 +111,40 @@ export default function activate(ctx: vscode.ExtensionContext) {
                 return paths
             }, {})
         }
+
+        const choice = await vscode.window.showQuickPick(Object.keys(paths))
+
+        if (!choice) {
+            return
+        }
+
+        const doc = await vscode.workspace.openTextDocument(paths[choice])
+        await vscode.window.showTextDocument(doc)
+    }))
+
+    ctx.subscriptions.push(vscode.commands.registerCommand('starRod.openEnum', async () => {
+        const dir = getStarRodDir()
+
+        if (!dir) {
+            vscode.window.showErrorMessage('Star Rod installation directory is not configured.')
+            return
+        }
+
+        const files = await getEnumFiles()
+        const paths = files.reduce((paths: Record<string, string>, uri) => {
+            const strpath = typeof uri === "string" ? uri : uri.path
+            const folders = strpath.split('/')
+            const base = folders.pop()
+
+            if (base) {
+                const basename = base.split('.').slice(0, -1).join('.') // Drop file extension
+                
+                if (!paths[basename])
+                    paths[basename] = strpath
+            }
+
+            return paths
+        }, {})
 
         const choice = await vscode.window.showQuickPick(Object.keys(paths))
 

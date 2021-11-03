@@ -23,7 +23,15 @@
 	"main": "./out/extension",
 	"activationEvents": [
 		"onLanguage:starrod",
-		"onCommand:starRod.compileMod"
+		"onLanguage:starrodenum",
+		"onLanguage:starrodlib",
+		"onLanguage:papermariomsg",
+		"onCommand:starRod.compileMod",
+		"onCommand:starRod.compileMap",
+		"onCommand:starRod.compileMaps",
+		"onCommand:starRod.runMod",
+		"onCommand:starRod.openDatabase",
+		"onCommand:starRod.openEnum"
 	],
 	"contributes": {
 		"languages": [
@@ -141,6 +149,11 @@
 			{
 				"command": "starRod.openDatabase",
 				"title": "Open Database...",
+				"category": "Star Rod"
+			},
+			{
+				"command": "starRod.openEnum",
+				"title": "Open Enum...",
 				"category": "Star Rod"
 			}
 		],
