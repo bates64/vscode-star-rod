@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.0
+
+- Added a new command, _Open Enums..._, which lets you quickly view enum files even if they are not in the mod globals folder.
+
 ## 1.5.1
 
 - Enums are now loaded from Star Rod's database if they are not found in your mod's `globals/enum` folder
