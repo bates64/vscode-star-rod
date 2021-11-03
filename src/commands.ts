@@ -64,6 +64,25 @@ export default function activate(ctx: vscode.ExtensionContext) {
         }
     }))
 
+    ctx.subscriptions.push(vscode.commands.registerCommand('starRod.compileMaps', async () => {
+        const mod = await getActiveModSafe()
+        if (!mod) return
+
+        const maps = await mod.getSaveMaps()
+        let i = 1
+
+        for (const map of maps) {
+            let obj = await vscode.window.withProgress({
+                title: `Compiling ${map}... (${i}/${maps.length})`,
+                location: vscode.ProgressLocation.Window,
+            }, () => mod.compileMap(map))
+
+            if (obj.emitError) await obj.emitError()
+
+            i++
+        }
+    }))
+
     ctx.subscriptions.push(vscode.commands.registerCommand('starRod.runMod', async () => {
         const mod = await getActiveModSafe()
         if (!mod) return
