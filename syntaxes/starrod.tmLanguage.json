@@ -423,7 +423,7 @@
       "comment": "Loosely based on vscode-Better-MIPS. Instructions grouped/sourced from https://www.zophar.net/fileuploads/2/10655uytsm/N64ops03.txt, plus Star Rod pseudoinstructions.",
       "patterns": [
         {
-          "match": "^\\s*([0-9A-Fa-f]+(:)\\s*)?(LB|LBU|LD|LDL|LDR|LH|LHU|LL|LLD|LW|LWL|LWL|LWR|LWU|LUI|LWC1|LIA|LIO|LIF|LAB|LABU|LAH|LAHU|LAW|LAF|LAD|LTB|LTBU|LTH|LTHU|LTW|LTF)\\b",
+          "match": "^\\s*([0-9A-Fa-f]+(:)\\s*)?(LB|LBU|LD|LDL|LDR|LH|LHU|LL|LLD|LW|LWL|LWL|LWR|LWU|LUI|LWC1|LI|LA|LIA|LIO|LIF|LAB|LABU|LAH|LAHU|LAW|LAF|LAD|LTB|LTBU|LTH|LTHU|LTW|LTF)\\b",
           "captures": {
             "1": { "name": "constant.numeric.hexadecimal.offset.starrod" },
             "2": { "name": "punctuation.separator.label.starrod" },
@@ -439,7 +439,7 @@
           }
         },
         {
-          "match": "^\\s*([0-9A-Fa-f]+(:)\\s*)?(ABS\\.[SD]|ADD\\.[SD]|C\\.(F|UN|EQ|UEQ|OLT|ULT|OLE|ULE|SF|NGLE|SEQ|NGL|LT|NGE|LE|NGT)\\.[SD]|CEIL\\.[LW]\\.[SD]|CFC1|CTC1|CVT\\.[DLSW]\\.[DLSW]|DIV\\.[SD]|DMFC1|DMTC1|FLOOR\\.[LW]\\.[SD]|LDC1|LWC1|MFC1|MOV\\.[SD]|MTC1|MUL\\.[SD]|NEG\\.[SD]|ROUND\\.[LW]\\.[SD]|SDC1|SQRT\\.[SD]|SUB\\.[SD]|SWC1|TRUNC\\.[LW]\\.[SD]|ADD|ADDI|ADDIU|ADDU|AND|ANDI|DADD|DADDI|DADDIU|DADDU|DDIV|DDIVU|DMULT|DMULTU|DSLL|DSLL32|DSLLV|DSRA|DSRA32|DSRAV|DSRL|DSRL32|DSRLV|DSUB|DSUBU|MFHI|MFLO|MTHI|MTLO|MULT|MUTLU|NOR|OR|ORI|SLL|SLLV|SLT|SLTI|SLTIU|SLTU|SRA|SRAV|SRL|SRLV|SUB|SUBU|XOR|XORI|SUBI|SUBIU|COPY|CLEAR)\\b",
+          "match": "^\\s*([0-9A-Fa-f]+(:)\\s*)?(ABS\\.[SD]|ADD\\.[SD]|C\\.(F|UN|EQ|UEQ|OLT|ULT|OLE|ULE|SF|NGLE|SEQ|NGL|LT|NGE|LE|NGT)\\.[SD]|CEIL\\.[LW]\\.[SD]|CFC1|CTC1|CVT\\.[DLSW]\\.[DLSW]|DIV\\.[SD]|DMFC1|DMTC1|FLOOR\\.[LW]\\.[SD]|LDC1|LWC1|MFC1|MOV\\.[SD]|MTC1|MUL\\.[SD]|NEG\\.[SD]|ROUND\\.[LW]\\.[SD]|SDC1|SQRT\\.[SD]|SUB\\.[SD]|SWC1|TRUNC\\.[LW]\\.[SD]|ADD|ADDI|ADDIU|ADDU|AND|ANDI|DADD|DADDI|DADDIU|DADDU|DDIV|DDIVU|DMULT|DMULTU|DSLL|DSLL32|DSLLV|DSRA|DSRA32|DSRAV|DSRL|DSRL32|DSRLV|DSUB|DSUBU|MFHI|MFLO|MTHI|MTLO|MULT|MUTLU|NOR|OR|ORI|SLL|SLLV|SLT|SLTI|SLTIU|SLTU|SRA|SRAV|SRL|SRLV|SUB|SUBU|XOR|XORI|SUBI|SUBIU|COPY|CLEAR|MULTU|DIV|DIVU|MFC0|MTC0|TGEIU|TGEU)\\b",
           "captures": {
             "1": { "name": "constant.numeric.hexadecimal.offset.starrod" },
             "2": { "name": "punctuation.separator.label.starrod" },
