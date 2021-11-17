@@ -189,7 +189,11 @@
 					"enum": [
 						"",
 						"0.2.0",
-						"0.3.0"
+						"0.3.0",
+						"0.3.1",
+						"0.3.2",
+						"0.4.4",
+						"0.5.0"
 					]
 				},
 				"starRod.showHoverDocumentationForScriptKeywords": {
