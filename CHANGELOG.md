@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.6.1
+
+- Expanded the installDirectoryVersionOverride options to include all supported Star Rod versions.
+- Added a new option, emulatorWorkingDir.
+- Fixed bugs with CodeLens ('Patch | Alias | Delete') in src files.
+- Added 'View src file', 'View patch file', 'View gen file' CodeLens buttons at the top of files.
+- Fixed bugs relating to the Outline.
+- More MIPS opcodes are now syntax-highlighted.
+- `#message` is now accepted as an alias for `#string`.
+- `ModelAnimation` structs are now crudely highlighted as basic data rather than not at all.
+- In function and script patches, lines with offset prefixes are now syntax-highlighted correctly.
+
 ## 1.6.0
 
 - Added a new command, _Open Enums..._, which lets you quickly view enum files even if they are not in the mod globals folder.
