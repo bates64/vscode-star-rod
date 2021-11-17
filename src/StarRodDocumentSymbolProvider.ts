@@ -16,8 +16,8 @@ export default class StarRodDocumentSymbolProvider implements vscode.DocumentSym
                     identifier,
                     structType,
                     structTypeToSymbolKind(structType, identifier),
-                    directive.range,
                     directive.rangeIncludingComment,
+                    directive.range,
                 ))
             } else if (directive.keyword === '@') {
                 const identifier = directive.atoms[0]
@@ -26,8 +26,8 @@ export default class StarRodDocumentSymbolProvider implements vscode.DocumentSym
                     identifier,
                     'patch',
                     SymbolKind.Variable,
-                    directive.range,
                     directive.rangeIncludingComment,
+                    directive.range,
                 ))
             } else if (directive.keyword === '#string') {
                 if (directive.args.length === 2) {
@@ -37,8 +37,8 @@ export default class StarRodDocumentSymbolProvider implements vscode.DocumentSym
                         `${section}:${index}`,
                         'patch',
                         SymbolKind.String,
-                        directive.range,
                         directive.rangeIncludingComment,
+                        directive.range,
                     ))
                 } else if (directive.atoms.length >= 1) {
                     const identifier = directive.atoms[0]
@@ -47,14 +47,16 @@ export default class StarRodDocumentSymbolProvider implements vscode.DocumentSym
                         identifier,
                         'new String',
                         SymbolKind.String,
-                        directive.range,
                         directive.rangeIncludingComment,
+                        directive.range,
                     ))
                 }
             }
         }
 
         // TODO: labels within functions and scripts
+
+        console.log(symbols)
 
         return symbols
     }
