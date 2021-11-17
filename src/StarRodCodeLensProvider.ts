@@ -1,5 +1,6 @@
 import vscode, { TextDocument, CancellationToken, CodeLens, ExtensionContext, SnippetString, Position, Range, Uri } from 'vscode'
 import Script from './Script'
+import * as fs from 'fs'
 
 function stripOffsets(block: string): string {
     return block.replace(/^(\s*[A-F0-9]+|        ):  /gm, '\t')
@@ -97,9 +98,10 @@ export function activate(ctx: ExtensionContext): void {
     ctx.subscriptions.push(vscode.languages.registerCodeLensProvider('starrod', new StarRodCodeLensProvider()))
 
     ctx.subscriptions.push(vscode.commands.registerCommand('starRod.codeLens.insertPatchSnippet', async (script: Script | Uri, snippet: SnippetString) => {
+        const scriptExists = script instanceof Script || fs.existsSync(script.fsPath)
         const document = script instanceof Script
             ? script.document
-            : await vscode.workspace.openTextDocument(script) // Create file.
+            : await vscode.workspace.openTextDocument(script.with({ scheme: scriptExists ? 'file' : 'untitled' })) // Create file.
 
         const editor = await vscode.window.showTextDocument(document)
 
