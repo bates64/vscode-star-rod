@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.6.1
+## 1.6.1
 
 - Expanded the installDirectoryVersionOverride options to include all supported Star Rod versions.
 - Added a new option, emulatorWorkingDir.
