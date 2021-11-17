@@ -92,7 +92,7 @@ export default class Script {
             ) {
                 // We're here! Reconstruct a Uri to this directory.
                 return {
-                    tld: Uri.file(`${sep}${segments.join(sep)}${sep}${dirName}`),
+                    tld: Uri.file(`${segments.join(sep)}${sep}${dirName}`),
                     subdir: prevDir,
                 }
             }
@@ -262,6 +262,8 @@ export default class Script {
         if (!scope) return undefined
         const ext = scope.substr(0, 1) + (subdir === 'src' ? 'scr' : 'pat')
 
-        return dir.tld.with({ path: `${dir.tld.path}${sep}${subdir}${sep}${name}.${ext}` })
+        return dir.tld.with({
+            path: `${dir.tld.path}${sep}${subdir}${sep}${name}.${ext}`,
+        })
     }
 }

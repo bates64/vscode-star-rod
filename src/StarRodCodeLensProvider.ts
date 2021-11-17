@@ -1,6 +1,10 @@
 import vscode, { TextDocument, CancellationToken, CodeLens, ExtensionContext, SnippetString, Position, Range, Uri } from 'vscode'
 import Script from './Script'
 
+function stripOffsets(block: string): string {
+    return block.replace(/^(\s*[A-F0-9]+|        ):  /gm, '\t')
+}
+
 export default class StarRodCodeLensProvider implements vscode.CodeLensProvider {
     async provideCodeLenses(document: TextDocument, token: CancellationToken): Promise<CodeLens[]> {
         const script = new Script(document)
@@ -26,8 +30,9 @@ export default class StarRodCodeLensProvider implements vscode.CodeLensProvider 
                     {
                         const snippet = new SnippetString()
                         snippet.appendText(`@ ${identifier} {\n`)
-                        snippet.appendPlaceholder(directive.block?.replace(/^\r?\n/, '') ?? '')
+                        snippet.appendPlaceholder(stripOffsets(directive.block?.replace(/^\r?\n/, '') ?? ''))
                         snippet.appendText('}')
+                        snippet.appendText('\n')
                         lenses.push(new CodeLens(directive.range, {
                             title: 'Patch',
                             command: 'starRod.codeLens.insertPatchSnippet',
@@ -39,6 +44,7 @@ export default class StarRodCodeLensProvider implements vscode.CodeLensProvider 
                         const snippet = new SnippetString()
                         snippet.appendText(`#alias ${identifier} `)
                         snippet.appendPlaceholder('')
+                        snippet.appendText('\n')
                         lenses.push(new CodeLens(directive.range, {
                             title: 'Alias',
                             command: 'starRod.codeLens.insertPatchSnippet',
@@ -49,6 +55,7 @@ export default class StarRodCodeLensProvider implements vscode.CodeLensProvider 
                     {
                         const snippet = new SnippetString()
                         snippet.appendText(`#delete ${identifier}`)
+                        snippet.appendText('\n')
                         lenses.push(new CodeLens(directive.range, {
                             title: 'Delete',
                             command: 'starRod.codeLens.insertPatchSnippet',
@@ -92,9 +99,10 @@ export function activate(ctx: ExtensionContext): void {
     ctx.subscriptions.push(vscode.languages.registerCodeLensProvider('starrod', new StarRodCodeLensProvider()))
 
     ctx.subscriptions.push(vscode.commands.registerCommand('starRod.codeLens.insertPatchSnippet', async (script: Script | Uri, snippet: SnippetString) => {
+        console.log(script)
         const document = script instanceof Script
             ? script.document
-            : await vscode.workspace.openTextDocument(script.with({ scheme: 'untitled' })) // Create file.
+            : await vscode.workspace.openTextDocument(script) // Create file.
 
         const editor = await vscode.window.showTextDocument(document)
 
