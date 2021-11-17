@@ -29,7 +29,7 @@ export default class StarRodDocumentSymbolProvider implements vscode.DocumentSym
                     directive.rangeIncludingComment,
                     directive.range,
                 ))
-            } else if (directive.keyword === '#string') {
+            } else if (directive.keyword === '#string' || directive.keyword === '#message') {
                 if (directive.args.length === 2) {
                     const [section, index] = directive.args
 

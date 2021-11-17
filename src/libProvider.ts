@@ -1134,7 +1134,7 @@ function getStructTypeAt(document: TextDocument, startPos: Position): string {
             if (tokens[0].source.startsWith('#new') || tokens[0].source.startsWith('#export')) {
                 const [ hashNew, type, ...rest ] = tokens[0].source.split(':')
                 return type
-            } else if (tokens[0].source.startsWith('#string')) {
+            } else if (tokens[0].source.startsWith('#string') || tokens[0].source.startsWith('#message')) {
                 return 'String'
             } else if (tokens[0].source == '@Function' || tokens[0].source == '@Hook') {
                 return 'Function'
@@ -1320,7 +1320,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
                         })
                     }
 
-                    if (directive.keyword === '#string' || (directive.keyword === '#new' && directive.args[0] === 'String')) {
+                    if (directive.keyword === '#string' || directive.keyword === '#message' || (directive.keyword === '#new' && directive.args[0] === 'String')) {
                         const identifier = directive.atoms[0]
 
                         ;(requireExport ? awaitingExport : database).push({
@@ -1863,7 +1863,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
 
                 if (/^(#(new|export):[^ \t]+|@[^ \t]*)(\s|$)/g.test(line)) {
                     beginRegion('block')
-                } else if (/^#string(:|\s|$)/g.test(line)) {
+                } else if (/^#(string|message)(:|\s|$)/g.test(line)) {
                     beginRegion('stringblock')
                 } else if (/\[END\]/g.test(line)) {
                     endRegion('stringblock', 0, true)
