@@ -70,7 +70,6 @@ export default class StarRodCodeLensProvider implements vscode.CodeLensProvider 
             // TODO: #import - open file
         }
 
-        /*
         // Add links to open relevant src/gen/patch scripts, if they exist, at the top of the file.
         // TODO: 'Open Map Editor'
         const relevantScripts = []
@@ -89,7 +88,6 @@ export default class StarRodCodeLensProvider implements vscode.CodeLensProvider 
                 }))
             }
         }
-        */
 
         return lenses
     }
@@ -99,7 +97,6 @@ export function activate(ctx: ExtensionContext): void {
     ctx.subscriptions.push(vscode.languages.registerCodeLensProvider('starrod', new StarRodCodeLensProvider()))
 
     ctx.subscriptions.push(vscode.commands.registerCommand('starRod.codeLens.insertPatchSnippet', async (script: Script | Uri, snippet: SnippetString) => {
-        console.log(script)
         const document = script instanceof Script
             ? script.document
             : await vscode.workspace.openTextDocument(script) // Create file.
@@ -107,5 +104,9 @@ export function activate(ctx: ExtensionContext): void {
         const editor = await vscode.window.showTextDocument(document)
 
         editor.insertSnippet(snippet, new Position(document.lineCount + 2, 0))
+    }))
+
+    ctx.subscriptions.push(vscode.commands.registerCommand('starRod.codeLens.openScript', async (script: Script) => {
+        await vscode.window.showTextDocument(script.document)
     }))
 }
