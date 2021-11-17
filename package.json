@@ -206,6 +206,11 @@
 					"type": "string",
 					"scope": "machine-overridable",
 					"markdownDescription": "Path to an emulator executable. It will be called with the path to the compiled `z64` as an argument when _Run Mod_ is used."
+				},
+				"starRod.emulatorWorkingDir": {
+					"type": "string",
+					"scope": "machine-overridable",
+					"markdownDescription": "Working directory for emulator."
 				}
 			}
 		}

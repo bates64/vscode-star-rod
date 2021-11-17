@@ -168,7 +168,9 @@ export default class Mod {
             return
         }
 
-        p(spawn)(emulator, [rom.fsPath], {})
+        p(spawn)(emulator, [rom.fsPath], {
+            cwd: config.get('starRod.emulatorWorkingDir', undefined),
+        })
     }
 
     async ouputRom(): Promise<vscode.Uri | undefined> {
