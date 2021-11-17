@@ -204,7 +204,7 @@
         },
         {
           "name": "meta.block.string.starrod",
-          "begin": "((#)string)(:)([0-9A-Fa-f]{2})(:)([0-9A-Fa-f]{3})(\\s*({|(?=%)|$))",
+          "begin": "((#)(?:string|message))(:)([0-9A-Fa-f]{2})(:)([0-9A-Fa-f]{3})(\\s*({|(?=%)|$))",
           "end": "(?=#)|(?=@)|((\\[)(END)(\\]))\\s*(})?",
           "beginCaptures": {
             "0": { "name": "meta.head.string.definition.by-id.starrod" },
@@ -232,7 +232,7 @@
         },
         {
           "name": "meta.block.string.starrod",
-          "begin": "((#)string)(:)([0-9A-Fa-f]{2})(:)(\\()([^\\(]+)(\\))(\\s*({|(?=%)|$))",
+          "begin": "((#)(?:string|message))(:)([0-9A-Fa-f]{2})(:)(\\()([^\\(]+)(\\))(\\s*({|(?=%)|$))",
           "end": "(?=#)|(?=@)|((\\[)(END)(\\]))\\s*(})?",
           "beginCaptures": {
             "0": { "name": "meta.head.string.definition.by-name.starrod" },
@@ -262,7 +262,7 @@
         },
         {
           "name": "meta.block.string.starrod",
-          "begin": "((#)string)\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
+          "begin": "((#)(?:string|message))\\s+((\\$)[^ \t$#/%:\\(\\[]+((:)[^^ \t$#/%\\(\\[]+)?)\\b(\\s*({|(?=%)|$))",
           "end": "(?=#)|(?=@)|((\\[)(END)(\\]))\\s*(})?",
           "beginCaptures": {
             "0": { "name": "meta.head.string.definition.by-pointer.starrod" },
