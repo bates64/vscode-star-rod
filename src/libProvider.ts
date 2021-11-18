@@ -1181,8 +1181,8 @@ export async function getEnumFiles() {
     const srDir = getStarRodDir()?.fsPath
 
     return [
-        ...await vscode.workspace.findFiles('**/globals/enum/**/*.enum'),
-        ...(srDir ? await glob(path.join(srDir, 'database/types/**/*.enum')) : []), // fallback to sr database
+        ...await vscode.workspace.findFiles('**/globals/enum/**/*.*'),
+        ...(srDir ? await glob(path.join(srDir, 'database/types/**/*.*')) : []), // fallback to sr database
     ]
 }
 
