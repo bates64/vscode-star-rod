@@ -146,8 +146,11 @@ export function parse(source: string): { scope: keyof Database, entries: Entry[]
 
             if (isHeader) {
                 if (attributes.scope) {
-                    // "us:common" -> "common"
-                    scope = (attributes.scope as string).split(":")[1]
+                    scope = attributes.scope as string
+
+                    // "us:common" -> "common" (SR >= 0.5.0)
+                    if (scope.indexOf(":") != -1)
+                        scope = scope.split(":")[1]
                 }
             } else {
                 Object.assign(subpart.attributes, attributes)
