@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.2
+
+- The _Open Enum..._ command now supports all files in `database/types/` or `globals/types/` rather than just `.enum` files, for example `.flags` files.
+- Fixed a bug introduced in vscode-star-rod 1.5.0 where Star Rod 0.4.x databases could not be read.
+
 ## 1.6.1
 
 - Expanded the installDirectoryVersionOverride options to include all supported Star Rod versions.
