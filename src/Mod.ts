@@ -85,7 +85,7 @@ export default class Mod {
                         const choice = await vscode.window.showErrorMessage('An error occurred while compiling the mod.', 'View Log')
                         if (choice === 'View Log') {
                             const doc = await vscode.workspace.openTextDocument(this.uri.with({
-                                path: this.uri.path + '/logs/compile.log',
+                                path: starRodDir.fsPath + '/logs/compile.log',
                             }))
                             await vscode.window.showTextDocument(doc)
                         }
