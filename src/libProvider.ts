@@ -826,7 +826,7 @@ const SCRIPT_OPS = new Map([
     }],
     ['SetTimescale', {
         opcode: 0x4C,
-        snippet: new SnippetString('SetTimeScale *Fixed[$1]'),
+        snippet: new SnippetString('SetTimescale *Fixed[$1]'),
         documentation: fixWs`
             SetTimescale scale
 
@@ -834,7 +834,7 @@ const SCRIPT_OPS = new Map([
 
         Changes the rate time flows for this script. This affects \`Wait\` and \`WaitSeconds\`.
 
-            SetTimeScale *Fixed[2.0]
+            SetTimescale *Fixed[2.0]
             WaitSeconds 2               % Waits for 1 second rather than two
         `
     }],
