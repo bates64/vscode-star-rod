@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.6.4
+
+- Fixed an type in the automcomplete of the `SetTimescale` command
+
+## 1.6.3
+
+- Fixed an issue with the _View Log_ button (fixed by @Muskellunge)
+
 ## 1.6.2
 
 - The _Open Enum..._ command now supports all files in `database/types/` or `globals/types/` rather than just `.enum` files, for example `.flags` files.
