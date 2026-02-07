@@ -34,6 +34,7 @@ export default class StarRodCodeLensProvider implements vscode.CodeLensProvider 
                         snippet.appendPlaceholder(stripOffsets(directive.block?.replace(/^\r?\n/, '') ?? ''))
                         snippet.appendText('}')
                         snippet.appendText('\n')
+                        snippet.appendText('\n')
                         lenses.push(new CodeLens(directive.range, {
                             title: 'Patch',
                             command: 'starRod.codeLens.insertPatchSnippet',
@@ -105,7 +106,7 @@ export function activate(ctx: ExtensionContext): void {
 
         const editor = await vscode.window.showTextDocument(document)
 
-        editor.insertSnippet(snippet, new Position(document.lineCount + 2, 0))
+        editor.insertSnippet(snippet, new Position(document.lineCount-1, 0))
     }))
 
     ctx.subscriptions.push(vscode.commands.registerCommand('starRod.codeLens.openScript', async (script: Script) => {
