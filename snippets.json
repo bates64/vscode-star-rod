@@ -1,0 +1,14 @@
+{
+	"PM64 Evt Script": {
+		"scope": "c",
+		"prefix": "script",
+		"body": [
+			"EvtScript ${1:EVS_Script} = {",
+			"\t$2",
+			"\tReturn",
+			"\tEnd",
+			"};"
+		],
+		"description": "Scaffold a PM64 script."
+	}
+}
