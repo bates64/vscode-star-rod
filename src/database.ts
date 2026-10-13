@@ -31,7 +31,7 @@ export default async function loadDatabase(starRodDir: vscode.Uri): Promise<Data
 
 export async function listDatabaseFiles(starRodDir: vscode.Uri): Promise<vscode.Uri[]> {
     const [major, minor, patch] = (await getStarRodDirVersion(starRodDir)).split('.').map(Number)
-    const databasePath = minor >= 5 ? '/database/version/US' : '/database'
+    const databasePath = minor == 5 ? '/database/version/US' : '/database'
 
     const dirList = await vscode.workspace.fs.readDirectory(starRodDir.with({
         path: starRodDir.path + databasePath
