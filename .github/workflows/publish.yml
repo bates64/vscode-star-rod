@@ -13,20 +13,28 @@ jobs:
 
     - run: npm ci
 
-    - name: Publish to Open VSX Registry
-      uses: HaaLeo/publish-vscode-extension@v0
-      id: publishToOpenVSX
-      with:
-        pat: ${{ secrets.OPEN_VSX_TOKEN }}
-        baseContentUrl: https://raw.githubusercontent.com/nanaian/vscode-star-rod/main/
-        baseImagesUrl: https://raw.githubusercontent.com/nanaian/vscode-star-rod/main/
-
     - name: Publish to Visual Studio Marketplace
       uses: HaaLeo/publish-vscode-extension@v0
       with:
         pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
         registryUrl: https://marketplace.visualstudio.com
-        extensionFile: ${{ steps.publishToOpenVSX.outputs.vsixPath }}
-        packagePath: ''
+        baseContentUrl: https://raw.githubusercontent.com/nanaian/vscode-star-rod/main/
+        baseImagesUrl: https://raw.githubusercontent.com/nanaian/vscode-star-rod/main/
+
+    # Open VSX publishes under the bates64 namespace, which must match the
+    # publisher field, while the Marketplace keeps the nanaian publisher.
+    - name: Use the bates64 publisher for Open VSX
+      if: ${{ !cancelled() }}
+      run: |
+        npm pkg set publisher=bates64
+        npx --yes ovsx create-namespace bates64 -p "$OVSX_PAT" || true
+      env:
+        OVSX_PAT: ${{ secrets.OPEN_VSX_TOKEN }}
+
+    - name: Publish to Open VSX Registry
+      if: ${{ !cancelled() }}
+      uses: HaaLeo/publish-vscode-extension@v0
+      with:
+        pat: ${{ secrets.OPEN_VSX_TOKEN }}
         baseContentUrl: https://raw.githubusercontent.com/nanaian/vscode-star-rod/main/
         baseImagesUrl: https://raw.githubusercontent.com/nanaian/vscode-star-rod/main/
