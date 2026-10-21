@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.8.0
+
+- Added support for Star Rod 0.6.1 (thanks @Wrymouth)
+
+## 1.7.0
+
+- Added a C snippet that scaffolds an `EvtScript` (thanks @Wrymouth)
+
 ## 1.6.5
 
 - Fixed the "patch" CodeLens button (thanks @Wrymouth)
