@@ -3,7 +3,7 @@ import { exec, spawn } from 'child_process'
 import { promisify as p } from 'util'
 import fs from 'fs'
 import { StringDecoder } from 'string_decoder'
-import { getStarRodDir } from './extension'
+import { getStarRodDir, getStarRodDirVersion } from './extension'
 
 const deUtf8 = new StringDecoder('utf8')
 const fileExists = (s: string) => new Promise(r => fs.access(s, fs.constants.F_OK, e => r(!e)))
@@ -203,7 +203,9 @@ export default class Mod {
     }
 
     private async setMainCfg(starRodDir: vscode.Uri, key: string, value: string): Promise<() => Promise<void>> {
-        const path = starRodDir.with({ path: starRodDir.path + '/cfg/main.cfg' })
+        
+        const [major, minor, patch] = (await getStarRodDirVersion(starRodDir)).split('.').map(Number)
+        const path = starRodDir.with({ path: starRodDir.path + (minor >= 6 ? '/local/main.cfg' : '/cfg/main.cfg') })
         const original = await vscode.workspace.fs.readFile(path)
 
         const newContent = deUtf8.write(Buffer.from(original)).split(/\r?\n/)
