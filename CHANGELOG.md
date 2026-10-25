@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.5
+
+- Fixed the "patch" CodeLens button (thanks @Wrymouth)
+
 ## 1.6.4
 
 - Fixed an type in the automcomplete of the `SetTimescale` command
@@ -198,3 +202,4 @@ Syntax highlighting:
 - The numeric suffixes `` ` ``, `b`, and `s` are now highlighted differently from the number value itself
 - Fixed unknown struct types being highlighted as if they were arbitrary data
 - Fixed floating-point literals using only binary digits (e.g. `10.0`) being highlighted incorrectly past the decimal point
+
