@@ -15,6 +15,7 @@ const STAR_ROD_JAR_SIZES = new Map([
     [17268509, '0.4.4'],
     [29404128, '0.5.0'],
     [15001888, '0.6.1'],
+    [15852617, '0.6.1'], // linux
 ])
 const DEFAULT_STAR_ROD = '0.5.0'
 
