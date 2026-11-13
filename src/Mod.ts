@@ -84,8 +84,10 @@ export default class Mod {
                     emitError: async () => {
                         const choice = await vscode.window.showErrorMessage('An error occurred while compiling the mod.', 'View Log')
                         if (choice === 'View Log') {
+                            const [major, minor, patch] = (await getStarRodDirVersion(starRodDir)).split('.').map(Number)
+                            const path = minor == 6 ? 'local/logs/compile.log' : 'logs/compile.log';
                             const doc = await vscode.workspace.openTextDocument(this.uri.with({
-                                path: starRodDir.fsPath + '/logs/compile.log',
+                                path: starRodDir.fsPath + path,
                             }))
                             await vscode.window.showTextDocument(doc)
                         }
